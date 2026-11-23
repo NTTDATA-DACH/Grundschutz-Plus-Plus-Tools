@@ -3,13 +3,13 @@
     "uuid": "92c3e944-76b6-5710-beb5-9d5c15f42a5d",
     "metadata": {
       "title": "Berechtigung Prozess Profil - Enhanced (ED2023)",
-      "last-modified": "2026-07-28T15:43:37.364651+00:00",
+      "last-modified": "2026-11-23T17:25:38.035166+00:00",
       "version": "0.0.1",
       "oscal-version": "1.2.2"
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -81,6 +81,25 @@
         ]
       }
     ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "rlinks": [
+            {
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "hashes": [
+                {
+                  "algorithm": "SHA-256",
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "modify": {
       "alters": [
         {
@@ -5205,7 +5224,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5213,17 +5232,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Authentifizierungsmittel werden ohne formale Identitätsprüfung ausgehändigt.",
+                  "prose": "Die initiale Ausgabe und Zuordnung von Authentifizierungsmitteln zu Zugangskonten erfolgt ad-hoc und ohne definierten Prozess.",
                   "parts": [
                     {
                       "id": "BER.5.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Geben Sie Passwörter nur persönlich oder sicher verschlüsselt weiter."
+                      "prose": "Dokumentieren Sie zumindest bei privilegierten Konten kurz, welches Authentifizierungsmittel welchem Konto zugeordnet wurde."
                     },
                     {
                       "id": "BER.5.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, wie Passwörter an neue Mitarbeiter übermittelt werden."
+                      "prose": "Prüfung durch Stichproben von E-Mails oder Tickets, ob die initiale Ausgabe von Authentifizierungsmitteln überhaupt nachvollzogen werden kann."
                     }
                   ]
                 },
@@ -5238,7 +5257,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5246,17 +5265,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Die Ausgabe erfolgt nach Sichtprüfung eines Ausweisdokuments und wird quittiert.",
+                  "prose": "Es existiert ein grundlegender, manuell ausgeführter Prozess zur Ausgabe von Authentifizierungsmitteln und deren Zuordnung zu Zugangskonten.",
                   "parts": [
                     {
                       "id": "BER.5.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Dokumentieren Sie die Übergabe von Token oder Passwörtern."
+                      "prose": "Nutzen Sie einheitliche Formulare oder Ticket-Templates, um die Ausgabe von Authentifizierungsmitteln und deren Zuordnung zu Konten manuell zu erfassen."
                     },
                     {
                       "id": "BER.5.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Auditieren Sie die Empfangsbestätigungen der Authentifizierungsmittel."
+                      "prose": "Manuelle Überprüfung der ausgefüllten Formulare oder Tickets zur Token-Ausgabe und Abgleich mit den Einträgen im Identitätsverzeichnis."
                     }
                   ]
                 },
@@ -5271,7 +5290,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5279,17 +5298,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.",
+                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe oder Registrierung von Authentifizierungsmitteln und ihrer Zuordnung zu den vorgesehenen Zugangskonten oder Berechtigungsumfängen verankern.",
                   "parts": [
                     {
                       "id": "BER.5.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Legen Sie fest, wie Benutzer sicher identifiziert werden und ihre Zugangsdaten erhalten."
+                      "prose": "Definieren und dokumentieren Sie im Berechtigungskonzept einen verbindlichen Prozess für die Registrierung, Ausgabe und Kontenzuordnung von Authentifizierungsmitteln."
                     },
                     {
                       "id": "BER.5.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Prozessbeschreibung zur Ausgabe von Zugangsdaten."
+                      "prose": "Prüfung des Berechtigungskonzepts auf das Vorhandensein einer dokumentierten Vorgehensweise sowie Stichprobenprüfung von Ausgabelogs im IAM-System."
                     }
                   ]
                 },
@@ -5304,7 +5323,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5312,17 +5331,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Die Ausgabe umfasst die obligatorische Aktivierung von MFA in einer kontrollierten Umgebung.",
+                  "prose": "Die Ausgabe, Registrierung und Zuordnung von Authentifizierungsmitteln erfolgt über einen standardisierten, teilautomatisierten Self-Service-Workflow mit Genehmigungsschritten.",
                   "parts": [
                     {
                       "id": "BER.5.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Enrolment-Stationen für die Einrichtung von 2FA."
+                      "prose": "Integrieren Sie die Registrierung und Zuordnung von Authentifizierungsmitteln in ein Workflow-System mit automatisierter Identitätsprüfung und Vier-Augen-Prinzip."
                     },
                     {
                       "id": "BER.5.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob MFA bei allen neuen Konten zwingend aktiviert ist."
+                      "prose": "Automatisierter Abgleich der registrierten Authentifizierungsmittel mit aktiven Konten via Skript gegen die IAM-API zur Identifikation verwaister Token."
                     }
                   ]
                 },
@@ -5337,7 +5356,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5345,17 +5364,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Automatisierte Identitätsverifizierung (z.B. Video-Ident) und verschlüsselter Hardware-Token-Versand.",
+                  "prose": "Der Prozess zur Registrierung und Zuordnung von Authentifizierungsmitteln ist vollständig im IAM automatisiert, kryptografisch abgesichert und wird kontinuierlich auf Richtlinienkonformität geprüft.",
                   "parts": [
                     {
                       "id": "BER.5.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie moderne ID-Verfahren in den Bereitstellungsprozess."
+                      "prose": "Implementieren Sie Zero-Touch-Onboarding mit kryptografisch gesicherter Registrierung und automatischer Policy-basierter Zuordnung im zentralen IAM-System."
                     },
                     {
                       "id": "BER.5.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Sicherheitsprotokolle des Ident-Verfahrens."
+                      "prose": "Kontinuierliche, automatisierte Überprüfung der Policy-as-Code-Regeln für das Onboarding und Abfrage der Audit-Logs über die REST-API des IAM-Systems."
                     }
                   ]
                 }
@@ -5381,7 +5400,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5389,17 +5408,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Identitätsprüfung erfolgt ad-hoc ohne festen Prozess bei der Ausgabe von Authentisierungsmitteln.",
+                  "prose": "Die Identität von Personen oder technischen Instanzen wird vor der Verteilung von Authentifizierungsmitteln nur sporadisch und ohne festen Prozess überprüft.",
                   "parts": [
                     {
                       "id": "BER.5.1.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Personen weisen sich formlos aus, bevor sie Token erhalten. Es gibt keine Dokumentation."
+                      "prose": "Führen Sie bei der Ausgabe wichtiger Authentifizierungsmittel zumindest eine informelle Prüfung durch, z. B. durch persönlichen Kontakt oder Rückruf."
                     },
                     {
                       "id": "BER.5.1.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie stichprobenartig, ob Token ohne Ausweisvorlage ausgegeben wurden."
+                      "prose": "Prüfen Sie stichprobenartig anhand von Ausgabebelegen oder Tickets, ob vor der Ausgabe von Authentifizierungsmitteln überhaupt eine Identitätsprüfung stattgefunden hat."
                     }
                   ]
                 },
@@ -5414,7 +5433,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5422,17 +5441,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Identitätsprüfung erfolgt manuell durch Vorlage eines amtlichen Lichtbildausweises.",
+                  "prose": "Vor der Verteilung von Authentifizierungsmitteln erfolgt eine grundlegende, manuelle Überprüfung der Identität der vorgesehenen Empfänger, die jedoch nicht durchgängig standardisiert ist.",
                   "parts": [
                     {
                       "id": "BER.5.1.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Die Identität wird vor der Ausgabe durch Sichtung des Personalausweises verifiziert."
+                      "prose": "Legen Sie fest, dass vor der Übergabe von Zugangsdaten ein Lichtbildausweis vorgelegt oder bei Systemen die MAC-Adresse bzw. Seriennummer manuell geprüft werden muss."
                     },
                     {
                       "id": "BER.5.1.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie Ausgabeprotokolle auf Vermerke zur Identitätsprüfung via Ausweisdokument."
+                      "prose": "Überprüfen Sie im Ticketsystem, ob bei der Ausgabe von Authentifizierungsmitteln die Identitätsprüfung (z. B. Lichtbildausweis) manuell dokumentiert wurde."
                     }
                   ]
                 },
@@ -5447,7 +5466,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5455,17 +5474,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität authentifizieren.",
+                  "prose": "Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität der vorgesehenen Personen oder technischen Instanzen authentifizieren.",
                   "parts": [
                     {
                       "id": "BER.5.1.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Die Identitätsprüfung muss vor der Ausgabe erfolgen, um Fehlzuordnungen zu vermeiden."
+                      "prose": "Etablieren Sie einen dokumentierten Prozess, der zwingend einen Abgleich mit dem HR-System für Personen oder der CMDB für technische Instanzen vor der Mittelausgabe vorschreibt."
                     },
                     {
                       "id": "BER.5.1.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie das Dokumentationsverfahren für die initiale Identitätsfeststellung vor Ausgabe."
+                      "prose": "Prüfen Sie die Prozessdokumentation und prüfen Sie per Skript über die API des Identity-Management-Systems, ob für alle aktiven Token ein Verifikations-Flag gesetzt ist."
                     }
                   ]
                 },
@@ -5480,7 +5499,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5488,17 +5507,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Identitätsprüfung erfolgt digital signiert oder über ein zentrales IAM-Workflow-System.",
+                  "prose": "Die Authentifizierung der Empfängeridentität vor der Verteilung von Authentifizierungsmitteln ist durch mehrstufige Verifikationsverfahren technisch erzwungen und wird lückenlos protokolliert.",
                   "parts": [
                     {
                       "id": "BER.5.1.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verteilung erfolgt erst nach digitaler Signatur oder Video-Ident-Verfahren."
+                      "prose": "Nutzen Sie für Personen elektronische Identitätsnachweise (z. B. eID) und für technische Instanzen automatisierte Attestierungsmechanismen (z. B. TPM-basiert) vor der Verteilung."
                     },
                     {
                       "id": "BER.5.1.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Auditieren Sie den digitalen Workflow im IAM-System auf abgeschlossene Identitätsprüfschritte."
+                      "prose": "Prüfen Sie automatisiert über die IAM-Datenbank oder API, ob Ausgaben von Authentifizierungsmitteln ausnahmslos mit einem kryptografischen oder mehrstufigen Verifikationsnachweis verknüpft sind."
                     }
                   ]
                 },
@@ -5513,7 +5532,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5521,17 +5540,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollautomatisierte Identitätsverifizierung inkl. Biometrie-Abgleich im Self-Service-Portal.",
+                  "prose": "Die Identitätsprüfung vor der Bereitstellung von Authentifizierungsmitteln erfolgt vollautomatisiert durch kryptografische Attestierung und vertrauenswürdige digitale Identitäten ohne manuelle Eingriffe.",
                   "parts": [
                     {
                       "id": "BER.5.1.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzung von eID-Funktionen oder biometrischen Verfahren zur Identitätssicherung vor Verteilung."
+                      "prose": "Implementieren Sie ein vollautomatisiertes Zero-Touch-Onboarding mit kryptografischer Hardware-Attestierung für Instanzen und biometrischem/eID-Self-Service für Personen."
                     },
                     {
                       "id": "BER.5.1.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie API-Logs des Ident-Service Providers auf erfolgreiche Validierungsvorgänge."
+                      "prose": "Validieren Sie per Policy-as-Code-Skript im IAM-System, dass jegliche manuelle Umgehung der Identitätsprüfung technisch blockiert ist und prüfen Sie die Zero-Touch-Enrollment-Logs."
                     }
                   ]
                 }
@@ -5741,17 +5760,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Passwort-Resets erfolgen auf mündliche Anforderung ohne Identitätsprüfung.",
+                  "prose": "Vor der Zurücksetzung oder Ersetzung von Authentifizierungsmitteln findet eine Überprüfung der Identität nur ad-hoc und nach Ermessen des jeweiligen Bearbeiters statt.",
                   "parts": [
                     {
                       "id": "BER.5.13-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Der Helpdesk vertraut der Stimme oder dem Namen am Telefon."
+                      "prose": "Weisen Sie den Support an, bei Passwort-Resets zumindest einfache Rückfragen zur Person zu stellen, anstatt Zugangsdaten ungeprüft zurückzusetzen."
                     },
                     {
                       "id": "BER.5.13-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Führen Sie einen Social Engineering Testanruf beim Helpdesk durch."
+                      "prose": "Befragen Sie den Helpdesk und prüfen Sie stichprobenartig geschlossene Tickets zur Passwortzurücksetzung auf Hinweise einer erfolgten Identitätsprüfung."
                     }
                   ]
                 },
@@ -5774,17 +5793,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Identitätsprüfung beim Reset erfolgt über Personalnummer oder Geburtsdatum.",
+                  "prose": "Es existiert ein grundlegendes, manuelles Verfahren beim Service-Desk, um die Identität von Anfragenden vor dem Zurücksetzen von Authentifizierungsmitteln zu prüfen.",
                   "parts": [
                     {
                       "id": "BER.5.13-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Abfrage von statischen Informationen, die in der Personalakte hinterlegt sind."
+                      "prose": "Definieren Sie feste Sicherheitsfragen oder verlangen Sie die Bestätigung durch eine Führungskraft, bevor der Helpdesk Authentifizierungsmittel manuell zurücksetzt."
                     },
                     {
                       "id": "BER.5.13-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie Helpdesk-Leitfäden auf die geforderten Identifikationsmerkmale."
+                      "prose": "Prüfen Sie in den Helpdesk-Tickets, ob die Einhaltung der Basis-Checkliste zur Identitätsprüfung (z. B. Abfrage von Personalnummer) vor einem Reset dokumentiert wurde."
                     }
                   ]
                 },
@@ -5807,17 +5826,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE vor dem Zurücksetzen von Berechtigungsmitteln eine Identitätsüberprüfung verankern.",
+                  "prose": "Berechtigung SOLLTE vor der Zurücksetzung oder Ersetzung von Authentifizierungsmitteln eine Überprüfung der Identität der anfragenden Person oder technischen Instanz verankern.",
                   "parts": [
                     {
                       "id": "BER.5.13-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Ein Reset ohne Prüfung ermöglicht unbefugte Übernahme von Benutzerkonten."
+                      "prose": "Verankern Sie im IAM- und Helpdesk-Prozess verbindliche Vorgaben zur Authentifizierung (z. B. Out-of-Band-Verifikation) für Personen und technische Instanzen vor jedem Reset."
                     },
                     {
                       "id": "BER.5.13-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichten Sie Protokolle über durchgeführte Resets und deren Identitätsnachweise."
+                      "prose": "Prüfen Sie die Richtlinien zum Credential-Reset und gleichen Sie per Skript die Reset-Logs des IAM-Systems mit den Pflichtfeldern für die Identitätsbestätigung im Ticketsystem ab."
                     }
                   ]
                 },
@@ -5840,17 +5859,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierte Challenge-Response-Verfahren über Out-of-Band Kanäle beim Reset.",
+                  "prose": "Die Identitätsprüfung vor dem Zurücksetzen oder Ersetzen von Authentifizierungsmitteln wird durch automatisierte Self-Service-Prozesse mit starker Mehr-Faktor-Authentifizierung technisch erzwungen.",
                   "parts": [
                     {
                       "id": "BER.5.13-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Senden eines Einmal-Codes an eine hinterlegte Mobilnummer oder E-Mail."
+                      "prose": "Richten Sie ein Self-Service-Portal ein, das vor einem Reset zwingend eine starke Multi-Faktor-Authentifizierung oder für Systeme ein gültiges Basis-Zertifikat erfordert."
                     },
                     {
                       "id": "BER.5.13-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Konfiguration des Self-Service-Reset-Portals auf OOB-Validierung."
+                      "prose": "Überprüfen Sie per API-Abfrage am IAM-System, ob alle durchgeführten Resets zwingend durch einen zweiten Faktor (MFA) oder einen genehmigten Workflow autorisiert wurden."
                     }
                   ]
                 },
@@ -5873,17 +5892,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Identitätsprüfung durch kryptografische Nachweise oder qualifizierte elektronische IDs.",
+                  "prose": "Zurücksetzungen und Ersetzungen erfolgen vollautomatisiert über kryptografisch gesicherte Kanäle unter Einbeziehung von Echtzeit-Risikoanalysen zur kontinuierlichen Identitätsvalidierung.",
                   "parts": [
                     {
                       "id": "BER.5.13-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Reset erfordert Signatur mit Hardware-Token oder Bestätigung durch zertifizierte eID."
+                      "prose": "Integrieren Sie kontinuierliche Risiko- und Verhaltensanalysen (UEBA) in den Reset-Prozess und nutzen Sie für technische Instanzen eine vollautomatisierte Rotation über Hardware-Sicherheitsmodule."
                     },
                     {
                       "id": "BER.5.13-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die API-Integration zum eID-Service in den Reset-Workflow-Logs."
+                      "prose": "Prüfen Sie mittels automatisierter Compliance-Scans der IAM-Konfiguration, ob kontextbasierte Risikoanalysen aktiv sind und unautorisierte Reset-Pfade vollständig deaktiviert wurden."
                     }
                   ]
                 }
@@ -6085,7 +6104,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6093,17 +6112,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Zurücksetzung erfolgt ad-hoc durch Administratoren ohne festes Protokoll.",
+                  "prose": "Die Zurücksetzung oder Ersetzung von Authentifizierungsmitteln für Mobiltelefone erfolgt ad-hoc und ohne dokumentierten Prozess auf Zuruf durch den IT-Support.",
                   "parts": [
                     {
                       "id": "BER.5.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine schriftliche Regelung, wie Resets technisch durchzuführen sind."
+                      "prose": "Definieren Sie zumindest informelle Grundregeln für den IT-Support, wie bei vergessenen PINs oder verlorenen Token von Mobiltelefonen vorzugehen ist, um unautorisierte Zugriffe zu verhindern."
                     },
                     {
                       "id": "BER.5.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Befragen Sie die IT-Administration zum Ablauf eines Passwort-Resets."
+                      "prose": "Prüfen Sie durch Befragung des IT-Supports, wie auf Zurücksetzungsanfragen für mobile Authentifizierungsmittel (z. B. PIN, Passwort, Zertifikat) reagiert wird. Es existiert keine formale Dokumentation."
                     }
                   ]
                 },
@@ -6118,7 +6137,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6126,17 +6145,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Vorgehensweise zur Zurücksetzung ist in einer internen Wissensdatenbank dokumentiert.",
+                  "prose": "Es existiert ein grundlegender, manuell durchgeführter Prozess zur Zurücksetzung von Authentifizierungsmitteln bei Mobiltelefonen, der jedoch nicht durchgängig dokumentiert ist.",
                   "parts": [
                     {
                       "id": "BER.5.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Admins folgen einer Schritt-für-Schritt Anleitung zur Passwortneusetzung."
+                      "prose": "Etablieren Sie einen grundlegenden, manuellen Prozess im Service-Desk, der vorschreibt, wie die Identität eines Nutzers vor der Zurücksetzung von mobilen Authentifizierungsmitteln überprüft wird."
                     },
                     {
                       "id": "BER.5.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Dokumentation im Wiki/SharePoint auf Vollständigkeit."
+                      "prose": "Prüfen Sie stichprobenartig geschlossene Support-Tickets zur Passwort- oder PIN-Zurücksetzung bei Mobiltelefonen auf Einhaltung einer grundlegenden Identitätsprüfung."
                     }
                   ]
                 },
@@ -6151,7 +6170,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6159,17 +6178,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.",
+                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung oder Ersetzung von Authentifizierungsmitteln verankern.",
                   "parts": [
                     {
                       "id": "BER.5.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Ein strukturierter Prozess verhindert Sicherheitslücken beim Reset-Vorgang."
+                      "prose": "Dokumentieren Sie im Berechtigungskonzept einen verbindlichen Prozess zur sicheren Identitätsprüfung und Genehmigung vor der Zurücksetzung oder Ersetzung von Authentifizierungsmitteln (PIN, PUK, Zertifikate)."
                     },
                     {
                       "id": "BER.5.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die schriftliche Richtlinie zum Prozess der Zurücksetzung."
+                      "prose": "Prüfen Sie die Berechtigungsrichtlinie auf das Vorhandensein des Prozesses. Kontrollieren Sie per MDM-API-Abfrage, ob manuelle Zurücksetzungen mit gültigen Ticket-IDs korrelieren."
                     }
                   ]
                 },
@@ -6184,7 +6203,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6192,17 +6211,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierter Workflow mit Ticketerstellung und Audit-Trail für jeden Reset.",
+                  "prose": "Die Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln für Mobiltelefone ist verbindlich verankert, teilautomatisiert über ein Self-Service-Portal gelöst und wird zentral protokolliert.",
                   "parts": [
                     {
                       "id": "BER.5.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Resets werden nur nach Freigabe im ITSM-Tool technisch ermöglicht."
+                      "prose": "Implementieren Sie ein Self-Service-Portal mit starker Zweitfaktor-Authentifizierung für das Zurücksetzen von mobilen Zugangsdaten und überwachen Sie diese Vorgänge aktiv im SIEM."
                     },
                     {
                       "id": "BER.5.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Kopplung zwischen ITSM-Ticket und technischer Passwortänderung."
+                      "prose": "Überprüfen Sie die Konfiguration des Self-Service-Portals und der MDM-API. Führen Sie ein Skript aus, das die Log-Daten des IdP auf unautorisierte Reset-Versuche analysiert."
                     }
                   ]
                 },
@@ -6217,7 +6236,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6225,17 +6244,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollständiger Self-Service mit Multi-Faktor-Validierung und automatischem Reporting.",
+                  "prose": "Der Prozess zur Zurücksetzung und Ersetzung von Authentifizierungsmitteln ist vollständig über MDM und IAM automatisiert, nutzt risikobasierte Kontextprüfungen und wird kontinuierlich auditiert.",
                   "parts": [
                     {
                       "id": "BER.5.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzer setzen Geheimnisse selbst zurück; System erkennt Missbrauchsmuster."
+                      "prose": "Integrieren Sie das MDM und das Identity-Management vollständig, sodass Zurücksetzungen nur nach risikobasierter, automatisierter Prüfung (z. B. Biometrie, Kontextdaten) und als Policy-as-Code erfolgen."
                     },
                     {
                       "id": "BER.5.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Evaluieren Sie die Reports des Self-Service-Portals auf Anomalien."
+                      "prose": "Validieren Sie die Policy-as-Code-Regeln im Identity-Management-System mittels automatisierter Compliance-Scans und prüfen Sie die API-Schnittstellen zum MDM auf erzwungene Mehr-Faktor-Verifikation."
                     }
                   ]
                 }
@@ -11166,25 +11185,6 @@
                       "prose": "Pr%fcfung der SIEM-Alerts auf blockierte Zugriffsversuche wegen Verletzung der Key-Usage-Policy."
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "back-matter": {
-      "resources": [
-        {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "rlinks": [
-            {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
-              "hashes": [
-                {
-                  "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
                 }
               ]
             }

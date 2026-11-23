@@ -819,8 +819,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 deckt Konfigurationsänderungen und Änderungen an Verzeichnisdienstobjekten (wie Rechtevergaben) als privilegierte Anwendungsereignisse direkt ab."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 deckt Konfigurationsänderungen und Änderungen an Verzeichnisdienstobjekten (wie Rechtevergaben) als privilegierte Anwendungsereignisse direkt ab."
           }
         ]
       },
@@ -2496,8 +2496,8 @@
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.9",
-            "begruendung": "DET.3.1.9 deckt die Anforderung an das Protokollieren von Server-Fehlern und allgemeinen Fehlermeldungen der Webserver-Anwendung inhaltlich ab."
+            "control_id": "DET.3.1.3",
+            "begruendung": "DET.3.1.3 deckt die Anforderung an das Protokollieren von Server-Fehlern und allgemeinen Fehlermeldungen der Webserver-Anwendung inhaltlich ab."
           },
           {
             "satz_nr": 2,
@@ -3162,8 +3162,8 @@
         "treffer": [
           {
             "satz_nr": 3,
-            "control_id": "ASST.2.4",
-            "begruendung": "Die G++-Maßnahme ASST.2.4 deckt die Festlegung schützenswerter Domain-Informationen als allgemeine Pflicht zur Klassifizierung und Zuweisung von Schutzbedarfsklassen für Daten ab."
+            "control_id": "ASST.2.5",
+            "begruendung": "Die G++-Maßnahme ASST.2.5 deckt die Festlegung schützenswerter Domain-Informationen als allgemeine Pflicht zur Klassifizierung und Zuweisung von Schutzbedarfsklassen für Daten ab."
           },
           {
             "satz_nr": 4,
@@ -3500,8 +3500,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.11",
-            "begruendung": "DET.3.1.11 deckt die Forderung als allgemeine Bestimmung zur Protokollierung anwendungsspezifischer Ereignisse (wie z. B. DNS-spezifische Fehler und Zonentransfers) inhaltlich ab."
+            "control_id": "DET.3.1.5",
+            "begruendung": "DET.3.1.5 deckt die Forderung als allgemeine Bestimmung zur Protokollierung anwendungsspezifischer Ereignisse (wie z. B. DNS-spezifische Fehler und Zonentransfers) inhaltlich ab."
           }
         ]
       },
@@ -4113,8 +4113,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab."
           }
         ]
       },
@@ -4157,8 +4157,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.5.10.3",
-            "begruendung": "Die G++-Maßnahme DET.5.10.3 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab."
+            "control_id": "DET.5.12",
+            "begruendung": "Die G++-Maßnahme DET.5.12 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab."
           }
         ]
       },
@@ -7200,8 +7200,8 @@
           },
           {
             "satz_nr": 7,
-            "control_id": "ASST.2.3.2.1",
-            "begruendung": "Die Maßnahme ASST.2.3.2.1 deckt die anlassbezogene Aktualisierung des Software-Inventars bei Änderungen (wie Software-Installationen) durch automatisierte Überprüfung ab."
+            "control_id": "ASST.2.4.1",
+            "begruendung": "Die Maßnahme ASST.2.4.1 deckt die anlassbezogene Aktualisierung des Software-Inventars bei Änderungen (wie Software-Installationen) durch automatisierte Überprüfung ab."
           },
           {
             "satz_nr": 8,
@@ -7851,8 +7851,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.9",
-            "begruendung": "G++ DET.3.1.9 verlangt explizit die Protokollierung von Fehlermeldungen der Anwendung und deckt damit die Forderung des Satzes für Webanwendungen direkt ab."
+            "control_id": "DET.3.1.3",
+            "begruendung": "G++ DET.3.1.3 verlangt explizit die Protokollierung von Fehlermeldungen der Anwendung und deckt damit die Forderung des Satzes für Webanwendungen direkt ab."
           },
           {
             "satz_nr": 6,
@@ -7953,8 +7953,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.4",
-            "begruendung": "DET.3.4 fordert die regelmäßige oder schwellwertbasierte Überprüfung des Protokollierungsspeicherplatzes, was die Überwachung und Verhinderung eines Überlaufs von Protokolldaten direkt abdeckt."
+            "control_id": "DET.3.6",
+            "begruendung": "DET.3.6 fordert die regelmäßige oder schwellwertbasierte Überprüfung des Protokollierungsspeicherplatzes, was die Überwachung und Verhinderung eines Überlaufs von Protokolldaten direkt abdeckt."
           }
         ]
       },
@@ -9310,8 +9310,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "ASST.2.4",
-            "begruendung": "ASST.2.4 fordert die Zuweisung von Daten zu Schutzbedarfsklassen als allgemeine Maßnahme und deckt damit die Bestimmung des Schutzbedarfs von Informationen für mobile Endgeräte inhaltlich ab."
+            "control_id": "ASST.2.5",
+            "begruendung": "ASST.2.5 fordert die Zuweisung von Daten zu Schutzbedarfsklassen als allgemeine Maßnahme und deckt damit die Bestimmung des Schutzbedarfs von Informationen für mobile Endgeräte inhaltlich ab."
           },
           {
             "satz_nr": 1,
@@ -9971,8 +9971,8 @@
           },
           {
             "satz_nr": 9,
-            "control_id": "DET.3.1.7",
-            "begruendung": "DET.3.1.7 konkretisiert die Art und Weise der Protokollierung sicherheitsrelevanter Ereignisse für eine nachträgliche Auswertbarkeit durch die Erfassung von Zeitpunkt, Quelle und Zielobjekt."
+            "control_id": "DET.3.1.1",
+            "begruendung": "DET.3.1.1 konkretisiert die Art und Weise der Protokollierung sicherheitsrelevanter Ereignisse für eine nachträgliche Auswertbarkeit durch die Erfassung von Zeitpunkt, Quelle und Zielobjekt."
           },
           {
             "satz_nr": 10,
@@ -10138,8 +10138,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "ASST.2.4",
-            "begruendung": "Die Maßnahme ASST.2.4 fordert die Zuweisung von Daten zu Schutzbedarfsklassen und deckt damit die geforderte Festlegung der Schutzbedürftigkeit von Informationen ab."
+            "control_id": "ASST.2.5",
+            "begruendung": "Die Maßnahme ASST.2.5 fordert die Zuweisung von Daten zu Schutzbedarfsklassen und deckt damit die geforderte Festlegung der Schutzbedürftigkeit von Informationen ab."
           },
           {
             "satz_nr": 1,
@@ -13002,8 +13002,8 @@
           },
           {
             "satz_nr": 6,
-            "control_id": "ASST.2.4",
-            "begruendung": "Die G++-Maßnahme ASST.2.4 fordert allgemein die Klassifizierung von Daten nach deren Schutzbedarf, was die Zuweisung einer Vertraulichkeitseinstufung für Berichte als spezielles Informationsgut abdeckt."
+            "control_id": "ASST.2.5",
+            "begruendung": "Die G++-Maßnahme ASST.2.5 fordert allgemein die Klassifizierung von Daten nach deren Schutzbedarf, was die Zuweisung einer Vertraulichkeitseinstufung für Berichte als spezielles Informationsgut abdeckt."
           },
           {
             "satz_nr": 6,
@@ -13881,13 +13881,13 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.8",
-            "begruendung": "Die Maßnahme DET.3.1.8 fordert explizit die Protokollierung privilegierter Ereignisse, was die geforderte Protokollierung kritischer administrativer Tätigkeiten inhaltlich abdeckt."
+            "control_id": "DET.3.1.2",
+            "begruendung": "Die Maßnahme DET.3.1.2 fordert explizit die Protokollierung privilegierter Ereignisse, was die geforderte Protokollierung kritischer administrativer Tätigkeiten inhaltlich abdeckt."
           },
           {
             "satz_nr": 4,
-            "control_id": "DET.3.5",
-            "begruendung": "DET.3.5 zielt auf die Revisionssicherheit und den Schutz von Audit Logs vor unbemerkter Manipulation und Löschung ab, insbesondere auch durch Administrierende bzw. den IT-Betrieb."
+            "control_id": "DET.3.7",
+            "begruendung": "DET.3.7 zielt auf die Revisionssicherheit und den Schutz von Audit Logs vor unbemerkter Manipulation und Löschung ab, insbesondere auch durch Administrierende bzw. den IT-Betrieb."
           }
         ]
       },
@@ -13967,8 +13967,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt die Protokollierung von Zugriffen auf Systeme inhaltlich ab, indem die Protokollierung erfolgreicher und fehlgeschlagener Authentifizierungen und Anmeldungen gefordert wird."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt die Protokollierung von Zugriffen auf Systeme inhaltlich ab, indem die Protokollierung erfolgreicher und fehlgeschlagener Authentifizierungen und Anmeldungen gefordert wird."
           }
         ]
       },
@@ -14382,8 +14382,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.5.10.5",
-            "begruendung": "DET.5.10.5 fordert das Testen und Ausführen von Patches gemäß den Anforderungen an Änderungen und Tests, was die Erprobung von Updates vor dem produktiven Einsatz einschließt."
+            "control_id": "DET.5.10.3",
+            "begruendung": "DET.5.10.3 fordert das Testen und Ausführen von Patches gemäß den Anforderungen an Änderungen und Tests, was die Erprobung von Updates vor dem produktiven Einsatz einschließt."
           },
           {
             "satz_nr": 3,
@@ -14535,8 +14535,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.5.10.4",
-            "begruendung": "Die G++-Maßnahme DET.5.10.4 fordert explizit die Integritätsprüfung von Patches vor deren Installation und deckt damit die Forderung nach der Integritätsprüfung von Updates vor dem Einspielen ab."
+            "control_id": "DET.5.10.2",
+            "begruendung": "Die G++-Maßnahme DET.5.10.2 fordert explizit die Integritätsprüfung von Patches vor deren Installation und deckt damit die Forderung nach der Integritätsprüfung von Updates vor dem Einspielen ab."
           },
           {
             "satz_nr": 1,
@@ -15262,8 +15262,8 @@
           },
           {
             "satz_nr": 4,
-            "control_id": "DET.3.1.12",
-            "begruendung": "Die G++-Maßnahme DET.3.1.12 deckt die Protokollierung von Datenverarbeitungen wie Dateizugriffen und Datenexporten ab und umfasst damit inhaltlich die Protokollierung des Dateiaustauschs."
+            "control_id": "DET.3.3",
+            "begruendung": "Die G++-Maßnahme DET.3.3 deckt die Protokollierung von Datenverarbeitungen wie Dateizugriffen und Datenexporten ab und umfasst damit inhaltlich die Protokollierung des Dateiaustauschs."
           }
         ]
       },
@@ -17337,13 +17337,13 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.1",
+            "control_id": "DET.3.2.1",
             "begruendung": "Die Protokollierung von Authentifizierungen an IT-Systemen stellt einen zentralen Spezialfall der geforderten Protokollierung sicherheitsrelevanter Systemereignisse dar."
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 verlangt die Protokollierung privilegierter Ereignisse und Eingriffe, was Konfigurations- und Steuerungszugriffe inhaltlich abdeckt."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 verlangt die Protokollierung privilegierter Ereignisse und Eingriffe, was Konfigurations- und Steuerungszugriffe inhaltlich abdeckt."
           },
           {
             "satz_nr": 6,
@@ -17801,8 +17801,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.3",
-            "begruendung": "Die G++-Maßnahme DET.3.1.3 deckt die Forderung ab, da sie explizit das Protokollieren des Anschließens von Geräten bzw. Peripheriekomponenten an IT-Systemen verlangt."
+            "control_id": "DET.3.2.3",
+            "begruendung": "Die G++-Maßnahme DET.3.2.3 deckt die Forderung ab, da sie explizit das Protokollieren des Anschließens von Geräten bzw. Peripheriekomponenten an IT-Systemen verlangt."
           },
           {
             "satz_nr": 3,
@@ -22277,13 +22277,13 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt den in Satz 3 explizit geforderten Aspekt der Protokollierung fehlerhafter Anmeldeversuche (Authentifizierungen bei Fehlschlag) direkt ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt den in Satz 3 explizit geforderten Aspekt der Protokollierung fehlerhafter Anmeldeversuche (Authentifizierungen bei Fehlschlag) direkt ab."
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.4",
-            "begruendung": "Die G++-Maßnahme DET.3.1.4 deckt mit der Protokollierung von Systemfehlern wesentliche in Satz 3 geforderte Inhalte wie Hardware-Fehlfunktionen und kritische Systemzustände ab."
+            "control_id": "DET.3.2.4",
+            "begruendung": "Die G++-Maßnahme DET.3.2.4 deckt mit der Protokollierung von Systemfehlern wesentliche in Satz 3 geforderte Inhalte wie Hardware-Fehlfunktionen und kritische Systemzustände ab."
           },
           {
             "satz_nr": 3,
@@ -22511,12 +22511,12 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt die Protokollierung unerlaubter Zugriffe und Zugriffsversuche durch das Erfassen von erfolgreichen und fehlgeschlagenen Authentifizierungen ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt die Protokollierung unerlaubter Zugriffe und Zugriffsversuche durch das Erfassen von erfolgreichen und fehlgeschlagenen Authentifizierungen ab."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.5",
+            "control_id": "DET.3.2.5",
             "begruendung": "Die Maßnahme deckt die im Satz geforderte Protokollierung von Verfügbarkeitsstörungen und eingeschränkter Erreichbarkeit im Netz inhaltlich ab."
           }
         ]
@@ -23650,18 +23650,18 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt die Forderung nach der Protokollierung von Login-Fehlern bei IT-Systemen wie Routern und Switches direkt ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt die Forderung nach der Protokollierung von Login-Fehlern bei IT-Systemen wie Routern und Switches direkt ab."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.4",
-            "begruendung": "Die G++-Maßnahme DET.3.1.4 deckt die im Satz geforderte Protokollierung von Systemfehlern auf IT-Systemen (wie Routern und Switches) inhaltlich direkt ab."
+            "control_id": "DET.3.2.4",
+            "begruendung": "Die G++-Maßnahme DET.3.2.4 deckt die im Satz geforderte Protokollierung von Systemfehlern auf IT-Systemen (wie Routern und Switches) inhaltlich direkt ab."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.6",
-            "begruendung": "DET.3.1.6 deckt die im Satz geforderte Protokollierung systemspezifischer Ereignisse wie Konfigurationsänderungen und Reboots auf IT-Systemebene inhaltlich ab."
+            "control_id": "DET.3.2.6",
+            "begruendung": "DET.3.2.6 deckt die im Satz geforderte Protokollierung systemspezifischer Ereignisse wie Konfigurationsänderungen und Reboots auf IT-Systemebene inhaltlich ab."
           }
         ]
       },
@@ -24410,8 +24410,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.4",
-            "begruendung": "DET.3.1.4 deckt die in Satz 1 geforderte Protokollierung allgemeiner Systemfehlermeldungen als allgemeingültige Anforderung für IT-Systeme inhaltlich ab."
+            "control_id": "DET.3.2.4",
+            "begruendung": "DET.3.2.4 deckt die in Satz 1 geforderte Protokollierung allgemeiner Systemfehlermeldungen als allgemeingültige Anforderung für IT-Systeme inhaltlich ab."
           },
           {
             "satz_nr": 2,
@@ -24420,13 +24420,13 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.7",
-            "begruendung": "DET.3.1.7 fordert die allgemeine Protokollierung von Zeitpunkt, Quelle und Zielobjekt bei sicherheitsrelevanten Ereignissen, was die konkreten Metadatenvorgaben (Zeit, Quell-/Ziel-IP/Port, Art des Vorfalls) aus Satz 3 inhaltlich abdeckt."
+            "control_id": "DET.3.1.1",
+            "begruendung": "DET.3.1.1 fordert die allgemeine Protokollierung von Zeitpunkt, Quelle und Zielobjekt bei sicherheitsrelevanten Ereignissen, was die konkreten Metadatenvorgaben (Zeit, Quell-/Ziel-IP/Port, Art des Vorfalls) aus Satz 3 inhaltlich abdeckt."
           },
           {
             "satz_nr": 4,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt die Protokollierung von Authentifizierungsereignissen (Erfolg und Fehlschlag) an IT-Systemen wie dem Sicherheitsproxy allgemein ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt die Protokollierung von Authentifizierungsereignissen (Erfolg und Fehlschlag) an IT-Systemen wie dem Sicherheitsproxy allgemein ab."
           }
         ]
       },
@@ -24936,13 +24936,13 @@
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.6",
-            "begruendung": "DET.3.1.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab."
+            "control_id": "DET.3.2.6",
+            "begruendung": "DET.3.2.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab."
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.8",
-            "begruendung": "Schreibende Konfigurationszugriffe auf zentrale NAC-Komponenten stellen privilegierte Ereignisse dar, deren Protokollierung durch DET.3.1.8 allgemein gefordert wird."
+            "control_id": "DET.3.1.2",
+            "begruendung": "Schreibende Konfigurationszugriffe auf zentrale NAC-Komponenten stellen privilegierte Ereignisse dar, deren Protokollierung durch DET.3.1.2 allgemein gefordert wird."
           },
           {
             "satz_nr": 4,
@@ -25777,13 +25777,13 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.12",
-            "begruendung": "DET.3.1.12 verlangt die Protokollierung von Datenverarbeitungen wie Datenzugriffen, Veränderungen und Exporten, was die in S2 geforderten Protokollierungen von Datenzugriffen und Datenübermittlungen direkt abdeckt."
+            "control_id": "DET.3.3",
+            "begruendung": "DET.3.3 verlangt die Protokollierung von Datenverarbeitungen wie Datenzugriffen, Veränderungen und Exporten, was die in S2 geforderten Protokollierungen von Datenzugriffen und Datenübermittlungen direkt abdeckt."
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.8",
-            "begruendung": "Die Protokollierung privilegierter Ereignisse nach DET.3.1.8 deckt die geforderte Protokollierung von Administrationsarbeiten an der TK-Anlage inhaltlich ab."
+            "control_id": "DET.3.1.2",
+            "begruendung": "Die Protokollierung privilegierter Ereignisse nach DET.3.1.2 deckt die geforderte Protokollierung von Administrationsarbeiten an der TK-Anlage inhaltlich ab."
           }
         ]
       },
@@ -26701,8 +26701,8 @@
           },
           {
             "satz_nr": 5,
-            "control_id": "DET.3.1.7",
-            "begruendung": "DET.3.1.7 konkretisiert und operationalisiert die Festlegung der zu protokollierenden Informationsbestandteile, indem es Mindestangaben wie Zeitpunkt, Quelle und Zielobjekt vorgibt."
+            "control_id": "DET.3.1.1",
+            "begruendung": "DET.3.1.1 konkretisiert und operationalisiert die Festlegung der zu protokollierenden Informationsbestandteile, indem es Mindestangaben wie Zeitpunkt, Quelle und Zielobjekt vorgibt."
           }
         ]
       },
@@ -27538,13 +27538,13 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 deckt die geforderte Protokollierung administrativer Tätigkeiten als anwendungsspezifischen Spezialfall für privilegierte Ereignisse und Funktionen inhaltlich ab."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 deckt die geforderte Protokollierung administrativer Tätigkeiten als anwendungsspezifischen Spezialfall für privilegierte Ereignisse und Funktionen inhaltlich ab."
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.7",
-            "begruendung": "DET.3.1.7 verlangt mit der Protokollierung von Zeitpunkt, Quelle und Zielobjekt die konkreten Mindestangaben, die für die geforderte vollständige Nachvollziehbarkeit von Aktionen erforderlich sind."
+            "control_id": "DET.3.1.1",
+            "begruendung": "DET.3.1.1 verlangt mit der Protokollierung von Zeitpunkt, Quelle und Zielobjekt die konkreten Mindestangaben, die für die geforderte vollständige Nachvollziehbarkeit von Aktionen erforderlich sind."
           }
         ]
       },
@@ -27801,8 +27801,8 @@
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 deckt die Anforderung als anwendungsbezogene Konkretisierung ab, indem sie explizit die Protokollierung privilegierter Ereignisse und administrativer Funktionen fordert."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 deckt die Anforderung als anwendungsbezogene Konkretisierung ab, indem sie explizit die Protokollierung privilegierter Ereignisse und administrativer Funktionen fordert."
           },
           {
             "satz_nr": 2,
@@ -27811,8 +27811,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.5",
-            "begruendung": "Die G++-Maßnahme DET.3.5 stellt die Revisionssicherheit und Integrität von Audit-Logs sicher, um unbemerkte Manipulationen oder Löschungen durch Administrierende zu verhindern."
+            "control_id": "DET.3.7",
+            "begruendung": "Die G++-Maßnahme DET.3.7 stellt die Revisionssicherheit und Integrität von Audit-Logs sicher, um unbemerkte Manipulationen oder Löschungen durch Administrierende zu verhindern."
           },
           {
             "satz_nr": 4,
@@ -27910,8 +27910,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 setzt die Nachweisbarkeit administrativer Tätigkeiten für den Anwendungskontext durch die Protokollierung privilegierter Ereignisse und Funktionen konkret um."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 setzt die Nachweisbarkeit administrativer Tätigkeiten für den Anwendungskontext durch die Protokollierung privilegierter Ereignisse und Funktionen konkret um."
           },
           {
             "satz_nr": 5,
@@ -27920,8 +27920,8 @@
           },
           {
             "satz_nr": 6,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 fordert allgemein die Protokollierung aller Authentifizierungen (Anmeldungen), womit auch Anmeldevorgänge über Administrationskennungen abgedeckt sind."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 fordert allgemein die Protokollierung aller Authentifizierungen (Anmeldungen), womit auch Anmeldevorgänge über Administrationskennungen abgedeckt sind."
           }
         ]
       },
@@ -28074,7 +28074,7 @@
           },
           {
             "satz_nr": 4,
-            "control_id": "DET.5.10.5",
+            "control_id": "DET.5.10.3",
             "begruendung": "Die G++-Maßnahme fordert explizit das Testen von Patches im Rahmen des Änderungs- und Testmanagements und deckt damit das geforderte Vorab-Testen inhaltlich ab."
           },
           {
@@ -28108,8 +28108,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.5.10.4",
-            "begruendung": "DET.5.10.4 fordert die Prüfung von Patches auf Integrität vor der Installation und deckt damit die Sicherstellung der Integrität im Patchprozess wesentlich ab."
+            "control_id": "DET.5.10.2",
+            "begruendung": "DET.5.10.2 fordert die Prüfung von Patches auf Integrität vor der Installation und deckt damit die Sicherstellung der Integrität im Patchprozess wesentlich ab."
           },
           {
             "satz_nr": 1,
@@ -28123,8 +28123,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.5.10.4",
-            "begruendung": "Die G++-Maßnahme DET.5.10.4 fordert explizit die Integritätsprüfung von Patches vor deren Installation, was die Anforderung aus Satz 3 direkt abdeckt."
+            "control_id": "DET.5.10.2",
+            "begruendung": "Die G++-Maßnahme DET.5.10.2 fordert explizit die Integritätsprüfung von Patches vor deren Installation, was die Anforderung aus Satz 3 direkt abdeckt."
           },
           {
             "satz_nr": 5,
@@ -28274,12 +28274,12 @@
           },
           {
             "satz_nr": 6,
-            "control_id": "DET.5.10.2",
-            "begruendung": "Die automatisierte Überwachung des Patchstatus bei IT-Systemen nach DET.5.10.2 deckt die Kontrolle, ob Patches auf allen Systemen zeitnah erfolgreich eingespielt wurden, inhaltlich ab."
+            "control_id": "DET.5.11",
+            "begruendung": "Die automatisierte Überwachung des Patchstatus bei IT-Systemen nach DET.5.11 deckt die Kontrolle, ob Patches auf allen Systemen zeitnah erfolgreich eingespielt wurden, inhaltlich ab."
           },
           {
             "satz_nr": 6,
-            "control_id": "DET.5.10.3",
+            "control_id": "DET.5.12",
             "begruendung": "Die automatisierte Überwachung des Patchstatus für Anwendungen stellt einen anwendungsspezifischen Spezialfall der Kontrolle dar, ob Patches erfolgreich eingespielt wurden."
           },
           {
@@ -28784,13 +28784,13 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.11",
-            "begruendung": "DET.3.1.11 konkretisiert als Spezialfall für Anwendungen die schutzbedarfsabhängige Ausweitung des Protokollierungsumfangs um anwendungsspezifische Ereignisse."
+            "control_id": "DET.3.1.5",
+            "begruendung": "DET.3.1.5 konkretisiert als Spezialfall für Anwendungen die schutzbedarfsabhängige Ausweitung des Protokollierungsumfangs um anwendungsspezifische Ereignisse."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.6",
-            "begruendung": "DET.3.1.6 deckt die Forderung nach einer Steigerung des Protokollierungsumfangs für IT-Systeme ab, indem abhängig vom Schutzbedarf die Protokollierung zusätzlicher systemspezifischer Ereignisse ermöglicht wird."
+            "control_id": "DET.3.2.6",
+            "begruendung": "DET.3.2.6 deckt die Forderung nach einer Steigerung des Protokollierungsumfangs für IT-Systeme ab, indem abhängig vom Schutzbedarf die Protokollierung zusätzlicher systemspezifischer Ereignisse ermöglicht wird."
           }
         ]
       },
@@ -28885,8 +28885,8 @@
           },
           {
             "satz_nr": 5,
-            "control_id": "DET.3.5",
-            "begruendung": "DET.3.5 adressiert mit der Revisionssicherheit und dem Integritätsschutz von Audit Logs genau den technischen Schutz vor unbefugter bzw. unkontrollierter Löschung und Manipulation von Protokolldaten."
+            "control_id": "DET.3.7",
+            "begruendung": "DET.3.7 adressiert mit der Revisionssicherheit und dem Integritätsschutz von Audit Logs genau den technischen Schutz vor unbefugter bzw. unkontrollierter Löschung und Manipulation von Protokolldaten."
           }
         ]
       },
@@ -28905,13 +28905,13 @@
         "treffer": [
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.4",
+            "control_id": "DET.3.2.4",
             "begruendung": "Die Maßnahme fordert explizit die Protokollierung von Fehlermeldungen von IT-Systemen und deckt damit die Erfassung fehlerbezogener Betriebsereignisse inhaltlich ab."
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.9",
-            "begruendung": "Die G++-Maßnahme DET.3.1.9 deckt als anwendungsspezifischer Spezialfall die Forderung ab, betriebliche Ereignisse zu protokollieren, die auf Fehler hindeuten."
+            "control_id": "DET.3.1.3",
+            "begruendung": "Die G++-Maßnahme DET.3.1.3 deckt als anwendungsspezifischer Spezialfall die Forderung ab, betriebliche Ereignisse zu protokollieren, die auf Fehler hindeuten."
           }
         ]
       },
@@ -29403,7 +29403,7 @@
           },
           {
             "satz_nr": 4,
-            "control_id": "DET.5.10.3",
+            "control_id": "DET.5.12",
             "begruendung": "Die Überwachung des Patchstatus von Anwendungen deckt die Prüfung, ob die Softwareversion der Systemmanagement-Lösung aktuell ist, inhaltlich als automatisierte Variante ab."
           }
         ]
@@ -29517,8 +29517,8 @@
           },
           {
             "satz_nr": 6,
-            "control_id": "DET.3.1.1",
-            "begruendung": "DET.3.1.1 deckt den in Satz 6 explizit genannten Aspekt der Erfassung von erfolgreichen und fehlgeschlagenen Anmeldeversuchen (Authentifizierungen) an IT-Systemen direkt ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "DET.3.2.1 deckt den in Satz 6 explizit genannten Aspekt der Erfassung von erfolgreichen und fehlgeschlagenen Anmeldeversuchen (Authentifizierungen) an IT-Systemen direkt ab."
           }
         ]
       },
@@ -30289,13 +30289,13 @@
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.12",
-            "begruendung": "DET.3.1.12 deckt das Protokollieren von Zugriffen auf elektronische Archive als allgemeine Anforderung zur Protokollierung von Datenverarbeitungen und -zugriffen inhaltlich ab."
+            "control_id": "DET.3.3",
+            "begruendung": "DET.3.3 deckt das Protokollieren von Zugriffen auf elektronische Archive als allgemeine Anforderung zur Protokollierung von Datenverarbeitungen und -zugriffen inhaltlich ab."
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.7",
-            "begruendung": "DET.3.1.7 fordert die Protokollierung der wesentlichen Metadaten zu Ereignissen (Zeitpunkt, Quelle und Zielobjekt), was die inhaltliche Forderung nach Aufzeichnung von Datum, Uhrzeit, Benutzendem/Client und Aktionen abdeckt."
+            "control_id": "DET.3.1.1",
+            "begruendung": "DET.3.1.1 fordert die Protokollierung der wesentlichen Metadaten zu Ereignissen (Zeitpunkt, Quelle und Zielobjekt), was die inhaltliche Forderung nach Aufzeichnung von Datum, Uhrzeit, Benutzendem/Client und Aktionen abdeckt."
           },
           {
             "satz_nr": 3,
@@ -30368,8 +30368,8 @@
         "treffer": [
           {
             "satz_nr": 4,
-            "control_id": "ASST.2.4",
-            "begruendung": "ASST.2.4 fordert allgemein die Zuweisung von Daten zu einer Schutzbedarfsklasse und deckt damit die Bestimmung des Schutzbedarfs verarbeiteter Informationen inhaltlich ab."
+            "control_id": "ASST.2.5",
+            "begruendung": "ASST.2.5 fordert allgemein die Zuweisung von Daten zu einer Schutzbedarfsklasse und deckt damit die Bestimmung des Schutzbedarfs verarbeiteter Informationen inhaltlich ab."
           },
           {
             "satz_nr": 4,
@@ -32881,8 +32881,8 @@
         "treffer": [
           {
             "satz_nr": 6,
-            "control_id": "ASST.2.4",
-            "begruendung": "Die G++-Maßnahme ASST.2.4 verlangt die Klassifizierung von Daten in Schutzbedarfsklassen und deckt damit die allgemeine Pflicht zur Klassifikation schutzbedürftiger Informationen materiell ab."
+            "control_id": "ASST.2.5",
+            "begruendung": "Die G++-Maßnahme ASST.2.5 verlangt die Klassifizierung von Daten in Schutzbedarfsklassen und deckt damit die allgemeine Pflicht zur Klassifikation schutzbedürftiger Informationen materiell ab."
           }
         ]
       },
@@ -34745,18 +34745,18 @@
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.1",
-            "begruendung": "Die Maßnahme DET.3.1.1 deckt die in Satz 1 explizit geforderte Protokollierung erfolgreicher und erfolgloser Anmeldungen am IT-System direkt ab."
+            "control_id": "DET.3.2.1",
+            "begruendung": "Die Maßnahme DET.3.2.1 deckt die in Satz 1 explizit geforderte Protokollierung erfolgreicher und erfolgloser Anmeldungen am IT-System direkt ab."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.4",
-            "begruendung": "DET.3.1.4 deckt den Teilaspekt der Protokollierung von sicherheitsrelevanten Fehlermeldungen des IT-Systems aus Satz 1 gezielt ab."
+            "control_id": "DET.3.2.4",
+            "begruendung": "DET.3.2.4 deckt den Teilaspekt der Protokollierung von sicherheitsrelevanten Fehlermeldungen des IT-Systems aus Satz 1 gezielt ab."
           },
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.8",
-            "begruendung": "Die Maßnahme DET.3.1.8 deckt einen konkreten Teilaspekt von Satz 1 ab, indem sie die Protokollierung privilegierter Ereignisse (wie Rechtevergaben und Änderungen an Sicherheitsfunktionen) bei Anwendungen fordert."
+            "control_id": "DET.3.1.2",
+            "begruendung": "Die Maßnahme DET.3.1.2 deckt einen konkreten Teilaspekt von Satz 1 ab, indem sie die Protokollierung privilegierter Ereignisse (wie Rechtevergaben und Änderungen an Sicherheitsfunktionen) bei Anwendungen fordert."
           }
         ]
       },
@@ -35753,8 +35753,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.3.1.2",
-            "begruendung": "DET.3.1.2 fordert die Protokollierung ausgeführter Kommandozeilenbefehle, was die Protokollierung der PowerShell-Ausführung als allgemeine Fassung inhaltlich abdeckt."
+            "control_id": "DET.3.2.2",
+            "begruendung": "DET.3.2.2 fordert die Protokollierung ausgeführter Kommandozeilenbefehle, was die Protokollierung der PowerShell-Ausführung als allgemeine Fassung inhaltlich abdeckt."
           },
           {
             "satz_nr": 2,
@@ -37153,8 +37153,8 @@
           },
           {
             "satz_nr": 3,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 fordert die Protokollierung privilegierter Ereignisse wie der Vergabe und Nutzung von Administrationsrechten, wodurch die geforderte Nachvollziehbarkeit gewährleistet wird."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 fordert die Protokollierung privilegierter Ereignisse wie der Vergabe und Nutzung von Administrationsrechten, wodurch die geforderte Nachvollziehbarkeit gewährleistet wird."
           },
           {
             "satz_nr": 5,
@@ -37802,8 +37802,8 @@
         "treffer": [
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.1",
-            "begruendung": "Die Maßnahme DET.3.1.1 verlangt allgemein die Protokollierung von fehlgeschlagenen Authentifizierungen, was die nachträgliche Kontrolle abgewiesener Login-Versuche inhaltlich abdeckt."
+            "control_id": "DET.3.2.1",
+            "begruendung": "Die Maßnahme DET.3.2.1 verlangt allgemein die Protokollierung von fehlgeschlagenen Authentifizierungen, was die nachträgliche Kontrolle abgewiesener Login-Versuche inhaltlich abdeckt."
           },
           {
             "satz_nr": 4,
@@ -38706,13 +38706,13 @@
         "treffer": [
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.3",
-            "begruendung": "DET.3.1.3 fordert die Protokollierung der Anbindung von Peripheriegeräten (inklusive virtueller bzw. über Protokolle angebundener Komponenten) und deckt damit diesen Kernaspekt des Satzes ab."
+            "control_id": "DET.3.2.3",
+            "begruendung": "DET.3.2.3 fordert die Protokollierung der Anbindung von Peripheriegeräten (inklusive virtueller bzw. über Protokolle angebundener Komponenten) und deckt damit diesen Kernaspekt des Satzes ab."
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.8",
-            "begruendung": "DET.3.1.8 deckt die geforderte Protokollierung von Aktionen ab, die erweiterte bzw. privilegierte Rechte auf dem System erfordern."
+            "control_id": "DET.3.1.2",
+            "begruendung": "DET.3.1.2 deckt die geforderte Protokollierung von Aktionen ab, die erweiterte bzw. privilegierte Rechte auf dem System erfordern."
           }
         ]
       },
@@ -40345,8 +40345,8 @@
           },
           {
             "satz_nr": 2,
-            "control_id": "DET.3.1.2",
-            "begruendung": "DET.3.1.2 fordert die Protokollierung von ausgeführten Kommandozeilenbefehlen und deckt damit die Protokollierung von PowerShell-Ausführungen inhaltlich ab."
+            "control_id": "DET.3.2.2",
+            "begruendung": "DET.3.2.2 fordert die Protokollierung von ausgeführten Kommandozeilenbefehlen und deckt damit die Protokollierung von PowerShell-Ausführungen inhaltlich ab."
           },
           {
             "satz_nr": 3,
@@ -43761,8 +43761,8 @@
         "treffer": [
           {
             "satz_nr": 1,
-            "control_id": "DET.5.10.2",
-            "begruendung": "Die automatisierte Überwachung des Patchstatus für IT-Systeme gemäß DET.5.10.2 deckt das regelmäßige Prüfen auf verfügbare Softwareupdates für Mobiltelefone inhaltlich ab."
+            "control_id": "DET.5.11",
+            "begruendung": "Die automatisierte Überwachung des Patchstatus für IT-Systeme gemäß DET.5.11 deckt das regelmäßige Prüfen auf verfügbare Softwareupdates für Mobiltelefone inhaltlich ab."
           },
           {
             "satz_nr": 1,

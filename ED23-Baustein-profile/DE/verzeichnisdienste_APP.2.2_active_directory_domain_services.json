@@ -3,8 +3,8 @@
     "uuid": "9556b2a8-fb46-52af-a9d3-e15b66a908cf",
     "metadata": {
       "title": "APP.2.2 – Active Directory Domain Services (Verzeichnisdienste)",
-      "last-modified": "2026-10-19T01:05:27.516337+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:57.223806+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -75,6 +75,7 @@
               "BER.5.4",
               "BER.6.4",
               "DET.3.1",
+              "DET.3.2",
               "DET.4.6.1",
               "GC.7.2",
               "KONF.1.1.1",
@@ -85,6 +86,7 @@
               "KONF.14.1.1",
               "KONF.2.1",
               "KONF.2.2",
+              "KONF.2.3",
               "KONF.2.4",
               "KONF.5.1",
               "KONF.6.1",
@@ -294,6 +296,7 @@
                           "ARCH.7.1",
                           "BER.3.23",
                           "DET.3.1",
+                          "DET.3.2",
                           "GC.7.2",
                           "KONF.2.4",
                           "NOT.1.1",
@@ -447,7 +450,8 @@
                           "BER.2.6",
                           "BER.3.15",
                           "BER.3.21",
-                          "BER.6.4"
+                          "BER.6.4",
+                          "KONF.2.3"
                         ]
                       }
                     ]
@@ -1106,15 +1110,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1477,7 +1481,23 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.2.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1 fordert die anwendungsbezogene Protokollierung über eine Frist, adressiert aber nicht die spezifische Dimensionierung des Sicherheitsprotokoll-Speichers auf einem Domänencontroller. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): G++ DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse für eine bestimmte Frist und deckt damit die im Satz geforderte Vorhaltung des Sicherheitsprotokolls über den festgelegten Zeitraum materiell ab."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.2.2.A5",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert eine ausreichende Größe des Sicherheitsprotokolls auf dem Domänencontroller für einen festgelegten Zeitraum, während DET.3.2 allgemein empfiehlt, sicherheitsrelevante Ereignisse in IT-Systemen für eine bestimmte Frist zu protokollieren; die spezifische Dimensionierung der Protokollgröße geht über DET.3.2 hinaus."
                 }
               ]
             }
@@ -1650,6 +1670,22 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.2.A9",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Die G++-Maßnahme fordert die allgemeine Aktivierung kryptographischer Standardverfahren für die Authentisierung in IT-Systemen, was den spezifischen Einsatz des Kerberos-Protokolls in der Gesamtstruktur abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.2.2.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Satz 3 fordert die Deaktivierung eines voreingestellten Standardkontos (Guest/Gast) und Satz 1 das Setzen komplexer Passwörter für Built-in-Konten, was genau der in KONF.2.3 geforderten Änderung bzw. Deaktivierung von Default-Zugangsdaten entspricht."
                 }
               ]
             }

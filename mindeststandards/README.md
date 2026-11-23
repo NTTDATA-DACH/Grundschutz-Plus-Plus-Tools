@@ -58,10 +58,13 @@ uv run --no-project python -I -X utf8 mindeststandards/repin.py --alt <alter-kat
 neuen um (siehe oben) und verlangt, dass der neue Commit und der SHA-256 zu den
 Konstanten in `mindeststandard-oscal.html` passen. Mit `--check-only` prüft es
 nur, ob sein Resolver die vorhandenen Kataloge byteidentisch reproduziert.
-Umbenannte Zielobjektkategorien und die Control-Klasse gelten als mechanisch;
-Controls, die upstream umformuliert wurden, übernimmt es nur mit
-`--accept-changed <IDs>` in der neuen Fassung (die `alters` des Profils
-bleiben), sonst bricht es ab.
+Umbenannte Zielobjektkategorien, die Control-Klasse und umbenannte
+`documentation`-Werte gelten als mechanisch; Controls, die upstream
+umformuliert wurden, übernimmt es nur mit `--accept-changed <IDs>` in der
+neuen Fassung (die `alters` des Profils bleiben), sonst bricht es ab.
+Umnummerierte Controls (gleiche `alt-identifier`, neue ID) nimmt `--id-map
+<moves.json>` entgegen, die Tabelle aus `Gpp-ai-tool/scripts/remap_control_ids.py
+derive`; sie wird genau einmal auf Profil und Ergänzungskatalog angewandt.
 Nach einem Pin-Wechsel die Hashes in `MST_PINNED` des SSP-Generators
 nachziehen.
 
@@ -78,11 +81,11 @@ Auslegung, kein Dokument des BSI.
 
 ## Stand
 
-Erstmals abgelegt am 16.10.2026 (Commit `22ed7b6`, builds 1.2.1 und 1.4.1), mit Release 4.3 auf `a128311` und mit Release 5.1 am 28.10.2026 auf `160c177d` umgepinnt; Werkzeug „Mindeststandard → OSCAL“.
+Erstmals abgelegt am 16.10.2026 (Commit `22ed7b6`, builds 1.2.1 und 1.4.1), mit Release 4.3 auf `a128311`, mit Release 5.1 am 28.10.2026 auf `160c177d` und mit Release 5.2 am 23.11.2026 auf `dc44ea4f` umgepinnt; Werkzeug „Mindeststandard → OSCAL“.
 
-Alle Stände importieren den Anwenderkatalog am Commit `160c177d` (Build
-2026-10-22; SHA-256 `7c3acebd…`, Resource-UUID
-`c45ef8e9-7d97-5035-b3df-6af73bf31126`).
+Alle Stände importieren den Anwenderkatalog am Commit `dc44ea4f` (Build
+2026-11-23; SHA-256 `9497c7a9…`, Resource-UUID
+`1743f782-c978-51fd-acd0-81168bc1727f`).
 
 | Mindeststandard | Version | Stand BSI | Build | Controls | Ergänzungskatalog |
 |---|---|---|---|---|---|
@@ -116,5 +119,26 @@ Authentifizierungsmitteln“); der Stand übernimmt das Control mit
 `--accept-changed BER.5.2` in der neuen Fassung, das ersetzende
 MUSS-Statement des MDM-Profils (`BER.5.2_stm`) bleibt unverändert. Die
 Remarks von Profil und Ergänzungskatalog nennen beides.
+Am 23.11.2026 (Release 5.2) wurden alle acht Stände mit `repin.py` von
+`160c177d` auf `dc44ea4f` umgestellt (Issue #52). Der Build 2026-11-23 nummeriert
+24 Controls in DET.3, DET.5.10 und ASST.2 um (gleiche `alt-identifier`, neue
+ID; 13 alte IDs bezeichnen jetzt ein anderes Control). `repin.py --id-map`
+nimmt die über die UUIDs abgeleitete Tabelle
+`hilfsdateien/control_id_moves_160c177d_dc44ea4.json` entgegen, schreibt
+Profil und Ergänzungskatalog in einem Durchgang um (with-ids, control-id,
+by-id, Part- und Parameter-IDs, Fragment-Links und Linktexte) und vergleicht
+jedes Control unter seiner alten ID mit dem neuen Stand unter seiner neuen ID.
+Betroffen: PD (6 Controls), MDM (3), NCD (1), WB (1). Die umbenannten Werte
+der `documentation`-Prop (`Beschaffungskriterien` → `Leistungsbeschreibung`,
+`Detektions-Konzept` → `Detektionskonzept`, …; `DOC_RENAMES`) gelten wie die
+Kategorienamen als mechanisch. Upstream umformuliert und in der neuen Fassung
+übernommen (`--accept-changed`): ASST.2.1 und ASST.2.3 (Statement um die
+Zielobjektkategorie ergänzt), DET.3.1, KONF.2.3, KONF.2.5, KONF.2.6, KONF.9.2,
+KONF.10.3, KONF.15.3, GEB.8.1.1 und ARCH.2.2.1 (neue Titel), KONF.15.2
+(Parameter im Statement), BES.7.4.7 und BES.7.4.12 (erweiterte Guidance); die
+Remarks jedes Stands nennen, welche davon ihn betreffen. Wichtig: die Tabelle
+ist eine Permutation und darf nur einmal angewendet werden; `repin.py` erledigt
+den Durchgang selbst, die Dateien dürfen vorher nicht mit
+`remap_control_ids.py apply` umgeschrieben werden.
 Der Mindeststandard NdB 3.0 (VS-NfD) liegt nicht öffentlich vor und fehlt
 deshalb.

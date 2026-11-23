@@ -3,8 +3,8 @@
     "uuid": "f5f520b9-1087-5865-bed2-22f22e795c3f",
     "metadata": {
       "title": "APP.3.3 – Fileserver (Dateiserver) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:13.401214+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.532476+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.3.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -69,6 +69,7 @@
               "BES.4.2",
               "BES.4.3",
               "BES.4.8.1",
+              "DET.3.1",
               "DET.3.1.4",
               "DET.3.3",
               "DEV.3.2",
@@ -489,7 +490,8 @@
                       {
                         "with-ids": [
                           "ASST.3.14",
-                          "ASST.5.2"
+                          "ASST.5.2",
+                          "DET.3.1"
                         ]
                       }
                     ]
@@ -721,15 +723,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2887,6 +2889,193 @@
           ]
         },
         {
+          "control-id": "DET.3.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.1_stm",
+              "parts": [
+                {
+                  "id": "DET.3.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsereignisse werden lokal und ohne feste Dauer gespeichert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Einfaches Logging in Textdateien ohne zentrales Management."
+                    },
+                    {
+                      "id": "DET.3.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Log-Verzeichnisse auf Vorhandensein von Einträgen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Log-Rotation ist konfiguriert, um Datenverlust zu vermeiden.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Manuelle Einrichtung von Logrotate für lokale Sicherheitslogs."
+                    },
+                    {
+                      "id": "DET.3.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Check der Konfiguration: 'cat /etc/logrotate.d/app'."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.1-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Systematische Erfassung und Vorhaltung relevanter Ereignisse gemäß Vorgabe."
+                    },
+                    {
+                      "id": "DET.3.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Aufbewahrungsfrist in der Logging-Konfiguration."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Zentralisiertes Logging mit integriertem Alarmierungssystem.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Weiterleitung aller Logs an einen zentralen Logserver (Syslog/Graylog)."
+                    },
+                    {
+                      "id": "DET.3.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Verifikation des Log-Eingangs am zentralen Server per Query."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "SIEM-gestützte Analyse der Logs mit automatisierter Incident-Reaktion.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Echtzeit-Korrelation von Ereignissen zur Erkennung komplexer Angriffe."
+                    },
+                    {
+                      "id": "DET.3.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Test der Alarmkette durch Auslösen eines Test-Events."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.3.3.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 5): DET.3.1 empfiehlt allgemein die Protokollierung sicherheitsrelevanter Ereignisse in Anwendungen über eine bestimmte Frist und schließt damit die auf Fileserver bezogene Protokollierung nicht-autorisierter Zugriffsversuche und Berechtigungsänderungen vollständig ein."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "DET.3.1.4",
           "adds": [
             {
@@ -2912,17 +3101,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Kritische Systemfehler werden in lokalen Logfiles erfasst.",
+                  "prose": "Basis-Zugriffszahlen werden unregelmäßig erfasst.",
                   "parts": [
                     {
                       "id": "DET.3.1.4-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Prüfen Sie regelmäßig /var/log/messages auf Fehlermeldungen."
+                      "prose": "Einfache Zählung von HTTP-Requests im Webserver-Log."
                     },
                     {
                       "id": "DET.3.1.4-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichtprüfung der Logdateien auf 'critical' oder 'error' Tags."
+                      "prose": "Check: 'wc -l /var/log/nginx/access.log'."
                     }
                   ]
                 },
@@ -2945,17 +3134,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Fehlermeldungen werden nach Wichtigkeit gefiltert und lokal gesammelt.",
+                  "prose": "Nutzungsdaten werden für monatliche Berichte aggregiert.",
                   "parts": [
                     {
                       "id": "DET.3.1.4-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Konfigurieren Sie Logrotate und rsyslog-Prioritäten (z. B. *.err)."
+                      "prose": "Einsatz einfacher Statistik-Tools zur Auswertung der Last."
                     },
                     {
                       "id": "DET.3.1.4-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Befehl 'journalctl -p err' auf aktuelle Fehlereinträge prüfen."
+                      "prose": "Sichtung vorhandener Auslastungsberichte."
                     }
                   ]
                 },
@@ -2978,17 +3167,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE Fehlermeldungen des Systems protokollieren.",
+                  "prose": "Detektion für Anwendungen KANN eine Nutzungsstatistik protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.1.4-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Stellen Sie eine umfassende Fehlerprotokollierung sicher, die Hardware- und Softwarefehler abdeckt."
+                      "prose": "Erfassung von Metriken zur Nutzung der Anwendungskomponenten."
                     },
                     {
                       "id": "DET.3.1.4-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Log-Konfiguration auf Abdeckung aller relevanten Subsysteme."
+                      "prose": "Prüfung, ob Nutzungsmetriken (z.B. aktive User) erfasst werden."
                     }
                   ]
                 },
@@ -3011,17 +3200,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Zentrales Error-Reporting mit Benachrichtigungsfunktion bei Systeminstabilität.",
+                  "prose": "Detaillierte Performance-Dashboards visualisieren die Nutzung in Echtzeit.",
                   "parts": [
                     {
                       "id": "DET.3.1.4-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Monitoring-Tools (z. B. Prometheus mit Node-Exporter), um Fehlerraten zu visualisieren."
+                      "prose": "Export von Metriken an ein Monitoring-System (z.B. Prometheus)."
                     },
                     {
                       "id": "DET.3.1.4-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Alert-Regeln im Monitoring-System auf Schwellwerte für Systemfehler."
+                      "prose": "Prüfung der Dashboard-Verfügbarkeit und Datenaktualität."
                     }
                   ]
                 },
@@ -3044,17 +3233,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Automatisiertes Incident-Management reagiert auf spezifische Systemfehler.",
+                  "prose": "Kapazitätsmanagement durch KI-gestützte Vorhersage der Nutzung.",
                   "parts": [
                     {
                       "id": "DET.3.1.4-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Koppeln Sie das Logging an ein Ticketing-System für automatisierte Zuweisung an Techniker."
+                      "prose": "Automatisierte Skalierung der Ressourcen basierend auf Nutzungsanalysen."
                     },
                     {
                       "id": "DET.3.1.4-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Triggerung eines Test-Fehlers und Verfolgung des automatischen Ticketing-Workflows."
+                      "prose": "Review der Autoscaling-Logs basierend auf Last-Metriken."
                     }
                   ]
                 }
@@ -3091,7 +3280,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3099,17 +3288,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Vollständige Protokollierung ohne Filterung.",
+                  "prose": "Die Verarbeitung von Daten wird nur vereinzelt und ad-hoc auf einzelnen Systemen ohne zentrale Vorgaben lokal protokolliert.",
                   "parts": [
                     {
                       "id": "DET.3.3-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Alle Events werden ungefiltert gespeichert, was Ressourcen bindet."
+                      "prose": "Aktivieren Sie bei Bedarf die grundlegende lokale Protokollierung auf kritischen Systemen, wenn Fernwartungszugriffe Daten verarbeiten."
                     },
                     {
                       "id": "DET.3.3-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Check der Log-Files auf Redundanz und irrelevante Events."
+                      "prose": "Manuelle Prüfung auf ausgewählten OT-Systemen (z.B. per 'ls /var/log'), ob lokale Protokolldateien für Datenverarbeitungen existieren."
                     }
                   ]
                 },
@@ -3124,7 +3313,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3132,17 +3321,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Manuelle Filterung auf Applikationsebene.",
+                  "prose": "Datenverarbeitungen werden auf relevanten Systemen grundsätzlich mit Standardeinstellungen protokolliert, jedoch ohne zentrale Auswertung.",
                   "parts": [
                     {
                       "id": "DET.3.3-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Log-Level werden grob (z.B. Info/Warning) eingestellt."
+                      "prose": "Nutzen Sie die Standard-Protokollierungsfunktionen der Betriebssysteme und Applikationen, um Datenverarbeitungen während der Fernwartung aufzuzeichnen."
                     },
                     {
                       "id": "DET.3.3-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Konfigurationsdateien (z.B. log4j.properties)."
+                      "prose": "Prüfung der Systemkonfigurationen per Skript (z.B. 'systemctl status rsyslog' oder 'auditd'), ob Standard-Logging für Datenzugriffe aktiv ist."
                     }
                   ]
                 },
@@ -3157,7 +3346,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3165,17 +3354,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.3-prm1 }} einschränken.",
+                  "prose": "Detektion für Daten KANN die Verarbeitung von Daten protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.3-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Gezielte Reduktion des Log-Volumens durch definierte Ausschlusskriterien."
+                      "prose": "Implementieren Sie eine konsistente Protokollierung für Datenverarbeitungsprozesse auf allen für die Fernwartung relevanten Systemen."
                     },
                     {
                       "id": "DET.3.3-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Abgleich der Filterregeln mit der Logging-Policy."
+                      "prose": "Überprüfung des Logging-Konzepts und automatisierter Check via 'auditctl -l' auf Zielsystemen zur Verifikation der definierten Audit-Regeln."
                     }
                   ]
                 },
@@ -3190,7 +3379,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3198,17 +3387,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Dynamische Filterung mittels Log-Forwarder-Regeln.",
+                  "prose": "Die Protokollierung von Datenverarbeitungen erfolgt zentralisiert, manipulationssicher und wird proaktiv durch automatisierte Regeln auf Anomalien überwacht.",
                   "parts": [
                     {
                       "id": "DET.3.3-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Zentrale Filterregeln (z.B. Fluentd/Logstash) bereinigen Datenströme."
+                      "prose": "Leiten Sie alle Protokolle über Datenverarbeitungen an ein zentrales SIEM weiter und richten Sie Korrelationsregeln für ungewöhnliche Datenzugriffe ein."
                     },
                     {
                       "id": "DET.3.3-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Audit der Filter-Konfiguration: 'grep -i exclude /etc/logstash/conf.d/'."
+                      "prose": "Automatisierte API-Abfrage des zentralen Log-Servers (z.B. OpenSearch), ob Datenverarbeitungs-Logs vollständig eingehen und Alarme generieren."
                     }
                   ]
                 },
@@ -3223,7 +3412,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3231,17 +3420,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Intelligente Inhaltsfilterung mittels ML-Modellen.",
+                  "prose": "Datenverarbeitungen werden lückenlos auf Kernel-Ebene protokolliert, mittels KI-Verhaltensanalyse in Echtzeit bewertet und bei Anomalien automatisch isoliert.",
                   "parts": [
                     {
                       "id": "DET.3.3-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nur sicherheitsrelevante Abweichungen werden hochauflösend geloggt."
+                      "prose": "Nutzen Sie eBPF-basiertes Tracing und Machine Learning, um sämtliche Datenverarbeitungen lückenlos zu protokollieren und bei Anomalien sofort zu blockieren."
                     },
                     {
                       "id": "DET.3.3-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der ML-Modell-Metriken zur Datenreduktionsrate."
+                      "prose": "Prüfung der Deployment-Pipelines auf Policy-as-Code für Logging sowie API-Check der ML-Engine auf aktive Echtzeit-Auswertung der Datenflüsse."
                     }
                   ]
                 }

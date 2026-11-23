@@ -3,8 +3,8 @@
     "uuid": "127558ae-ca06-5a29-a233-a86580244685",
     "metadata": {
       "title": "APP.5.4 – Unified Communications und Collaboration (UCC) (Interpersonelle Kommunikation)",
-      "last-modified": "2026-10-19T01:06:36.287253+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:52.503935+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.5.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -84,6 +84,7 @@
               "KONF.13.1",
               "KONF.14.1",
               "KONF.14.1.2",
+              "KONF.2.5",
               "KONF.3.2",
               "KONF.6.12",
               "KONF.6.7",
@@ -242,6 +243,7 @@
                       {
                         "with-ids": [
                           "KONF.10.5",
+                          "KONF.2.5",
                           "TEST.3.1"
                         ]
                       }
@@ -558,6 +560,11 @@
                     "href": "#KONF.14.1",
                     "rel": "related",
                     "text": "KONF.14.1 steht unter APP.5.4.A6"
+                  },
+                  {
+                    "href": "#KONF.2.5",
+                    "rel": "related",
+                    "text": "KONF.2.5 steht unter APP.5.4.A3"
                   }
                 ]
               },
@@ -990,15 +997,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1506,6 +1513,28 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.5.4.A14",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1,2): KONF.14.1.2 deckt den Einsatz einer Ende-zu-Ende-Verschlüsselung für die Kommunikation von Anwendungen direkt auf allgemeiner Ebene ab. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.5.4.A3",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Konfiguration auf Übereinstimmung mit dem Referenzzustand (Konformität), schließt die in Satz 4 zusätzlich geforderte inhaltliche Prüfung auf Plausibilität für die festgelegten Einsatzzwecke jedoch nicht ein."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.5.4.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Systemkonfiguration auf Einhaltung des Referenzzustands, umfasst jedoch nicht das in Satz 5 zusätzlich geforderte Festhalten, die anlassbezogene Prüfung sowie das Anpassen der Umsetzung."
                 }
               ]
             }

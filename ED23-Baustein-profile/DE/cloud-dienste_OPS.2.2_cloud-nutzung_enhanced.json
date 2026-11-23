@@ -3,8 +3,8 @@
     "uuid": "f1980a0a-5b7b-5516-8bfc-5aa97bfbf81f",
     "metadata": {
       "title": "OPS.2.2 – Cloud-Nutzung (Cloud-Dienste) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:08:54.062190+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:55.792107+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,14 +49,15 @@
           "text": "Baustein OPS.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
+              "ASST.2.3",
               "BER.3.7",
               "BER.4.4",
               "BES.1.3.1",
@@ -285,6 +286,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "ASST.2.3",
                           "BES.7.4.10"
                         ]
                       }
@@ -1203,15 +1205,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1238,6 +1240,193 @@
     },
     "modify": {
       "alters": [
+        {
+          "control-id": "ASST.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "ASST.2.3_stm",
+              "parts": [
+                {
+                  "id": "ASST.2.3-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Ein Inventar der Anwendungen wird nur sporadisch und unvollständig für einzelne IT-Systeme geführt, wobei oft Details wie Versionsstand, Herkunft oder Lizenzierung fehlen.",
+                  "parts": [
+                    {
+                      "id": "ASST.2.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Erfassen Sie kritische Anwendungen zumindest ad-hoc in einfachen Listen. Notieren Sie dabei primär den Produktnamen, um einen ersten Überblick über die genutzte Software in den Cloud-Umgebungen zu erhalten."
+                    },
+                    {
+                      "id": "ASST.2.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung durch Stichproben, ob für ausgewählte IT-Systeme oder Cloud-Instanzen rudimentäre Listen installierter Anwendungen existieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "ASST.2.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Grundsätzlich ist ein manuell gepflegtes Inventar der Anwendungen vorhanden, das Produktname, Versionsstand, Herkunft und Lizenzierung dokumentiert, jedoch nicht konsistent über alle Systeme hinweg aktualisiert wird.",
+                  "parts": [
+                    {
+                      "id": "ASST.2.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Führen Sie eine zentrale Tabelle (z. B. in einem Wiki) ein, in der Administratoren bei der Bereitstellung von Systemen Produktname, Version, Herkunft und Lizenz manuell eintragen und bei großen Updates aktualisieren."
+                    },
+                    {
+                      "id": "ASST.2.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Einsichtnahme in das manuell gepflegte Anwendungsinventar. Abgleich der Dokumentation mit den tatsächlich installierten Paketen auf einem Beispielsystem (z. B. manuell via 'dpkg -l' oder 'rpm -qa')."
+                    }
+                  ]
+                },
+                {
+                  "id": "ASST.2.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Informationen und Assets für IT-Systeme SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+                  "parts": [
+                    {
+                      "id": "ASST.2.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Etablieren Sie einen definierten Prozess zur Dokumentation aller Anwendungen in einem zentralen Asset-Management-System (z. B. NetBox oder GLPI). Stellen Sie sicher, dass alle geforderten Attribute verpflichtend gepflegt werden."
+                    },
+                    {
+                      "id": "ASST.2.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der CMDB oder des zentralen Inventars auf Vollständigkeit der Attribute (Produktname, Version, Herkunft, Lizenz). Automatisierter Abgleich über API-Abfragen der Inventarlösung gegen System-Soll-Zustände."
+                    }
+                  ]
+                },
+                {
+                  "id": "ASST.2.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Das Anwendungsinventar wird durch automatisierte Discovery-Scans und Agenten kontinuierlich aktualisiert, sodass Produktname, Versionsstand, Herkunft und Lizenzierung nahezu in Echtzeit präzise erfasst sind.",
+                  "parts": [
+                    {
+                      "id": "ASST.2.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Open-Source-Agenten wie osquery oder Ansible Facts, um installierte Anwendungen samt Version und Paketquelle regelmäßig automatisiert auszulesen und über Schnittstellen direkt in das zentrale Inventar zu synchronisieren."
+                    },
+                    {
+                      "id": "ASST.2.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der automatisierten Inventarisierungs-Pipelines und Agenten-Konfigurationen. Ausführung eines Skripts, das via osquery ('SELECT name, version, vendor FROM deb_packages;') Live-Daten abruft und mit der CMDB-API abgleicht."
+                    }
+                  ]
+                },
+                {
+                  "id": "ASST.2.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Inventarisierung erfolgt vollautomatisiert über Software Bills of Materials (SBOM) und CI/CD-Integrationen, inklusive kontinuierlicher Verifizierung von Herkunft (Supply-Chain-Security) und Lizenz-Compliance in Echtzeit.",
+                  "parts": [
+                    {
+                      "id": "ASST.2.3-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie die Erstellung von Software Bills of Materials (SBOM) im CycloneDX- oder SPDX-Format fest in Ihre Deployment-Pipelines. Verknüpfen Sie das Inventar mit automatisierten Lizenz- und Schwachstellen-Management-Prozessen."
+                    },
+                    {
+                      "id": "ASST.2.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Auditierung der CI/CD-Pipelines auf automatische SBOM-Generierung (z. B. mittels Syft) und Prüfung der Policy-Engines (z. B. Open Policy Agent), ob nicht lizenzierte oder unbekannte Software-Artefakte blockiert werden."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "OPS.2.2.A3",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): ASST.2.3 umfasst laut Erläuterung auch die Inventarisierung genutzter Cloud-Anwendungen, erstreckt sich jedoch weder auf reine Infrastruktur-Cloud-Dienste (z. B. IaaS) noch auf die im Satz geforderte Dokumentation lediglich geplanter Cloud-Dienste."
+                }
+              ]
+            }
+          ]
+        },
         {
           "control-id": "BER.3.7",
           "adds": [

@@ -3,8 +3,8 @@
     "uuid": "3adc123d-92f3-52f8-a4ac-4137a6ed6951",
     "metadata": {
       "title": "NET.3.4 – Network Access Control (Netze) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:08:35.892724+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:18.258008+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.3.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -93,8 +93,9 @@
               "BES.4.3",
               "BES.7.1",
               "DET.3.1",
-              "DET.3.1.6",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2",
+              "DET.3.2.6",
               "DET.4.14",
               "DET.4.4",
               "DET.6.1.2",
@@ -972,8 +973,9 @@
                         "with-ids": [
                           "ASST.4.2",
                           "DET.3.1",
-                          "DET.3.1.6",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
+                          "DET.3.2",
+                          "DET.3.2.6",
                           "KONF.14.1"
                         ]
                       }
@@ -1568,15 +1570,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -6769,7 +6771,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6777,17 +6779,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Authentifizierungsmittel werden ohne formale Identitätsprüfung ausgehändigt.",
+                  "prose": "Die Ausgabe und Registrierung von Authentifizierungsmitteln für den Netzzugang erfolgt ad-hoc und ohne dokumentierten Prozess.",
                   "parts": [
                     {
                       "id": "BER.5.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Geben Sie Passwörter nur persönlich oder sicher verschlüsselt weiter."
+                      "prose": "Dokumentieren Sie zumindest für privilegierte Netzzugänge, wem welches Authentifizierungsmittel (z. B. Client-Zertifikat) zugewiesen wurde."
                     },
                     {
                       "id": "BER.5.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, wie Passwörter an neue Mitarbeiter übermittelt werden."
+                      "prose": "Prüfung durch Stichproben von Benutzerkonten im NAC-System und Befragung der Administratoren, wie Zertifikate oder Tokens aktuell ausgegeben werden."
                     }
                   ]
                 },
@@ -6802,7 +6804,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6810,17 +6812,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Die Ausgabe erfolgt nach Sichtprüfung eines Ausweisdokuments und wird quittiert.",
+                  "prose": "Es existiert ein grundlegender, manuell durchgeführter Prozess zur Ausgabe und Zuordnung von Authentifizierungsmitteln zu Zugangskonten.",
                   "parts": [
                     {
                       "id": "BER.5.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Dokumentieren Sie die Übergabe von Token oder Passwörtern."
+                      "prose": "Etablieren Sie einen manuellen Basisprozess (z. B. via Ticketsystem), um die Zuordnung von Token oder Zertifikaten zu Konten nachvollziehbar zu machen."
                     },
                     {
                       "id": "BER.5.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Auditieren Sie die Empfangsbestätigungen der Authentifizierungsmittel."
+                      "prose": "Sichtprüfung der manuell gepflegten Ausgabelisten und Abgleich mit den im RADIUS-Server hinterlegten Identitäten und MAC-Adressen."
                     }
                   ]
                 },
@@ -6835,7 +6837,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6843,17 +6845,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.",
+                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe oder Registrierung von Authentifizierungsmitteln und ihrer Zuordnung zu den vorgesehenen Zugangskonten oder Berechtigungsumfängen verankern.",
                   "parts": [
                     {
                       "id": "BER.5.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Legen Sie fest, wie Benutzer sicher identifiziert werden und ihre Zugangsdaten erhalten."
+                      "prose": "Verankern Sie einen verbindlichen Prozess, der die Identitätsprüfung, die Registrierung der Authentifizierungsmittel (z. B. 802.1X-Zertifikate) und deren Zuordnung zu NAC-Rollen regelt."
                     },
                     {
                       "id": "BER.5.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Prozessbeschreibung zur Ausgabe von Zugangsdaten."
+                      "prose": "Prüfung der Prozessdokumentation zur Berechtigungsvergabe. Stichprobenartiger Abgleich von genehmigten Anträgen mit den Einträgen im Identity-Management oder NAC-System."
                     }
                   ]
                 },
@@ -6868,7 +6870,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6876,17 +6878,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Die Ausgabe umfasst die obligatorische Aktivierung von MFA in einer kontrollierten Umgebung.",
+                  "prose": "Die Ausgabe, Registrierung und Zuordnung von Authentifizierungsmitteln zu NAC-Berechtigungsumfängen erfolgt weitgehend automatisiert über ein zentrales Identity-Management.",
                   "parts": [
                     {
                       "id": "BER.5.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Enrolment-Stationen für die Einrichtung von 2FA."
+                      "prose": "Nutzen Sie automatisierte Workflows (z. B. über SCEP/EST), um Authentifizierungsmittel nach Freigabe direkt den richtigen NAC-Profilen und Konten zuzuordnen."
                     },
                     {
                       "id": "BER.5.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob MFA bei allen neuen Konten zwingend aktiviert ist."
+                      "prose": "Überprüfung der automatisierten Workflows im IdM/NAC-System. Automatisierter Abgleich aktiver Zertifikate der PKI mit gültigen Konten per Skript (z. B. via LDAP/REST-API)."
                     }
                   ]
                 },
@@ -6901,7 +6903,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -6909,17 +6911,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Automatisierte Identitätsverifizierung (z.B. Video-Ident) und verschlüsselter Hardware-Token-Versand.",
+                  "prose": "Die Registrierung und Zuordnung von Authentifizierungsmitteln ist vollständig als Policy-as-Code automatisiert, kryptografisch an Hardware gebunden und wird kontinuierlich verifiziert.",
                   "parts": [
                     {
                       "id": "BER.5.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie moderne ID-Verfahren in den Bereitstellungsprozess."
+                      "prose": "Integrieren Sie Zero-Touch-Provisioning mit kryptografischer Hardware-Bindung (z. B. TPM 2.0) und kontinuierlicher Validierung der Zuordnung durch Policy-as-Code."
                     },
                     {
                       "id": "BER.5.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Sicherheitsprotokolle des Ident-Verfahrens."
+                      "prose": "Prüfung der Policy-as-Code-Definitionen für das Onboarding. Automatisierter Audit-Check via API, ob verwaiste oder falsch zugeordnete Authentifizierungsmittel im NAC existieren."
                     }
                   ]
                 }
@@ -8435,208 +8437,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 deckt die Protokollierung sicherheitsrelevanter Ereignisse ab, umfasst jedoch nicht die spezifisch geforderte Protokollierung von Statusänderungen an NAC-Komponenten. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 und der Satz überschneiden sich bei der Protokollierung sicherheitsrelevanter Ereignisse für Anwendungsanteile von NAC, jedoch fordert der Satz auch die Protokollierung allgemeiner Statusänderungen auf allen NAC-Komponenten, während DET.3.1 eine Aufbewahrungsfrist vorsieht. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.6_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.6-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Spezifische Applikationsereignisse werden teilweise in separaten Dateien geloggt.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.6-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Identifizieren Sie die wichtigsten systemspezifischen Ereignisse für Ihr System."
-                    },
-                    {
-                      "id": "DET.3.1.6-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Applikations-Logordner auf vorhandene Dateien."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.6-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Spezifische Ereignisse werden in einem strukturierten Format (z. B. JSON) lokal erfasst.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.6-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Konfigurieren Sie Applikationen so, dass sie strukturierte Logs für einfachere Auswertung liefern."
-                    },
-                    {
-                      "id": "DET.3.1.6-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Sichtprüfung der Log-Struktur auf Lesbarkeit durch Parser."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.6-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.1.6-prm1 }} protokollieren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.6-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass die als kritisch definierten systemspezifischen Parameter geloggt werden."
-                    },
-                    {
-                      "id": "DET.3.1.6-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Abgleich der Log-Konfiguration mit der Liste der zu protokollierenden Parameter."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.6-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Spezifische Ereignisse werden zentral korreliert und auf Anomalien geprüft.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.6-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Erstellen Sie spezifische Grok-Filter oder Parser im Log-Aggregator für diese Ereignisse."
-                    },
-                    {
-                      "id": "DET.3.1.6-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Parser-Konfiguration im SIEM/Log-Management-Tool."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.6-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "KI-basierte Anomalieerkennung wertet systemspezifische Ereignisse in Echtzeit aus.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.6-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie Machine Learning (z. B. ELK ML-Features), um Abweichungen im Normalbetrieb zu finden."
-                    },
-                    {
-                      "id": "DET.3.1.6-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Audit der ML-Modell-Performance und Prüfung der generierten Anomalie-Alerts."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): DET.3.1.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.8",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.8_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8657,19 +8472,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8690,19 +8505,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8723,19 +8538,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8756,19 +8571,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8789,12 +8604,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -8809,7 +8624,381 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.8 erfasst privilegierte Ereignisse in Anwendungen, was schreibende Konfigurationszugriffe auf NAC-Komponenten berührt, aber nicht deren netzinfrastrukturellen Rahmen abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.2 erfasst privilegierte Ereignisse in Anwendungen, was schreibende Konfigurationszugriffe auf NAC-Komponenten berührt, aber nicht deren netzinfrastrukturellen Rahmen abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse im Kontext von NAC werden nur vereinzelt auf einzelnen Systemen mit Standardeinstellungen lokal protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die Standard-Protokollierung auf den wichtigsten NAC-Komponenten (z. B. RADIUS-Server), um zumindest fehlgeschlagene Anmeldeversuche lokal zu erfassen."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Einsichtnahme in die lokalen Log-Dateien einzelner Switches und des RADIUS-Servers (z. B. unter /var/log/freeradius)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Die Protokollierung sicherheitsrelevanter Ereignisse ist auf den wesentlichen NAC-Komponenten aktiviert, erfolgt jedoch ohne zentrale Korrelation oder angepasste Detailtiefe.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie alle NAC-Komponenten und Netzwerksysteme so, dass wichtige Ereignisse wie 802.1X-Fehler und VLAN-Zuweisungen konsistent protokolliert werden."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Syslog-Konfiguration auf den NAC-Komponenten und Switches. Stichprobenartige Kontrolle, ob Authentifizierungsfehler im Log erscheinen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass alle im Parameter definierten NAC-Ereignisse (z. B. erfolgreiche/fehlgeschlagene 802.1X-Authentifizierungen, CoA-Events) vollständig protokolliert werden."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Konfigurationsdateien (z. B. rsyslog.conf, RADIUS-Logging) gegen die Vorgaben. Automatisierte Prüfung per Skript, ob definierte Event-IDs im zentralen Log-Server eingehen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante NAC-Ereignisse werden zentral in einem SIEM aggregiert, normalisiert und durch automatisierte Regeln proaktiv auf Sicherheitsvorfälle überwacht.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie alle NAC-Protokolle in Echtzeit an ein zentrales SIEM weiter, normalisieren Sie die Daten und richten Sie Alarme für Anomalien (z. B. MAC-Spoofing, häufige Auth-Fehler) ein."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der SIEM-Integration und Parser-Regeln. Automatisierter Test durch Auslösen eines NAC-Events (z. B. ungültiges Zertifikat) und Abfrage der SIEM-API auf korrekte Alarmierung."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung ist in eine hochautomatisierte Architektur integriert, die mittels KI/ML-Analysen Anomalien erkennt und über das NAC-System autonom Gegenmaßnahmen (z. B. CoA-Isolation) einleitet.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Ergänzen Sie das SIEM um verhaltensbasierte Analysen (UEBA) und verknüpfen Sie erkannte Vorfälle direkt mit dem NAC-System zur automatischen Quarantäne (Change of Authorization)."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Auditierung der SOAR-Playbooks und ML-Modelle im SIEM. Automatisierte Prüfung der Log-Pipeline-Integrität mittels kontinuierlicher synthetischer Transaktionen (Log-Heartbeats)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.3.4.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt die Protokollierung von Statusänderungen und NAC-spezifischen sicherheitskritischen Ereignissen, enthält aber anders als DET.3.2 keine Anforderung an eine Aufbewahrungsfrist."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.6",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.6_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.6-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Spezifische Applikationsereignisse werden teilweise in separaten Dateien geloggt.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.6-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Identifizieren Sie die wichtigsten systemspezifischen Ereignisse für Ihr System."
+                    },
+                    {
+                      "id": "DET.3.2.6-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Applikations-Logordner auf vorhandene Dateien."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.6-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Spezifische Ereignisse werden in einem strukturierten Format (z. B. JSON) lokal erfasst.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.6-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie Applikationen so, dass sie strukturierte Logs für einfachere Auswertung liefern."
+                    },
+                    {
+                      "id": "DET.3.2.6-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichtprüfung der Log-Struktur auf Lesbarkeit durch Parser."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.6-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.2.6-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.6-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass die als kritisch definierten systemspezifischen Parameter geloggt werden."
+                    },
+                    {
+                      "id": "DET.3.2.6-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abgleich der Log-Konfiguration mit der Liste der zu protokollierenden Parameter."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.6-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Spezifische Ereignisse werden zentral korreliert und auf Anomalien geprüft.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.6-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Erstellen Sie spezifische Grok-Filter oder Parser im Log-Aggregator für diese Ereignisse."
+                    },
+                    {
+                      "id": "DET.3.2.6-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Parser-Konfiguration im SIEM/Log-Management-Tool."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.6-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "KI-basierte Anomalieerkennung wertet systemspezifische Ereignisse in Echtzeit aus.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.6-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Machine Learning (z. B. ELK ML-Features), um Abweichungen im Normalbetrieb zu finden."
+                    },
+                    {
+                      "id": "DET.3.2.6-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Audit der ML-Modell-Performance und Prüfung der generierten Anomalie-Alerts."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.3.4.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): DET.3.2.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -11454,13 +11643,13 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 deckt die regelmäßige Konfigurationsüberprüfung ab, fordert jedoch nicht die Anpassung bei festgestellten Abweichungen. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 empfiehlt die regelmäßige Überprüfung der umgesetzten Konfiguration gegen den Referenzzustand, schließt aber die in Satz 3 zusätzlich geforderte Überprüfung der Vorgaben selbst sowie deren Anpassung nicht ein. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A13",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 deckt die regelmäßige Überprüfung gegen den Sollzustand ab, fordert jedoch keine anlassbezogenen Validierungen bei zusätzlichem Bedarf. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 empfiehlt den regelmäßigen Soll-Ist-Vergleich der Systemkonfiguration, umfasst jedoch nicht die in Satz 3 zusätzlich geforderte Durchführung bei Bedarf. [auch: satz_abdeckung]"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "uuid": "f50d614e-424b-501e-9307-fc126b90f7c5",
     "metadata": {
       "title": "NET.3.2 – Firewall (IT-Systeme)",
-      "last-modified": "2026-10-19T01:18:10.364521+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:09.475136+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.3.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -97,8 +97,9 @@
               "BES.4.8.1",
               "DET.3.1",
               "DET.3.1.1",
-              "DET.3.1.4",
-              "DET.3.1.7",
+              "DET.3.2",
+              "DET.3.2.1",
+              "DET.3.2.4",
               "DET.4.11.1",
               "DET.4.11.3",
               "DET.4.3",
@@ -137,7 +138,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -571,8 +572,9 @@
                         "with-ids": [
                           "DET.3.1",
                           "DET.3.1.1",
-                          "DET.3.1.4",
-                          "DET.3.1.7",
+                          "DET.3.2",
+                          "DET.3.2.1",
+                          "DET.3.2.4",
                           "DET.4.11.3"
                         ]
                       }
@@ -1654,15 +1656,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1686,7 +1688,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1696,7 +1698,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -1818,7 +1820,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.2.A2",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): ARCH.2.2.1 fordert die Einschränkung von Verbindungen über externe Netzanschlüsse und deckt damit die Unterbindung unerlaubter eingehender Verbindungen von außen in das geschützte Netz inhaltlich ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert für Firewalls allgemein, unerlaubte eingehende Verbindungen in das geschützte Netz zu unterbinden, was sich bei Außenanbindungen mit der Empfehlung aus ARCH.2.2.1 überschneidet, Verbindungen über externe Netzanschlüsse einzuschränken. [auch: satz_abdeckung, gsmap]"
                 },
                 {
                   "name": "ed23-anforderung",
@@ -2420,7 +2422,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.2.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): DET.3.1 verlangt allgemein die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen, was Sicherheits- und ACL-Verletzungen auf Sicherheitsproxies inhaltlich einschließt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 2): DET.3.1 verlangt allgemein die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen, was Sicherheits- und ACL-Verletzungen auf Sicherheitsproxies inhaltlich einschließt."
                 }
               ]
             }
@@ -2436,14 +2438,46 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.2.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): Satz 4 fordert die Protokollierung von Authentisierungsdaten bzw. fehlgeschlagenen Authentisierungen bei der Benutzeranmeldung am Sicherheitsproxy, was einen konkreten Anwendungsfall von DET.3.1.1 darstellt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.1 überschneidet sich bei grundlegenden Parametern wie Zeit, Quelle und Ziel, umfasst jedoch nicht alle netzspezifischen Detailangaben wie Ports, Dienst oder Verbindungsdauer. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.4",
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.3.2.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Protokollierung spezifischer sicherheitsrelevanter Ereignisse und Detailfelder auf einer Firewall, während DET.3.2 allgemein die Protokollierung sicherheitsrelevanter Ereignisse in IT-Systemen für eine bestimmte Frist empfiehlt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.3.2.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): Satz 4 fordert die Protokollierung von Authentisierungsdaten bzw. fehlgeschlagenen Authentisierungen bei der Benutzeranmeldung am Sicherheitsproxy, was einen konkreten Anwendungsfall von DET.3.2.1 darstellt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.4",
           "adds": [
             {
               "position": "ending",
@@ -2453,22 +2487,6 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.2.A9",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Die G++-Maßnahme überschneidet sich bezüglich der Erfassung von Systemfehlermeldungen, lässt jedoch firewallspezifische Ereignisse wie abgewiesene Verbindungen oder Konfigurationsänderungen unberücksichtigt. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.7",
-          "adds": [
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "NET.3.2.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.7 überschneidet sich bei grundlegenden Parametern wie Zeit, Quelle und Ziel, umfasst jedoch nicht alle netzspezifischen Detailangaben wie Ports, Dienst oder Verbindungsdauer. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
@@ -2698,7 +2716,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.2.A19",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.15.3 adressiert DoS-Schutzmaßnahmen auf Anwendungsebene, was sich mit der Konfiguration von Verbindungslimits am Paketfilter zur DoS-Prävention überschneidet."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.15.3 bezieht sich auf DoS-Schutzmaßnahmen in der Anwendungskonfiguration von Hostsystemen und überschneidet sich thematisch mit Verbindungslimits zum Schutz von Server-Diensten, umfasst jedoch nicht die Konfiguration an dedizierten Paketfiltern."
                 }
               ]
             }

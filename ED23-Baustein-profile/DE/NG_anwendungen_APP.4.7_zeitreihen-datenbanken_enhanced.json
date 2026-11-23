@@ -3,8 +3,8 @@
     "uuid": "34632c4a-c5f6-5fe0-a39b-d3b32383ec59",
     "metadata": {
       "title": "NG APP.4.7 – Zeitreihen-Datenbanken (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:56.612103+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:48.345265+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.7 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -70,8 +70,8 @@
               "BES.2.1",
               "BES.2.1.3",
               "DET.3.1",
-              "DET.3.1.8",
-              "DET.3.1.9",
+              "DET.3.1.2",
+              "DET.3.1.3",
               "DET.6.1",
               "KONF.10.1",
               "KONF.10.3",
@@ -590,8 +590,8 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.8",
-                          "DET.3.1.9",
+                          "DET.3.1.2",
+                          "DET.3.1.3",
                           "DET.6.1"
                         ]
                       }
@@ -835,15 +835,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -3309,14 +3309,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3337,19 +3337,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3370,19 +3370,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3403,19 +3403,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3436,19 +3436,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3469,12 +3469,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -3496,14 +3496,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.9",
+          "control-id": "DET.3.1.3",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.9_stm",
+              "by-id": "DET.3.1.3_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.9-m1_custom",
+                  "id": "DET.3.1.3-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3524,19 +3524,19 @@
                   "prose": "Lokale Speicherung von Standard-Fehlermeldungen ohne Monitoring.",
                   "parts": [
                     {
-                      "id": "DET.3.1.9-m1_custom_gdn",
+                      "id": "DET.3.1.3-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Anwendung schreibt Fehler in Textdateien auf dem lokalen Host."
                     },
                     {
-                      "id": "DET.3.1.9-m1_custom_asm",
+                      "id": "DET.3.1.3-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfe Existenz der Logdateien: ls -l /var/log/app/error.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.9-m2_custom",
+                  "id": "DET.3.1.3-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3557,19 +3557,19 @@
                   "prose": "Zusammenführung von Fehlermeldungen zur regelmäßigen Durchsicht.",
                   "parts": [
                     {
-                      "id": "DET.3.1.9-m2_custom_gdn",
+                      "id": "DET.3.1.3-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Einsatz von Log-Rotation und grundlegender Filterung kritischer Fehler."
                     },
                     {
-                      "id": "DET.3.1.9-m2_custom_asm",
+                      "id": "DET.3.1.3-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Check der Log-Rotation-Config und Fehler-Metriken."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.9-m3_custom",
+                  "id": "DET.3.1.3-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3590,19 +3590,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE Fehlermeldungen der Anwendung protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.9-m3_custom_gdn",
+                      "id": "DET.3.1.3-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie die Anwendung so, dass alle relevanten Fehlzustände im Log erscheinen."
                     },
                     {
-                      "id": "DET.3.1.9-m3_custom_asm",
+                      "id": "DET.3.1.3-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Verifizierung der Log-Ausgabe bei provozierten Fehlern (z.B. falscher DB-Connect)."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.9-m4_custom",
+                  "id": "DET.3.1.3-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3623,19 +3623,19 @@
                   "prose": "Zentralisiertes Fehlermanagement mit automatisierter Priorisierung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.9-m4_custom_gdn",
+                      "id": "DET.3.1.3-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung zentraler Log-Server zur Aggregation und Analyse von Stack-Traces."
                     },
                     {
-                      "id": "DET.3.1.9-m4_custom_asm",
+                      "id": "DET.3.1.3-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Abfrage der zentralen Datenbank auf Häufung spezifischer Fehlertypen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.9-m5_custom",
+                  "id": "DET.3.1.3-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3656,12 +3656,12 @@
                   "prose": "Präventive Fehleranalyse mittels Machine Learning und Observability.",
                   "parts": [
                     {
-                      "id": "DET.3.1.9-m5_custom_gdn",
+                      "id": "DET.3.1.3-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Einsatz von Tracing-Tools zur Identifikation von Fehlerketten über Microservices hinweg."
                     },
                     {
-                      "id": "DET.3.1.9-m5_custom_asm",
+                      "id": "DET.3.1.3-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung automatisierter Ticketsystem-Einträge basierend auf Log-Anomalien."
                     }
@@ -5211,17 +5211,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Die Rechenleistung wird nur bei akuten Performance-Problemen manuell über Task-Priorisierung begrenzt.",
+                  "prose": "Die Rechenleistung für Anwendungen auf Hostsystemen wird nur vereinzelt und reaktiv bei akuten Engpässen manuell eingeschränkt.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Tools wie 'nice' oder 'renice' zur temporären Steuerung der CPU-Last."
+                      "prose": "Begrenzen Sie bei akuten Lastproblemen ad-hoc die Rechenleistung einzelner Datenbankprozesse oder Abfragen über Betriebssystemmittel (z. B. `cpulimit`, `nice`), um Systemausfälle temporär zu verhindern."
                     },
                     {
                       "id": "KONF.15.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Prüfung der Prozessprioritäten mittels 'top' oder 'ps -el'."
+                      "prose": "Prüfen Sie stichprobenartig auf den Hostsystemen der Zeitreihen-Datenbanken, ob für einzelne Prozesse oder Abfragen manuelle Limits (z. B. via `ulimit` oder `nice`) gesetzt wurden."
                     }
                   ]
                 },
@@ -5244,17 +5244,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Hostsysteme nutzen grundlegende CPU-Affinität oder feste CPU-Shares für kritische Anwendungen.",
+                  "prose": "Pauschale Einschränkungen der Rechenleistung für die Datenbankanwendung sind auf Hostebene über statische Standardwerte manuell eingerichtet.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Konfigurieren Sie CPU-Pinning für Anwendungen, um Ressourcenkonflikte zu minimieren."
+                      "prose": "Konfigurieren Sie grundlegende, statische Ressourcenlimits für den Dienst der Zeitreihen-Datenbank auf Betriebssystemebene (z. B. über Linux cgroups oder Systemd-Direktiven wie `CPUQuota`), ohne granulare Unterscheidung einzelner Abfragen."
                     },
                     {
                       "id": "KONF.15.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Auslesen der CPU-Affinität für App-Prozesse via 'taskset -p <pid>'."
+                      "prose": "Überprüfen Sie die Systemd-Unit-Files oder Startskripte der Zeitreihen-Datenbank manuell auf statische CPU- und RAM-Limits (z. B. via `systemctl show <service> | grep -E 'CPUQuota|MemoryMax'`)."
                     }
                   ]
                 },
@@ -5277,17 +5277,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Implementieren Sie Mechanismen zur Drosselung der CPU-Ressourcen für die Anwendung auf dem Host."
+                      "prose": "Stellen Sie sicher, dass die Konfiguration der Zeitreihen-Datenbank und des Hostsystems die Rechenleistung pro definierter Einheit (z. B. pro Abfrage, Benutzer oder Prozess) gemäß den dokumentierten Vorgaben zuverlässig einschränkt."
                     },
                     {
                       "id": "KONF.15.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Host-Konfiguration (z.B. cgroups oder Systemd-ResourceControl) auf CPU-Limits."
+                      "prose": "Prüfen Sie die Konfigurationsdateien der Zeitreihen-Datenbank sowie die Host-Konfiguration automatisiert per Skript darauf, ob die definierten Parameter zur Begrenzung der Rechenleistung exakt gemäß Vorgabe gesetzt sind."
                     }
                   ]
                 },
@@ -5310,17 +5310,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Dynamische Drosselung der Rechenleistung bei Erreichen definierter Schwellenwerte zur Sicherung der Systemstabilität.",
+                  "prose": "Ressourcenlimits für Rechenleistung sind standardisiert über ein Konfigurationsmanagement ausgerollt und das Erreichen von Schwellenwerten wird proaktiv überwacht.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verwenden Sie Steuerungsgruppen, um CPU-Zeitanteile (Shares) pro Anwendung fest zu definieren."
+                      "prose": "Automatisieren Sie das Ausrollen von Ressourcenlimits (z. B. über cgroups v2, Kubernetes ResourceQuotas und DB-interne Query-Limits) und überwachen Sie aktiv das Drosselungsverhalten (CPU Throttling, OOM-Events) im Monitoring."
                     },
                     {
                       "id": "KONF.15.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung der cgroup-Parameter für CPU-Quotas: 'cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us'."
+                      "prose": "Prüfen Sie über die API des Konfigurationsmanagements (z. B. Ansible, OpenTofu) oder der Container-Orchestrierung (z. B. `kubectl get pod -o jsonpath='{.spec.containers[*].resources.limits}'`), ob Ressourcenlimits durchgesetzt und überwacht werden."
                     }
                   ]
                 },
@@ -5343,17 +5343,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollautomatisierte Ressourcensteuerung skaliert CPU-Ressourcen horizontal oder vertikal basierend auf Echtzeit-Bedarf.",
+                  "prose": "Die Begrenzung der Rechenleistung erfolgt dynamisch, adaptiv und wird kontinuierlich durch Policy-as-Code-Mechanismen überprüft und automatisch optimiert.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Setzen Sie Autoscaling-Mechanismen ein, die strikte Obergrenzen pro Workload erzwingen."
+                      "prose": "Implementieren Sie eine dynamische, lastabhängige Ressourcensteuerung (Workload Management) in Kombination mit Policy-as-Code, welche Limits kontinuierlich verifiziert und bei Anomalien selbstheilend eingreift oder dynamisch skaliert."
                     },
                     {
                       "id": "KONF.15.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Autoscaler-Konfiguration und Load-Testing zur Bestätigung der Limits."
+                      "prose": "Prüfen Sie die Policy-as-Code-Regeln (z. B. mittels Open Policy Agent / Rego) in der CI/CD-Pipeline sowie die automatisierte Skalierungslogik via API-Abfrage auf korrekte Durchsetzung dynamischer Limits."
                     }
                   ]
                 }

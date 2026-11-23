@@ -3,8 +3,8 @@
     "uuid": "31ceff15-4f7c-5b53-96d9-d0a068eb2ba0",
     "metadata": {
       "title": "APP.2.3 – OpenLDAP (Verzeichnisdienste) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:08.195485+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:42.530783+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.2.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -82,7 +82,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -636,15 +636,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -668,7 +668,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -678,7 +678,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -3145,17 +3145,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Rechenleistung wird durch 'nice'-Werte priorisiert.",
+                  "prose": "Die Begrenzung der Rechenleistung für OpenLDAP erfolgt lediglich ad-hoc oder unvollständig auf einzelnen Systemen, ohne Berücksichtigung spezifischer Parameter wie {{ insert: param, konf.15.2-prm1 }}.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Setzen Sie die Prozesspriorität beim Start der Anwendung."
+                      "prose": "Definieren Sie zumindest für kritische Systeme erste provisorische Ressourcenlimits über `ulimit` oder einfache Prozess-Priorisierungen (`nice`), um einen kompletten Systemstillstand bei Lastspitzen abzufedern."
                     },
                     {
                       "id": "KONF.15.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Priorität mit 'top' oder 'ps -el'."
+                      "prose": "Prüfen Sie manuell auf Stichprobenbasis, ob überhaupt Limits für den OpenLDAP-Prozess (`slapd`) existieren, z.B. mittels `cat /proc/$(pgrep slapd)/limits` oder durch Sichtung von Ad-hoc-Startskripten."
                     }
                   ]
                 },
@@ -3178,17 +3178,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Statische CPU-Affinität ist konfiguriert.",
+                  "prose": "Eine grundlegende Einschränkung der Rechenleistung ist pauschal für den gesamten OpenLDAP-Dienst über Standardmechanismen des Hostsystems eingerichtet, jedoch nicht granular pro {{ insert: param, konf.15.2-prm1 }} abgestimmt.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Weisen Sie der Anwendung feste CPU-Kerne zu (taskset)."
+                      "prose": "Konfigurieren Sie grundlegende Ressourcenlimits auf Betriebssystemebene (z.B. über systemd cgroups wie `CPUQuota` und `MemoryMax`) oder statische Standardlimits direkt in der OpenLDAP-Konfiguration (`olcSizeLimit`, `olcTimeLimit`)."
                     },
                     {
                       "id": "KONF.15.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung mit 'taskset -p <pid>'."
+                      "prose": "Überprüfen Sie die systemd-Unit-Datei von OpenLDAP mittels `systemctl show slapd -p CPUQuotaPerSecUSec -p MemoryMax` sowie die Basis-Direktiven in `cn=config` auf das Vorhandensein grundlegender Ressourcenlimits."
                     }
                   ]
                 },
@@ -3211,17 +3211,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Mechanismen zur Ressourcenkontrolle wie cgroups."
+                      "prose": "Implementieren Sie spezifische Ressourcen- und Abfragelimits in OpenLDAP (`olcLimits`, `olcThreads`, `olcSockbufMaxIncoming`) kombiniert mit Host-cgroups, um die Rechenleistung gezielt pro {{ insert: param, konf.15.2-prm1 }} zu steuern."
                     },
                     {
                       "id": "KONF.15.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der cgroup-Limits unter /sys/fs/cgroup/cpu/."
+                      "prose": "Prüfen Sie die OpenLDAP-Konfiguration automatisiert mittels `ldapsearch -Y EXTERNAL -H ldapi:/// -b cn=config '(olcLimits=*)' olcLimits` sowie die cgroup-Konfiguration des Hostsystems, ob die Begrenzung exakt pro {{ insert: param, konf.15.2-prm1 }} greift."
                     }
                   ]
                 },
@@ -3244,17 +3244,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Erzwingung von CPU-Limits durch Container-Orchestrierung.",
+                  "prose": "Die Rechenleistung für OpenLDAP wird verbindlich und granular pro {{ insert: param, konf.15.2-prm1 }} durch Host- und Applikationsmechanismen begrenzt, zentral überwacht und bei Schwellwertüberschreitungen proaktiv alarmiert.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Definieren Sie CPU-Limits und Requests in der Container-Spec."
+                      "prose": "Verbinden Sie die granularen Limits (`olcLimits` und cgroupsv2) mit einem aktiven Monitoring des `cn=Monitor`-Backends (z.B. via Prometheus OpenLDAP-Exporter), um Ressourcenengpässe pro {{ insert: param, konf.15.2-prm1 }} frühzeitig zu erkennen."
                     },
                     {
                       "id": "KONF.15.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Abfrage der Container-Metadaten auf CPU-Limits."
+                      "prose": "Validieren Sie durch automatisierte Skripte die Konfigurationsdateien (z.B. Ansible-Playbooks im Check-Mode) und prüfen Sie im Monitoring-System, ob Alarme bei Erreichen der definierten Schwellwerte für {{ insert: param, konf.15.2-prm1 }} ausgelöst werden."
                     }
                   ]
                 },
@@ -3277,17 +3277,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Echtzeit-Drosselung der Rechenleistung bei Detektion von Anomalien.",
+                  "prose": "Die Begrenzung der Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} erfolgt vollautomatisiert, wird über Policy-as-Code kontinuierlich verifiziert und passt sich bei anomalem Verhalten oder Lastspitzen dynamisch an.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie ein IPS, das CPU-Limits bei Angriffssignalen drosselt."
+                      "prose": "Nutzen Sie Policy-as-Code zur Durchsetzung von Ressourcenlimits in containerisierten OpenLDAP-Umgebungen (z.B. Kubernetes ResourceQuotas) und implementieren Sie dynamisches Rate-Limiting basierend auf Echtzeit-Telemetriedaten."
                     },
                     {
                       "id": "KONF.15.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Simulierter Lastangriff und Messung der CPU-Drosselung."
+                      "prose": "Prüfen Sie die CI/CD-Pipelines und Policy-as-Code-Regeln (z.B. mittels Open Policy Agent) auf erzwungene Ressourcenlimits und verifizieren Sie die automatische Skalierung bzw. das dynamische Throttling anhand von Audit-Logs."
                     }
                   ]
                 }
@@ -3300,7 +3300,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.3.A3",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): Die Begrenzung der Rechenleistung überschneidet sich mit den geforderten Zeitbeschränkungen für OpenLDAP-Suchen, deckt die ebenfalls geforderten Größenbeschränkungen für Suchergebnisse jedoch nicht ab."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): Während der Satz verbindliche Zeit- und Größenbeschränkungen für Suchanfragen speziell in OpenLDAP verlangt, erlaubt KONF.15.2 allgemein die optionale Begrenzung der Rechenleistung pro Konto oder Mandant, wofür Zeitlimits in Verzeichnisdiensten ein Beispiel sind, ohne jedoch Größenbeschränkungen (Speicher/Ergebnismenge) zu umfassen."
                 }
               ]
             }

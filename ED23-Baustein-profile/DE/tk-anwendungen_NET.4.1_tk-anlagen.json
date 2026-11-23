@@ -3,8 +3,8 @@
     "uuid": "16f8082b-7661-5be4-8e8b-a398d2d41dc0",
     "metadata": {
       "title": "NET.4.1 – TK-Anlagen (TK-Anwendungen)",
-      "last-modified": "2026-10-19T01:09:24.288080+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:26.908163+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.4.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -70,8 +70,9 @@
               "BES.2.5",
               "BES.4.2",
               "DET.3.1",
-              "DET.3.1.12",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2",
+              "DET.3.3",
               "GEB.3.3",
               "GEB.6.2",
               "GEB.6.3",
@@ -289,8 +290,9 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.12",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
+                          "DET.3.2",
+                          "DET.3.3",
                           "KONF.12.12"
                         ]
                       }
@@ -1027,15 +1029,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1282,14 +1284,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.4.1.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 deckt die Erfassung sicherheitsrelevanter Protokolldaten ab, schließt jedoch die im Satz zusätzlich geforderte Auswertung bei TK-Anlagen nicht ein. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 1): DET.3.1 fordert die grundlegende Protokollierung sicherheitsrelevanter Ereignisse und deckt damit die Erfassung geeigneter Protokolldaten inhaltlich als allgemeinere Maßnahme ab."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.12",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -1298,14 +1300,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.4.1.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Die Maßnahme adressiert die Protokollierung von Datenverarbeitungen und überschneidet sich mit den geforderten Datenübermittlungen und Datenzugriffen, erfasst jedoch nicht die darüber hinaus verlangten systemtechnischen Eingriffe und Programmveränderungen an der TK-Anlage. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.2 adressiert privilegierte Ereignisse bei Softwareanwendungen und berührt damit Administrationsarbeiten an TK-Anlagen, erfasst diese TK-spezifische Infrastruktur jedoch nicht vollständig. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
@@ -1314,7 +1316,23 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.4.1.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.8 adressiert privilegierte Ereignisse bei Softwareanwendungen und berührt damit Administrationsarbeiten an TK-Anlagen, erfasst diese TK-spezifische Infrastruktur jedoch nicht vollständig. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Protokollierung spezifischer Eingriffe, Auswertungsläufe und Datenzugriffe bei TK-Anlagen, während DET.3.2 allgemein die Protokollierung sicherheitsrelevanter Ereignisse in IT-Systemen für eine bestimmte Frist empfiehlt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.3",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.4.1.A5",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Die Maßnahme adressiert die Protokollierung von Datenverarbeitungen und überschneidet sich mit den geforderten Datenübermittlungen und Datenzugriffen, erfasst jedoch nicht die darüber hinaus verlangten systemtechnischen Eingriffe und Programmveränderungen an der TK-Anlage. [auch: satz_abdeckung]"
                 }
               ]
             }

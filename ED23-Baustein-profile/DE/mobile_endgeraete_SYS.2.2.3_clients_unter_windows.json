@@ -3,8 +3,8 @@
     "uuid": "a8d8ba3b-490f-57c7-948f-d38bf936b750",
     "metadata": {
       "title": "SYS.2.2.3 – Clients unter Windows (Mobile Endgeräte)",
-      "last-modified": "2026-10-19T01:04:35.067763+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.818978+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.2.2.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -68,7 +68,8 @@
               "BES.1.4",
               "BES.4.2",
               "DET.3.1.2",
-              "DET.3.1.6",
+              "DET.3.2.2",
+              "DET.3.2.6",
               "KONF.10.4",
               "KONF.14.1",
               "KONF.2.1",
@@ -1059,6 +1060,7 @@
                       {
                         "with-ids": [
                           "DET.3.1.2",
+                          "DET.3.2.2",
                           "KONF.7.10",
                           "KONF.7.12"
                         ]
@@ -1162,7 +1164,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.6"
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -1272,15 +1274,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1489,14 +1491,30 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.2.3.A22",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.2 deckt die Protokollierung von PowerShell-Befehlen im Rahmen allgemeiner Kommandozeilenbefehle ab, adressiert jedoch weder die zentrale Protokollierung noch die anschließende Überwachung der Protokolle. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.2.2.3.A22",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.2.2 deckt die Protokollierung von PowerShell-Befehlen im Rahmen allgemeiner Kommandozeilenbefehle ab, adressiert jedoch weder die zentrale Protokollierung noch die anschließende Überwachung der Protokolle. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
@@ -1505,7 +1523,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.2.3.A24",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): Die Aktivierung des Last-Access-Zeitstempels dient der Aufzeichnung systemspezifischer Zugriffsdaten auf Dateien, was durch den generischen Parameter für systemspezifische Ereignisse in DET.3.1.6 abgebildet werden kann."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): Die Aktivierung des Last-Access-Zeitstempels dient der Aufzeichnung systemspezifischer Zugriffsdaten auf Dateien, was durch den generischen Parameter für systemspezifische Ereignisse in DET.3.2.6 abgebildet werden kann."
                 }
               ]
             }

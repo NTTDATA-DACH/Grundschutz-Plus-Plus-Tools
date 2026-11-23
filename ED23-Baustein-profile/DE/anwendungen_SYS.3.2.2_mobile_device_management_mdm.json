@@ -3,8 +3,8 @@
     "uuid": "fa34fdbf-1763-5c12-89e5-501cb7d73db6",
     "metadata": {
       "title": "SYS.3.2.2 – Mobile Device Management (MDM) (Anwendungen)",
-      "last-modified": "2026-10-19T01:10:45.048227+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:30.088957+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.3.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -198,7 +198,8 @@
                       {
                         "with-ids": [
                           "ASST.3.11",
-                          "BES.4.3"
+                          "BES.4.3",
+                          "KONF.2.6"
                         ]
                       }
                     ]
@@ -247,6 +248,11 @@
                     "href": "#BES.4.3",
                     "rel": "related",
                     "text": "BES.4.3 steht unter SYS.3.2.2.A2"
+                  },
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -288,11 +294,17 @@
                       {
                         "with-ids": [
                           "ASST.6.4",
-                          "KONF.14.1",
-                          "KONF.2.6"
+                          "KONF.14.1"
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -332,7 +344,7 @@
                   {
                     "href": "#KONF.2.6",
                     "rel": "related",
-                    "text": "KONF.2.6 steht unter SYS.3.2.2.A4"
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -483,6 +495,13 @@
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -637,6 +656,13 @@
                       }
                     ]
                   }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
+                  }
                 ]
               },
               {
@@ -688,6 +714,11 @@
                     "href": "#ASST.6.4",
                     "rel": "related",
                     "text": "ASST.6.4 steht unter SYS.3.2.2.A4"
+                  },
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               }
@@ -756,7 +787,7 @@
                   {
                     "href": "#KONF.2.6",
                     "rel": "related",
-                    "text": "KONF.2.6 steht unter SYS.3.2.2.A4"
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -828,7 +859,7 @@
                   {
                     "href": "#KONF.2.6",
                     "rel": "related",
-                    "text": "KONF.2.6 steht unter SYS.3.2.2.A4"
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -895,7 +926,7 @@
                   {
                     "href": "#KONF.2.6",
                     "rel": "related",
-                    "text": "KONF.2.6 steht unter SYS.3.2.2.A4"
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
                   }
                 ]
               },
@@ -944,6 +975,11 @@
                 ],
                 "links": [
                   {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.2.A2"
+                  },
+                  {
                     "href": "#KONF.3.6",
                     "rel": "related",
                     "text": "KONF.3.6 steht unter SYS.3.2.2.A22"
@@ -958,15 +994,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1309,7 +1345,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A20",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.2.5 fordert allgemein die regelmäßige Überprüfung der Systemkonfiguration gegen den Referenzzustand und schließt die regelmäßige Überprüfung von Sicherheitseinstellungen vollständig ein. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand, was die regelmäßige Überprüfung von Sicherheitseinstellungen direkt abdeckt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -1324,32 +1360,68 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A2",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert eine spezifische Konfiguration des Mobile Device Managements (MDM) zur Durchsetzung von Zugriffsrichtlinien auf mobilen Endgeräten und überschneidet sich damit inhaltlich mit KONF.2.6."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A3",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 verlangt bei der Produktauswahl die Umsetzung aller Sicherheitsmaßnahmen und die Unterstützung aller zugelassenen Geräte, während KONF.2.6 normativ die Aktivierung der MDM-Verwaltung auf Endgeräten regelt und Auswahlkriterien lediglich in der Erläuterung empfiehlt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.6 fordert allgemein die Aktivierung der MDM-Verwaltung für Endgeräte, regelt jedoch nicht die verpflichtende Vorab-Integration mobiler Geräte vor deren Einsatz. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (equivalent-to, Teilanforderung 1): Beide Anforderungen zielen mit gleicher Schutzwirkung darauf ab, mobile Endgeräte in die zentrale Verwaltung eines Mobile Device Managements (MDM) einzubinden. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.6 fordert die Aktivierung der MDM-Verwaltung auf Konfigurationsebene, umfasst aber nicht die konkrete Client-Installation bei Übergabe mobiler Geräte an Mitarbeitende. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (equivalent-to, Teilanforderung 1): Die in KONF.2.6 empfohlene Aktivierung der MDM-Verwaltung für mobile Endgeräte entspricht in ihrer Schutzwirkung der Forderung, vor der Übergabe einen MDM-Client auf den Geräten zu installieren und zu konfigurieren. [auch: satz_abdeckung]"
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die zentrale Verwaltung (Installation, Deinstallation, Aktualisierung) von Apps über das MDM, was eine konkrete Ausprägung der in KONF.2.6 geforderten Verwaltung mobiler Endgeräte durch ein MDM darstellt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die zentrale Verwaltung (Installation, Deinstallation, Aktualisierung) von Zertifikaten auf mobilen Endgeräten über ein MDM, was einen konkreten Spezialfall der Verwaltung mobiler Endgeräte durch ein MDM gemäß KONF.2.6 darstellt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A22",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert eine spezifische Konfigurations- und Verwaltungsfunktion durch das MDM (Remote Wipe), was einen konkreten Spezialfall der in KONF.2.6 geforderten MDM-Verwaltung für mobile Endgeräte darstellt."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A14",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.2.6 empfiehlt Reputationsdienste in den Erläuterungen, fordert normativ jedoch nur die allgemeine MDM-Aktivierung und keine konkreten Installationsbeschränkungen für Apps."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Nutzung eines Mobile Device Managements (MDM) zur Einschränkung von App-Installationen anhand von Reputationsdiensten, was explizit in der Erläuterung von KONF.2.6 als Teil der MDM-Konfiguration genannt wird."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.2.6 erwähnt die Erkennung von Jailbreaks und Rooting in den Erläuterungen, fordert normativ jedoch die Aktivierung der MDM-Verwaltung ohne spezifische Erkennungsmechanismen."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert das Erkennen von Jailbreaks oder Rooting bei mobilen Endgeräten, was direkt in der Erläuterung von KONF.2.6 als Funktion des MDM empfohlen wird."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.2.A19",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.6 erwähnt Geofencing in den Erläuterungen, fordert normativ jedoch nur die allgemeine Aktivierung der MDM-Verwaltung für Endgeräte."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert eine Geofencing-Richtlinie für Geräte mit schutzbedürftigen Informationen, während KONF.2.6 normativ die Aktivierung der MDM-Verwaltung empfiehlt und Geofencing in der Erläuterung als Option für die kontextbezogene Richtliniendurchsetzung nennt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.2.A23",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert im Kontext des MDM-Bausteins die Erkennung von Betriebssystemmanipulationen (z. B. Jailbreak/Root), was eine explizit in der Erläuterung von KONF.2.6 genannte MDM-Funktion ist."
                 }
               ]
             }

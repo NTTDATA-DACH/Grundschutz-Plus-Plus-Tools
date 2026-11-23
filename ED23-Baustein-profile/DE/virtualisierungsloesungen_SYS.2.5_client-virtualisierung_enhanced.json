@@ -3,8 +3,8 @@
     "uuid": "8aadb565-6940-5762-b1c7-0b7e6ff271b0",
     "metadata": {
       "title": "SYS.2.5 – Client-Virtualisierung (Virtualisierungslösungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:10:24.327072+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:51.230945+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.2.5 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -68,7 +68,7 @@
               "ASST.3.10",
               "BER.3.12",
               "BES.2.1.3",
-              "DET.3.1.8",
+              "DET.3.2",
               "DET.4.11",
               "DET.4.13",
               "DET.4.14",
@@ -878,7 +878,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.8"
+                          "DET.3.2"
                         ]
                       }
                     ]
@@ -991,15 +991,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1400,7 +1400,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.5.A2",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 5): ARCH.2.2.1 fordert die allgemeine Einschränkung von Verbindungen über externe Netzanschlüsse und deckt damit die Festlegung zur Beschränkung der Kommunikation in nicht vertrauenswürdige Netze inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): Satz 5 fordert für virtuelle Clients festzulegen, inwieweit die Kommunikation in nicht vertrauenswürdige Netze eingeschränkt wird, was sich mit der allgemeinen Empfehlung aus ARCH.2.2.1 zur Einschränkung externer Netzanschlüsse überschneidet. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -3096,14 +3096,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3121,22 +3121,22 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Privilegierte Ereignisse werden nur vereinzelt im Rahmen allgemeiner Systemlogs erfasst.",
+                  "prose": "Protokollierung von Ereignissen auf Host- und Gastsystemen erfolgt ad-hoc über Standardeinstellungen ohne Fokus auf die Virtualisierung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Keine gezielte Überwachung von administrativen Zugriffen oder Statusänderungen."
+                      "prose": "Aktivität: Belassen der Standard-Protokollierung des Host-OS. Es erfolgt keine spezifische Konfiguration für die Virtualisierungsanwendung."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung, ob administrative Logins überhaupt in den Logs auftauchen."
+                      "prose": "Prüfung der lokalen Logdateien (z.B. via 'journalctl' oder 'Get-WinEvent') auf das Vorhandensein grundlegender Systemereignisse auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3154,22 +3154,22 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Standard-Logging für privilegierte Benutzer ist aktiviert, aber nicht ausgewertet.",
+                  "prose": "Sicherheitsrelevante Basisereignisse der Virtualisierung werden lokal und manuell konfiguriert protokolliert, jedoch ohne einheitlichen Standard.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzung von Standard-Audit-Tools des Betriebssystems ohne Applikationsfokus."
+                      "prose": "Manuelle Aktivierung der lokalen Protokollierung in der Virtualisierungssoftware für Basisereignisse wie VM-Starts, Stopps und kritische Fehler."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichtung der Audit-Logs mit 'ausearch -m USER_AUTH'."
+                      "prose": "Überprüfung der Konfigurationsdateien der Virtualisierungssoftware mittels Skript (z.B. 'grep' auf Log-Direktiven) auf aktive Fehlerprotokollierung."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3187,22 +3187,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Dokumentation aller Zustandsänderungen privilegierter Konten ist erforderlich."
+                      "prose": "Konfigurieren Sie die Protokollierung auf Host- und Gastsystemen so, dass alle im Parameter definierten sicherheitsrelevanten Ereignisse erfasst werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Audit-Regeln für privilegierte Funktionen in der Anwendungskonfiguration."
+                      "prose": "Audit der Logging-Konfiguration (z.B. via 'auditctl -l' oder Konfig-Parser) auf vollständige Abdeckung der definierten Parameter für alle Systeme."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3220,22 +3220,22 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierte Echtzeit-Alarmierung bei kritischen Änderungen an privilegierten Funktionen.",
+                  "prose": "Sicherheitsrelevante Ereignisse für {{ insert: param, det.3.2-prm1 }} werden zentralisiert in Echtzeit erfasst und automatisiert auf Anomalien korreliert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Überwachung der Integrität von Sicherheitskonfigurationen durch File Integrity Monitoring."
+                      "prose": "Anbindung der Host- und VM-Protokollierung an ein zentrales SIEM/Log-Management (z.B. via Syslog/TLS) inkl. automatisierter Alarmierung bei Anomalien."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Auslösen einer Test-Deaktivierung und Kontrolle des Alarmeingangs im SOC."
+                      "prose": "Automatisierter Check der Log-Forwarder (z.B. 'systemctl is-active rsyslog') und API-Abfrage des zentralen Log-Servers auf aktive Datenströme."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3253,17 +3253,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollständige Orchestrierung privilegierter Zugriffe mit Just-In-Time-Logging.",
+                  "prose": "Die Protokollierung für {{ insert: param, det.3.2-prm1 }} ist vollautomatisiert, revisionssicher und nutzt KI-gestützte Analysen zur proaktiven Abwehr.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verknüpfung von Berechtigungsvergabe und Log-Eintrag über eine zentrale Policy."
+                      "prose": "Einsatz von 'Logging as Code', revisionssicherer Speicherung, ML-gestützter Verhaltensanalyse (UEBA) und automatisierter SOAR-Reaktion für VMs."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Audit-Trace-Abgleich zwischen Identity Management und Applikationslog."
+                      "prose": "Prüfung des 'Policy as Code'-Zustands (z.B. via Ansible/OpenSCAP) für Logging-Profile und Test der SOAR-Playbooks durch simulierte Sicherheitsereignisse."
                     }
                   ]
                 }
@@ -3276,7 +3276,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.5.A16",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (intersects-with)"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 empfiehlt die Protokollierung konkreter sicherheitsrelevanter Ereignisse auf virtuellen Clients, enthält jedoch im Gegensatz zu DET.3.2 keine Vorgabe zur Aufbewahrungsfrist."
                 }
               ]
             }
@@ -5179,17 +5179,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Rechenleistung wird nach Bedarf ohne Limits vergeben.",
+                  "prose": "Eine Begrenzung der Rechenleistung auf dem Hostsystem erfolgt lediglich ad-hoc und reaktiv bei auftretenden Ressourcenengpässen.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Ad-hoc Intervention bei Systemüberlastung durch Admins."
+                      "prose": "Ressourcenlimits (CPU/RAM) werden nur reaktiv bei akuten Leistungsproblemen einzelner virtueller Clients manuell durch Administratoren gesetzt."
                     },
                     {
                       "id": "KONF.15.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfe 'top' auf Prozesse mit hoher CPU-Last."
+                      "prose": "Manuelle Prüfung der VM-Konfigurationen über die GUI oder CLI der Virtualisierungssoftware auf vereinzelte Ressourcenlimits."
                     }
                   ]
                 },
@@ -5212,17 +5212,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "CPU-Priorisierung über Nice-Level ist implementiert.",
+                  "prose": "Die Rechenleistung wird bei der Einrichtung von virtuellen Systemen manuell über einfache Standardwerte der Virtualisierungssoftware begrenzt.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Wichtige Systemdienste erhalten höhere Priorität."
+                      "prose": "Bei der Erstellung neuer virtueller Clients werden manuell grobe Standardwerte für vCPUs und Arbeitsspeicher zugewiesen, ohne strikte Host-Isolierung."
                     },
                     {
                       "id": "KONF.15.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfe Prioritäten mittels 'ps -el' und Spalte 'NI'."
+                      "prose": "Stichprobenartige Prüfung der VM-Konfigurationsdateien (z.B. mittels 'virsh dominfo') auf das Vorhandensein von Basis-Limits für CPU und RAM."
                     }
                   ]
                 },
@@ -5245,17 +5245,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Begrenzen Sie die CPU-Ressourcen für Anwendungen, um Denial-of-Service-Szenarien durch Ressourcen-Erschöpfung zu vermeiden."
+                      "prose": "Definieren und konfigurieren Sie feste Grenzwerte für CPU, RAM und I/O in der Virtualisierungsanwendung gemäß den Vorgaben für das jeweilige Zielobjekt."
                     },
                     {
                       "id": "KONF.15.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die CPU-Shares oder Limits in der Konfiguration (z.B. cgroups). Führen Sie einen Stresstest zur Verifikation durch."
+                      "prose": "Automatisierter Abgleich der aktiven Ressourcenlimits (z.B. via 'systemctl show' für cgroups oder Hypervisor-CLI) gegen die dokumentierten Vorgaben."
                     }
                   ]
                 },
@@ -5278,17 +5278,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Harte CPU-Limits via Cgroups oder Hypervisor-Limits.",
+                  "prose": "Die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} wird durch granulare OS- und Hypervisor-Quotas zentral gesteuert und aktiv überwacht.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Konfiguriere CPU-Quotas zur strikten Ressourcen-Isolation."
+                      "prose": "Nutzung von Betriebssystem-Mechanismen (z.B. Linux cgroups v2) und Hypervisor-Quotas, die zentral verwaltet und kontinuierlich überwacht werden."
                     },
                     {
                       "id": "KONF.15.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfe 'cpu.cfs_quota_us' Einstellungen im cgroup-Verzeichnis."
+                      "prose": "Überprüfung der zentralen Konfigurationsmanagement-Rollen (z.B. Ansible) und Auswertung von Monitoring-Metriken (z.B. Prometheus) zur Limit-Einhaltung."
                     }
                   ]
                 },
@@ -5311,17 +5311,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Echtzeit-QoS für CPU-Ressourcen pro Workload.",
+                  "prose": "Ressourcenlimits pro {{ insert: param, konf.15.2-prm1 }} werden als 'Policy as Code' erzwungen und dynamisch-adaptiv zur garantierten Dienstgüte gesteuert.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Implementiere dynamische CPU-Steuerung basierend auf Service-Level-Agreements."
+                      "prose": "Implementierung dynamischer, kontextabhängiger Ressourcenkontingente mittels 'Policy as Code', die sich adaptiv an die Systemlast anpassen und DoS verhindern."
                     },
                     {
                       "id": "KONF.15.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Validiere die Orchestrierungs-Richtlinien für CPU-Limits."
+                      "prose": "Audit der 'Infrastructure as Code'-Pipelines (z.B. mittels Open Policy Agent) auf erzwungene Ressourcen-Policies und Test des Auto-Scalings."
                     }
                   ]
                 }
@@ -5334,7 +5334,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.5.A10",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Festlegung und Zuweisung von Ressourcen wie Prozessorkernen für virtuelle Clients, was der Begrenzung der Rechenleistung entspricht."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Der Satz umfasst die Zuweisung von Prozessorkernen und Arbeitsspeicher speziell für virtuelle Clients, während KONF.15.2 allgemein für Anwendungen auf Hostsystemen gilt, dort jedoch ausschließlich die Einschränkung der Rechenleistung (wie Rechenkerne) behandelt."
                 }
               ]
             }
@@ -7024,7 +7024,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.5.A10",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Festlegung und Zuweisung von Ressourcen wie Prozessorkernen an virtuelle Clients, was eine Form der Begrenzung der Rechenleistung darstellt."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 empfiehlt die bedarfsgerechte Festlegung von Ressourcen wie Prozessorkernen oder Arbeitsspeicher für virtuelle Clients, was sich hinsichtlich der CPU-Zuweisung mit der optionalen Begrenzung der Rechenleistung von Hostsystemen in KONF.9.2 überschneidet, während Speicherressourcen dort nicht behandelt werden."
                 }
               ]
             }

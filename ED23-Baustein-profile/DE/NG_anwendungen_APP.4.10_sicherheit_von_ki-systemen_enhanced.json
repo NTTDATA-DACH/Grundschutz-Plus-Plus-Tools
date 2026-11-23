@@ -3,8 +3,8 @@
     "uuid": "2e883eec-3880-5351-9f20-f7d633ef8778",
     "metadata": {
       "title": "NG APP.4.10 – Sicherheit von KI-Systemen (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:08.855113+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:35.432303+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,23 +49,23 @@
           "text": "Baustein APP.4.10 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
               "ASST.2.1",
-              "ASST.2.4",
+              "ASST.2.5",
               "ASST.3.12",
               "ASST.3.7",
               "ASST.3.8",
               "BER.4.1",
               "BES.1.1",
               "DET.3.1",
-              "DET.3.1.11",
+              "DET.3.1.5",
               "DET.4.6",
               "DEV.1.1",
               "DEV.2.2",
@@ -87,7 +87,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -219,7 +219,7 @@
                       {
                         "with-ids": [
                           "ASST.2.1",
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "ASST.3.12",
                           "BER.4.1"
                         ]
@@ -324,7 +324,7 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.11"
+                          "DET.3.1.5"
                         ]
                       }
                     ]
@@ -901,15 +901,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -933,7 +933,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -943,7 +943,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -971,7 +971,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -979,17 +979,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Informationen werden unsystematisch und meist erst im Schadensfall erfasst.",
+                  "prose": "Ein Inventar der für KI-Systeme relevanten Informationen, Trainingsdaten und zugehörigen Modell-Assets wird nur vereinzelt und ad-hoc geführt.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine zentrale Koordination der Inventarisierung von Informationswerten."
+                      "prose": "Erfassen Sie zumindest für die wichtigsten KI-Anwendungen ad-hoc, welche Datensätze und Basismodelle verwendet werden, beispielsweise in einfachen Tabellen."
                     },
                     {
                       "id": "ASST.2.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Befragung von Abteilungsleitern nach vorhandenen Datenlisten."
+                      "prose": "Prüfen Sie stichprobenartig, ob für kritische KI-Systeme informelle Listen der genutzten Trainings- und Testdaten sowie der Modell-Artefakte existieren."
                     }
                   ]
                 },
@@ -1004,7 +1004,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1012,17 +1012,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Informationen werden manuell in einfachen Listen oder Tabellen gepflegt.",
+                  "prose": "Ein grundlegendes Inventar der KI-bezogenen Informationen und Assets ist vorhanden, wird jedoch manuell gepflegt und nicht konsistent bei Änderungen aktualisiert.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Basisinventar ist vorhanden, wird aber unregelmäßig und ohne festen Prozess aktualisiert."
+                      "prose": "Legen Sie ein standardisiertes, zentrales Register (z. B. im Wiki) an, in dem alle KI-Datensätze, Datenquellen und Modelle bei Projektstart manuell eingetragen werden."
                     },
                     {
                       "id": "ASST.2.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsichtnahme in die zentral geführten Excel-Listen oder Dokumente."
+                      "prose": "Prüfen Sie, ob ein zentrales Dokument existiert, das Trainingsdaten, Modelle und Skripte auflistet. Kontrollieren Sie manuell das Datum der letzten Aktualisierung."
                     }
                   ]
                 },
@@ -1037,7 +1037,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1045,17 +1045,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+                  "prose": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erstellen Sie ein vollständiges Verzeichnis aller Informationswerte inklusive deren Abhängigkeiten."
+                      "prose": "Etablieren Sie einen definierten Prozess, um alle KI-Trainingsdaten, Validierungsdaten, Modelle und zugehörigen Infrastruktur-Assets strukturiert in einem zentralen Inventar zu dokumentieren."
                     },
                     {
                       "id": "ASST.2.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung des Inventardokuments auf Vollständigkeit und Aktualität gemäß Richtlinie."
+                      "prose": "Prüfen Sie das dokumentierte Asset-Inventar auf Vollständigkeit bezüglich KI-Daten und Modellen. Automatisierte Prüfung: Abfrage der Inventar-API (z. B. mittels curl/jq) auf Pflichtfelder."
                     }
                   ]
                 },
@@ -1070,7 +1070,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1078,17 +1078,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Das Inventar ist mit Rollen verknüpft und wird durch regelmäßige Reviews validiert.",
+                  "prose": "Das Inventar der KI-Daten und -Assets wird durch die Integration in MLOps-Pipelines teilautomatisiert aktualisiert und umfasst auch Metadaten zur Datenherkunft (Data Lineage).",
                   "parts": [
                     {
                       "id": "ASST.2.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Asset-Owner validieren ihre Bestände proaktiv mindestens jährlich."
+                      "prose": "Nutzen Sie Open-Source-Tools wie DVC (Data Version Control) und MLflow, um Daten- und Modell-Assets automatisch zu versionieren und über Schnittstellen mit dem zentralen Inventar zu synchronisieren."
                     },
                     {
                       "id": "ASST.2.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Revisionsprotokolle und Bestätigungen der Asset-Owner im System."
+                      "prose": "Prüfen Sie die Integration des Inventars in die ML-Pipelines. Automatisierte Prüfung: Skriptbasierter Abgleich der MLflow-Artefakte und DVC-Repositories mit der CMDB via REST-API."
                     }
                   ]
                 },
@@ -1103,7 +1103,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1111,17 +1111,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollintegriertes CMDB-System mit automatischer Verknüpfung zu Geschäftsprozessen.",
+                  "prose": "Das Informations- und Asset-Inventar für KI-Systeme wird vollautomatisch in Echtzeit gepflegt, kryptografisch verifiziert und erzwingt Compliance-Vorgaben kontinuierlich über Policy-as-Code.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Änderungen an Prozessen lösen automatische Aktualisierungen im Informationsinventar aus."
+                      "prose": "Implementieren Sie eine vollautomatische Erkennung und Klassifizierung von KI-Assets. Nutzen Sie kryptografische Signaturen für Datensätze und erzwingen Sie die Inventarisierung via Policy-as-Code."
                     },
                     {
                       "id": "ASST.2.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Test der automatischen Update-Trigger bei Prozessänderungen in der CMDB-API."
+                      "prose": "Überprüfen Sie die Policy-as-Code-Regeln in der CI/CD-Pipeline. Automatisierte Prüfung: Open Policy Agent (OPA) blockiert Deployments, wenn Modell- oder Daten-Hashes im Inventar fehlen."
                     }
                   ]
                 }
@@ -1141,14 +1141,14 @@
           ]
         },
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.4_stm",
+              "by-id": "ASST.2.5_stm",
               "parts": [
                 {
-                  "id": "ASST.2.4-m1_custom",
+                  "id": "ASST.2.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1169,19 +1169,19 @@
                   "prose": "Informationen und Assets für KI-Daten werden vereinzelt und ad-hoc einer Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m1_custom_gdn",
+                      "id": "ASST.2.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Kennzeichnen Sie kritische Trainingsdaten zumindest rudimentär (z. B. über Ordnerstrukturen oder Dateinamen), um versehentliche Offenlegungen zu verhindern."
                     },
                     {
-                      "id": "ASST.2.4-m1_custom_asm",
+                      "id": "ASST.2.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobenartige Prüfung von KI-Datensätzen auf vorhandene Metadaten oder einfache Markierungen zur Schutzbedarfseinstufung."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m2_custom",
+                  "id": "ASST.2.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1202,19 +1202,19 @@
                   "prose": "Informationen und Assets für KI-Daten werden grundsätzlich manuell einer Schutzbedarfsklasse zugewiesen, jedoch ohne durchgängige Konsistenz.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m2_custom_gdn",
+                      "id": "ASST.2.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Tabellen oder einfache Verzeichnisse, um Trainings- und Testdaten manuell nach den bestehenden Richtlinien zu klassifizieren."
                     },
                     {
-                      "id": "ASST.2.4-m2_custom_asm",
+                      "id": "ASST.2.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Durchsicht von Datenkatalogen und Bestandslisten auf dokumentierte Schutzbedarfsklassen für KI-Assets."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m3_custom",
+                  "id": "ASST.2.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1235,19 +1235,19 @@
                   "prose": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m3_custom_gdn",
+                      "id": "ASST.2.5-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Etablieren Sie einen dokumentierten Prozess, der sicherstellt, dass alle KI-Trainings-, Validierungs- und Modell-Daten bei der Erfassung im Datenkatalog konsistent klassifiziert werden."
                     },
                     {
-                      "id": "ASST.2.4-m3_custom_asm",
+                      "id": "ASST.2.5-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Richtlinien und Metadaten im Datenkatalog. Automatisierter Check via Skript, ob alle registrierten KI-Datasets im Repository ein valides Klassifizierungs-Tag aufweisen."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m4_custom",
+                  "id": "ASST.2.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1268,19 +1268,19 @@
                   "prose": "Informationen und Assets für KI-Daten werden systematisch und weitgehend automatisiert beim Ingest in die Datenpipeline einer Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m4_custom_gdn",
+                      "id": "ASST.2.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Integrieren Sie automatisierte Klassifizierungs-Tags in Ihre MLOps-Pipelines. Verhindern Sie das Training von Modellen mit unklassifizierten Datensätzen durch automatische Gatekeeper."
                     },
                     {
-                      "id": "ASST.2.4-m4_custom_asm",
+                      "id": "ASST.2.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Data-Governance-Plattform via API-Abfrage, ob unklassifizierte Datenbestände automatisch blockiert oder gemeldet werden."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m5_custom",
+                  "id": "ASST.2.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1301,12 +1301,12 @@
                   "prose": "Die Zuweisung von Schutzbedarfsklassen für KI-Daten erfolgt kontinuierlich, vollautomatisiert durch inhaltsbasierte Analyse und ist tief in das Policy-as-Code-Framework integriert.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m5_custom_gdn",
+                      "id": "ASST.2.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Setzen Sie auf kontinuierliche, inhaltsbasierte Datenklassifizierung mittels ML-Scannern, die Schutzbedarfsklassen dynamisch anpassen und Sicherheitskontrollen vollautomatisch durchsetzen."
                     },
                     {
-                      "id": "ASST.2.4-m5_custom_asm",
+                      "id": "ASST.2.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Policy-as-Code-Regeln (z. B. via Open Policy Agent) und Validierung der automatischen Klassifizierungs-Logs der ML-basierten Data-Discovery-Tools."
                     }
@@ -2457,14 +2457,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.11",
+          "control-id": "DET.3.1.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.11_stm",
+              "by-id": "DET.3.1.5_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.11-m1_custom",
+                  "id": "DET.3.1.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2485,19 +2485,19 @@
                   "prose": "Applikationsspezifische Fehler werden nur im Debug-Modus protokolliert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m1_custom_gdn",
+                      "id": "DET.3.1.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Debug-Logs im Produktivbetrieb k&ouml;nnen sensitive Daten leaken."
                     },
                     {
-                      "id": "DET.3.1.11-m1_custom_asm",
+                      "id": "DET.3.1.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Pr&uuml;fung des Log-Levels in der Produktionsumgebung."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m2_custom",
+                  "id": "DET.3.1.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2518,19 +2518,19 @@
                   "prose": "Wichtige Business-Events (z.B. Transaktionsstart) werden manuell im Code geloggt.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m2_custom_gdn",
+                      "id": "DET.3.1.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Fehlende Einheitlichkeit erschwert die Korrelation &uuml;ber Services."
                     },
                     {
-                      "id": "DET.3.1.11-m2_custom_asm",
+                      "id": "DET.3.1.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Source-Code-Review auf Logging-Statements in kritischen Funktionen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m3_custom",
+                  "id": "DET.3.1.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2548,22 +2548,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen KANN {{ insert: param, det.3.1.11-prm1 }} protokollieren.",
+                  "prose": "Detektion für Anwendungen KANN {{ insert: param, det.3.1.5-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m3_custom_gdn",
+                      "id": "DET.3.1.5-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokussierung auf dom&auml;nenspezifische Sicherheitsereignisse."
                     },
                     {
-                      "id": "DET.3.1.11-m3_custom_asm",
+                      "id": "DET.3.1.5-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung der Log-Ausgabe gegen die Anforderungen in {{ insert: param, det.3.1.11-prm1 }}."
+                      "prose": "Validierung der Log-Ausgabe gegen die Anforderungen in {{ insert: param, det.3.1.5-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m4_custom",
+                  "id": "DET.3.1.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2584,19 +2584,19 @@
                   "prose": "Einsatz von Aspect-Oriented Programming (AOP) f&uuml;r konsistentes Business-Logging.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m4_custom_gdn",
+                      "id": "DET.3.1.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Automatische Protokollierung aller kritischen Methodenaufrufe ohne Code-Duplikation."
                     },
                     {
-                      "id": "DET.3.1.11-m4_custom_asm",
+                      "id": "DET.3.1.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Sichtung der AOP-Pointcuts in der Applikationsarchitektur."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m5_custom",
+                  "id": "DET.3.1.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2617,12 +2617,12 @@
                   "prose": "Distributed Tracing korreliert anwendungsspezifische Ereignisse &uuml;ber Microservice-Grenzen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m5_custom_gdn",
+                      "id": "DET.3.1.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollst&auml;ndige Sichtbarkeit der Request-Kette (z.B. via OpenTelemetry)."
                     },
                     {
-                      "id": "DET.3.1.11-m5_custom_asm",
+                      "id": "DET.3.1.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Trace-Analyse einer Beispieltransaktion im Tracing-Backend (z.B. Jaeger)."
                     }

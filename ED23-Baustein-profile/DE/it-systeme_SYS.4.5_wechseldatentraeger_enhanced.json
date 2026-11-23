@@ -3,8 +3,8 @@
     "uuid": "a1e47f1d-524e-58ea-b886-12d8869a1206",
     "metadata": {
       "title": "SYS.4.5 – Wechseldatenträger (IT-Systeme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:12:05.732495+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:42.535585+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.4.5 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -899,15 +899,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1701,12 +1701,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1714,17 +1714,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Informationen werden unsystematisch und meist erst im Schadensfall erfasst.",
+                  "prose": "Informationen und zugehörige Wechseldatenträger werden nur vereinzelt und ad-hoc ohne zentrales Inventar erfasst.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine zentrale Koordination der Inventarisierung von Informationswerten."
+                      "prose": "Erfassen Sie zumindest besonders kritische Wechseldatenträger und die darauf befindlichen sensiblen Informationen in einfachen Listen."
                     },
                     {
                       "id": "ASST.2.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Befragung von Abteilungsleitern nach vorhandenen Datenlisten."
+                      "prose": "Prüfung auf vereinzelte Dokumentationen von Wechseldatenträgern durch Befragung der IT-Verantwortlichen und Einsicht in lokale Listen."
                     }
                   ]
                 },
@@ -1734,12 +1734,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1747,17 +1747,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Informationen werden manuell in einfachen Listen oder Tabellen gepflegt.",
+                  "prose": "Ein grundlegendes Inventar für Informationen und zugehörige Wechseldatenträger wird manuell und ohne feste Aktualisierungszyklen geführt.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Basisinventar ist vorhanden, wird aber unregelmäßig und ohne festen Prozess aktualisiert."
+                      "prose": "Führen Sie eine zentrale, manuell gepflegte Tabelle ein, in der Wechseldatenträger und deren Informationskategorien erfasst werden."
                     },
                     {
                       "id": "ASST.2.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsichtnahme in die zentral geführten Excel-Listen oder Dokumente."
+                      "prose": "Stichprobenartige Prüfung der manuellen Inventarlisten auf Vollständigkeit und Abgleich mit physisch vorhandenen Wechseldatenträgern."
                     }
                   ]
                 },
@@ -1767,12 +1767,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1780,17 +1780,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+                  "prose": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erstellen Sie ein vollständiges Verzeichnis aller Informationswerte inklusive deren Abhängigkeiten."
+                      "prose": "Etablieren Sie einen definierten Prozess, um alle relevanten Informationen und die zugehörigen Wechseldatenträger strukturiert im Asset-Management zu dokumentieren."
                     },
                     {
                       "id": "ASST.2.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung des Inventardokuments auf Vollständigkeit und Aktualität gemäß Richtlinie."
+                      "prose": "Überprüfung des dokumentierten Inventars auf Vollständigkeit. Automatisierter Check via API-Abfrage des Asset-Management-Systems auf Einträge für Wechseldatenträger."
                     }
                   ]
                 },
@@ -1800,12 +1800,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1813,17 +1813,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Das Inventar ist mit Rollen verknüpft und wird durch regelmäßige Reviews validiert.",
+                  "prose": "Das Inventar der Informationen und zugehörigen Wechseldatenträger wird zentral verwaltet, regelmäßig geprüft und durch technischen Abgleich an Endpunkten überwacht.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Asset-Owner validieren ihre Bestände proaktiv mindestens jährlich."
+                      "prose": "Verknüpfen Sie das Informationsinventar mit einer CMDB und nutzen Sie Endpoint-Kontrollen, um angeschlossene Wechseldatenträger automatisch mit dem Inventar abzugleichen."
                     },
                     {
                       "id": "ASST.2.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Revisionsprotokolle und Bestätigungen der Asset-Owner im System."
+                      "prose": "Auditierung der CMDB-Integrität und der automatisierten Synchronisations-Logs. Skriptbasierter Abgleich zwischen USB-Freigabelisten und dem zentralen Asset-Inventar."
                     }
                   ]
                 },
@@ -1833,12 +1833,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1846,17 +1846,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollintegriertes CMDB-System mit automatischer Verknüpfung zu Geschäftsprozessen.",
+                  "prose": "Das Inventar für Informationen und Wechseldatenträger ist vollautomatisiert, integriert Datenklassifizierung in Echtzeit und blockiert nicht inventarisierte Medien.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Änderungen an Prozessen lösen automatische Aktualisierungen im Informationsinventar aus."
+                      "prose": "Implementieren Sie eine vollautomatische Erkennung und Klassifizierung von Daten auf Wechseldatenträgern, die das Inventar in Echtzeit per API aktualisiert."
                     },
                     {
                       "id": "ASST.2.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Test der automatischen Update-Trigger bei Prozessänderungen in der CMDB-API."
+                      "prose": "Kontinuierliche Prüfung per Policy-as-Code und REST-API-Abfragen zwischen DLP-System, Endpoint-Management und CMDB auf 100%ige Übereinstimmung der Asset-Daten."
                     }
                   ]
                 }
@@ -1869,7 +1869,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.4.5.A6",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): ASST.2.1 erfasst Wechseldatenträger als informationstragende Assets inventarisch, deckt jedoch die darüber hinausgehenden organisatorischen Aspekte einer Datenträgerverwaltung nicht ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): ASST.2.1 empfiehlt die Dokumentation eines Inventars für Informationen und verbundene Assets, was einen Teilaspekt einer Verwaltung für Wechseldatenträger bildet, jedoch über die reine Bestandsdokumentation hinausgehende Verwaltungsprozesse offenlässt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -4549,17 +4549,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Speicherplatz wird bei Ausfall manuell erweitert.",
+                  "prose": "Vereinzelte Cloud-Ereignisse werden manuell gesichtet.",
                   "parts": [
                     {
                       "id": "DET.3.4-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Keine proaktive Überwachung des Log-Speichers."
+                      "prose": "Führen Sie stichprobenartige Log-Prüfungen durch."
                     },
                     {
                       "id": "DET.3.4-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung, ob Logs aufgrund von Platzmangel fehlen."
+                      "prose": "Prüfen Sie Stichproben der manuellen Sichtungsprotokolle."
                     }
                   ]
                 },
@@ -4582,17 +4582,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Einfaches Monitoring des Plattenplatzes vorhanden.",
+                  "prose": "Cloud-Logs werden separat vom internen Log-System gespeichert.",
                   "parts": [
                     {
                       "id": "DET.3.4-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Schwellwert-Alarme informieren bei kritischem Füllstand."
+                      "prose": "Archivieren Sie Cloud-Audit-Logs zentral auf einem zugriffsgeschützten Speicher."
                     },
                     {
                       "id": "DET.3.4-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Check der Monitoring-Konsole (z.B. mit 'df -h' Skript)."
+                      "prose": "Sichten Sie das Speicherverzeichnis. Befehl: `ls -lh /var/log/cloud-audit/`"
                     }
                   ]
                 },
@@ -4615,17 +4615,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.4-prm1 }} überprüfen.",
+                  "prose": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.4-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Regelmäßige Prüfung stellt sicher, dass keine Logs verloren gehen."
+                      "prose": "Stellen Sie sicher, dass die Protokollierung im Audit Log wie beschrieben erfolgt."
                     },
                     {
                       "id": "DET.3.4-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsicht in Prüfprotokolle der Kapazitätsplanung."
+                      "prose": "Prüfen Sie die Integration der Cloud-Ereignisse im zentralen Audit-Log-System."
                     }
                   ]
                 },
@@ -4648,17 +4648,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierte Kapazitätserweiterung (Auto-Scaling).",
+                  "prose": "Cloud-Events werden automatisiert und in Echtzeit in das SIEM integriert.",
                   "parts": [
                     {
                       "id": "DET.3.4-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Cloud-Native-Speicher wächst dynamisch mit den Anforderungen."
+                      "prose": "Nutzen Sie Konnektoren für die automatische Übermittlung sicherheitsrelevanter Events."
                     },
                     {
                       "id": "DET.3.4-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Audit der Auto-Scaling-Groups in der Infrastruktur-Konfiguration."
+                      "prose": "Validieren Sie den Datenstrom im SIEM. Test: `grep 'cloud_provider' /var/log/syslog`"
                     }
                   ]
                 },
@@ -4681,17 +4681,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Prädiktive Kapazitätsplanung mittels Forecasting.",
+                  "prose": "Cloud-Ereignisse lösen automatisierte Incident-Response-Workflows aus.",
                   "parts": [
                     {
                       "id": "DET.3.4-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Systeme berechnen Log-Zuwachs und warnen vor zukünftigen Engpässen."
+                      "prose": "Integrieren Sie Cloud-Security-Events in ein SOAR-System für sofortige Reaktion."
                     },
                     {
                       "id": "DET.3.4-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Check der Trend-Analyse im Kapazitäts-Dashboard."
+                      "prose": "Lösen Sie ein Test-Event aus und prüfen Sie den Workflow-Status via API."
                     }
                   ]
                 }

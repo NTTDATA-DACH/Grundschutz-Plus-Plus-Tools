@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "be31d94a-e3c4-4164-b0b3-5f2010fbc440",
+    "uuid": "ec42fb21-fd0b-4465-897b-2056a66605a7",
     "metadata": {
       "title": "Mindeststandard des BSI für Videokonferenzdienste (Version 1.0) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-10-28T21:17:07.537Z",
+      "last-modified": "2026-11-23T17:08:39.925Z",
       "version": "1.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -83,7 +83,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Enthält nur Controls, für die der Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) keine Entsprechung bietet, gruppiert nach der Praktik des Anwenderkatalogs. Das zugehörige Profil importiert diesen Katalog neben dem Anwenderkatalog. Statements sind Formulierungen des Erstellers (oder des Modells, vom Ersteller übernommen) auf Grundlage des Mindeststandards, keine amtlichen Texte des BSI. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py); die verwendeten Controls des Anwenderkatalogs unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien. Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py); die verwendeten Controls des Anwenderkatalogs unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (43 Controls)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Enthält nur Controls, für die der Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) keine Entsprechung bietet, gruppiert nach der Praktik des Anwenderkatalogs. Das zugehörige Profil importiert diesen Katalog neben dem Anwenderkatalog. Statements sind Formulierungen des Erstellers (oder des Modells, vom Ersteller übernommen) auf Grundlage des Mindeststandards, keine amtlichen Texte des BSI. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py); die verwendeten Controls des Anwenderkatalogs unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien. Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py); die verwendeten Controls des Anwenderkatalogs unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (43 Controls). Pin am 2026-11-23 mechanisch von 160c177db6c8 auf dc44ea4fb581 umgestellt (repin.py); die verwendeten Controls des Anwenderkatalogs unterscheiden sich zwischen beiden Ständen nur in umbenannte Zielobjektkategorien oder documentation-Werte (9: BES.2.1, BES.4.2, BES.4.8, BES.5.10.1, BES.5.10.2, BES.5.10.3, BES.5.2, DET.5.10, REA.1.1)."
     },
     "groups": [
       {
@@ -156,17 +156,17 @@
             ],
             "links": [
               {
-                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.1.1",
+                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.1.1",
                 "rel": "related",
                 "text": "NOT.1.1 Verfahren und Regelungen (Anwenderkatalog Grundschutz++)"
               },
               {
-                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.1",
+                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.1",
                 "rel": "related",
                 "text": "NOT.3.1 Wiederanlaufplan (Anwenderkatalog Grundschutz++)"
               },
               {
-                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.5",
+                "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.5",
                 "rel": "related",
                 "text": "NOT.3.5 Ausweich-Telekommunikation (Anwenderkatalog Grundschutz++)"
               }

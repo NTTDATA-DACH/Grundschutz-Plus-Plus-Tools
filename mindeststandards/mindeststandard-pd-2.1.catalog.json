@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "8f5aa725-8fb3-4b98-9d25-588dd412da09",
+    "uuid": "00d5ea2c-d214-4aa4-a6c9-b5b367c3fcf0",
     "metadata": {
       "title": "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:17:07.471Z",
+      "last-modified": "2026-11-23T17:08:39.684Z",
       "version": "2.1",
       "oscal-version": "1.2.2",
       "props": [
@@ -92,7 +92,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -916,7 +916,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Detektions-Konzept"
+                        "value": "Detektionskonzept"
                       },
                       {
                         "name": "result",
@@ -958,7 +958,7 @@
               {
                 "id": "DET.3.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Protokollierung sicherheitsrelevanter Ereignisse",
+                "title": "Protokollierung in Anwendungen",
                 "params": [
                   {
                     "id": "det.3.1-prm1",
@@ -1074,7 +1074,7 @@
                   {
                     "id": "DET.3.1_gdn",
                     "name": "guidance",
-                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
+                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung von Sicherheitseinstellungen sowie Anmeldereignisse. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
                   },
                   {
                     "id": "DET.3.1_mst",
@@ -2386,12 +2386,12 @@
             ],
             "controls": [
               {
-                "id": "DET.3.3",
+                "id": "DET.3.5",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Filterung nicht benötigter Inhalte",
                 "params": [
                   {
-                    "id": "det.3.3-prm1",
+                    "id": "det.3.5-prm1",
                     "props": [
                       {
                         "name": "alt-identifier",
@@ -2465,7 +2465,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.3_stm",
+                    "id": "DET.3.5_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -2494,15 +2494,15 @@
                         "value": "MUSS"
                       }
                     ],
-                    "prose": "Detektion MÜSSEN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.3-prm1 }} einschränken."
+                    "prose": "Detektion MÜSSEN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.5-prm1 }} einschränken."
                   },
                   {
-                    "id": "DET.3.3_gdn",
+                    "id": "DET.3.5_gdn",
                     "name": "guidance",
                     "prose": "Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch Daten enthalten, die dort nicht benötigt werden, z.B. um die Vertraulichkeit der Daten zu wahren oder aufgrund von Compliance-Anforderungen. Dem kommt eine noch höhere Bedeutung zu, wenn die Protokolle zwischen Institutionen ausgetauscht, oder bei Cloud-Dienstleistern gespeichert oder analysiert werden. Maßnahmen können z.B. Anonymisierung von IP-Adressen oder anderen personenbezogenen Daten oder Geschäftsgeheimnissen, sowie enge Löschfristen sein. Für Verkehrsdaten kann der BfDI Leitfaden Speicherung Verkehrsdaten als Grundlage genutzt werden. Soweit möglich, ist es sinnvoll, die Filterung minimalinvasiv zu gestalten, d.h. nur diejenigen Daten auszufiltern, deren Speicherung nicht rechtlich oder tatsächlich möglich ist, die restlichen Angaben zum Ergebnis jedoch zu protokollieren."
                   },
                   {
-                    "id": "DET.3.3_mst",
+                    "id": "DET.3.5_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Es DÜRFEN NUR die Daten erhoben werden, für die die Legitimität geprüft worden ist.",
@@ -3335,12 +3335,12 @@
                 ],
                 "links": [
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.2",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.4",
                     "rel": "related",
-                    "text": "DET.3.2 Integration von Cloud-Diensten (Anwenderkatalog Grundschutz++)"
+                    "text": "DET.3.4 Integration von Cloud-Diensten (Anwenderkatalog Grundschutz++)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.5.13.1",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.5.13.1",
                     "rel": "related",
                     "text": "BES.5.13.1 Datenbereitstellung (Anwenderkatalog Grundschutz++)"
                   }
@@ -4243,9 +4243,9 @@
                     "text": "DET.3.1 Protokollierung sicherheitsrelevanter Ereignisse (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "#DET.3.3",
+                    "href": "#DET.3.5",
                     "rel": "related",
-                    "text": "DET.3.3 Filterung nicht benötigter Inhalte (Anwenderkatalog Grundschutz++, in diesem Profil)"
+                    "text": "DET.3.5 Filterung nicht benötigter Inhalte (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   }
                 ]
               }
@@ -4679,12 +4679,12 @@
             ],
             "controls": [
               {
-                "id": "DET.3.4",
+                "id": "DET.3.6",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Speicherkapazität",
                 "params": [
                   {
-                    "id": "det.3.4-prm1",
+                    "id": "det.3.6-prm1",
                     "props": [
                       {
                         "name": "alt-identifier",
@@ -4738,7 +4738,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "PD.2.2.03 a",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.3.4 adressiert die Speicherkapazität für die Protokollierung; Absatz a konkretisiert die Dimensionierung der zentralisierten Protokollierungsinfrastruktur, die Zonenplatzierung und den Zugriffsschutz."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.3.6 adressiert die Speicherkapazität für die Protokollierung; Absatz a konkretisiert die Dimensionierung der zentralisierten Protokollierungsinfrastruktur, die Zonenplatzierung und den Zugriffsschutz."
                   },
                   {
                     "name": "modal_verb_profil",
@@ -4749,7 +4749,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.4_stm",
+                    "id": "DET.3.6_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -4778,15 +4778,15 @@
                         "value": "MUSS"
                       }
                     ],
-                    "prose": "Detektion MUSS den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.4-prm1 }} überprüfen."
+                    "prose": "Detektion MUSS den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.6-prm1 }} überprüfen."
                   },
                   {
-                    "id": "DET.3.4_gdn",
+                    "id": "DET.3.6_gdn",
                     "name": "guidance",
                     "prose": "Diese Vorschrift zielt darauf ab, die Verfügbarkeit der Protokolldaten sicherzustellen. Das ist essenziell, da eine unterbrochene oder lückenhafte Aufzeichnung die Früherkennung von Angriffen unmöglich machen könnte, was dazu führen könnte, dass kritische forensische Beweise für eine Untersuchung fehlen. Die Umsetzung dieser Anforderung kann auf verschiedene Arten erfolgen. Es könnte ein Skript oder ein automatisierter Dienst eingesetzt werden, der den Füllstand des Speicherplatzes in regelmäßigen Abständen, zum Beispiel alle 15 Minuten oder einmal pro Stunde, prüft. Alternativ kann eine Überprüfung bei einem definierten Schwellenwert durchgeführt werden, etwa wenn 80 % oder 90 % des zugewiesenen Speicherplatzes belegt sind. Zur Behebung könnte bei Kapazitätsengpässen eine automatische Archivierung älterer Protokolldaten auf einem separaten, kostengünstigeren Speicher gestartet werden, um den primären Speicher zu entlasten. Es kann aber auch eine Rotationsstrategie für Log-Dateien konfiguriert werden, die bei Erreichen einer bestimmten Größe oder eines Alters die ältesten Dateien löscht oder archiviert."
                   },
                   {
-                    "id": "DET.3.4_mst",
+                    "id": "DET.3.6_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Die Protokollierungsinfrastruktur MUSS derart dimensioniert werden, dass die protokollierten Ereignisse für die doppelte Dauer der identifizierten Speicherfrist vorgehalten werden könnten.",
@@ -4800,7 +4800,7 @@
                 ]
               },
               {
-                "id": "DET.3.5",
+                "id": "DET.3.7",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Revisionssicherheit",
                 "props": [
@@ -4852,7 +4852,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "PD.2.2.03 a",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.5 fordert die revisionssichere Dokumentation von Änderungen am Audit Log, was den geforderten restriktiven und überwachten Zugriff auf Protokolldaten teilweise abdeckt."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.7 fordert die revisionssichere Dokumentation von Änderungen am Audit Log, was den geforderten restriktiven und überwachten Zugriff auf Protokolldaten teilweise abdeckt."
                   },
                   {
                     "name": "modal_verb_profil",
@@ -4863,7 +4863,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.5_stm",
+                    "id": "DET.3.7_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -4895,12 +4895,12 @@
                     "prose": "Detektion MUSS Änderungen am Audit Log revisionssicher dokumentieren."
                   },
                   {
-                    "id": "DET.3.5_gdn",
+                    "id": "DET.3.7_gdn",
                     "name": "guidance",
                     "prose": "Wenn die Protokollaufzeichnung unzureichend vor Veränderung geschützt ist, könnten Innentäter diese manipulieren oder löschen, um nicht erkannt oder belangt zu werden. Hierzu gehört auch, dass Administrierende die Protokolldaten zu ihren eigenen Tätigkeiten manipulieren oder löschen könnten. Die Integrität kann durch die Erstellung und getrennte Aufbewahrung von kryptografischen Hashes oder ein Versionskontrollsystem sichergestellt werden. Um sicherzustellen, dass nur autorisierte Personen die Protokolle verändern können, können z.B. Verschlüsselung und getrennte Aufbewahrung des Schlüssels, einmalig beschreibare Datenträger, oder ein Protokollierungsserver/SIEM mit stark eingeschränkten Zugriffsrechten eingesetzt werden. Auch die Aufzeichnung in einer öffentlichen Transparenzdatei ist möglich, wenn die Protokolle keine vertraulichen Daten enthalten."
                   },
                   {
-                    "id": "DET.3.5_mst",
+                    "id": "DET.3.7_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Der Zugriff auf die Protokollierungsinfrastruktur sowie die Protokoll- und Protokollierungsdaten MUSS restriktiv konfiguriert und überwacht werden.",
@@ -5086,14 +5086,14 @@
                     "text": "DET.3.1 Protokollierung sicherheitsrelevanter Ereignisse (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "#DET.3.4",
+                    "href": "#DET.3.6",
                     "rel": "related",
-                    "text": "DET.3.4 Speicherkapazität (Anwenderkatalog Grundschutz++, in diesem Profil)"
+                    "text": "DET.3.6 Speicherkapazität (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "#DET.3.5",
+                    "href": "#DET.3.7",
                     "rel": "related",
-                    "text": "DET.3.5 Revisionssicherheit (Anwenderkatalog Grundschutz++, in diesem Profil)"
+                    "text": "DET.3.7 Revisionssicherheit (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   }
                 ]
               }
@@ -5242,12 +5242,12 @@
                 ]
               },
               {
-                "id": "DET.3.1.6",
+                "id": "DET.3.2.6",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Systemspezifische Ereignisse",
                 "params": [
                   {
-                    "id": "det.3.1.6-prm1",
+                    "id": "det.3.2.6-prm1",
                     "props": [
                       {
                         "name": "alt-identifier",
@@ -5304,7 +5304,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "PD.2.2.03 b",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker bestaetigt): DET.3.1.6 regelt die Protokollierung bestimmter systemspezifischer Ereignisse auf IT-Systemen; Absatz b schreibt die Protokollierung der von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse verbindlich vor."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker bestaetigt): DET.3.2.6 regelt die Protokollierung bestimmter systemspezifischer Ereignisse auf IT-Systemen; Absatz b schreibt die Protokollierung der von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse verbindlich vor."
                   },
                   {
                     "name": "mindeststandard-anforderung",
@@ -5333,7 +5333,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.1.6_stm",
+                    "id": "DET.3.2.6_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -5362,15 +5362,15 @@
                         "value": "MUSS"
                       }
                     ],
-                    "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.1.6-prm1 }} protokollieren."
+                    "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.2.6-prm1 }} protokollieren."
                   },
                   {
-                    "id": "DET.3.1.6_gdn",
+                    "id": "DET.3.2.6_gdn",
                     "name": "guidance",
                     "prose": "Bestimmte systemspezifische Ereignisse meint hier, dass von der Instiution konkret festgehalten wurde, welche für das System relevanten Ereignisse im Einzelnen protokolliert werden. Beispiele sind Aktionen mit spezifisch konfigurierten privilegierten Berechtigungen, Prozessaktivitäten des Betriebssystems, wie das Starten eines Systemprozesses, Dateierzeugung oder das Laden eines Treibers, die Modifikation von Systemkonfigurationsdateien oder die Installation oder Deinstallation von Systemdiensten und Anwendungen, sowie das Herunterfahren oder Neustarten des Systems. Die Festlegung, welche dieser oder weiterer systemspezifischer Ereignisse protokolliert werden, obliegt der Institution und hängt von der jeweiligen Systemumgebung und dem Schutzbedarf ab."
                   },
                   {
-                    "id": "DET.3.1.6_mst",
+                    "id": "DET.3.2.6_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Falls keine Konfigurationsvorgaben des BSI existieren oder aufgrund betrieblicher Aspekte oder der Geschäftstätigkeit der Einrichtung abweichende Konfigurationen vorgenommen werden müssen, MÜSSEN die von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse (Protokoll- und Protokollierungsdaten oder Sekundär-SRE) protokolliert werden.\nDie Auslegung der Sichtbarkeiten für die Protokollierung aus IT-System-Sicht MUSS quellenspezifisch entschieden werden, wobei existierende Konfigurationsvorgaben vom BSI berücksichtigt werden MÜSSEN. Je Datensatz SOLLTEN mindestens Zeitstempel, Quellsystem, ggf. Benutzer, Event-IDs und Ereignisinformationen erhoben werden, sofern dies möglich ist.\nAuf allen in der Planungs- und Dokumentationsphase identifizierten Systemen MUSS die Protokollierung aktiviert werden. Es SOLLTE dabei NICHT zwischen virtuellen und physischen Systemen unterschieden werden.\nDie Auslegung der Sichtbarkeiten für die Protokollierung aus Netz-Sicht MUSS quellenspezifisch entschieden werden, wobei vorhandene Konfigurationsvorgaben vom BSI berücksichtigt werden MÜSSEN. Es SOLLTEN mindestens ein- und ausgehende Kommunikationen an allen (auch virtuellen) Netzgrenzen, die Kommunikation innerhalb von Netzen und zwischen IT-Systemen der relevanten Stufen sowie sicherheitsrelevante Ereignisse (SRE) der Netzwerkinfrastruktur protokolliert werden.",
@@ -5589,14 +5589,14 @@
             ],
             "links": [
               {
-                "href": "#DET.3.1.6",
+                "href": "#DET.3.2.6",
                 "rel": "related",
-                "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                "text": "DET.3.2.6 steht unter PD.2.2.03 b"
               }
             ],
             "controls": [
               {
-                "id": "DET.3.1.1",
+                "id": "DET.3.2.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Authentifizierungen",
                 "props": [
@@ -5648,7 +5648,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.1.1_stm",
+                    "id": "DET.3.2.1_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -5685,12 +5685,12 @@
                     "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren."
                   },
                   {
-                    "id": "DET.3.1.1_gdn",
+                    "id": "DET.3.2.1_gdn",
                     "name": "guidance",
                     "prose": "Relevant sind dabei z.B. die lokale Anmeldung, Anmeldung und Zugriffe auf Schnittstellen des Systems über das Netz, oder auch die physische Authentifizierung an einem Zutrittskontrollsystem."
                   },
                   {
-                    "id": "DET.3.1.1_mst",
+                    "id": "DET.3.2.1_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Ergänzend zu erfolgreichen und fehlgeschlagenen Anmeldeversuchen SOLLTEN auch Abmeldungen protokolliert werden.",
@@ -5836,9 +5836,9 @@
             ],
             "links": [
               {
-                "href": "#DET.3.1.6",
+                "href": "#DET.3.2.6",
                 "rel": "related",
-                "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                "text": "DET.3.2.6 steht unter PD.2.2.03 b"
               }
             ]
           },
@@ -5882,12 +5882,12 @@
             ],
             "controls": [
               {
-                "id": "DET.3.1.11",
+                "id": "DET.3.1.5",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Anwendungsspezifische Ereignisse",
                 "params": [
                   {
-                    "id": "det.3.1.11-prm1",
+                    "id": "det.3.1.5-prm1",
                     "props": [
                       {
                         "name": "alt-identifier",
@@ -5952,7 +5952,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.1.11_stm",
+                    "id": "DET.3.1.5_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -5981,15 +5981,15 @@
                         "value": "MUSS"
                       }
                     ],
-                    "prose": "Detektion für Anwendungen MÜSSEN {{ insert: param, det.3.1.11-prm1 }} protokollieren."
+                    "prose": "Detektion für Anwendungen MÜSSEN {{ insert: param, det.3.1.5-prm1 }} protokollieren."
                   },
                   {
-                    "id": "DET.3.1.11_gdn",
+                    "id": "DET.3.1.5_gdn",
                     "name": "guidance",
                     "prose": "Die Festlegung, welche spezifischen Ereignisse protokolliert werden, obliegt der Institution und hängt von der jeweiligen Systemumgebung und dem Schutzbedarf ab. Beispiele sind Änderungen an Zugangskonten im Verzeichnisdienst, Telekommunikationsverbindungen, ein Verstoß gegen eine konfigurierte Policy, unautorisierter Zugriff, API-Aufrufe zwischen verschiedenen Anwendungskomponenten, Transaktionen in einem Finanzsystem oder einer E-Commerce-Anwendung, Konfigurationsänderungen oder ein Absturz der Anwendung. Die Protokollierung dieser Ereignisse kann helfen, die Behandlung durch das Betriebspersonal anzustoßen oder Indizien für Ermittler zu sichern."
                   },
                   {
-                    "id": "DET.3.1.11_mst",
+                    "id": "DET.3.1.5_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Für Querschnittsdienste und Fachverfahren MUSS systemabhängig definiert werden, welche Ereignisse protokolliert werden und wie diese in die zentralisierte Protokollierung mit einzubinden sind.",
@@ -6452,9 +6452,9 @@
             ],
             "links": [
               {
-                "href": "#DET.3.1.6",
+                "href": "#DET.3.2.6",
                 "rel": "related",
-                "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                "text": "DET.3.2.6 steht unter PD.2.2.03 b"
               }
             ]
           },
@@ -6595,19 +6595,19 @@
                 ],
                 "links": [
                   {
-                    "href": "#DET.3.1.6",
+                    "href": "#DET.3.2.6",
                     "rel": "related",
-                    "text": "DET.3.1.6 Systemspezifische Ereignisse (Anwenderkatalog Grundschutz++, in diesem Profil)"
+                    "text": "DET.3.2.6 Systemspezifische Ereignisse (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.1.7",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.1.1",
                     "rel": "related",
-                    "text": "DET.3.1.7 Was, Wann, Wo (Anwenderkatalog Grundschutz++)"
+                    "text": "DET.3.1.1 Was, Wann, Wo (Anwenderkatalog Grundschutz++)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.6",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#DET.3.8",
                     "rel": "related",
-                    "text": "DET.3.6 Unbestreitbarkeit (Anwenderkatalog Grundschutz++)"
+                    "text": "DET.3.8 Unbestreitbarkeit (Anwenderkatalog Grundschutz++)"
                   }
                 ]
               }
@@ -7285,9 +7285,9 @@
                     "text": "DET.6.1 Beurteilung von Ereignissen (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "#DET.3.3",
+                    "href": "#DET.3.5",
                     "rel": "related",
-                    "text": "DET.3.3 Filterung nicht benötigter Inhalte (Anwenderkatalog Grundschutz++, in diesem Profil)"
+                    "text": "DET.3.5 Filterung nicht benötigter Inhalte (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
                     "href": "#DET.4.3",
@@ -7640,7 +7640,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Detektions-Konzept"
+                        "value": "Detektionskonzept"
                       },
                       {
                         "name": "result",
@@ -8523,7 +8523,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Prozess Behandlung von Sicherheitsvorfällen"
+                        "value": "Behandlung von Sicherheitsvorfällen"
                       },
                       {
                         "name": "result",
@@ -8814,17 +8814,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -8858,7 +8858,7 @@
           ]
         },
         {
-          "uuid": "59e0c053-2ec0-50fa-a7c7-4bdbb35deb19",
+          "uuid": "274e15cd-1f6f-50c4-8c8d-cf00f82c4f92",
           "title": "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 6 neuen Controls, Datei mindeststandard-pd-2.1.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -8868,7 +8868,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "cbf4308555e54efa6a1dc5b5e14c286a836670e39de8e143fabb6ffaab0b4f04"
+                  "value": "5f417033f1088b7a7e220a17ec3d8c1294e4f3ddf1d523960a00ce8549380ce3"
                 }
               ]
             }

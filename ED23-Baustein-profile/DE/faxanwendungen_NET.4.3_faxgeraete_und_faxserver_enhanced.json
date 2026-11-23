@@ -3,8 +3,8 @@
     "uuid": "d4eb2995-855e-577b-8208-bfb9cea79c65",
     "metadata": {
       "title": "NET.4.3 – Faxgeräte und Faxserver (Faxanwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:09:41.828840+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.140815+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.4.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -76,7 +76,7 @@
               "BES.4.3",
               "BES.7.1",
               "DET.3.1",
-              "DET.3.1.7",
+              "DET.3.1.1",
               "DET.4.16",
               "DLS.3.1",
               "GEB.6.1",
@@ -533,7 +533,7 @@
                         "with-ids": [
                           "ASST.4.4",
                           "DET.3.1",
-                          "DET.3.1.7",
+                          "DET.3.1.1",
                           "KONF.12.12"
                         ]
                       }
@@ -870,15 +870,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -4470,21 +4470,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.4.3.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): DET.3.1 fordert allgemein die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen und zentrale Server, was die Aktivierung der Protokollierung auf einem Faxserver umfasst. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): DET.3.1 empfiehlt allgemein die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen über eine bestimmte Frist und schließt damit die Aktivierung der Protokollierung bei einem Faxserver als spezifischen Anwendungsfall vollständig ein. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.7",
+          "control-id": "DET.3.1.1",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.7_stm",
+              "by-id": "DET.3.1.1_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.7-m1_custom",
+                  "id": "DET.3.1.1-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4505,19 +4505,19 @@
                   "prose": "Logs enthalten Zeitstempel, aber oft fehlt die Quellen-IP oder das konkrete Zielobjekt.",
                   "parts": [
                     {
-                      "id": "DET.3.1.7-m1_custom_gdn",
+                      "id": "DET.3.1.1-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Erhöhen Sie den Log-Level, um mehr Details zu erfassen."
                     },
                     {
-                      "id": "DET.3.1.7-m1_custom_asm",
+                      "id": "DET.3.1.1-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Sichten Sie Log-Einträge auf Vollständigkeit der W-Fragen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.7-m2_custom",
+                  "id": "DET.3.1.1-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4538,19 +4538,19 @@
                   "prose": "Standard-Logging ist aktiviert, wobei Zeitstempel über NTP synchronisiert werden.",
                   "parts": [
                     {
-                      "id": "DET.3.1.7-m2_custom_gdn",
+                      "id": "DET.3.1.1-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Server die gleiche Zeitquelle nutzen."
                     },
                     {
-                      "id": "DET.3.1.7-m2_custom_asm",
+                      "id": "DET.3.1.1-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Vergleichen Sie den Zeitstempel im Log mit `date` auf dem Server."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.7-m3_custom",
+                  "id": "DET.3.1.1-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4571,19 +4571,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle und das Zielobjekt protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.7-m3_custom_gdn",
+                      "id": "DET.3.1.1-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass diese drei Attribute in jedem Log-Eintrag enthalten sind."
                     },
                     {
-                      "id": "DET.3.1.7-m3_custom_asm",
+                      "id": "DET.3.1.1-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Führen Sie eine Stichprobenprüfung der Logs auf diese Pflichtfelder durch."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.7-m4_custom",
+                  "id": "DET.3.1.1-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4604,19 +4604,19 @@
                   "prose": "Erweiterte Protokollierung inklusive User-Agent, Session-ID und Geo-Location der Quelle.",
                   "parts": [
                     {
-                      "id": "DET.3.1.7-m4_custom_gdn",
+                      "id": "DET.3.1.1-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Fügen Sie Kontext-Informationen zur besseren Forensik hinzu."
                     },
                     {
-                      "id": "DET.3.1.7-m4_custom_asm",
+                      "id": "DET.3.1.1-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie, ob die Session-ID eine Korrelation mit dem Auth-Log zulässt."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.7-m5_custom",
+                  "id": "DET.3.1.1-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4637,12 +4637,12 @@
                   "prose": "Kryptografisch signierte Zeitstempel und Herkunftsnachweise für jeden Log-Eintrag.",
                   "parts": [
                     {
-                      "id": "DET.3.1.7-m5_custom_gdn",
+                      "id": "DET.3.1.1-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie kryptografische Verfahren zur Sicherstellung der Nicht-Abstreitbarkeit."
                     },
                     {
-                      "id": "DET.3.1.7-m5_custom_asm",
+                      "id": "DET.3.1.1-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validieren Sie die digitale Signatur eines exportierten Log-Segments."
                     }
@@ -4657,7 +4657,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.4.3.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): DET.3.1.7 konkretisiert und operationalisiert die Festlegung der zu protokollierenden Informationsbestandteile, indem es Mindestangaben wie Zeitpunkt, Quelle und Zielobjekt vorgibt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): DET.3.1.1 konkretisiert und operationalisiert die Festlegung der zu protokollierenden Informationsbestandteile, indem es Mindestangaben wie Zeitpunkt, Quelle und Zielobjekt vorgibt. [auch: satz_abdeckung]"
                 }
               ]
             }

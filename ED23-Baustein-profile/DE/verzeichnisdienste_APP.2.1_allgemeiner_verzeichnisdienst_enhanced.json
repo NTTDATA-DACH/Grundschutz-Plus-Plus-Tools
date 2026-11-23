@@ -3,8 +3,8 @@
     "uuid": "207fa9dc-1474-5873-9a7d-16e56b4d3935",
     "metadata": {
       "title": "APP.2.1 – Allgemeiner Verzeichnisdienst (Verzeichnisdienste) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:08.129990+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.358402+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.2.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -77,7 +77,8 @@
               "BES.2.1.1",
               "BES.2.1.4",
               "BES.4.2",
-              "DET.3.1.8",
+              "DET.3.1",
+              "DET.3.1.2",
               "DET.4.4",
               "DEV.2.5",
               "GC.3.1.2",
@@ -96,7 +97,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -650,7 +651,8 @@
                         "with-ids": [
                           "BER.2.4",
                           "BER.3.4",
-                          "DET.3.1.8",
+                          "DET.3.1",
+                          "DET.3.1.2",
                           "DET.4.4"
                         ]
                       }
@@ -1074,15 +1076,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1106,7 +1108,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1116,7 +1118,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -1307,7 +1309,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.1.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): ARCH.2.2.1 fordert allgemein die Einschränkung externer Netzverbindungen, verlangt jedoch nicht spezifisch die Absicherung internetexponierter Verzeichnisdienst-Server mittels Sicherheitsgateway. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 2): Die G++-Maßnahme ARCH.2.2.1 fordert als allgemeinere Vorgabe die Einschränkung von Verbindungen über externe Netzanschlüsse, was den Schutz internetexponierter Verzeichnisdienst-Server durch Sicherheitsgateways umfasst."
                 }
               ]
             }
@@ -4885,14 +4887,201 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.1_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsereignisse werden unregelmäßig in lokale Dateien geschrieben.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass das Betriebssystem Log-Einträge erzeugt."
+                    },
+                    {
+                      "id": "DET.3.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichten Sie die Datei '/var/log/syslog' auf Anwendungsereignisse."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Relevante Ereignisse werden gesammelt und für kurze Zeit aufbewahrt.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie Logrotate für eine Aufbewahrung von 30 Tagen."
+                    },
+                    {
+                      "id": "DET.3.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die Log-Rotation-Konfiguration in '/etc/logrotate.d/'."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.1-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Die Protokollierung muss die in den Parametern definierten Ereignistypen abdecken."
+                    },
+                    {
+                      "id": "DET.3.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Gleichen Sie die Log-Inhalte mit den Anforderungen aus {{ insert: param, det.3.1-prm1 }} ab."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Zentrale Protokollierung mit automatisierter Alarmierung bei Vorfällen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie Logs in Echtzeit an einen zentralen Log-Server weiter."
+                    },
+                    {
+                      "id": "DET.3.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie den Log-Fluss zum zentralen Server mittels 'tcpdump' oder API."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "KI-gestützte Log-Analyse zur Erkennung komplexer Angriffsmuster.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie automatisierte Playbooks zur Reaktion auf erkannte Anomalien."
+                    },
+                    {
+                      "id": "DET.3.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die Reaktionszeit des Systems auf simulierte Sicherheitsereignisse."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.2.1.A12",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): DET.3.1 empfiehlt allgemein die Protokollierung sicherheitsrelevanter Ereignisse (inklusive Sicherheitseinstellungen) in Anwendungen für eine bestimmte Frist und schließt damit die spezifische Protokollierung von Änderungen und Konfigurationsänderungen eines Verzeichnisdienstes als Spezialfall ein."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.1.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.1.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4913,19 +5102,19 @@
                   "prose": "Privilegierte Aktionen werden nur teilweise im allgemeinen Log erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Keine explizite Trennung oder Hervorhebung von administrativen Tätigkeiten."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Suche nach 'admin' oder 'root' in Standardlogs. Shell: `grep -i 'admin' /var/log/syslog`."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4946,19 +5135,19 @@
                   "prose": "Aktivierung von Management-Funktionen wird grundlegend dokumentiert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Manuelle Prüfung der Log-Dateien auf privilegierte Ereignisse ist möglich."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Log-Level Einstellungen in der App-Config. Shell: `grep 'LogLevel' /etc/app/config`."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4979,19 +5168,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie die Anwendung so, dass jede Änderung an Privilegien oder der Aufruf administrativer Funktionen separat auditierbar ist."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Audit der Log-Einträge bei Admin-Login/Logout. Automatisiert: `tail -f /var/log/app_audit.log` während Test-Login."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5012,19 +5201,19 @@
                   "prose": "Echtzeit-Alerting bei kritischen privilegierten Ereignissen (z.B. Deaktivierung von MFA).",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Proaktive Benachrichtigung des Sicherheits-Teams bei ungewöhnlichen Admin-Aktivitäten."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Simulation einer Sperrung und Prüfung des Alarm-Eingangs im Dashboard."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5045,12 +5234,12 @@
                   "prose": "Konfigurationsänderungen an Privilegien werden über Policy-as-Code gegen Soll-Zustände geprüft.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Automatischer Abgleich jeder Privilegienerteilung mit der Berechtigungsmatrix in Echtzeit."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Abgleich GitOps-Repo gegen Live-Umgebung. Shell: `kubectl diff -f rbac-policy.yaml`."
                     }
@@ -5065,7 +5254,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.1.A12",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): DET.3.1.8 deckt Konfigurationsänderungen und Änderungen an Verzeichnisdienstobjekten (wie Rechtevergaben) als privilegierte Anwendungsereignisse direkt ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): DET.3.1.2 deckt Konfigurationsänderungen und Änderungen an Verzeichnisdienstobjekten (wie Rechtevergaben) als privilegierte Anwendungsereignisse direkt ab. [auch: satz_abdeckung]"
                 }
               ]
             }

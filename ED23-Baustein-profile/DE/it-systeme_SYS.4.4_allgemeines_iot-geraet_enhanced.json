@@ -3,8 +3,8 @@
     "uuid": "a7cf6940-6f8b-5529-bda8-ec3130ec8cfc",
     "metadata": {
       "title": "SYS.4.4 – Allgemeines IoT-Gerät (IT-Systeme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:10:55.800330+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:29.022059+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.4.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -77,6 +77,7 @@
               "BES.4.2",
               "BES.5.10.3",
               "DET.3.1",
+              "DET.3.2",
               "DET.4.11",
               "DET.4.11.3",
               "DET.4.13",
@@ -94,6 +95,7 @@
               "KONF.14.1",
               "KONF.14.1.1",
               "KONF.2.1",
+              "KONF.2.3",
               "KONF.2.4",
               "KONF.2.5",
               "KONF.4.1",
@@ -662,6 +664,7 @@
                       {
                         "with-ids": [
                           "KONF.2.1",
+                          "KONF.2.3",
                           "KONF.2.5"
                         ]
                       }
@@ -887,6 +890,7 @@
                       {
                         "with-ids": [
                           "DET.3.1",
+                          "DET.3.2",
                           "DET.6.1"
                         ]
                       }
@@ -1203,15 +1207,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2958,12 +2962,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -2971,17 +2975,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Informationen werden unsystematisch und meist erst im Schadensfall erfasst.",
+                  "prose": "Informationen und verbundene IoT-Assets werden nur vereinzelt und ad-hoc dokumentiert.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine zentrale Koordination der Inventarisierung von Informationswerten."
+                      "prose": "Erfassen Sie zumindest kritische IoT-Geräte und deren wichtigste Datenflüsse in einer einfachen Liste (z. B. Tabellenkalkulation)."
                     },
                     {
                       "id": "ASST.2.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Befragung von Abteilungsleitern nach vorhandenen Datenlisten."
+                      "prose": "Prüfung auf Existenz vereinzelter Listen von IoT-Geräten und verarbeiteten Daten durch Befragung der Administratoren."
                     }
                   ]
                 },
@@ -2991,12 +2995,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3004,17 +3008,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Informationen werden manuell in einfachen Listen oder Tabellen gepflegt.",
+                  "prose": "Ein grundlegendes Inventar der Informationen und IoT-Assets wird manuell geführt, jedoch nicht regelmäßig aktualisiert.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Basisinventar ist vorhanden, wird aber unregelmäßig und ohne festen Prozess aktualisiert."
+                      "prose": "Führen Sie ein zentrales, manuell gepflegtes Verzeichnis aller IoT-Geräte inklusive der von ihnen verarbeiteten Informationen ein."
                     },
                     {
                       "id": "ASST.2.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsichtnahme in die zentral geführten Excel-Listen oder Dokumente."
+                      "prose": "Stichprobenartige Kontrolle der zentralen Bestandsliste und manueller Abgleich mit aktiven Geräten im Subnetz (z. B. via Nmap)."
                     }
                   ]
                 },
@@ -3024,12 +3028,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3037,17 +3041,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+                  "prose": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erstellen Sie ein vollständiges Verzeichnis aller Informationswerte inklusive deren Abhängigkeiten."
+                      "prose": "Etablieren Sie einen definierten Prozess, um alle IoT-Geräte und deren Informationswerte strukturiert in einer CMDB zu dokumentieren."
                     },
                     {
                       "id": "ASST.2.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung des Inventardokuments auf Vollständigkeit und Aktualität gemäß Richtlinie."
+                      "prose": "Überprüfung des Inventars auf Vollständigkeit durch Abgleich mit der CMDB-API und Kontrolle der dokumentierten Pflegeprozesse."
                     }
                   ]
                 },
@@ -3057,12 +3061,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3070,17 +3074,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Das Inventar ist mit Rollen verknüpft und wird durch regelmäßige Reviews validiert.",
+                  "prose": "Das Inventar der Informationen und IoT-Assets wird durch automatisierte Discovery-Scans regelmäßig überprüft und aktualisiert.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Asset-Owner validieren ihre Bestände proaktiv mindestens jährlich."
+                      "prose": "Nutzen Sie automatisierte Netzwerk-Discovery-Tools, um neue IoT-Geräte und deren Datenflüsse proaktiv zu erkennen und im Inventar abzugleichen."
                     },
                     {
                       "id": "ASST.2.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Revisionsprotokolle und Bestätigungen der Asset-Owner im System."
+                      "prose": "Automatisierter Abgleich von Netzwerk-Scans (z. B. OpenVAS/Nmap) mit der CMDB per Skript zur Identifikation undokumentierter IoT-Assets."
                     }
                   ]
                 },
@@ -3090,12 +3094,12 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Management",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -3103,17 +3107,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollintegriertes CMDB-System mit automatischer Verknüpfung zu Geschäftsprozessen.",
+                  "prose": "Das Inventar für Informationen und IoT-Assets wird vollautomatisch in Echtzeit gepflegt, klassifiziert und mit der Zugriffskontrolle gekoppelt.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Änderungen an Prozessen lösen automatische Aktualisierungen im Informationsinventar aus."
+                      "prose": "Integrieren Sie die Inventarisierung in eine NAC-Lösung, die IoT-Geräte und Datenflüsse kontinuierlich in Echtzeit klassifiziert und dokumentiert."
                     },
                     {
                       "id": "ASST.2.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Test der automatischen Update-Trigger bei Prozessänderungen in der CMDB-API."
+                      "prose": "Prüfung der NAC-Regeln und API-Integrationen mittels automatisierter Compliance-Skripte auf Echtzeit-Inventarisierung und Datenklassifizierung."
                     }
                   ]
                 }
@@ -4991,7 +4995,194 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.4.4.A18",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die grundlegende Protokollierung sicherheitsrelevanter Ereignisse und deckt sich damit direkt mit der Hauptmaßnahme DET.3.1. [auch: gsmap]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse werden auf IoT-Systemen nur vereinzelt und lokal mit Standardeinstellungen protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die lokale Standard-Protokollierung auf den wichtigsten IoT-Geräten, sofern technisch unterstützt."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Prüfung der lokalen Konfiguration ausgewählter IoT-Geräte auf aktivierte Standard-Protokollierung (z. B. via SSH oder Web-UI)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Eine grundlegende Protokollierung sicherheitsrelevanter Ereignisse ist auf den IoT-Systemen manuell eingerichtet, aber nicht standardisiert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie IoT-Geräte manuell so, dass grundlegende Sicherheitsereignisse lokal oder auf einem einfachen Log-Server gespeichert werden."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Stichprobenartige Überprüfung der Log-Dateien auf den IoT-Geräten oder einem einfachen Syslog-Server auf Vorhandensein von Basis-Events."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Definieren Sie verbindliche Vorgaben für zu protokollierende Sicherheitsereignisse auf IoT-Geräten und setzen Sie diese konsistent um."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierter Konfigurations-Check (z. B. via Ansible) der rsyslog/syslog-ng-Einstellungen auf Einhaltung der definierten Ereigniskategorien."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse von IoT-Systemen werden zentral gesammelt, korreliert und bei Ausfall der Protokollierung wird automatisch alarmiert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie alle sicherheitsrelevanten IoT-Protokolle zentral an ein SIEM weiter und überwachen Sie den Log-Eingang proaktiv auf Ausfälle."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "API-Abfrage des zentralen Log-Managements (z. B. OpenSearch) zur Verifikation des kontinuierlichen Log-Eingangs aller registrierten IoT-Geräte."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung auf IoT-Systemen wird vollautomatisch ausgerollt, kontinuierlich auf Integrität geprüft und mittels KI/ML in Echtzeit ausgewertet.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie Policy-as-Code zur automatischen Durchsetzung der Logging-Konfiguration und nutzen Sie ML-basierte Analysen zur Anomalieerkennung."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der Policy-as-Code-Regeln für das Logging-Deployment sowie Test der automatisierten Anomalieerkennung mittels simulierter Events."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.4.4.A18",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt die automatische Protokollierung sicherheitsrelevanter Ereignisse bei IoT-Geräten, enthält aber anders als DET.3.2 keine Vorgabe zu einer bestimmten Aufbewahrungsfrist."
                 }
               ]
             }
@@ -8167,6 +8358,193 @@
           ]
         },
         {
+          "control-id": "KONF.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.2.3_stm",
+              "parts": [
+                {
+                  "id": "KONF.2.3-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Standard-Passwörter werden nur bei Bekanntwerden von Sicherheitslücken manuell geändert.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Ändern Sie das Passwort des administrativen Benutzers bei der Ersteinrichtung manuell."
+                    },
+                    {
+                      "id": "KONF.2.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie stichprobenartig, ob Standard-Passwörter (z.B. admin/admin) noch funktionieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Default-Zugangsdaten werden nach einer internen Liste bei der Bereitstellung systematisch ersetzt.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Erstellen Sie eine Liste aller Standard-Zugangsdaten und dokumentieren Sie deren Änderung."
+                    },
+                    {
+                      "id": "KONF.2.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Kontrollieren Sie die Dokumentation der Ersteinrichtung auf Bestätigung der Passwortänderung."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für IT-Systeme SOLLTE die Änderung von Default-Zugangsdaten ausführen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Die Konfiguration des IT-Systems muss sicherstellen, dass alle voreingestellten Zugangsdaten während oder unmittelbar nach der Installation geändert werden."
+                    },
+                    {
+                      "id": "KONF.2.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Verifizieren Sie durch einen Anmeldeversuch mit Standard-Daten, dass der Zugriff verweigert wird."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Erzwungene Änderung von Standard-Passwörtern durch automatisierte Konfigurationsskripte.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Setup-Skripte (z.B. Ansible), die eine Passwortänderung vor der Inbetriebnahme erzwingen."
+                    },
+                    {
+                      "id": "KONF.2.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die Deployment-Skripte auf Routinen zur automatisierten Passwortsetzung."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Vollständige Eliminierung statischer Default-Zugangsdaten durch Just-in-Time-Provisionierung.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie Systeme, die dynamische Einmal-Passwörter für die Ersteinrichtung generieren."
+                    },
+                    {
+                      "id": "KONF.2.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Testen Sie die API der Bereitstellungsplattform auf die Generierung temporärer Geheimnisse."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.4.4.A13",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.2.3 umfasst laut Erläuterung auch das Deaktivieren von Standardzugängen bei der Inbetriebnahme und überschneidet sich insoweit mit dem Deaktivieren nicht benötigter Anmeldekennungen auf IoT-Geräten; das Deaktivieren oder Deinstallieren von Protokollen, Diensten und Schnittstellen wird von KONF.2.3 hingegen nicht behandelt."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "KONF.2.4",
           "adds": [
             {
@@ -8540,7 +8918,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.4.4.A13",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 fordert eine regelmäßige zyklische Überprüfung gegen den Referenzzustand, während der Ziel-Satz eine einmalige Überprüfung nach der Installation verlangt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 1): KONF.2.5 fordert die Überprüfung der tatsächlichen Systemkonfiguration und deckt damit die Prüfung der auf den Geräten installierten und aktivierten Komponenten und Protokolle ab."
                 },
                 {
                   "name": "ed23-anforderung",

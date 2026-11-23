@@ -3,8 +3,8 @@
     "uuid": "b849f366-b5e1-55c9-82eb-638b270092e1",
     "metadata": {
       "title": "NET.3.4 – Network Access Control (Netze)",
-      "last-modified": "2026-10-19T01:08:35.850911+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:18.185854+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.3.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -93,8 +93,9 @@
               "BES.4.3",
               "BES.7.1",
               "DET.3.1",
-              "DET.3.1.6",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2",
+              "DET.3.2.6",
               "DET.4.14",
               "DET.4.4",
               "DET.6.1.2",
@@ -972,8 +973,9 @@
                         "with-ids": [
                           "ASST.4.2",
                           "DET.3.1",
-                          "DET.3.1.6",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
+                          "DET.3.2",
+                          "DET.3.2.6",
                           "KONF.14.1"
                         ]
                       }
@@ -1568,15 +1570,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2299,14 +2301,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 deckt die Protokollierung sicherheitsrelevanter Ereignisse ab, umfasst jedoch nicht die spezifisch geforderte Protokollierung von Statusänderungen an NAC-Komponenten. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 und der Satz überschneiden sich bei der Protokollierung sicherheitsrelevanter Ereignisse für Anwendungsanteile von NAC, jedoch fordert der Satz auch die Protokollierung allgemeiner Statusänderungen auf allen NAC-Komponenten, während DET.3.1 eine Aufbewahrungsfrist vorsieht. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -2315,14 +2317,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): DET.3.1.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.2 erfasst privilegierte Ereignisse in Anwendungen, was schreibende Konfigurationszugriffe auf NAC-Komponenten berührt, aber nicht deren netzinfrastrukturellen Rahmen abdeckt. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
@@ -2331,7 +2333,23 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A16",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.8 erfasst privilegierte Ereignisse in Anwendungen, was schreibende Konfigurationszugriffe auf NAC-Komponenten berührt, aber nicht deren netzinfrastrukturellen Rahmen abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt die Protokollierung von Statusänderungen und NAC-spezifischen sicherheitskritischen Ereignissen, enthält aber anders als DET.3.2 keine Anforderung an eine Aufbewahrungsfrist."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.6",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.3.4.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): DET.3.2.6 deckt die Protokollierung systemspezifischer Ereignisse und Statusänderungen auf IT-Systemen wie NAC-Komponenten als allgemeinere Anforderung ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2597,13 +2615,13 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 deckt die regelmäßige Konfigurationsüberprüfung ab, fordert jedoch nicht die Anpassung bei festgestellten Abweichungen. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 empfiehlt die regelmäßige Überprüfung der umgesetzten Konfiguration gegen den Referenzzustand, schließt aber die in Satz 3 zusätzlich geforderte Überprüfung der Vorgaben selbst sowie deren Anpassung nicht ein. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.3.4.A13",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 deckt die regelmäßige Überprüfung gegen den Sollzustand ab, fordert jedoch keine anlassbezogenen Validierungen bei zusätzlichem Bedarf. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 empfiehlt den regelmäßigen Soll-Ist-Vergleich der Systemkonfiguration, umfasst jedoch nicht die in Satz 3 zusätzlich geforderte Durchführung bei Bedarf. [auch: satz_abdeckung]"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "uuid": "665bd7ff-6bd2-51c0-a2a9-d45d5cd0995b",
     "metadata": {
       "title": "NET.2.2 – WLAN-Nutzung (WLANs) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:08:32.091193+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:28.984027+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,15 +49,16 @@
           "text": "Baustein NET.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
               "ARCH.1.2",
+              "ARCH.2.2.1",
               "ARCH.3.4",
               "ASST.3.1",
               "ASST.4.2",
@@ -244,6 +245,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "ARCH.2.2.1",
                           "ARCH.3.4",
                           "ASST.4.2",
                           "KONF.2.4"
@@ -328,15 +330,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -545,6 +547,188 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.2.2.A1",
                   "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "ARCH.2.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "ARCH.2.2.1_stm",
+              "parts": [
+                {
+                  "id": "ARCH.2.2.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Externe Netzanschlüsse werden bei Bedarf ohne zentrale Kontrolle eingerichtet.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Identifizieren Sie alle aktiven Modems oder direkten Internet-Gateways in den Fachabteilungen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Begehung der Standorte zur Identifikation nicht autorisierter physischer Leitungen."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Alle externen Verbindungen laufen über zentrale Router, jedoch mit schwacher Filterung.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konzentrieren Sie externe Zugänge auf dedizierte Schnittstellen am Perimeter-Router."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Routing-Tabellen auf unerwartete Default-Gateways oder statische Routen nach außen."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Architektur für Netze SOLLTE Verbindungen über externe Netzanschlüsse einschränken.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Beschränken Sie die Kommunikation auf notwendige Protokolle und Zieladressen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfen Sie die Konfiguration der Außenanbindung auf 'Deny All' als Standard-Regel."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Externe Verbindungen werden mittels IPS/IDS überwacht und bei Anomalien automatisch getrennt.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Setzen Sie Intrusion Prevention Systeme ein, um schädlichen Traffic in Echtzeit zu blockieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Es erfolgt eine vollständige Kapselung externer Verbindungen in isolierten Transit-Netzen mit Content-Disarm.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie fortgeschrittene Security-Gateways, die Dateiinhalte vor dem Weitertransport bereinigen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulieren Sie den Transfer schädlicher Test-Muster über die externe Leitung zur Verifikation der Abwehr."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.2.2.A3",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 9): Satz 9 gibt Benutzenden vor, über öffentliche WLANs nur mittels VPN auf interne Ressourcen zuzugreifen, während ARCH.2.2.1 auf Architekturebene empfiehlt, Verbindungen über externe Netzanschlüsse (etwa durch Erzwingen eines VPNs) einzuschränken."
                 }
               ]
             }

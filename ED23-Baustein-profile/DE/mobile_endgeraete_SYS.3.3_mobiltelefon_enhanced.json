@@ -3,8 +3,8 @@
     "uuid": "6ca49a6f-ed60-5e46-970d-845d6e94f1e0",
     "metadata": {
       "title": "SYS.3.3 – Mobiltelefon (Mobile Endgeräte) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:12.239800+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:24.768493+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.3.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -80,7 +80,7 @@
               "BES.4.3",
               "DET.4.19",
               "DET.5.10",
-              "DET.5.10.2",
+              "DET.5.11",
               "GEB.8.1",
               "KONF.12.11",
               "KONF.14.1",
@@ -108,7 +108,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -444,7 +444,7 @@
                       {
                         "with-ids": [
                           "DET.5.10",
-                          "DET.5.10.2",
+                          "DET.5.11",
                           "KONF.8.1",
                           "TEST.1.1",
                           "TEST.1.1.2",
@@ -945,15 +945,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -977,7 +977,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -987,7 +987,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -4025,7 +4025,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -4033,17 +4033,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Zurücksetzung erfolgt ad-hoc durch Administratoren ohne festes Protokoll.",
+                  "prose": "Die Zurücksetzung oder Ersetzung von Authentifizierungsmitteln für Mobiltelefone erfolgt ad-hoc und ohne dokumentierten Prozess auf Zuruf durch den IT-Support.",
                   "parts": [
                     {
                       "id": "BER.5.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine schriftliche Regelung, wie Resets technisch durchzuführen sind."
+                      "prose": "Definieren Sie zumindest informelle Grundregeln für den IT-Support, wie bei vergessenen PINs oder verlorenen Token von Mobiltelefonen vorzugehen ist, um unautorisierte Zugriffe zu verhindern."
                     },
                     {
                       "id": "BER.5.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Befragen Sie die IT-Administration zum Ablauf eines Passwort-Resets."
+                      "prose": "Prüfen Sie durch Befragung des IT-Supports, wie auf Zurücksetzungsanfragen für mobile Authentifizierungsmittel (z. B. PIN, Passwort, Zertifikat) reagiert wird. Es existiert keine formale Dokumentation."
                     }
                   ]
                 },
@@ -4058,7 +4058,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -4066,17 +4066,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Vorgehensweise zur Zurücksetzung ist in einer internen Wissensdatenbank dokumentiert.",
+                  "prose": "Es existiert ein grundlegender, manuell durchgeführter Prozess zur Zurücksetzung von Authentifizierungsmitteln bei Mobiltelefonen, der jedoch nicht durchgängig dokumentiert ist.",
                   "parts": [
                     {
                       "id": "BER.5.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Admins folgen einer Schritt-für-Schritt Anleitung zur Passwortneusetzung."
+                      "prose": "Etablieren Sie einen grundlegenden, manuellen Prozess im Service-Desk, der vorschreibt, wie die Identität eines Nutzers vor der Zurücksetzung von mobilen Authentifizierungsmitteln überprüft wird."
                     },
                     {
                       "id": "BER.5.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Dokumentation im Wiki/SharePoint auf Vollständigkeit."
+                      "prose": "Prüfen Sie stichprobenartig geschlossene Support-Tickets zur Passwort- oder PIN-Zurücksetzung bei Mobiltelefonen auf Einhaltung einer grundlegenden Identitätsprüfung."
                     }
                   ]
                 },
@@ -4091,7 +4091,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -4099,17 +4099,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.",
+                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung oder Ersetzung von Authentifizierungsmitteln verankern.",
                   "parts": [
                     {
                       "id": "BER.5.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Ein strukturierter Prozess verhindert Sicherheitslücken beim Reset-Vorgang."
+                      "prose": "Dokumentieren Sie im Berechtigungskonzept einen verbindlichen Prozess zur sicheren Identitätsprüfung und Genehmigung vor der Zurücksetzung oder Ersetzung von Authentifizierungsmitteln (PIN, PUK, Zertifikate)."
                     },
                     {
                       "id": "BER.5.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die schriftliche Richtlinie zum Prozess der Zurücksetzung."
+                      "prose": "Prüfen Sie die Berechtigungsrichtlinie auf das Vorhandensein des Prozesses. Kontrollieren Sie per MDM-API-Abfrage, ob manuelle Zurücksetzungen mit gültigen Ticket-IDs korrelieren."
                     }
                   ]
                 },
@@ -4124,7 +4124,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -4132,17 +4132,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierter Workflow mit Ticketerstellung und Audit-Trail für jeden Reset.",
+                  "prose": "Die Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln für Mobiltelefone ist verbindlich verankert, teilautomatisiert über ein Self-Service-Portal gelöst und wird zentral protokolliert.",
                   "parts": [
                     {
                       "id": "BER.5.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Resets werden nur nach Freigabe im ITSM-Tool technisch ermöglicht."
+                      "prose": "Implementieren Sie ein Self-Service-Portal mit starker Zweitfaktor-Authentifizierung für das Zurücksetzen von mobilen Zugangsdaten und überwachen Sie diese Vorgänge aktiv im SIEM."
                     },
                     {
                       "id": "BER.5.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Kopplung zwischen ITSM-Ticket und technischer Passwortänderung."
+                      "prose": "Überprüfen Sie die Konfiguration des Self-Service-Portals und der MDM-API. Führen Sie ein Skript aus, das die Log-Daten des IdP auf unautorisierte Reset-Versuche analysiert."
                     }
                   ]
                 },
@@ -4157,7 +4157,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -4165,17 +4165,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollständiger Self-Service mit Multi-Faktor-Validierung und automatischem Reporting.",
+                  "prose": "Der Prozess zur Zurücksetzung und Ersetzung von Authentifizierungsmitteln ist vollständig über MDM und IAM automatisiert, nutzt risikobasierte Kontextprüfungen und wird kontinuierlich auditiert.",
                   "parts": [
                     {
                       "id": "BER.5.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzer setzen Geheimnisse selbst zurück; System erkennt Missbrauchsmuster."
+                      "prose": "Integrieren Sie das MDM und das Identity-Management vollständig, sodass Zurücksetzungen nur nach risikobasierter, automatisierter Prüfung (z. B. Biometrie, Kontextdaten) und als Policy-as-Code erfolgen."
                     },
                     {
                       "id": "BER.5.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Evaluieren Sie die Reports des Self-Service-Portals auf Anomalien."
+                      "prose": "Validieren Sie die Policy-as-Code-Regeln im Identity-Management-System mittels automatisierter Compliance-Scans und prüfen Sie die API-Schnittstellen zum MDM auf erzwungene Mehr-Faktor-Verifikation."
                     }
                   ]
                 }
@@ -5317,14 +5317,14 @@
           ]
         },
         {
-          "control-id": "DET.5.10.2",
+          "control-id": "DET.5.11",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.5.10.2_stm",
+              "by-id": "DET.5.11_stm",
               "parts": [
                 {
-                  "id": "DET.5.10.2-m1_custom",
+                  "id": "DET.5.11-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5345,19 +5345,19 @@
                   "prose": "Patchstatus einzelner Systeme wird stichprobenartig manuell geprüft.",
                   "parts": [
                     {
-                      "id": "DET.5.10.2-m1_custom_gdn",
+                      "id": "DET.5.11-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Ad-hoc Prüfung kritischer Systeme bei Bekanntwerden von Schwachstellen."
                     },
                     {
-                      "id": "DET.5.10.2-m1_custom_asm",
+                      "id": "DET.5.11-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Sichtprüfung der Update-Logs auf ausgewählten Clients."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.2-m2_custom",
+                  "id": "DET.5.11-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5378,19 +5378,19 @@
                   "prose": "Nutzung lokaler Update-Services ohne zentrale Steuerung.",
                   "parts": [
                     {
-                      "id": "DET.5.10.2-m2_custom_gdn",
+                      "id": "DET.5.11-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Lokale Benachrichtigungen über ausstehende Updates werden beachtet."
                     },
                     {
-                      "id": "DET.5.10.2-m2_custom_asm",
+                      "id": "DET.5.11-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Systemeinstellungen auf automatische Update-Prüfung."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.2-m3_custom",
+                  "id": "DET.5.11-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5408,22 +5408,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE den Patchstatus durch {{ insert: param, det.5.10.2-prm1 }} überwachen.",
+                  "prose": "Detektion für IT-Systeme SOLLTE den Patchstatus durch {{ insert: param, det.5.11-prm1 }} überwachen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.2-m3_custom_gdn",
+                      "id": "DET.5.11-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Die Überwachung muss regelmäßig erfolgen, um Abweichungen zeitnah zu erkennen."
                     },
                     {
-                      "id": "DET.5.10.2-m3_custom_asm",
+                      "id": "DET.5.11-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Audit des Überwachungsprozesses; Shell: `apt list --upgradable` auf Stichproben."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.2-m4_custom",
+                  "id": "DET.5.11-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5444,19 +5444,19 @@
                   "prose": "Automatisierte Alarmierung bei ausbleibenden Sicherheitsupdates.",
                   "parts": [
                     {
-                      "id": "DET.5.10.2-m4_custom_gdn",
+                      "id": "DET.5.11-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Ein zentrales Monitoring-System meldet veraltete Patch-Stände proaktiv."
                     },
                     {
-                      "id": "DET.5.10.2-m4_custom_asm",
+                      "id": "DET.5.11-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Alarmierungskette im Monitoring-Dashboard."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.2-m5_custom",
+                  "id": "DET.5.11-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5477,12 +5477,12 @@
                   "prose": "Vollautomatisierte Patch-Compliance-Validierung vor Netzzugriff.",
                   "parts": [
                     {
-                      "id": "DET.5.10.2-m5_custom_gdn",
+                      "id": "DET.5.11-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Integration mit Network Access Control zur Isolation ungepatchter Systeme."
                     },
                     {
-                      "id": "DET.5.10.2-m5_custom_asm",
+                      "id": "DET.5.11-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Verifikation der NAC-Regelsätze und automatisierten Quarantäne-Trigger (API-Call)."
                     }

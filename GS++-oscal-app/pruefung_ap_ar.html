@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSCAL Assessment Plan & Results Generator v9 (build 9.7.0 — Backends Gemini | OpenRouter, editierbare Prompts, Structured Outputs)</title>
+    <title>OSCAL Assessment Plan & Results Generator v9 (build 9.7.1 — Backends Gemini | OpenRouter, editierbare Prompts, Structured Outputs)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -406,7 +406,7 @@ textarea.inp{min-height:80px;line-height:1.55}
         <span class="sub">OSCAL AP &amp; AR — SSP → Prüfung → Assessment Plan + Results</span>
     </div>
     <div class="topbar-meta">
-        <span class="pill">build 9.7.0</span>
+        <span class="pill">build 9.7.1</span>
         <span id="cat-status" class="pill">Katalog wird geladen …</span>
         <span id="ssp-status" class="pill">Kein SSP</span>
         <span id="comp-status" class="pill hidden"></span>
@@ -561,7 +561,7 @@ gppCollapsibleLog({consoleEl:document.querySelector('.logbox'),
 /* Quelle für die Pin-Übersicht in config.html anmelden (Grundregel 8). */
 gppRegisterSources(GPP_TOOL_ID,[{id:'ed23-anforderungen',label:'G++/ED23 Anforderungen (Hilfsdatei)',
     repo:'NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools',path:'hilfsdateien/gpp_ed23_anforderungen.json',
-    default:'https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/7fc5416d987f36dffe27c1fe920cbc8896152854/hilfsdateien/gpp_ed23_anforderungen.json'}]);
+    default:'https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/hilfsdateien/gpp_ed23_anforderungen.json'}]);
 // ============================================================
 // LOG-KONSOLE (fünf Level, ms-Timestamps, Autoscroll, Clear)
 // ============================================================
@@ -664,11 +664,11 @@ const S={
 
 // --- G++-Katalog-Pin (Handbuch 3.13/3.14, Katalogarbeit-Skill Grundregel 8) ---
 // Gleiche Werte wie Gpp-ai-tool/src/constants.py und die gepinnten Repo-Profile.
-const GPP_CATALOG_PIN_COMMIT='160c177db6c84d3c621fff614559943b1de8c600';
-const GPP_CATALOG_PIN_SHA256='7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90';
+const GPP_CATALOG_PIN_COMMIT='dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
+const GPP_CATALOG_PIN_SHA256='9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a';
 const CATALOG_URL=`https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/${GPP_CATALOG_PIN_COMMIT}/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json`;
 // uuid5(NAMESPACE_URL, CATALOG_URL) — identisch zu den gepinnten Repo-Profilen.
-const GPP_CATALOG_RESOURCE_UUID='c45ef8e9-7d97-5035-b3df-6af73bf31126';
+const GPP_CATALOG_RESOURCE_UUID='1743f782-c978-51fd-acd0-81168bc1727f';
 async function sha256Hex(buf){const d=await crypto.subtle.digest('SHA-256',buf);return Array.from(new Uint8Array(d)).map(b=>b.toString(16).padStart(2,'0')).join('')}
 // Back-matter-Resource für den gepinnten Katalog — feldidentisch zur Ausgabe von scripts/pin_profile_imports.py.
 function pinnedCatalogResource(){return{uuid:GPP_CATALOG_RESOURCE_UUID,title:`Grundschutz++-resolved_catalog.json @ ${GPP_CATALOG_PIN_COMMIT.slice(0,12)}`,rlinks:[{href:CATALOG_URL,hashes:[{algorithm:'SHA-256',value:GPP_CATALOG_PIN_SHA256}]}]}}
@@ -716,7 +716,7 @@ const METHOD_COL={EXAMINE:'oklch(0.70 0.15 240)',INTERVIEW:'oklch(0.80 0.15 80)'
 // ============================================================
 document.addEventListener('DOMContentLoaded',()=>{
     initSplitter();
-    L.info('OSCAL AP & AR — build 9.7.0 gestartet');
+    L.info('OSCAL AP & AR — build 9.7.1 gestartet');
     L.debug('Bei CORS-Fehlern: Ordner mit `python -m http.server` bedienen und über http://localhost:8000/ öffnen.');
     initPrompts();
     loadAICfg();
@@ -2149,7 +2149,7 @@ function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace
 
 // --- BSI ED2023 Anforderungen (vorberechnet von Gpp-ai-tool, ohne Laufzeit-KI) ---
 let ED23_MAP={};
-const ED23_MAP_URL="https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/7fc5416d987f36dffe27c1fe920cbc8896152854/hilfsdateien/gpp_ed23_anforderungen.json";
+const ED23_MAP_URL="https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/hilfsdateien/gpp_ed23_anforderungen.json";
 function buildEd23MapFromOscal(doc){if(doc&&doc.gpp_ed23_anforderungen_map)return doc.gpp_ed23_anforderungen_map;const out={},mc=doc&&doc["mapping-collection"];if(!mc)return out;(mc.mappings||[]).forEach(mp=>(mp.maps||[]).forEach(m=>{const src=(m.sources||[])[0];if(!src)return;const cid=src["id-ref"];(m.targets||[]).forEach(t=>{const label=(t.props||[]).find(p=>p.name==="label"||p.name==="title");(out[cid]=out[cid]||[]).push({id:t["id-ref"],name:(label&&label.value)||"",begruendung:m.remarks||"",relationship:m.relationship||""})})}));return out}
 // BSI-GSMap (ED23-UA -> GS++) als zweite, gekennzeichnete Quelle; für die Anzeige je GS++-Control
 // invertiert, subset-of/superset-of auf die Leserichtung GS++ -> ED23 gespiegelt.

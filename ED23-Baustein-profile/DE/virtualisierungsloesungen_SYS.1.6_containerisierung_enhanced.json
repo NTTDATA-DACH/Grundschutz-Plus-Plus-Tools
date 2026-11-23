@@ -3,8 +3,8 @@
     "uuid": "af537f53-6407-587c-acca-3b65e7861337",
     "metadata": {
       "title": "SYS.1.6 – Containerisierung (Virtualisierungslösungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:09:15.499457+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:37.727709+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.6 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -1397,15 +1397,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -6334,17 +6334,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Rechenleistung wird durch 'nice'-Werte auf Betriebssystemebene nur priorisiert, nicht hart begrenzt.",
+                  "prose": "Die Rechenleistung wird nur vereinzelt und ad-hoc für einzelne {{ insert: param, konf.15.2-prm1 }} auf Hostsystemen manuell eingeschränkt.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Setzen Sie Prioritäten für Prozesse manuell fest, um kritischen Diensten mehr CPU-Zeit zu geben."
+                      "prose": "Definieren Sie zumindest für bekanntermaßen ressourcenintensive Container oder auf geteilten Hosts ad-hoc CPU-Limits über Laufzeitparameter wie '--cpus' oder cgroups."
                     },
                     {
                       "id": "KONF.15.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Prozessliste mit 'top' oder 'ps -el' auf Prioritätswerte."
+                      "prose": "Prüfen Sie stichprobenartig die Konfigurationen der Container-Laufzeitumgebung. Nutzen Sie 'docker inspect <container> --format=\"{{.HostConfig.NanoCpus}}\"' zur Prüfung gesetzter Limits."
                     }
                   ]
                 },
@@ -6367,17 +6367,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Einfache Begrenzung der CPU-Kerne für Anwendungen durch CPU-Affinität (Pinning).",
+                  "prose": "Die Konfiguration für Anwendungen von Hostsystemen schränkt die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} durch manuell gepflegte Standardwerte ein.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Weisen Sie Anwendungen spezifische CPU-Kerne zu, um gegenseitige Beeinflussung zu minimieren."
+                      "prose": "Nutzen Sie Standard-Mechanismen der Container-Engine (z. B. cgroups, Compose-Files), um pauschale Standardwerte für CPU-Limits bei der Bereitstellung manuell zu hinterlegen."
                     },
                     {
                       "id": "KONF.15.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung mit 'taskset -p <pid>' oder Container-CPU-Sets."
+                      "prose": "Prüfen Sie Deployment-Skripte oder Compose-Dateien auf statische CPU-Limits. Führen Sie 'kubectl get pods -A -o=jsonpath=\"{.items[*].spec.containers[*].resources.limits.cpu}\"' aus."
                     }
                   ]
                 },
@@ -6400,17 +6400,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Mechanismen wie Cgroups, um die CPU-Nutzungszeit (Shares/Quotas) für Anwendungen zu limitieren."
+                      "prose": "Legen Sie dokumentierte Richtlinien für CPU-Kontingente fest und setzen Sie diese konsistent über Ressourcen-Quotas oder LimitRanges in der Container-Orchestrierung um."
                     },
                     {
                       "id": "KONF.15.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung via 'docker inspect --format \"{{.HostConfig.CpuQuota}}\" <container_id>'."
+                      "prose": "Überprüfen Sie die Richtlinien und Konfigurationen der Hostsysteme. Automatisierter Check via Skript: 'kubectl get limitranges -A' oder Auswertung der cgroups-Konfiguration unter '/sys/fs/cgroup/'."
                     }
                   ]
                 },
@@ -6433,17 +6433,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Automatisierte CPU-Limitierung durch Cluster-Orchestrierung mit Überwachung der Drosselung.",
+                  "prose": "Die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} MUSS durch automatisierte Richtlinien eingeschränkt und die Einhaltung sowie Auslastung kontinuierlich überwacht werden.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Definieren Sie CPU-Requests und Limits in Kubernetes und überwachen Sie 'CPU Throttling' via Prometheus."
+                      "prose": "Erzwingen Sie CPU-Limits automatisiert über Admission-Controller (Policy-as-Code) und überwachen Sie die tatsächliche Auslastung proaktiv mittels Prometheus, um Limits bei Bedarf anzupassen."
                     },
                     {
                       "id": "KONF.15.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Check der Kubernetes Metriken: 'kubectl top pods' und Analyse der 'container_cpu_cfs_throttled_seconds_total'."
+                      "prose": "Prüfen Sie Admission-Controller-Regeln (z. B. OPA Gatekeeper/Kyverno). Testen Sie automatisiert, ob ein Deployment ohne CPU-Limit durch die CI/CD-Pipeline oder den Cluster blockiert wird."
                     }
                   ]
                 },
@@ -6466,17 +6466,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Dynamische CPU-Zuweisung mit Vertical Pod Autoscaler und Echtzeit-Anpassung zur Effizienzsteigerung.",
+                  "prose": "Die Einschränkung der Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} erfolgt vollständig automatisiert, kontextabhängig und wird durch Telemetrie-Analysen dynamisch zur Laufzeit optimiert.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Einsatz von VPA zur automatischen Anpassung der CPU-Limits basierend auf dem tatsächlichen Nutzungsverhalten bei gleichzeitiger Einhaltung von Sicherheitsgrenzen."
+                      "prose": "Implementieren Sie dynamisches Ressourcen-Management (z. B. Vertical Pod Autoscaler), das CPU-Limits basierend auf historischen Telemetriedaten und ML-Analysen kontinuierlich und autonom optimiert."
                     },
                     {
                       "id": "KONF.15.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der VPA-Objekte: 'kubectl get vpa'."
+                      "prose": "Prüfen Sie die Konfiguration von Vertical Pod Autoscalern (VPA) und eBPF-basierten Enforcement-Tools. Verifizieren Sie per API-Abfrage der Metrik-Server die dynamische Anpassung der cgroup-Limits."
                     }
                   ]
                 }
@@ -6489,7 +6489,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.6.A15",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert unter anderem die Limitierung von CPU-Ressourcen für Container auf dem Host-System, was der geforderten Begrenzung der Rechenleistung entspricht."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Der Satz adressiert speziell Container und umfasst neben der Limitierung von CPU-Ressourcen auch deren Reservierung sowie Speicher- und Netzbandbreite, während KONF.15.2 allgemein für Anwendungen auf Hostsystemen gilt, sich aber auf die Einschränkung der Rechenleistung beschränkt."
                 }
               ]
             }
@@ -8006,7 +8006,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.6.A15",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert explizit die Limitierung von CPU-Ressourcen auf dem Host-System pro Container, was sich direkt mit der Begrenzung der Rechenleistung deckt."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert unter anderem die Limitierung von CPU-Ressourcen auf dem Host-System für Container, was sich direkt mit der Begrenzung der Rechenleistung von Hostsystemen in KONF.9.2 überschneidet."
                 }
               ]
             }

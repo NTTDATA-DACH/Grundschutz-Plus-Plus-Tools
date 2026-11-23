@@ -3,8 +3,8 @@
     "uuid": "aaea2e93-f4c2-5577-b0be-731e10a25834",
     "metadata": {
       "title": "NET.1.2 – Netzmanagement (Netze)",
-      "last-modified": "2026-10-19T01:07:58.553647+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:38.148901+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.1.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -80,7 +80,10 @@
               "DET.3.1.1",
               "DET.3.1.4",
               "DET.3.1.5",
-              "DET.3.1.9",
+              "DET.3.2",
+              "DET.3.2.1",
+              "DET.3.2.4",
+              "DET.3.2.5",
               "DET.3.4",
               "DET.3.5",
               "DET.4.11.1",
@@ -357,7 +360,9 @@
                           "DET.3.1",
                           "DET.3.1.1",
                           "DET.3.1.5",
-                          "DET.3.1.9",
+                          "DET.3.2",
+                          "DET.3.2.1",
+                          "DET.3.2.5",
                           "DET.4.11.1"
                         ]
                       }
@@ -1169,6 +1174,7 @@
                       {
                         "with-ids": [
                           "DET.3.1.4",
+                          "DET.3.2.4",
                           "DET.4.15",
                           "DET.6.1.2"
                         ]
@@ -1183,14 +1189,14 @@
                     "text": "DET.3.1 steht unter NET.1.2.A7"
                   },
                   {
-                    "href": "#DET.3.1.1",
-                    "rel": "related",
-                    "text": "DET.3.1.1 steht unter NET.1.2.A7"
-                  },
-                  {
                     "href": "#DET.3.1.5",
                     "rel": "related",
                     "text": "DET.3.1.5 steht unter NET.1.2.A7"
+                  },
+                  {
+                    "href": "#DET.3.2.1",
+                    "rel": "related",
+                    "text": "DET.3.2.1 steht unter NET.1.2.A7"
                   },
                   {
                     "href": "#DET.4.12",
@@ -1774,15 +1780,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2093,7 +2099,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A12",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): ASST.2.1 fordert die allgemeine Erstellung eines Inventars für Informationen und damit verbundene Assets, was die geforderte Erfassung von Informationsbeständen, Management-Daten und zugehörigen Endgeräten inhaltlich abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): ASST.2.1 empfiehlt allgemein die Dokumentation eines Inventars von Informationen und damit verbundenen Assets, was die im Zielsatz geforderte Erfassung von Informationsbeständen, Management-Daten und zugehörigen Endgeräten im Netzmanagement als Spezialfall vollständig einschließt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2211,13 +2217,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1.1 adressiert über fehlgeschlagene Authentifizierungen einen Teil der unerlaubten Zugriffsversuche, umfasst jedoch die weiteren in Satz 1 geforderten Netz- und Prozessstörungen nicht. [auch: satz_abdeckung, gsmap]"
-                },
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "NET.1.2.A26",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.1 deckt den in Satz 3 explizit geforderten Aspekt der Protokollierung fehlerhafter Anmeldeversuche (Authentifizierungen bei Fehlschlag) direkt ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
                 }
               ]
             }
@@ -2233,7 +2233,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A26",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Die G++-Maßnahme überschneidet sich mit der geforderten Erfassung von Hardware-Fehlfunktionen und kritischen Zuständen, umfasst jedoch weder das geforderte Alarming noch weitere Ereignisse wie fehlerhafte Anmeldeversuche. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (intersects-with)"
                 }
               ]
             }
@@ -2249,7 +2249,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 1): Die Maßnahme adressiert mit der optionalen Protokollierung von Störungen der Netzerreichbarkeit einen Teil der im Satz genannten Ereigniskategorien. Andere geforderte Protokollierungsanlässe wie unerlaubte Zugriffe oder Fehler in automatischen Prozessen werden nicht abgedeckt. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
                 },
                 {
                   "name": "ed23-anforderung",
@@ -2262,7 +2262,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.9",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
@@ -2271,7 +2271,61 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A7",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Protokollierung konkreter sicherheits- und betriebsrelevanter Ereignisse im Netzmanagement, lässt aber die in DET.3.2 empfohlene Aufbewahrungsfrist offen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.2.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.2.1 adressiert über fehlgeschlagene Authentifizierungen einen Teil der unerlaubten Zugriffsversuche, umfasst jedoch die weiteren in Satz 1 geforderten Netz- und Prozessstörungen nicht. [auch: satz_abdeckung]"
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.2.A26",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.2.1 deckt den in Satz 3 explizit geforderten Aspekt der Protokollierung fehlerhafter Anmeldeversuche (Authentifizierungen bei Fehlschlag) direkt ab. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.4",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.2.A26",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Die G++-Maßnahme überschneidet sich mit der geforderten Erfassung von Hardware-Fehlfunktionen und kritischen Zuständen, umfasst jedoch weder das geforderte Alarming noch weitere Ereignisse wie fehlerhafte Anmeldeversuche. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.2.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 1): Die Maßnahme adressiert mit der optionalen Protokollierung von Störungen der Netzerreichbarkeit einen Teil der im Satz genannten Ereigniskategorien. Andere geforderte Protokollierungsanlässe wie unerlaubte Zugriffe oder Fehler in automatischen Prozessen werden nicht abgedeckt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2523,7 +2577,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.2.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand (Sollzustand) von IT-Systemen und deckt damit die allgemeine Tätigkeit des Soll-Ist-Abgleichs für die Netzmanagement-Lösung ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand (Sollzustand) von IT-Systemen und deckt damit die allgemeine Tätigkeit des Soll-Ist-Abgleichs für die Netzmanagement-Lösung ab. [auch: satz_abdeckung]"
                 }
               ]
             }

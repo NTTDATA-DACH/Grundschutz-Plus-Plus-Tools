@@ -3,8 +3,8 @@
     "uuid": "e048bb05-3018-559d-ab4a-88692a48aa42",
     "metadata": {
       "title": "DER.3.2 – Revisionen auf Basis des Leitfadens IS-Revision (Institutionsleitung) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:09.189280+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.954645+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,15 +49,15 @@
           "text": "Baustein DER.3.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
-              "ASST.2.4",
+              "ASST.2.5",
               "ASST.3.12",
               "ASST.3.3",
               "ASST.4.2",
@@ -99,7 +99,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -1258,7 +1258,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "ASST.3.3"
                         ]
                       }
@@ -1399,15 +1399,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1431,7 +1431,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1441,7 +1441,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -1452,14 +1452,14 @@
     "modify": {
       "alters": [
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.4_stm",
+              "by-id": "ASST.2.5_stm",
               "parts": [
                 {
-                  "id": "ASST.2.4-m1_custom",
+                  "id": "ASST.2.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1480,19 +1480,19 @@
                   "prose": "Informationen und Assets der IS-Revision werden vereinzelt und informell einer Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m1_custom_gdn",
+                      "id": "ASST.2.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Revisionsdaten werden nur ad-hoc und nach individuellem Ermessen der Prüfer ohne feste Vorgaben als vertraulich markiert."
                     },
                     {
-                      "id": "ASST.2.4-m1_custom_asm",
+                      "id": "ASST.2.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung auf vereinzelte Klassifizierungsmerkmale in Revisionsdokumenten (z. B. via grep nach 'Vertraulich' in Dateipfaden)."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m2_custom",
+                  "id": "ASST.2.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1513,19 +1513,19 @@
                   "prose": "Informationen und Assets für Daten der IS-Revision werden manuell einer grundlegenden Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m2_custom_gdn",
+                      "id": "ASST.2.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Es existiert ein Grundverständnis für den Schutzbedarf von Revisionsberichten; die Zuweisung erfolgt manuell in Vorlagen."
                     },
                     {
-                      "id": "ASST.2.4-m2_custom_asm",
+                      "id": "ASST.2.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobenartige Kontrolle der Dokumenten-Header und Datei-Metadaten auf manuell gesetzte Schutzbedarfsklassen."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m3_custom",
+                  "id": "ASST.2.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1546,19 +1546,19 @@
                   "prose": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m3_custom_gdn",
+                      "id": "ASST.2.5-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Alle im Rahmen der IS-Revision erhobenen Daten und Berichte müssen gemäß Richtlinie formal klassifiziert und gekennzeichnet werden."
                     },
                     {
-                      "id": "ASST.2.4-m3_custom_asm",
+                      "id": "ASST.2.5-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung des Asset-Inventars und der Metadaten mittels Skript (z. B. exiftool), ob alle Revisionsdaten klassifiziert sind."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m4_custom",
+                  "id": "ASST.2.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1579,19 +1579,19 @@
                   "prose": "Informationen und Assets für Daten werden automatisiert unterstützt einer Schutzbedarfsklasse zugewiesen und validiert.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m4_custom_gdn",
+                      "id": "ASST.2.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Systeme erzwingen beim Speichern von Revisionsdaten die Vergabe von Metadaten-Tags zur Klassifizierung und überwachen diese."
                     },
                     {
-                      "id": "ASST.2.4-m4_custom_asm",
+                      "id": "ASST.2.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Automatisierte Abfrage der Metadaten-Tags im DMS via REST-API auf fehlende oder inkonsistente Schutzbedarfsklassen."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m5_custom",
+                  "id": "ASST.2.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1612,12 +1612,12 @@
                   "prose": "Informationen und Assets für Daten werden vollautomatisch, inhaltsbasiert und kontinuierlich einer Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m5_custom_gdn",
+                      "id": "ASST.2.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Inhaltsbasierte Analyse (NLP/ML) klassifiziert und taggt Revisionsartefakte vollautomatisch in Echtzeit (Policy-as-Code)."
                     },
                     {
-                      "id": "ASST.2.4-m5_custom_asm",
+                      "id": "ASST.2.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Kontinuierliche Prüfung der DLP-Logs und API-Validierung der Klassifizierungs-Engine auf korrekte automatische Tagging-Raten."
                     }
@@ -1632,7 +1632,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "DER.3.2.A21",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 6): Die G++-Maßnahme ASST.2.4 fordert allgemein die Klassifizierung von Daten nach deren Schutzbedarf, was die Zuweisung einer Vertraulichkeitseinstufung für Berichte als spezielles Informationsgut abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 6): Die G++-Maßnahme ASST.2.5 fordert allgemein die Klassifizierung von Daten nach deren Schutzbedarf, was die Zuweisung einer Vertraulichkeitseinstufung für Berichte als spezielles Informationsgut abdeckt. [auch: satz_abdeckung]"
                 }
               ]
             }

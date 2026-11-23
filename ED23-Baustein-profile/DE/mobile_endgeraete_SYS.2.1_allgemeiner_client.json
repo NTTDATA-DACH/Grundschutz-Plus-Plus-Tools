@@ -3,8 +3,8 @@
     "uuid": "675f03b3-06e8-52ef-a89d-56d5f31294dc",
     "metadata": {
       "title": "SYS.2.1 – Allgemeiner Client (Mobile Endgeräte)",
-      "last-modified": "2026-10-19T01:10:51.522350+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:24:04.584651+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.2.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -79,6 +79,7 @@
               "BES.4.2",
               "BES.5.10.3",
               "BES.7.4.5",
+              "DET.3.2",
               "DET.4.15",
               "DET.4.2",
               "DET.4.6.1",
@@ -95,6 +96,7 @@
               "KONF.2.1",
               "KONF.2.1.1",
               "KONF.2.2",
+              "KONF.2.3",
               "KONF.2.4",
               "KONF.2.4.1",
               "KONF.2.4.2",
@@ -804,6 +806,7 @@
                           "BER.3.15",
                           "BER.3.9",
                           "KONF.10.4",
+                          "KONF.2.3",
                           "KONF.3.7"
                         ]
                       }
@@ -2054,6 +2057,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "DET.3.2",
                           "DET.4.2",
                           "DET.4.6.1",
                           "DET.5.7"
@@ -2071,15 +2075,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2465,6 +2469,22 @@
           ]
         },
         {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.2.1.A45",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die erweiterte Protokollierung von Aktivitäten auf IT-Systemen (Clients) zur Angriffserkennung, was sich inhaltlich mit der Protokollierung auf IT-Systemen in DET.3.2 überschneidet."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "DET.4.15",
           "adds": [
             {
@@ -2757,6 +2777,22 @@
           ]
         },
         {
+          "control-id": "KONF.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.2.1.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): Satz 4 fordert das Deaktivieren oder Löschen nicht benötigter Kennungen nach der Installation, was sich mit der in KONF.2.3 ausdrücklich als Erfüllungsoption genannten Deaktivierung von vorinstallierten Standardzugängen überschneidet."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "KONF.2.4",
           "adds": [
             {
@@ -2844,19 +2880,19 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.1.A15",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.5 fordert eine regelmäßige zyklische Konfigurationsüberprüfung, während der Ziel-Satz eine einmalige Abnahme der Grundeinstellungen nach der Installation betrifft. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): KONF.2.5 deckt die Prüfung der Grundeinstellungen nach der Installation als allgemeine Maßnahme zur Überprüfung der tatsächlichen Konfiguration gegen den definierten Referenzzustand inhaltlich ab."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.1.A43",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 deckt die Forderung nach der regelmäßigen Überprüfung der sicherheitsrelevanten Konfigurationen durch den zyklischen Abgleich mit dem Referenzzustand direkt ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Konfiguration gegen den Referenzzustand, schließt das in Satz 1 ebenfalls geforderte bedarfsgerechte Konfigurieren und Testen der Einstellungen jedoch nicht ein. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.1.A35",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Systemkonfiguration gegen den Referenzzustand, was die regelmäßige Konformitätsprüfung der installierten Wurzelzertifikate mit den institutionsweiten Vorgaben als generische Maßnahme abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Systemkonfiguration gegen den Referenzzustand, was die regelmäßige Konformitätsprüfung der installierten Wurzelzertifikate mit den institutionsweiten Vorgaben als generische Maßnahme abdeckt."
                 }
               ]
             }
@@ -2872,7 +2908,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.1.A44",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 1): KONF.2.6 fordert mit der MDM-Aktivierung für Endgeräte die Nutzung eines Managementsystems, deckt aber nicht die vollständige Verwaltung und schutzbedarfsbasierte Konfiguration aller Client-Einstellungen ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 1): KONF.2.6 fordert mit der Verwaltung von Endgeräten über ein Mobile Device Management (MDM) die Nutzung eines zentralen Managementsystems für Client-Konfigurationen."
                 }
               ]
             }

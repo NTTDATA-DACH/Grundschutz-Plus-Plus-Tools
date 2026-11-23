@@ -3,8 +3,8 @@
     "uuid": "41541b0d-5ba7-55f1-8365-a5893c06498d",
     "metadata": {
       "title": "IND.1 – Prozessleit- und Automatisierungstechnik (IT-Systeme)",
-      "last-modified": "2026-10-19T01:08:04.025941+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:57.044502+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein IND.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -96,12 +96,12 @@
               "DET.2.1",
               "DET.2.1.1",
               "DET.3.1",
-              "DET.3.1.1",
-              "DET.3.1.12",
+              "DET.3.1.2",
               "DET.3.1.3",
-              "DET.3.1.8",
+              "DET.3.2",
+              "DET.3.2.1",
               "DET.3.4",
-              "DET.3.5",
+              "DET.3.7",
               "DET.4.1",
               "DET.4.2",
               "DET.4.9",
@@ -335,7 +335,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1",
+                          "DET.3.2",
+                          "DET.3.2.1",
                           "TEST.2.1"
                         ]
                       }
@@ -757,7 +758,6 @@
                           "DET.2.1",
                           "DET.2.1.1",
                           "DET.3.1",
-                          "DET.3.1.12",
                           "DET.3.1.3",
                           "DET.4.1",
                           "DET.4.2",
@@ -770,6 +770,13 @@
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#DET.3.2",
+                    "rel": "related",
+                    "text": "DET.3.2 steht unter IND.1.A18"
                   }
                 ]
               },
@@ -1229,9 +1236,9 @@
                       {
                         "with-ids": [
                           "BER.1.4",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
                           "DET.3.4",
-                          "DET.3.5"
+                          "DET.3.7"
                         ]
                       }
                     ]
@@ -1397,15 +1404,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1662,7 +1669,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "IND.1.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2,3): ASST.2.3 erfasst Softwareanwendungen im Inventar, lässt die im Satz geforderten Systemkomponenten der OT-Infrastruktur jedoch unberücksichtigt. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2,3): ASST.2.3 adressiert die Führung von Anwendungen in einem Inventar samt Attributen wie Herkunft und Lizenzierung, erstreckt sich jedoch nicht auf die im Satz ebenfalls geforderte Erfassung von Systemkomponenten der OT-Infrastruktur. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
@@ -2068,14 +2075,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "IND.1.A10",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 3): DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse und deckt damit die geforderte Erhebung von Ereignissen im Rahmen des Log- und Event-Managements ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse und deckt damit die geforderte Erhebung von Ereignissen im Rahmen des Log- und Event-Managements ab. [auch: gsmap]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -2083,24 +2090,8 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "IND.1.A18",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.1 erfasst Authentifizierungen bei Erfolg und Fehlschlag an IT-Systemen und deckt damit anmeldebezogene Zugriffe auf ICS-Komponenten ab, verlangt jedoch keine Protokollierung aller sonstigen Zugriffsarten. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.12",
-          "adds": [
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "IND.1.A10",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
+                  "value": "IND.1.A15",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.2 erfasst privilegierte Ereignisse im Anwendungskontext, während die Zielanforderung kritische administrative Tätigkeiten im gesamten ICS-Umfeld verlangt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2123,7 +2114,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
@@ -2131,8 +2122,30 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "IND.1.A15",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.8 erfasst privilegierte Ereignisse im Anwendungskontext, während die Zielanforderung kritische administrative Tätigkeiten im gesamten ICS-Umfeld verlangt. [auch: satz_abdeckung, gsmap]"
+                  "value": "IND.1.A18",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Protokollierung jeder Änderung an ICS-Komponenten, während DET.3.2 empfiehlt, sicherheitsrelevante Ereignisse in IT-Systemen für eine bestimmte Frist zu protokollieren; beide überschneiden sich bei sicherheitsrelevanten Änderungen, wobei die Aufbewahrungsfrist in Satz 1 fehlt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "IND.1.A10",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert Maßnahmen zur Erhebung sicherheitsrelevanter Ereignisse im Rahmen des Log- und Event-Managements für OT-Systeme, was sich mit der Pflicht zur Protokollierung sicherheitsrelevanter Ereignisse in IT-Systemen überschneidet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "IND.1.A18",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.2.1 erfasst Authentifizierungen bei Erfolg und Fehlschlag an IT-Systemen und deckt damit anmeldebezogene Zugriffe auf ICS-Komponenten ab, verlangt jedoch keine Protokollierung aller sonstigen Zugriffsarten. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2155,7 +2168,7 @@
           ]
         },
         {
-          "control-id": "DET.3.5",
+          "control-id": "DET.3.7",
           "adds": [
             {
               "position": "ending",
@@ -2164,7 +2177,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "IND.1.A15",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): DET.3.5 zielt auf die Revisionssicherheit und den Schutz von Audit Logs vor unbemerkter Manipulation und Löschung ab, insbesondere auch durch Administrierende bzw. den IT-Betrieb. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): DET.3.7 zielt auf die Revisionssicherheit und den Schutz von Audit Logs vor unbemerkter Manipulation und Löschung ab, insbesondere auch durch Administrierende bzw. den IT-Betrieb. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2490,7 +2503,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "IND.1.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Systemkonfiguration gegen einen Referenzzustand und deckt damit die geforderte regelmäßige Überprüfung der Konfiguration inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Systemkonfiguration gegen den Referenzzustand, deckt jedoch nicht die in Satz 1 zusätzlich geforderte bedarfsorientierte Überprüfung bei plötzlich auftretenden neuen Gefährdungen ab. [auch: satz_abdeckung]"
                 }
               ]
             }

@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "fa186856-b432-4014-8aa5-927a54a74d1d",
+    "uuid": "d987d6e5-fea3-4c49-b40c-119cc5648832",
     "metadata": {
       "title": "Mindeststandard des BSI für Webbrowser (Version 3.0) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:17:07.620Z",
+      "last-modified": "2026-11-23T17:08:40.127Z",
       "version": "3.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -92,7 +92,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -1061,7 +1061,7 @@
             ],
             "controls": [
               {
-                "id": "DET.5.10.4",
+                "id": "DET.5.10.2",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Integritätsprüfung von Patches",
                 "props": [
@@ -1108,7 +1108,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "WB.2.1.02 b",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.5.10.4 fordert allgemein die Prüfung von Patches auf Integrität vor der Installation. Der Absatz konkretisiert dies für Webbrowser-Updates dahingehend, dass der Update-Mechanismus selbst die Prüfung durchführen muss, nur bei positivem Ergebnis installiert werden darf und fehlerhafte Prüfergebnisse signalisiert werden müssen."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.5.10.2 fordert allgemein die Prüfung von Patches auf Integrität vor der Installation. Der Absatz konkretisiert dies für Webbrowser-Updates dahingehend, dass der Update-Mechanismus selbst die Prüfung durchführen muss, nur bei positivem Ergebnis installiert werden darf und fehlerhafte Prüfergebnisse signalisiert werden müssen."
                   },
                   {
                     "name": "modal_verb_profil",
@@ -1125,7 +1125,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.5.10.4_stm",
+                    "id": "DET.5.10.2_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -1152,12 +1152,12 @@
                     "prose": "Detektion MUSS Patches vor der Installation auf Integrität testen."
                   },
                   {
-                    "id": "DET.5.10.4_gdn",
+                    "id": "DET.5.10.2_gdn",
                     "name": "guidance",
                     "prose": "Wenn Patches durch Fehler bei der Übertragung oder sogar bewusst von Angreifern verändert wurden, kann dies nach der Installation zu nicht behebbaren Fehlerzuständen oder zur Verbreitung von Schadcode führen. Kann durch einen Abgleich von Prüfsummen umgesetzt werden, z.B. durch automatisierte Installationsroutinen oder einen manuellen Abgleich mit der Herstellerwebseite."
                   },
                   {
-                    "id": "DET.5.10.4_mst",
+                    "id": "DET.5.10.2_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Updates für den Webbrowser dürfen nur dann eingespielt werden, wenn zuvor durch den Update-Mechanismus eine Integritätsprüfung mit positivem Prüfergebnis durchgeführt wurde. Nicht korrekte Prüfergebnisse müssen geeignet signalisiert werden.",
@@ -2160,7 +2160,7 @@
                     "text": "KONF.12.6 Browser-Historie (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#KONF.6.3",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#KONF.6.3",
                     "rel": "related",
                     "text": "KONF.6.3 Kiosk-Modus (Anwenderkatalog Grundschutz++)"
                   }
@@ -7967,12 +7967,12 @@
                     "text": "KONF.8.2 Automatische Updates der Anwendung (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#ASST.7.1",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#ASST.7.1",
                     "rel": "related",
                     "text": "ASST.7.1 Nicht mehr benötigte Anwendungen (Anwenderkatalog Grundschutz++)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.2.1.6",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.2.1.6",
                     "rel": "related",
                     "text": "BES.2.1.6 Support- und Wartungsverträge (Anwenderkatalog Grundschutz++)"
                   }
@@ -7986,17 +7986,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -8030,7 +8030,7 @@
           ]
         },
         {
-          "uuid": "d8c6636a-19bb-5db9-ad8b-8078dbc05a4c",
+          "uuid": "0b0106ee-43db-513f-bf87-1c091d9c36af",
           "title": "Mindeststandard des BSI für Webbrowser (Version 3.0) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 3 neuen Controls, Datei mindeststandard-wb-3.0.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -8040,7 +8040,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "351cf226e7df0d8fa82e7d2c790b54af48af28366644923ccf1995bbb553fc94"
+                  "value": "2ffd398fea047700033ec77931502a8960592835db2604426ee59cdd63227ed0"
                 }
               ]
             }

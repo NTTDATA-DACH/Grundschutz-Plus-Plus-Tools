@@ -3,8 +3,8 @@
     "uuid": "48ef89c8-4722-5a02-bf42-1db89105ab6b",
     "metadata": {
       "title": "CON.11.1 – Geheimschutz VS-NUR FÜR DEN DIENSTGEBRAUCH (VS-NfD) (Informationen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:09.038022+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:20.467729+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,14 +49,15 @@
           "text": "Baustein CON.11.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
+              "ARCH.2.2.1",
               "ARCH.5.1",
               "ARCH.5.2",
               "ASST.2.1",
@@ -100,7 +101,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -884,6 +885,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "ARCH.2.2.1",
                           "ARCH.5.1",
                           "ARCH.5.2",
                           "ASST.4.1"
@@ -997,15 +999,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1029,7 +1031,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1039,7 +1041,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -1049,6 +1051,193 @@
     },
     "modify": {
       "alters": [
+        {
+          "control-id": "ARCH.2.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "ARCH.2.2.1_stm",
+              "parts": [
+                {
+                  "id": "ARCH.2.2.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Internetübergänge sind durch einfache Standard-Router geschützt.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzung von NAT und Basispaketfiltern an den Außenanschlüssen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Portscan von extern mit 'nmap -sS -Pn' zur Identifikation offener Dienste."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Zentrale Firewall am Internetübergang mit Standard-Regelsatz.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfiguration eines dedizierten Security-Gateways für den ein- und ausgehenden Verkehr."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Review der Firewall-Konfiguration und Prüfung der Log-Dateien auf Anomalien."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Architektur für Netze SOLLTE Verbindungen über externe Netzanschlüsse einschränken.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Strikte Limitierung externer Zugänge auf das betrieblich notwendige Minimum."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Vergleich der genehmigten externen Schnittstellen mit der technischen Umsetzung."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Einsatz von Intrusion Prevention Systemen (IPS) an allen externen Schnittstellen.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Automatisierte Erkennung und Blockade von Angriffsmustern aus externen Quellen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Auslösung eines Test-Angriffs zur Verifikation der IPS-Reaktion."
+                    }
+                  ]
+                },
+                {
+                  "id": "ARCH.2.2.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Proxy-Kaskaden mit automatisierter TLS-Inspektion und Sandboxing.",
+                  "parts": [
+                    {
+                      "id": "ARCH.2.2.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Vollständige Überwachung und Analyse aller verschlüsselten Datenströme nach außen."
+                    },
+                    {
+                      "id": "ARCH.2.2.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der Zertifikatskette am Client und Prüfung des Sandbox-Berichts."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "CON.11.1.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): Satz 6 fordert als speziellen Extremfall der Einschränkung externer Netzanschlüsse das vollständige Unterbinden von Verbindungen zu ungeschützten oder öffentlichen Netzen in einem bestimmten VS-Kopplungsszenario."
+                }
+              ]
+            }
+          ]
+        },
         {
           "control-id": "ARCH.5.1",
           "adds": [
@@ -1441,7 +1630,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1449,17 +1638,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Informationen werden unsystematisch und meist erst im Schadensfall erfasst.",
+                  "prose": "Ein Inventar der Informationen (insb. VS-NfD) und verbundener Assets wird nur vereinzelt und ad-hoc ohne formale Vorgaben geführt.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es gibt keine zentrale Koordination der Inventarisierung von Informationswerten."
+                      "prose": "Erfassen Sie kritische VS-NfD-Datenbestände und zugehörige Systeme zumindest ad-hoc in einfachen Tabellen, um eine erste Übersicht zu gewinnen."
                     },
                     {
                       "id": "ASST.2.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Befragung von Abteilungsleitern nach vorhandenen Datenlisten."
+                      "prose": "Prüfung auf vereinzelte, unvollständige Listen von VS-NfD-Informationen und IT-Assets in Fachabteilungen. Manuelle Stichprobe auf Dateiservern."
                     }
                   ]
                 },
@@ -1474,7 +1663,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1482,17 +1671,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Informationen werden manuell in einfachen Listen oder Tabellen gepflegt.",
+                  "prose": "Ein grundlegendes Inventar der Informationen und zugehöriger Assets ist vorhanden, wird jedoch manuell und nicht durchgängig konsistent gepflegt.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Basisinventar ist vorhanden, wird aber unregelmäßig und ohne festen Prozess aktualisiert."
+                      "prose": "Etablieren Sie ein grundlegendes, zentrales Verzeichnis (z.B. in einem Wiki oder einer Tabelle), das manuell bei Änderungen aktualisiert wird."
                     },
                     {
                       "id": "ASST.2.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsichtnahme in die zentral geführten Excel-Listen oder Dokumente."
+                      "prose": "Einsicht in das zentrale, manuell gepflegte Informations- und Asset-Inventar. Prüfung durch Stichproben, ob bekannte VS-NfD-Systeme erfasst sind."
                     }
                   ]
                 },
@@ -1507,7 +1696,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1515,17 +1704,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+                  "prose": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erstellen Sie ein vollständiges Verzeichnis aller Informationswerte inklusive deren Abhängigkeiten."
+                      "prose": "Dokumentieren Sie alle Informationen (inkl. VS-NfD-Einstufung) und zugehörige Assets in einem strukturierten, regelmäßig gepflegten Inventar."
                     },
                     {
                       "id": "ASST.2.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung des Inventardokuments auf Vollständigkeit und Aktualität gemäß Richtlinie."
+                      "prose": "Prüfung der Dokumentation des Informations- und Asset-Inventars auf Vollständigkeit. Abgleich per Skript gegen eine Open-Source-CMDB."
                     }
                   ]
                 },
@@ -1540,7 +1729,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1548,17 +1737,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Das Inventar ist mit Rollen verknüpft und wird durch regelmäßige Reviews validiert.",
+                  "prose": "Das Inventar der Informationen und verbundener Assets wird in einer zentralen CMDB geführt und durch automatisierte Netzwerk-Scans abgeglichen.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Asset-Owner validieren ihre Bestände proaktiv mindestens jährlich."
+                      "prose": "Nutzen Sie ein zentrales Asset-Management-System mit automatisierten Discovery-Scans, um Informationen und Assets proaktiv zu korrelieren."
                     },
                     {
                       "id": "ASST.2.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Revisionsprotokolle und Bestätigungen der Asset-Owner im System."
+                      "prose": "Auditierung der CMDB-Schnittstellen. Automatische Prüfung via REST-API-Abfrage, ob alle gescannten Assets einem Informationswert zugeordnet sind."
                     }
                   ]
                 },
@@ -1573,7 +1762,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Initiation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1581,17 +1770,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollintegriertes CMDB-System mit automatischer Verknüpfung zu Geschäftsprozessen.",
+                  "prose": "Das Informations- und Asset-Inventar wird vollautomatisch in Echtzeit durch kontinuierliche Discovery-Prozesse und Metadaten-Analysen aktualisiert.",
                   "parts": [
                     {
                       "id": "ASST.2.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Änderungen an Prozessen lösen automatische Aktualisierungen im Informationsinventar aus."
+                      "prose": "Integrieren Sie Data-Discovery-Tools und CMDB vollautomatisch, sodass neue Datenbestände und Assets in Echtzeit klassifiziert und inventarisiert werden."
                     },
                     {
                       "id": "ASST.2.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Test der automatischen Update-Trigger bei Prozessänderungen in der CMDB-API."
+                      "prose": "Überprüfung der Policy-as-Code-Regeln. Automatisierter Compliance-Check per CLI-Skript, der Echtzeit-Abweichungen im Asset-Graph meldet."
                     }
                   ]
                 }

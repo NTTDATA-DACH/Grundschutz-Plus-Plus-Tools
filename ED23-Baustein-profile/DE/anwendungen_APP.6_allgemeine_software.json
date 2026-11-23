@@ -3,8 +3,8 @@
     "uuid": "e670805a-2d16-58f8-b77c-498c55f168ed",
     "metadata": {
       "title": "APP.6 – Allgemeine Software (Anwendungen)",
-      "last-modified": "2026-10-19T01:06:02.107173+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:15.234347+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.6 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -63,7 +63,7 @@
               "ASST.1.1.3",
               "ASST.1.2",
               "ASST.2.3",
-              "ASST.2.3.2.1",
+              "ASST.2.4.1",
               "ASST.7.1",
               "BER.4.1",
               "BES.2.1",
@@ -84,8 +84,9 @@
               "BES.4.8",
               "BES.4.8.1",
               "BES.5.10.3",
+              "DET.3.1",
               "DET.5.10.1",
-              "DET.5.10.4",
+              "DET.5.10.2",
               "DEV.1.1.2",
               "DEV.2.1",
               "DEV.4.2",
@@ -351,7 +352,7 @@
                       {
                         "with-ids": [
                           "BER.4.1",
-                          "DET.5.10.4",
+                          "DET.5.10.2",
                           "KONF.10.1",
                           "KONF.10.4",
                           "KONF.6.1",
@@ -490,6 +491,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "DET.3.1",
                           "DEV.2.1",
                           "DEV.4.6",
                           "KONF.14.1"
@@ -639,7 +641,7 @@
                       {
                         "with-ids": [
                           "ASST.2.3",
-                          "ASST.2.3.2.1",
+                          "ASST.2.4.1",
                           "BES.2.1.5",
                           "STM.2.1.2"
                         ]
@@ -926,15 +928,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1051,14 +1053,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.6.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1,2,8): ASST.2.3 fordert ein detailliertes Inventar der Anwendungen inklusive Versionsstand, Herkunft und Lizenzierung und schließt die allgemeine Forderung nach einer Softwareinventarisierung vollständig ein. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1,2,8): Die G++-Maßnahme ASST.2.3 fordert ein Inventar der Anwendungen einschließlich spezifischer Pflichtangaben wie Produktname, Versionsstand, Herkunft und Lizenzierung. Der Satz fordert allgemein die Inventarisierung jeglicher Software (also auch Betriebssysteme oder Treiber), verlangt jedoch im ersten Satz keine spezifischen Detailattribute. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "ASST.2.3.2.1",
+          "control-id": "ASST.2.4.1",
           "adds": [
             {
               "position": "ending",
@@ -1406,6 +1408,22 @@
           ]
         },
         {
+          "control-id": "DET.3.1",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.6.A6",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 überschneidet sich mit dem Satz bezüglich der Protokollierungsfunktion von Software (und ergänzt eine Aufbewahrungsfrist), umfasst jedoch weder den Anforderungskatalog im Beschaffungsprozess noch die geforderte Authentifizierungsfunktion."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "DET.5.10.1",
           "adds": [
             {
@@ -1422,7 +1440,7 @@
           ]
         },
         {
-          "control-id": "DET.5.10.4",
+          "control-id": "DET.5.10.2",
           "adds": [
             {
               "position": "ending",
@@ -1431,7 +1449,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.6.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 7): Satz 7 fordert die Überprüfung der Integrität von Installationspaketen mittels digitaler Signaturen oder Prüfsummen, was die allgemeinere Fassung der Integritätsprüfung von Installations- und Patchdateien darstellt. [auch: gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 7): Satz 7 fordert die Überprüfung der Integrität von Installationspaketen mittels digitaler Signaturen oder Prüfsummen, was die allgemeinere Fassung der Integritätsprüfung von Installations- und Patchdateien darstellt."
                 }
               ]
             }

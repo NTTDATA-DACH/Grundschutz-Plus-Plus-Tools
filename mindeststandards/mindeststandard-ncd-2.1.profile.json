@@ -1,9 +1,9 @@
 {
   "profile": {
-    "uuid": "eaddc697-1302-4a27-9923-6e1a4bfc24b2",
+    "uuid": "6c831817-6eff-4057-8d47-4cec9aa483d4",
     "metadata": {
       "title": "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1) – OSCAL-Profil auf dem Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-10-28T21:17:07.403Z",
+      "last-modified": "2026-11-23T17:08:39.458Z",
       "version": "2.1",
       "oscal-version": "1.2.2",
       "props": [
@@ -83,18 +83,18 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 61 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (2 betroffen: KONF.2.6, KONF.6.1). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 61 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (50 Controls)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 61 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (2 betroffen: KONF.2.6, KONF.6.1). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 61 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (50 Controls). Pin am 2026-11-23 mechanisch von 160c177db6c8 auf dc44ea4fb581 umgestellt (repin.py, Katalog neu aufgelöst); die 61 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannte Zielobjektkategorien oder documentation-Werte (26: BES.1.4, BES.2.1, BES.2.1.3, BES.2.1.5, BES.2.3, BES.4.2, BES.4.6.2, BES.4.8, BES.4.8.2, BES.5.10.2, BES.5.10.5, BES.5.11, BES.5.12, BES.5.14, BES.5.3, BES.5.4, BES.5.5, BES.5.5.1, BES.5.6, BES.5.6.1, BES.6.2, BES.6.2.1, BES.6.3, BES.6.6, DET.4.12, DET.4.12.1); Umnummerierung bei gleicher alt-identifier (1 Controls, 7 ID-Vorkommen in Profil und Ergänzungskatalog umgeschrieben: ASST.2.4 → ASST.2.5). Upstream umformuliert (Titel und Statement) und in der neuen Fassung übernommen: ASST.2.1, KONF.2.6; die Anpassungen des Profils an diesen Controls (alters) bleiben unverändert."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
               "ARCH.9.1",
               "ASST.2.1",
               "ASST.2.3.1",
-              "ASST.2.4",
+              "ASST.2.5",
               "ASST.3.10",
               "BER.5.9",
               "BES.1.1.1",
@@ -157,7 +157,7 @@
         ]
       },
       {
-        "href": "#28488195-91cb-5129-ab0e-bf2aaa5597c2",
+        "href": "#7e5502f3-80c1-57e5-b33f-be078c6d13c8",
         "include-controls": [
           {
             "with-ids": [
@@ -862,7 +862,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ASST.2.4"
+                          "ASST.2.5"
                         ]
                       }
                     ]
@@ -4970,7 +4970,7 @@
           ]
         },
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
@@ -4979,7 +4979,7 @@
                   "name": "mindeststandard-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "value": "NCD.2.1.03 f",
-                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): ASST.2.4 verlangt die Klassifizierung von Daten; der Absatz gibt hierfür vier spezifische rechtlich-fachliche Datenkategorien für die Cloud-Nutzung vor."
+                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): ASST.2.5 verlangt die Klassifizierung von Daten; der Absatz gibt hierfür vier spezifische rechtlich-fachliche Datenkategorien für die Cloud-Nutzung vor."
                 },
                 {
                   "name": "modal_verb_profil",
@@ -4993,7 +4993,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "ASST.2.4_stm",
+                  "id": "ASST.2.5_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -5030,7 +5030,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "ASST.2.4_mst",
+                  "id": "ASST.2.5_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Die Einrichtung MUSS die für die Verarbeitung im externen Cloud-Dienst identifizierten dienstlichen Daten den folgenden Kategorien zuordnen: Kategorie 1 (Privat-, Dienst-, Betriebs- und Geschäftsgeheimnisse gemäß StGB §§ 203 und 353b), Kategorie 2 (personenbezogene Daten gemäß DSGVO Art. 4 Nr. 1), Kategorie 3 (Verschlusssachen gemäß VSA), Kategorie 4 (sonstige Daten). Eine gleichzeitige Zuordnung zu den Kategorien 1, 2 und 3 ist zulässig.",
@@ -5046,7 +5046,7 @@
           ],
           "removes": [
             {
-              "by-id": "ASST.2.4_stm"
+              "by-id": "ASST.2.5_stm"
             }
           ]
         },
@@ -9264,17 +9264,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -9308,7 +9308,7 @@
           ]
         },
         {
-          "uuid": "28488195-91cb-5129-ab0e-bf2aaa5597c2",
+          "uuid": "7e5502f3-80c1-57e5-b33f-be078c6d13c8",
           "title": "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 3 neuen Controls, Datei mindeststandard-ncd-2.1.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -9318,7 +9318,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "6dd02f725a41340adddb8c349b6919049f9236ba226dba0f311b033d0653a0cf"
+                  "value": "70b4350ede497edffb945486b37f5126a54c517c89ef68071489a215df51da35"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "uuid": "b7e9cd4d-8946-5552-8764-c0807e68a896",
     "metadata": {
       "title": "NG SYS.5.1 – Blockchain und Distributed Ledger Technologien (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:12.419555+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:30.261716+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.5.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -65,7 +65,7 @@
               "BER.5.12",
               "BER.5.8",
               "BER.5.9",
-              "DET.3.1.8",
+              "DET.3.1.2",
               "DET.4.14",
               "DET.4.16",
               "DET.5.10",
@@ -85,7 +85,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -1069,7 +1069,7 @@
                       {
                         "with-ids": [
                           "BER.5.12",
-                          "DET.3.1.8"
+                          "DET.3.1.2"
                         ]
                       }
                     ]
@@ -1185,15 +1185,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1217,7 +1217,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1227,7 +1227,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -2680,14 +2680,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2708,19 +2708,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2741,19 +2741,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2774,19 +2774,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2807,19 +2807,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2840,12 +2840,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -2860,7 +2860,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.5.1.A18",
-                  "remarks": "Herkunft: KI-Vorschlag (subset-of, Konfidenz mittel, Checker bestaetigt): DET.3.1.8 deckt die geforderte Dokumentation (Protokollierung) privilegierter bzw. administrativer Ereignisse in Anwendungen ab."
+                  "remarks": "Herkunft: KI-Vorschlag (subset-of, Konfidenz mittel, Checker bestaetigt): DET.3.1.2 deckt die geforderte Dokumentation (Protokollierung) privilegierter bzw. administrativer Ereignisse in Anwendungen ab."
                 }
               ]
             }

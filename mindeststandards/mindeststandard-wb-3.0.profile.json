@@ -1,9 +1,9 @@
 {
   "profile": {
-    "uuid": "b41d9258-765d-46a7-9bef-db45c9136aab",
+    "uuid": "509b547d-27be-4051-b5f1-935c259c94a1",
     "metadata": {
       "title": "Mindeststandard des BSI für Webbrowser (Version 3.0) – OSCAL-Profil auf dem Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-10-28T21:17:07.614Z",
+      "last-modified": "2026-11-23T17:08:40.113Z",
       "version": "3.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -83,11 +83,11 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 46 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (1 betroffen: KONF.6.1). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 46 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (46 Controls)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 46 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (1 betroffen: KONF.6.1). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 46 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (46 Controls). Pin am 2026-11-23 mechanisch von 160c177db6c8 auf dc44ea4fb581 umgestellt (repin.py, Katalog neu aufgelöst); die 46 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannte Zielobjektkategorien oder documentation-Werte (7: BES.4.2, BES.4.6, BES.5.10.1, BES.5.10.3, BES.5.10.3.1, DET.5.10, DET.5.10.2); Umnummerierung bei gleicher alt-identifier (1 Controls, 7 ID-Vorkommen in Profil und Ergänzungskatalog umgeschrieben: DET.5.10.4 → DET.5.10.2)."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -106,7 +106,7 @@
               "DET.5.1",
               "DET.5.1.1",
               "DET.5.10",
-              "DET.5.10.4",
+              "DET.5.10.2",
               "DEV.4.6",
               "KONF.1.1",
               "KONF.10.1",
@@ -142,7 +142,7 @@
         ]
       },
       {
-        "href": "#d8c6636a-19bb-5db9-ad8b-8078dbc05a4c",
+        "href": "#0b0106ee-43db-513f-bf87-1c091d9c36af",
         "include-controls": [
           {
             "with-ids": [
@@ -462,7 +462,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.5.10.4"
+                          "DET.5.10.2"
                         ]
                       }
                     ]
@@ -4005,7 +4005,7 @@
           ]
         },
         {
-          "control-id": "DET.5.10.4",
+          "control-id": "DET.5.10.2",
           "adds": [
             {
               "position": "ending",
@@ -4014,7 +4014,7 @@
                   "name": "mindeststandard-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "value": "WB.2.1.02 b",
-                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.5.10.4 fordert allgemein die Prüfung von Patches auf Integrität vor der Installation. Der Absatz konkretisiert dies für Webbrowser-Updates dahingehend, dass der Update-Mechanismus selbst die Prüfung durchführen muss, nur bei positivem Ergebnis installiert werden darf und fehlerhafte Prüfergebnisse signalisiert werden müssen."
+                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.5.10.2 fordert allgemein die Prüfung von Patches auf Integrität vor der Installation. Der Absatz konkretisiert dies für Webbrowser-Updates dahingehend, dass der Update-Mechanismus selbst die Prüfung durchführen muss, nur bei positivem Ergebnis installiert werden darf und fehlerhafte Prüfergebnisse signalisiert werden müssen."
                 },
                 {
                   "name": "modal_verb_profil",
@@ -4028,7 +4028,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.5.10.4_stm",
+                  "id": "DET.5.10.2_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -4060,7 +4060,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.5.10.4_mst",
+                  "id": "DET.5.10.2_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Updates für den Webbrowser dürfen nur dann eingespielt werden, wenn zuvor durch den Update-Mechanismus eine Integritätsprüfung mit positivem Prüfergebnis durchgeführt wurde. Nicht korrekte Prüfergebnisse müssen geeignet signalisiert werden.",
@@ -4076,7 +4076,7 @@
           ],
           "removes": [
             {
-              "by-id": "DET.5.10.4_stm"
+              "by-id": "DET.5.10.2_stm"
             }
           ]
         },
@@ -6389,17 +6389,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -6433,7 +6433,7 @@
           ]
         },
         {
-          "uuid": "d8c6636a-19bb-5db9-ad8b-8078dbc05a4c",
+          "uuid": "0b0106ee-43db-513f-bf87-1c091d9c36af",
           "title": "Mindeststandard des BSI für Webbrowser (Version 3.0) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 3 neuen Controls, Datei mindeststandard-wb-3.0.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -6443,7 +6443,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "351cf226e7df0d8fa82e7d2c790b54af48af28366644923ccf1995bbb553fc94"
+                  "value": "2ffd398fea047700033ec77931502a8960592835db2604426ee59cdd63227ed0"
                 }
               ]
             }

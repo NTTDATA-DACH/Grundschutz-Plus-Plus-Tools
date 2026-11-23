@@ -3,8 +3,8 @@
     "uuid": "319b2856-7d73-5550-b916-68f24c001c43",
     "metadata": {
       "title": "INF.13 – Technisches Gebäudemanagement (Gebäude) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:10.035612+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:29.257631+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein INF.13 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -85,10 +85,9 @@
               "BES.7.4.7",
               "DET.1.2",
               "DET.3.1",
-              "DET.3.1.1",
-              "DET.3.1.12",
-              "DET.3.1.7",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2",
+              "DET.3.2.1",
               "DET.4.2",
               "DET.5.1",
               "DET.5.3",
@@ -142,7 +141,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -1267,10 +1266,9 @@
                         "with-ids": [
                           "ASST.4.2",
                           "DET.3.1",
-                          "DET.3.1.1",
-                          "DET.3.1.12",
-                          "DET.3.1.7",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
+                          "DET.3.2",
+                          "DET.3.2.1",
                           "TEST.2.1"
                         ]
                       }
@@ -1785,15 +1783,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1817,7 +1815,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1827,7 +1825,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -6918,522 +6916,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.13.A21",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 fordert die Protokollierung sicherheitsrelevanter (entsprechend definierter bzw. klassifizierter) Ereignisse und deckt damit die Grundforderung des Satzes inhaltlich ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1,2): Beide Anforderungen betreffen die Protokollierung sicherheitsrelevanter Ereignisse, wobei DET.3.1 auf Anwendungen (inklusive Aufbewahrungsfrist) abzielt, während der Satz gesamte Systeme im Technischen Gebäudemanagement adressiert. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.1_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.1-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Erfolgreiche Logins werden vereinzelt in lokalen Logdateien erfasst.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Aktivieren Sie die grundlegende Protokollierung in den Systemeinstellungen."
-                    },
-                    {
-                      "id": "DET.3.1.1-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung von /var/log/auth.log auf Einträge von heute."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Erfolge und Fehlschläge werden auf den meisten Systemen lokal protokolliert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Konfigurieren Sie den Syslog-Dienst so, dass authpriv-Ereignisse gespeichert werden."
-                    },
-                    {
-                      "id": "DET.3.1.1-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Befehl: 'grep -E \"Accepted|Failed\" /var/log/auth.log' ausführen und Ergebnisse sichten."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass alle Authentifizierungsereignisse lückenlos und zeitnah protokolliert werden."
-                    },
-                    {
-                      "id": "DET.3.1.1-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Review der Log-Konfiguration. Check: 'logger -p auth.info test' und Prüfung, ob Eintrag erscheint."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Zentrale Protokollierung und Echtzeit-Alerting bei verdächtigen Login-Mustern.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Leiten Sie Auth-Logs an einen zentralen Server weiter und definieren Sie Schwellwerte für Fehlschläge."
-                    },
-                    {
-                      "id": "DET.3.1.1-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der rsyslog-Weiterleitung: 'grep \"@\" /etc/rsyslog.conf'. Validierung der Alarme im Dashboard."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Automatisierte Reaktion auf fehlgeschlagene Logins durch Integration in ein SIEM.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Korrelieren Sie Login-Daten mit Standortdaten und blockieren Sie IPs automatisch bei Anomalien."
-                    },
-                    {
-                      "id": "DET.3.1.1-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Simulation eines Brute-Force Angriffs und Prüfung der automatischen Sperrung (z. B. via fail2ban/SIEM)."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "INF.13.A21",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Die Protokollierung von Authentifizierungen an IT-Systemen stellt einen zentralen Spezialfall der geforderten Protokollierung sicherheitsrelevanter Systemereignisse dar. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.12",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.12_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.12-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Die Verarbeitung von Daten in TGM-Systemen wird nur vereinzelt auf lokalen Systemen mit Standardeinstellungen protokolliert."
-                },
-                {
-                  "id": "DET.3.1.12-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Wichtige Datenverarbeitungen werden auf den relevanten TGM-Komponenten lokal protokolliert, jedoch nur bei Bedarf manuell ausgewertet."
-                },
-                {
-                  "id": "DET.3.1.12-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für Daten KANN die Verarbeitung von Daten protokollieren."
-                },
-                {
-                  "id": "DET.3.1.12-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Datenverarbeitungen im TGM werden zentral in einem Log-Management-System erfasst, korreliert und bei definierten Schwellwerten werden Alarme ausgelöst."
-                },
-                {
-                  "id": "DET.3.1.12-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Alle Datenverarbeitungen werden in Echtzeit gestreamt, mittels KI/ML-gestützter Anomalieerkennung (UEBA) analysiert und lösen bei Abweichungen automatisierte SOAR-Playbooks aus."
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "INF.13.A21",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (intersects-with)"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.7",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.7_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.7-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Ereignisse enthalten unvollst&auml;ndige Daten, z.B. fehlt oft der Zeitstempel oder die Quell-IP.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.7-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Erschwert die forensische Nachvollziehbarkeit erheblich."
-                    },
-                    {
-                      "id": "DET.3.1.7-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Manuelle Sichtung von Log-Eintr&auml;gen auf Vollst&auml;ndigkeit der Basisfelder."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.7-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Verwendung des Standard-Syslog-Formats ohne spezifische Objektidentifikatoren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.7-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Zeit und Quelle vorhanden, Zielobjekt oft nur vage (z.B. per Pfad)."
-                    },
-                    {
-                      "id": "DET.3.1.7-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Pr&uuml;fung der Syslog-Konfiguration und Test-Logging."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.7-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für Anwendungen SOLLTE zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle und das Zielobjekt protokollieren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.7-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Pr&auml;zise Identifikation des 'Wer', 'Wann' und 'Was'."
-                    },
-                    {
-                      "id": "DET.3.1.7-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Automatisierter Check der Log-Struktur: `grep -E \"(timestamp|source|object)\" app.log`."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.7-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Logs werden um Metadaten wie User-Agent, Request-ID und Session-ID angereichert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.7-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Erm&ouml;glicht pr&auml;zise Rekonstruktion von Angriffsvektoren."
-                    },
-                    {
-                      "id": "DET.3.1.7-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Review eines JSON-Log-Objekts auf Vorhandensein der Correlation-IDs."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.7-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Kryptografisch signierte Logs stellen die Unver&auml;nderlichkeit der Metadaten sicher.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.7-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Schutz gegen Manipulation von Log-Eintr&auml;gen durch Angreifer."
-                    },
-                    {
-                      "id": "DET.3.1.7-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Verifikation der Log-Signatur mit dem Public Key der Anwendung."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "INF.13.A21",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.8",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.8_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7454,19 +6951,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7487,19 +6984,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7520,19 +7017,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7553,19 +7050,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7586,12 +7083,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -7606,7 +7103,381 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.13.A21",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.8 adressiert privilegierte Ereignisse bei Anwendungen, während Satz 3 alle Konfigurations- und Steuerungszugriffe im Gebäudeautomationsumfeld verlangt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.2 adressiert privilegierte Ereignisse bei Anwendungen, während Satz 3 alle Konfigurations- und Steuerungszugriffe im Gebäudeautomationsumfeld verlangt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Auf vereinzelten IT-Systemen des TGM werden sicherheitsrelevante Ereignisse ad-hoc und mit Standardeinstellungen lokal protokolliert, ohne definierte Aufbewahrungsfristen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie zumindest auf kritischen TGM-Systemen die lokale Standard-Protokollierung des Betriebssystems, um bei Vorfällen erste Anhaltspunkte zur Fehleranalyse zu haben."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Stichprobenartige manuelle Prüfung auf ausgewählten TGM-Systemen (z. B. via 'ls -l /var/log' oder lokaler GUI), ob überhaupt Logdateien für sicherheitsrelevante Ereignisse lokal geschrieben werden."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse werden auf den wesentlichen IT-Systemen im TGM grundsätzlich protokolliert, wobei die Aufbewahrungsdauer manuell konfiguriert und nicht zentral überwacht wird.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie die lokale Protokollierung (z. B. via rsyslog und logrotate) auf allen relevanten TGM-Systemen manuell so, dass Sicherheitsereignisse für eine grundlegende Dauer vorgehalten werden."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der lokalen Log-Rotations-Konfiguration (z. B. per Skript oder 'grep -E \"rotate|daily\" /etc/logrotate.conf') auf den TGM-Systemen zur Verifikation der Basis-Aufbewahrung."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass alle im Parameter definierten IT-Systeme des TGM sicherheitsrelevante Ereignisse (wie Logins, Konfigurationsänderungen) zuverlässig und revisionssicher protokollieren."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierte Prüfung der Log-Konfiguration (z. B. via Ansible-Playbook oder 'auditctl -l') sowie Abgleich der tatsächlichen Vorhaltedauer von Logs mit den Vorgaben für {{ insert: param, det.3.2-prm1 }}."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Die Protokollierung sicherheitsrelevanter Ereignisse erfolgt auf allen TGM-IT-Systemen standardisiert mit automatischer Weiterleitung an ein zentrales SIEM/Log-System und Überwachung der Aufbewahrungsfristen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie die Protokolldaten aller relevanten TGM-Systeme automatisiert (z. B. mittels rsyslog oder Fluentd) an ein zentrales Log-Management weiter und überwachen Sie den Log-Eingang proaktiv."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierter Check der Log-Forwarder (z. B. 'systemctl is-active rsyslog') und API-Abfrage am zentralen Log-Server (z. B. OpenSearch), ob alle TGM-Systeme kontinuierlich Logs liefern."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung im TGM ist vollständig automatisiert (Policy-as-Code), kryptografisch gegen Manipulation geschützt und in eine KI-gestützte Echtzeit-Anomalieerkennung mit Selbstheilungsmechanismen integriert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie Policy-as-Code zur Durchsetzung der Logging-Richtlinien, nutzen Sie revisionssicheren WORM-Speicher und setzen Sie ML-basierte Analysen zur Echtzeit-Anomalieerkennung in den TGM-Logs ein."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Kontinuierliche Compliance-Prüfung via Policy-as-Code (z. B. OpenSCAP oder osquery-Abfragen) auf Manipulationsschutz sowie API-gestützte Verifikation der ML-Anomalieerkennung im SIEM."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "INF.13.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 empfiehlt die Protokollierung sicherheitsrelevanter Ereignisse für TGM-Systeme, enthält jedoch im Gegensatz zu DET.3.2 keine Vorgabe zur Aufbewahrungsfrist."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.1_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Erfolgreiche Logins werden vereinzelt in lokalen Logdateien erfasst.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die grundlegende Protokollierung in den Systemeinstellungen."
+                    },
+                    {
+                      "id": "DET.3.2.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung von /var/log/auth.log auf Einträge von heute."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Erfolge und Fehlschläge werden auf den meisten Systemen lokal protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie den Syslog-Dienst so, dass authpriv-Ereignisse gespeichert werden."
+                    },
+                    {
+                      "id": "DET.3.2.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Befehl: 'grep -E \"Accepted|Failed\" /var/log/auth.log' ausführen und Ergebnisse sichten."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass alle Authentifizierungsereignisse lückenlos und zeitnah protokolliert werden."
+                    },
+                    {
+                      "id": "DET.3.2.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Review der Log-Konfiguration. Check: 'logger -p auth.info test' und Prüfung, ob Eintrag erscheint."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Zentrale Protokollierung und Echtzeit-Alerting bei verdächtigen Login-Mustern.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie Auth-Logs an einen zentralen Server weiter und definieren Sie Schwellwerte für Fehlschläge."
+                    },
+                    {
+                      "id": "DET.3.2.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der rsyslog-Weiterleitung: 'grep \"@\" /etc/rsyslog.conf'. Validierung der Alarme im Dashboard."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Automatisierte Reaktion auf fehlgeschlagene Logins durch Integration in ein SIEM.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Korrelieren Sie Login-Daten mit Standortdaten und blockieren Sie IPs automatisch bei Anomalien."
+                    },
+                    {
+                      "id": "DET.3.2.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulation eines Brute-Force Angriffs und Prüfung der automatischen Sperrung (z. B. via fail2ban/SIEM)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "INF.13.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Die Protokollierung von Authentifizierungen an IT-Systemen stellt einen zentralen Spezialfall der geforderten Protokollierung sicherheitsrelevanter Systemereignisse dar. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -12469,13 +12340,13 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.13.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand und deckt damit die geforderte regelmäßige Überprüfung der Härtungsmaßnahmen inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 2): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand und deckt damit die geforderte regelmäßige Überprüfung der Härtungsmaßnahmen inhaltlich ab."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.13.A12",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 10): KONF.2.5 deckt die regelmäßige Konfigurationsüberprüfung gegen Vorgaben ab, fordert jedoch keine anlassbezogenen Prüfungen bei zusätzlichem Bedarf. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 10): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Systemkonfiguration auf Übereinstimmung mit den Vorgaben (Referenzzustand), schließt die in Satz 10 zusätzlich geforderte Prüfung bei Bedarf jedoch nicht ein. [auch: satz_abdeckung]"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "uuid": "3f3f0101-2e8c-5637-9046-65b927f106af",
     "metadata": {
       "title": "NG APP.4.8 – Graphdatenbanken (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:45.111154+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:14.040335+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,16 +49,16 @@
           "text": "Baustein APP.4.8 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
               "ARCH.5.1",
-              "ASST.2.4",
+              "ASST.2.5",
               "BER.1.1.1",
               "BER.3.4",
               "BER.4.1",
@@ -66,8 +66,8 @@
               "BER.5.7",
               "BES.3.3",
               "DET.3.1",
-              "DET.3.1.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2.1",
               "DET.4.16",
               "DEV.1.1",
               "DEV.1.1.1",
@@ -520,8 +520,8 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.8",
-                          "DET.3.1.1",
+                          "DET.3.1.2",
+                          "DET.3.2.1",
                           "BER.3.4"
                         ]
                       }
@@ -636,7 +636,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "GC.7.1"
                         ]
                       }
@@ -753,15 +753,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -976,14 +976,14 @@
           ]
         },
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.4_stm",
+              "by-id": "ASST.2.5_stm",
               "parts": [
                 {
-                  "id": "ASST.2.4-m1_custom",
+                  "id": "ASST.2.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1004,19 +1004,19 @@
                   "prose": "Für einzelne, offensichtlich kritische Daten und Assets in der Graphdatenbank wird vereinzelt und ad-hoc eine Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m1_custom_gdn",
+                      "id": "ASST.2.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Identifizieren Sie zumindest die kritischsten Datenobjekte in der Graphdatenbank ad-hoc und dokumentieren Sie deren grundlegenden Schutzbedarf informell."
                     },
                     {
-                      "id": "ASST.2.4-m1_custom_asm",
+                      "id": "ASST.2.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie stichprobenartig, ob für kritische Knoten und Kanten der Graphdatenbank eine informelle Schutzbedarfsfeststellung existiert."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m2_custom",
+                  "id": "ASST.2.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1037,19 +1037,19 @@
                   "prose": "Informationen und Daten-Assets der Graphdatenbank werden grundsätzlich, jedoch manuell und ohne durchgängige Standardisierung, einer Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m2_custom_gdn",
+                      "id": "ASST.2.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Führen Sie eine grundlegende, manuelle Klassifizierung der Datenbestände durch und tragen Sie die Schutzbedarfsklassen in eine zentrale Übersicht ein."
                     },
                     {
-                      "id": "ASST.2.4-m2_custom_asm",
+                      "id": "ASST.2.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie die Bestandslisten auf manuell zugewiesene Schutzbedarfsklassen für die primären Datenbestände der Graphdatenbank."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m3_custom",
+                  "id": "ASST.2.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1070,19 +1070,19 @@
                   "prose": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m3_custom_gdn",
+                      "id": "ASST.2.5-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Etablieren Sie einen dokumentierten Prozess, um allen Daten und Assets der Graphdatenbank systematisch eine definierte Schutzbedarfsklasse zuzuweisen."
                     },
                     {
-                      "id": "ASST.2.4-m3_custom_asm",
+                      "id": "ASST.2.5-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie das Klassifizierungsschema. Automatisierter Check: Abfrage der Datenbank-Metadaten oder Asset-DB via API-Skript auf gesetzte Schutzbedarfs-Labels."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m4_custom",
+                  "id": "ASST.2.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1103,19 +1103,19 @@
                   "prose": "Allen Daten-Assets sowie spezifischen Teilgraphen werden verbindlich Schutzbedarfsklassen zugewiesen, technisch als Metadaten hinterlegt und auf Vollständigkeit überwacht.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m4_custom_gdn",
+                      "id": "ASST.2.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Metadaten-Tags direkt an Knoten und Beziehungen, um Schutzbedarfsklassen in der Graphdatenbank abzubilden und überwachen Sie unklassifizierte Daten."
                     },
                     {
-                      "id": "ASST.2.4-m4_custom_asm",
+                      "id": "ASST.2.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfen Sie die Richtlinien zur automatischen Klassifizierung. Automatisierter Check: Cypher/Gremlin-Query zur Suche nach Knoten/Kanten ohne Klassifizierungs-Property."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m5_custom",
+                  "id": "ASST.2.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1136,12 +1136,12 @@
                   "prose": "Die Zuweisung von Schutzbedarfsklassen erfolgt vollautomatisiert beim Daten-Ingest mittels inhalts- und kontextbasierter Analyse der Graphenstruktur sowie kontinuierlicher Verifikation.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m5_custom_gdn",
+                      "id": "ASST.2.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementieren Sie automatisiertes Data-Discovery und Machine-Learning-basierte Klassifizierung, die neuen Knoten und Kanten dynamisch Schutzbedarfsklassen zuweist."
                     },
                     {
-                      "id": "ASST.2.4-m5_custom_asm",
+                      "id": "ASST.2.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie die Policy-as-Code-Regeln der Data-Discovery-Pipeline. Automatisierter Check: CI/CD-Prüfung und API-Abfrage des Data-Catalogs auf 100% Klassifizierungsabdeckung."
                     }
@@ -1156,7 +1156,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.8.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): ASST.2.4 fordert die Zuweisung von Daten zu einer Schutzbedarfsklasse (Klassifizierung), was dem Prozess zur Identifikation schützenswerter Daten entspricht."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): ASST.2.5 fordert die Zuweisung von Daten zu einer Schutzbedarfsklasse (Klassifizierung), was dem Prozess zur Identifikation schützenswerter Daten entspricht."
                 }
               ]
             }
@@ -2462,201 +2462,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.1_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.1-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Erfolgreiche Logins werden vereinzelt in lokalen Logdateien erfasst.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Aktivieren Sie die grundlegende Protokollierung in den Systemeinstellungen."
-                    },
-                    {
-                      "id": "DET.3.1.1-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung von /var/log/auth.log auf Einträge von heute."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Erfolge und Fehlschläge werden auf den meisten Systemen lokal protokolliert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Konfigurieren Sie den Syslog-Dienst so, dass authpriv-Ereignisse gespeichert werden."
-                    },
-                    {
-                      "id": "DET.3.1.1-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Befehl: 'grep -E \"Accepted|Failed\" /var/log/auth.log' ausführen und Ergebnisse sichten."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass alle Authentifizierungsereignisse lückenlos und zeitnah protokolliert werden."
-                    },
-                    {
-                      "id": "DET.3.1.1-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Review der Log-Konfiguration. Check: 'logger -p auth.info test' und Prüfung, ob Eintrag erscheint."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Zentrale Protokollierung und Echtzeit-Alerting bei verdächtigen Login-Mustern.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Leiten Sie Auth-Logs an einen zentralen Server weiter und definieren Sie Schwellwerte für Fehlschläge."
-                    },
-                    {
-                      "id": "DET.3.1.1-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der rsyslog-Weiterleitung: 'grep \"@\" /etc/rsyslog.conf'. Validierung der Alarme im Dashboard."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.1-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Automatisierte Reaktion auf fehlgeschlagene Logins durch Integration in ein SIEM.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.1-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Korrelieren Sie Login-Daten mit Standortdaten und blockieren Sie IPs automatisch bei Anomalien."
-                    },
-                    {
-                      "id": "DET.3.1.1-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Simulation eines Brute-Force Angriffs und Prüfung der automatischen Sperrung (z. B. via fail2ban/SIEM)."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "APP.4.8.A8",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.1.1 fordert die Protokollierung von Authentifizierungen bei Erfolg und Fehlschlag (im Katalog auf IT-Systeme bezogen, fachlich hier auf die Datenbankanwendung angewandt)."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.8",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.8_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2677,19 +2490,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2710,19 +2523,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2743,19 +2556,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2776,19 +2589,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2809,12 +2622,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -2829,7 +2642,194 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.8.A8",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.8 fordert explizit die Protokollierung privilegierter Ereignisse in Anwendungen, was die administrativen Änderungen abdeckt."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.2 fordert explizit die Protokollierung privilegierter Ereignisse in Anwendungen, was die administrativen Änderungen abdeckt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.1_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Erfolgreiche Logins werden vereinzelt in lokalen Logdateien erfasst.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die grundlegende Protokollierung in den Systemeinstellungen."
+                    },
+                    {
+                      "id": "DET.3.2.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung von /var/log/auth.log auf Einträge von heute."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Erfolge und Fehlschläge werden auf den meisten Systemen lokal protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie den Syslog-Dienst so, dass authpriv-Ereignisse gespeichert werden."
+                    },
+                    {
+                      "id": "DET.3.2.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Befehl: 'grep -E \"Accepted|Failed\" /var/log/auth.log' ausführen und Ergebnisse sichten."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass alle Authentifizierungsereignisse lückenlos und zeitnah protokolliert werden."
+                    },
+                    {
+                      "id": "DET.3.2.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Review der Log-Konfiguration. Check: 'logger -p auth.info test' und Prüfung, ob Eintrag erscheint."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Zentrale Protokollierung und Echtzeit-Alerting bei verdächtigen Login-Mustern.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie Auth-Logs an einen zentralen Server weiter und definieren Sie Schwellwerte für Fehlschläge."
+                    },
+                    {
+                      "id": "DET.3.2.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der rsyslog-Weiterleitung: 'grep \"@\" /etc/rsyslog.conf'. Validierung der Alarme im Dashboard."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Automatisierte Reaktion auf fehlgeschlagene Logins durch Integration in ein SIEM.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Korrelieren Sie Login-Daten mit Standortdaten und blockieren Sie IPs automatisch bei Anomalien."
+                    },
+                    {
+                      "id": "DET.3.2.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulation eines Brute-Force Angriffs und Prüfung der automatischen Sperrung (z. B. via fail2ban/SIEM)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.8.A8",
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.2.1 fordert die Protokollierung von Authentifizierungen bei Erfolg und Fehlschlag (im Katalog auf IT-Systeme bezogen, fachlich hier auf die Datenbankanwendung angewandt)."
                 }
               ]
             }
@@ -4519,17 +4519,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Die Rechenleistung wird nur bei akuten Performance-Problemen manuell über Task-Priorisierung begrenzt.",
+                  "prose": "Die Rechenleistung für die Graphdatenbank wird vereinzelt und ad-hoc auf Prozessebene des Hostsystems eingeschränkt.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Tools wie 'nice' oder 'renice' zur temporären Steuerung der CPU-Last."
+                      "prose": "Begrenzen Sie die Rechenleistung zumindest ad-hoc auf Betriebssystemebene für den gesamten Prozess der Graphdatenbank, um Systemabstürze durch Traversierungsabfragen zu verhindern."
                     },
                     {
                       "id": "KONF.15.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Stichprobenartige Prüfung der Prozessprioritäten mittels 'top' oder 'ps -el'."
+                      "prose": "Prüfen Sie manuell auf dem Host-System, ob für die Graphdatenbank vereinzelte Ressourcenlimits (z. B. via ulimit oder cgroups) gesetzt sind."
                     }
                   ]
                 },
@@ -4552,17 +4552,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Hostsysteme nutzen grundlegende CPU-Affinität oder feste CPU-Shares für kritische Anwendungen.",
+                  "prose": "Ressourcenlimits für die Graphdatenbank sind statisch und global konfiguriert, werden jedoch nicht granular pro Benutzer oder Abfragekomplexität angepasst.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Konfigurieren Sie CPU-Pinning für Anwendungen, um Ressourcenkonflikte zu minimieren."
+                      "prose": "Nutzen Sie die Standardmechanismen der Graphdatenbank, um globale Timeouts und Speicherlimits für Abfragen statisch in der Konfigurationsdatei festzulegen."
                     },
                     {
                       "id": "KONF.15.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Auslesen der CPU-Affinität für App-Prozesse via 'taskset -p <pid>'."
+                      "prose": "Kontrollieren Sie die Konfigurationsdateien der Graphdatenbank manuell auf statische Limits für Threads, Speicher und Abfrage-Timeouts."
                     }
                   ]
                 },
@@ -4585,17 +4585,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Implementieren Sie Mechanismen zur Drosselung der CPU-Ressourcen für die Anwendung auf dem Host."
+                      "prose": "Konfigurieren Sie in der Graphdatenbank spezifische Ressourcenlimits (CPU-Zeit, Arbeitsspeicher, Traversierungstiefe) bezogen auf {{ insert: param, konf.15.2-prm1 }}, um Denial-of-Service durch komplexe Abfragen zu verhindern."
                     },
                     {
                       "id": "KONF.15.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Host-Konfiguration (z.B. cgroups oder Systemd-ResourceControl) auf CPU-Limits."
+                      "prose": "Prüfen Sie mittels Konfigurationsanalyse oder API-Abfrage (z. B. 'SHOW CONFIGURATION'), ob die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} wie dokumentiert eingeschränkt ist."
                     }
                   ]
                 },
@@ -4618,17 +4618,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Dynamische Drosselung der Rechenleistung bei Erreichen definierter Schwellenwerte zur Sicherung der Systemstabilität.",
+                  "prose": "Die Rechenleistung für die Graphdatenbank wird granular pro {{ insert: param, konf.15.2-prm1 }} durch dynamisches Workload-Management begrenzt und proaktiv überwacht.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verwenden Sie Steuerungsgruppen, um CPU-Zeitanteile (Shares) pro Anwendung fest zu definieren."
+                      "prose": "Implementieren Sie dynamische Ressourcenkontingente (Workload Management) in der Graphdatenbank und überwachen Sie Abfragekosten (Query Cost) proaktiv mit automatischer Terminierung bei Schwellwertüberschreitung."
                     },
                     {
                       "id": "KONF.15.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung der cgroup-Parameter für CPU-Quotas: 'cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us'."
+                      "prose": "Prüfen Sie automatisiert per Skript die Datenbank-Konfiguration und das Monitoring auf aktive Quotas, Query-Cost-Limits und Alerting bei Ressourcenüberschreitungen."
                     }
                   ]
                 },
@@ -4651,17 +4651,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollautomatisierte Ressourcensteuerung skaliert CPU-Ressourcen horizontal oder vertikal basierend auf Echtzeit-Bedarf.",
+                  "prose": "Die Begrenzung der Rechenleistung erfolgt vollautomatisiert über Policy-as-Code inklusive prädiktiver Komplexitätsanalyse von Graphabfragen und dynamischer Skalierung.",
                   "parts": [
                     {
                       "id": "KONF.15.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Setzen Sie Autoscaling-Mechanismen ein, die strikte Obergrenzen pro Workload erzwingen."
+                      "prose": "Verwalten Sie alle Ressourcenlimits als Policy-as-Code. Nutzen Sie eine vorgeschaltete Analyse der Abfragekomplexität (Query Cost Estimation), um potenziell schädliche Graph-Traversierungen vor der Ausführung automatisch zu drosseln oder abzulehnen."
                     },
                     {
                       "id": "KONF.15.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Review der Autoscaler-Konfiguration und Load-Testing zur Bestätigung der Limits."
+                      "prose": "Verifizieren Sie über die CI/CD-Pipeline und Policy-Engines (z. B. mittels Open Policy Agent), dass Ressourcenlimits als Code verwaltet und durch prädiktive Kostenanalysen kontinuierlich durchgesetzt werden."
                     }
                   ]
                 }

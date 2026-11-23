@@ -3,8 +3,8 @@
     "uuid": "acc7da0a-c11c-51c3-beff-2d7e17ceb31b",
     "metadata": {
       "title": "APP.5.4 – Unified Communications und Collaboration (UCC) (Interpersonelle Kommunikation) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:06:36.330448+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:52.828428+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.5.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -84,6 +84,7 @@
               "KONF.13.1",
               "KONF.14.1",
               "KONF.14.1.2",
+              "KONF.2.5",
               "KONF.3.2",
               "KONF.6.12",
               "KONF.6.7",
@@ -242,6 +243,7 @@
                       {
                         "with-ids": [
                           "KONF.10.5",
+                          "KONF.2.5",
                           "TEST.3.1"
                         ]
                       }
@@ -558,6 +560,11 @@
                     "href": "#KONF.14.1",
                     "rel": "related",
                     "text": "KONF.14.1 steht unter APP.5.4.A6"
+                  },
+                  {
+                    "href": "#KONF.2.5",
+                    "rel": "related",
+                    "text": "KONF.2.5 steht unter APP.5.4.A3"
                   }
                 ]
               },
@@ -990,15 +997,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2921,17 +2928,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Vereinzelte Cloud-Ereignisse werden manuell gesichtet.",
+                  "prose": "Auf vereinzelten UCC-Systemen findet eine unvollständige Ad-hoc-Protokollierung statt, die sich auf lokale Standard-Logs ohne spezifischen Sicherheitsfokus beschränkt.",
                   "parts": [
                     {
                       "id": "DET.3.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Führen Sie stichprobenartige Log-Prüfungen durch."
+                      "prose": "Aktivieren Sie zumindest auf den kritischsten UCC-Kernsystemen die lokale Standardprotokollierung des Betriebssystems, um bei Ausfällen erste Anhaltspunkte zu haben."
                     },
                     {
                       "id": "DET.3.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie Stichproben der manuellen Sichtungsprotokolle."
+                      "prose": "Manuelle Stichprobe auf einzelnen UCC-Servern (z.B. via 'ls -la /var/log'), ob überhaupt lokale System- oder Anwendungs-Logs geschrieben werden."
                     }
                   ]
                 },
@@ -2954,17 +2961,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Cloud-Logs werden separat vom internen Log-System gespeichert.",
+                  "prose": "Eine grundlegende Protokollierung sicherheitsrelevanter Ereignisse ist auf den UCC-Systemen mit Standardeinstellungen aktiviert, wird jedoch manuell und lokal verwaltet.",
                   "parts": [
                     {
                       "id": "DET.3.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Archivieren Sie Cloud-Audit-Logs zentral auf einem zugriffsgeschützten Speicher."
+                      "prose": "Konfigurieren Sie die Standard-Logging-Mechanismen aller UCC-Dienste manuell so, dass grundlegende Zugriffs- und Fehlerereignisse lokal gespeichert werden."
                     },
                     {
                       "id": "DET.3.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichten Sie das Speicherverzeichnis. Befehl: `ls -lh /var/log/cloud-audit/`"
+                      "prose": "Prüfung der lokalen Log-Konfiguration (z.B. 'grep -i log /etc/rsyslog.conf'), ob sicherheitsrelevante Basis-Events auf den UCC-Komponenten erfasst werden."
                     }
                   ]
                 },
@@ -2987,17 +2994,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass die Protokollierung im Audit Log wie beschrieben erfolgt."
+                      "prose": "Definieren und dokumentieren Sie verbindlich, welche sicherheitsrelevanten Ereignisse (z.B. Fehlversuche, Admin-Aktionen) auf allen UCC-Systemen protokolliert werden müssen."
                     },
                     {
                       "id": "DET.3.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Integration der Cloud-Ereignisse im zentralen Audit-Log-System."
+                      "prose": "Prüfung der Konfigurationsdateien (z.B. via 'auditctl -l' oder Skript-Check der Log-Level), ob alle definierten Ereignisse für die geforderten Parameter protokolliert werden."
                     }
                   ]
                 },
@@ -3020,17 +3027,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Cloud-Events werden automatisiert und in Echtzeit in das SIEM integriert.",
+                  "prose": "Sicherheitsrelevante Ereignisse aller UCC-Komponenten werden zentralisiert erfasst, korreliert und durch automatisierte Alarme bei kritischen Mustern proaktiv überwacht.",
                   "parts": [
                     {
                       "id": "DET.3.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Konnektoren für die automatische Übermittlung sicherheitsrelevanter Events."
+                      "prose": "Leiten Sie alle sicherheitsrelevanten UCC-Logs in Echtzeit an ein zentrales SIEM weiter und überwachen Sie den Log-Fluss proaktiv auf Ausfälle oder Manipulationen."
                     },
                     {
                       "id": "DET.3.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Validieren Sie den Datenstrom im SIEM. Test: `grep 'cloud_provider' /var/log/syslog`"
+                      "prose": "Automatisierter Compliance-Scan (z.B. via Ansible oder OpenSCAP) der Logging-Agents und Prüfung des zentralen Log-Servers per API auf kontinuierlichen Log-Eingang."
                     }
                   ]
                 },
@@ -3053,17 +3060,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Cloud-Ereignisse lösen automatisierte Incident-Response-Workflows aus.",
+                  "prose": "Die Protokollierung erfolgt vollständig automatisiert über Policy-as-Code, ist manipulationssicher integriert und nutzt ML-basierte Analysen zur Echtzeit-Bedrohungsabwehr.",
                   "parts": [
                     {
                       "id": "DET.3.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie Cloud-Security-Events in ein SOAR-System für sofortige Reaktion."
+                      "prose": "Implementieren Sie eine selbstheilende Logging-Infrastruktur per Policy-as-Code, die KI-gestützte Anomalieerkennung (UEBA) auf den UCC-Metadaten und -Logs durchführt."
                     },
                     {
                       "id": "DET.3.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Lösen Sie ein Test-Event aus und prüfen Sie den Workflow-Status via API."
+                      "prose": "Kontinuierliche automatisierte Verifikation der Logging-Pipelines mittels Policy-as-Code (z.B. Open Policy Agent) und API-Abfragen der Anomalie-Erkennungs-Engine."
                     }
                   ]
                 }
@@ -6123,6 +6130,199 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.5.4.A14",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1,2): KONF.14.1.2 deckt den Einsatz einer Ende-zu-Ende-Verschlüsselung für die Kommunikation von Anwendungen direkt auf allgemeiner Ebene ab. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.2.5_stm",
+              "parts": [
+                {
+                  "id": "KONF.2.5-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Konfiguration wird sporadisch bei Problemen händisch überprüft.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Vergleichen Sie die aktuelle Konfiguration manuell mit alten Backups."
+                    },
+                    {
+                      "id": "KONF.2.5-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Fragen Sie Administratoren nach dem letzten manuellen Abgleich."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Ein regelmäßiger manueller Abgleich der Konfiguration mit einem schriftlichen Referenzzustand erfolgt quartalsweise.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Tabellen zum Vergleich von Key-Value-Paaren der Konfiguration."
+                    },
+                    {
+                      "id": "KONF.2.5-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichtung der Protokolle über durchgeführte Konfigurationsaudits."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand {{ insert: param, konf.2.5-prm1 }} überprüfen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Der Referenzzustand muss dokumentiert und als Baseline festgelegt sein."
+                    },
+                    {
+                      "id": "KONF.2.5-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abgleich der laufenden Konfiguration mit der im Parameter definierten Referenz."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Automatisierte Tools prüfen wöchentlich die Konfiguration gegen die definierte Baseline und melden Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Setzen Sie Open-Source-Lösungen wie 'RANCID' oder 'Oxidized' für das Diff-Monitoring ein."
+                    },
+                    {
+                      "id": "KONF.2.5-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der generierten Alarmierung bei unautorisierten Konfigurationsänderungen."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Echtzeit-Überwachung der Konfiguration mit automatischer Wiederherstellung (Self-Healing) bei Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie Configuration Management Tools zur permanenten Durchsetzung des Soll-Zustands."
+                    },
+                    {
+                      "id": "KONF.2.5-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulieren Sie eine Änderung und prüfen Sie die automatische Korrektur durch das System."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.5.4.A3",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Konfiguration auf Übereinstimmung mit dem Referenzzustand (Konformität), schließt die in Satz 4 zusätzlich geforderte inhaltliche Prüfung auf Plausibilität für die festgelegten Einsatzzwecke jedoch nicht ein."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.5.4.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Systemkonfiguration auf Einhaltung des Referenzzustands, umfasst jedoch nicht das in Satz 5 zusätzlich geforderte Festhalten, die anlassbezogene Prüfung sowie das Anpassen der Umsetzung."
                 }
               ]
             }

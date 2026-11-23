@@ -3,8 +3,8 @@
     "uuid": "a24c67da-9f61-509c-8cec-3277bd537ff6",
     "metadata": {
       "title": "APP.4.2 – SAP-ERP-System (Anwendungen)",
-      "last-modified": "2026-10-19T01:05:22.057778+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:00.358807+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -81,7 +81,7 @@
               "BER.5.7",
               "BER.6.4",
               "DET.3.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
               "DET.4.1",
               "DET.4.13",
               "DET.4.14",
@@ -90,6 +90,7 @@
               "DET.5.10",
               "DET.5.10.2",
               "DET.5.10.3",
+              "DET.5.12",
               "DET.6.1",
               "DET.6.1.2",
               "DEV.1.1",
@@ -108,6 +109,7 @@
               "KONF.14.1",
               "KONF.14.1.1",
               "KONF.2.3",
+              "KONF.2.5",
               "KONF.6.1",
               "KONF.6.6",
               "KONF.6.6.1",
@@ -484,6 +486,11 @@
                     "href": "#KONF.10.3",
                     "rel": "related",
                     "text": "KONF.10.3 steht unter APP.4.2.A4"
+                  },
+                  {
+                    "href": "#KONF.2.3",
+                    "rel": "related",
+                    "text": "KONF.2.3 steht unter APP.4.2.A4"
                   }
                 ]
               },
@@ -938,6 +945,11 @@
                     "href": "#BER.4.1",
                     "rel": "related",
                     "text": "BER.4.1 steht unter APP.4.2.A6"
+                  },
+                  {
+                    "href": "#KONF.2.3",
+                    "rel": "related",
+                    "text": "KONF.2.3 steht unter APP.4.2.A4"
                   }
                 ]
               },
@@ -1567,7 +1579,7 @@
                         "with-ids": [
                           "BER.1.4",
                           "BER.3.22",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
                           "NOT.3.6"
                         ]
                       }
@@ -1615,8 +1627,10 @@
                           "DET.4.4",
                           "DET.5.10.2",
                           "DET.5.10.3",
+                          "DET.5.12",
                           "KONF.10.5",
-                          "KONF.10.5.1"
+                          "KONF.10.5.1",
+                          "KONF.2.5"
                         ]
                       }
                     ]
@@ -1742,15 +1756,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2233,14 +2247,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A8",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 9): Die G++-Maßnahme DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen und deckt damit die allgemeine Pflicht zur Aktivierung der Protokollierung im RFC-Kontext inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 9): DET.3.1 empfiehlt allgemein die Protokollierung sicherheitsrelevanter Ereignisse in Anwendungen für eine bestimmte Frist und schließt damit die Forderung nach aktiver Protokollierung für SAP-RFC-Gateways als konkreten Anwendungsfall vollständig ein. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -2249,7 +2263,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A29",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.8 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.2 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2389,7 +2403,23 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A30",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme DET.5.10.3 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.5.12",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A30",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme DET.5.12 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2549,19 +2579,19 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.10.3 fordert allgemein die Änderung von Default-Zugangsdaten und Passwörtern bei Anwendungen, was das Ändern der voreingestellten Passwörter von SAP-Standard-Konten direkt abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.10.3 adressiert allgemein die Änderung von Default-Zugangsdaten bei Anwendungen und schließt damit das Ändern voreingestellter Passwörter von SAP-Standard-Konten als anwendungsspezifischen Spezialfall ein. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.10.3 deckt den Aspekt der Änderung von Standardpasswörtern in Anwendungen ab, erfasst jedoch nicht den geforderten besonderen Schutz bestimmter Datenbanktabellen. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.10.3 adressiert mit der Änderung von Default-Zugangsdaten in Anwendungen den Teilaspekt des Änderns von Standardpasswörtern, während der geforderte besondere Schutz bestimmter Datenbanktabellen nicht Gegenstand der Maßnahme ist. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): KONF.10.3 fordert die generelle Änderung von Standard- und Default-Zugangsdaten bei Anwendungen, was das Ändern der Passwörter systemspezifischer Standardkonten (<sid>adm und <db><sid>) umfasst. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.10.3 empfiehlt das Ändern von Default-Zugangsdaten für Anwendungen, während der Satz die Änderung der Passwörter der systemspezifischen Konten <sid>adm und <db><sid> auf dem Betriebssystem Unix adressiert. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2725,13 +2755,41 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert explizit die Änderung der voreingestellten Passwörter von Standard-Konten direkt nach der Installation, was einen konkreten Anwendungsfall der Änderung von Default-Zugangsdaten darstellt."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert die Änderung voreingestellter Passwörter von Standard-Konten direkt nach der Installation eines SAP-ERP-Systems, was ein technologiespezifischer Spezialfall der Änderung von Default-Zugangsdaten in KONF.2.3 ist."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.2.3 empfiehlt die Änderung von Default-Zugangsdaten und überschneidet sich daher mit der Forderung nach dem Ändern von Standardpasswörtern für SAP-Datenbanken; der geforderte besondere Schutz bestimmter Datenbanktabellen (wie USR*-Tabellen) wird von KONF.2.3 jedoch nicht adressiert."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Satz 3 fordert das Sperren eines während der Installation angelegten Standardkontos (<db><sid>), was laut Erläuterung von KONF.2.3 (Deaktivieren von Standardzugängen bei der Inbetriebnahme) eine direkte Umsetzung der Maßnahme darstellt."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A17",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): KONF.2.3 fordert die allgemeine Änderung von Default-Zugangsdaten, was die geforderte Passwortänderung der bei der SAP-Installation standardmäßig angelegten Systemkonten direkt abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A30",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert die laufende Überwachung der Korrektheit aller Sicherheitseinstellungen eines SAP-ERP-Systems, was einem regelmäßigen Abgleich der tatsächlichen Konfiguration mit dem Referenzzustand gemäß KONF.2.5 entspricht."
                 }
               ]
             }

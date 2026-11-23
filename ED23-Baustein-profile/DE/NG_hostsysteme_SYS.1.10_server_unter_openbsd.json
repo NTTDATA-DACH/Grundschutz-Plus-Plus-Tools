@@ -3,8 +3,8 @@
     "uuid": "24cc825c-6106-5549-ae58-03c18f8e1504",
     "metadata": {
       "title": "NG SYS.1.10 – Server unter OpenBSD (Hostsysteme)",
-      "last-modified": "2026-10-19T01:04:35.044328+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.742126+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.10 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -62,8 +62,8 @@
               "ASST.2.3.1",
               "ASST.5.2",
               "BER.6.4",
-              "DET.3.1.1",
-              "DET.3.1.6",
+              "DET.3.2.1",
+              "DET.3.2.6",
               "DET.4.9",
               "DET.5.10",
               "DEV.2.3",
@@ -618,8 +618,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1",
-                          "DET.3.1.6"
+                          "DET.3.2.1",
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -900,15 +900,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1022,7 +1022,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.2.1",
           "adds": [
             {
               "position": "ending",
@@ -1031,14 +1031,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.10.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.1 deckt die Protokollierung von erfolgreichen und fehlgeschlagenen Authentifizierungen auf IT-Systemen ab."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.2.1 deckt die Protokollierung von erfolgreichen und fehlgeschlagenen Authentifizierungen auf IT-Systemen ab."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
@@ -1047,7 +1047,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.10.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.1.6 ermöglicht über den Parameter die Protokollierung systemspezifischer Ereignisse wie Firewall-Logs."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.2.6 ermöglicht über den Parameter die Protokollierung systemspezifischer Ereignisse wie Firewall-Logs."
                 }
               ]
             }
