@@ -3,8 +3,8 @@
     "uuid": "7857593c-42b9-5b64-b365-5a448746dc2d",
     "metadata": {
       "title": "APP.4.2 – SAP-ERP-System (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:22.099761+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:00.425901+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -81,7 +81,7 @@
               "BER.5.7",
               "BER.6.4",
               "DET.3.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
               "DET.4.1",
               "DET.4.13",
               "DET.4.14",
@@ -90,6 +90,7 @@
               "DET.5.10",
               "DET.5.10.2",
               "DET.5.10.3",
+              "DET.5.12",
               "DET.6.1",
               "DET.6.1.2",
               "DEV.1.1",
@@ -108,6 +109,7 @@
               "KONF.14.1",
               "KONF.14.1.1",
               "KONF.2.3",
+              "KONF.2.5",
               "KONF.6.1",
               "KONF.6.6",
               "KONF.6.6.1",
@@ -484,6 +486,11 @@
                     "href": "#KONF.10.3",
                     "rel": "related",
                     "text": "KONF.10.3 steht unter APP.4.2.A4"
+                  },
+                  {
+                    "href": "#KONF.2.3",
+                    "rel": "related",
+                    "text": "KONF.2.3 steht unter APP.4.2.A4"
                   }
                 ]
               },
@@ -938,6 +945,11 @@
                     "href": "#BER.4.1",
                     "rel": "related",
                     "text": "BER.4.1 steht unter APP.4.2.A6"
+                  },
+                  {
+                    "href": "#KONF.2.3",
+                    "rel": "related",
+                    "text": "KONF.2.3 steht unter APP.4.2.A4"
                   }
                 ]
               },
@@ -1567,7 +1579,7 @@
                         "with-ids": [
                           "BER.1.4",
                           "BER.3.22",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
                           "NOT.3.6"
                         ]
                       }
@@ -1615,8 +1627,10 @@
                           "DET.4.4",
                           "DET.5.10.2",
                           "DET.5.10.3",
+                          "DET.5.12",
                           "KONF.10.5",
-                          "KONF.10.5.1"
+                          "KONF.10.5.1",
+                          "KONF.2.5"
                         ]
                       }
                     ]
@@ -1742,15 +1756,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -5052,7 +5066,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5060,17 +5074,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Authentifizierungsmittel werden ohne formale Identitätsprüfung ausgehändigt.",
+                  "prose": "Die initiale Ausgabe und Zuordnung von Authentifizierungsmitteln zu Zugangskonten erfolgt ad-hoc und ohne definierten Prozess.",
                   "parts": [
                     {
                       "id": "BER.5.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Geben Sie Passwörter nur persönlich oder sicher verschlüsselt weiter."
+                      "prose": "Dokumentieren Sie zumindest bei privilegierten Konten kurz, welches Authentifizierungsmittel welchem Konto zugeordnet wurde."
                     },
                     {
                       "id": "BER.5.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, wie Passwörter an neue Mitarbeiter übermittelt werden."
+                      "prose": "Prüfung durch Stichproben von E-Mails oder Tickets, ob die initiale Ausgabe von Authentifizierungsmitteln überhaupt nachvollzogen werden kann."
                     }
                   ]
                 },
@@ -5085,7 +5099,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5093,17 +5107,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Die Ausgabe erfolgt nach Sichtprüfung eines Ausweisdokuments und wird quittiert.",
+                  "prose": "Es existiert ein grundlegender, manuell ausgeführter Prozess zur Ausgabe von Authentifizierungsmitteln und deren Zuordnung zu Zugangskonten.",
                   "parts": [
                     {
                       "id": "BER.5.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Dokumentieren Sie die Übergabe von Token oder Passwörtern."
+                      "prose": "Nutzen Sie einheitliche Formulare oder Ticket-Templates, um die Ausgabe von Authentifizierungsmitteln und deren Zuordnung zu Konten manuell zu erfassen."
                     },
                     {
                       "id": "BER.5.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Auditieren Sie die Empfangsbestätigungen der Authentifizierungsmittel."
+                      "prose": "Manuelle Überprüfung der ausgefüllten Formulare oder Tickets zur Token-Ausgabe und Abgleich mit den Einträgen im Identitätsverzeichnis."
                     }
                   ]
                 },
@@ -5118,7 +5132,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5126,17 +5140,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.",
+                  "prose": "Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe oder Registrierung von Authentifizierungsmitteln und ihrer Zuordnung zu den vorgesehenen Zugangskonten oder Berechtigungsumfängen verankern.",
                   "parts": [
                     {
                       "id": "BER.5.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Legen Sie fest, wie Benutzer sicher identifiziert werden und ihre Zugangsdaten erhalten."
+                      "prose": "Definieren und dokumentieren Sie im Berechtigungskonzept einen verbindlichen Prozess für die Registrierung, Ausgabe und Kontenzuordnung von Authentifizierungsmitteln."
                     },
                     {
                       "id": "BER.5.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Prozessbeschreibung zur Ausgabe von Zugangsdaten."
+                      "prose": "Prüfung des Berechtigungskonzepts auf das Vorhandensein einer dokumentierten Vorgehensweise sowie Stichprobenprüfung von Ausgabelogs im IAM-System."
                     }
                   ]
                 },
@@ -5151,7 +5165,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5159,17 +5173,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Die Ausgabe umfasst die obligatorische Aktivierung von MFA in einer kontrollierten Umgebung.",
+                  "prose": "Die Ausgabe, Registrierung und Zuordnung von Authentifizierungsmitteln erfolgt über einen standardisierten, teilautomatisierten Self-Service-Workflow mit Genehmigungsschritten.",
                   "parts": [
                     {
                       "id": "BER.5.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Enrolment-Stationen für die Einrichtung von 2FA."
+                      "prose": "Integrieren Sie die Registrierung und Zuordnung von Authentifizierungsmitteln in ein Workflow-System mit automatisierter Identitätsprüfung und Vier-Augen-Prinzip."
                     },
                     {
                       "id": "BER.5.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob MFA bei allen neuen Konten zwingend aktiviert ist."
+                      "prose": "Automatisierter Abgleich der registrierten Authentifizierungsmittel mit aktiven Konten via Skript gegen die IAM-API zur Identifikation verwaister Token."
                     }
                   ]
                 },
@@ -5184,7 +5198,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Implementation",
+                      "value": "Operation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -5192,17 +5206,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Automatisierte Identitätsverifizierung (z.B. Video-Ident) und verschlüsselter Hardware-Token-Versand.",
+                  "prose": "Der Prozess zur Registrierung und Zuordnung von Authentifizierungsmitteln ist vollständig im IAM automatisiert, kryptografisch abgesichert und wird kontinuierlich auf Richtlinienkonformität geprüft.",
                   "parts": [
                     {
                       "id": "BER.5.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie moderne ID-Verfahren in den Bereitstellungsprozess."
+                      "prose": "Implementieren Sie Zero-Touch-Onboarding mit kryptografisch gesicherter Registrierung und automatischer Policy-basierter Zuordnung im zentralen IAM-System."
                     },
                     {
                       "id": "BER.5.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Sicherheitsprotokolle des Ident-Verfahrens."
+                      "prose": "Kontinuierliche, automatisierte Überprüfung der Policy-as-Code-Regeln für das Onboarding und Abfrage der Audit-Logs über die REST-API des IAM-Systems."
                     }
                   ]
                 }
@@ -6337,21 +6351,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A8",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 9): Die G++-Maßnahme DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen und deckt damit die allgemeine Pflicht zur Aktivierung der Protokollierung im RFC-Kontext inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 9): DET.3.1 empfiehlt allgemein die Protokollierung sicherheitsrelevanter Ereignisse in Anwendungen für eine bestimmte Frist und schließt damit die Forderung nach aktiver Protokollierung für SAP-RFC-Gateways als konkreten Anwendungsfall vollständig ein. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6372,19 +6386,19 @@
                   "prose": "Vereinzelt werden privilegierte Aktionen in lokalen Logfiles erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Ad-hoc Protokollierung kritischer Aktionen auf lokaler Ebene."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Sichtung lokaler Logs. Check: 'find /var/log -name *.log -exec grep -i \"admin\" {} \\;'"
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6405,19 +6419,19 @@
                   "prose": "Privilegierte Ereignisse werden manuell und regelmäßig in Standard-Log-Verzeichnissen gesichert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Systematische Aufzeichnung von Login/Logout privilegierter Nutzer."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobenartige Prüfung der Log-Integrität. Check: 'ls -l /var/log/auth.log'"
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6438,19 +6452,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Die Protokollierung muss Ereignisse wie Rechteänderungen und Funktionssperren abdecken."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Audit der Logging-Konfiguration. Check: 'grep -E \"(grant|revoke|deny)\" application.audit.log'"
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6471,19 +6485,19 @@
                   "prose": "Automatisierte Übertragung privilegierter Ereignisse an ein zentrales Log-Management-System.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Echtzeit-Zentralisierung und Alarmierung bei kritischen Rechteänderungen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung des Log-Forwarders. Check: 'systemctl status rsyslog' oder API-Abfrage am SIEM."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6504,12 +6518,12 @@
                   "prose": "Vollständig integrierte SIEM-Überwachung mit verhaltensbasierten Alarmen für privilegierte Konten.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Automatisierte Reaktion auf Anomalien in der Nutzung privilegierter Funktionen."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Simulation unbefugter Rechteänderung und Validierung des Alarms im SIEM Dashboard."
                     }
@@ -6524,7 +6538,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A29",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.8 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.2 deckt die Protokollierung von Aktivitäten durch Notfall-Konten als allgemeine Anforderung zur Aufzeichnung privilegierter Ereignisse und Funktionen in Anwendungen inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -7682,7 +7696,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Operation",
+                      "value": "Implementation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -7690,17 +7704,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Manuelle Abfrage fehlender Updates über den Paketmanager.",
+                  "prose": "Integritätsprüfung erfolgt durch Vergleich der Dateigröße.",
                   "parts": [
                     {
                       "id": "DET.5.10.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Ad-hoc Prüfung des Patch-Status durch den Administrator."
+                      "prose": "Prüfen Sie grob, ob der Download vollständig abgeschlossen wurde."
                     },
                     {
                       "id": "DET.5.10.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Ausführung von `apt list --upgradable` oder `dnf check-update`."
+                      "prose": "Audit: Wird nach dem Download die Dateigröße kurz geprüft?"
                     }
                   ]
                 },
@@ -7715,7 +7729,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Operation",
+                      "value": "Implementation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -7723,17 +7737,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Regelmäßige automatisierte Berichterstellung zum Patch-Status.",
+                  "prose": "Manueller Abgleich von MD5- oder SHA-Prüfsummen bei kritischen Patches.",
                   "parts": [
                     {
                       "id": "DET.5.10.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Automatisierte E-Mail-Berichte über ausstehende Sicherheitsupdates."
+                      "prose": "Nutzen Sie Kommandozeilentools, um Hashwerte der Downloads zu berechnen."
                     },
                     {
                       "id": "DET.5.10.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der konfigurierten Cron-Jobs für das Patch-Reporting."
+                      "prose": "Check: `sha256sum patch_file.zip` gegen Herstellerangabe."
                     }
                   ]
                 },
@@ -7748,7 +7762,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Operation",
+                      "value": "Implementation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -7756,17 +7770,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE den Patchstatus durch {{ insert: param, det.5.10.2-prm1 }} überwachen.",
+                  "prose": "Detektion SOLLTE Patches vor der Installation auf Integrität testen.",
                   "parts": [
                     {
                       "id": "DET.5.10.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Einsatz eines automatisierten Monitoring-Verfahrens für den Patch-Status."
+                      "prose": "Stellen Sie sicher, dass Patches vor der Ausführung formal validiert werden."
                     },
                     {
                       "id": "DET.5.10.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Anbindung an die zentrale Patch-Management-Konsole."
+                      "prose": "Prüfen Sie, ob für alle Patches ein Integritätscheck durchgeführt wird."
                     }
                   ]
                 },
@@ -7781,7 +7795,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Operation",
+                      "value": "Implementation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -7789,17 +7803,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Kontinuierlicher Schwachstellen-Scan auf Basis der installierten Versionen.",
+                  "prose": "Automatisierte Validierung kryptografischer Signaturen durch den Paketmanager.",
                   "parts": [
                     {
                       "id": "DET.5.10.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Proaktive Erkennung von Risiken durch veraltete Softwarekomponenten."
+                      "prose": "Konfigurieren Sie Ihre Systeme so, dass unsignierte Pakete abgelehnt werden."
                     },
                     {
                       "id": "DET.5.10.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsicht in die Berichte des Vulnerability Scanners (z. B. OpenVAS)."
+                      "prose": "Audit: Testversuch zur Installation eines unsignierten Pakets (muss scheitern)."
                     }
                   ]
                 },
@@ -7814,7 +7828,7 @@
                     },
                     {
                       "name": "phase",
-                      "value": "Operation",
+                      "value": "Implementation",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -7822,17 +7836,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Vollautomatisiertes Patching mit integrierter Regressionstest-Validierung.",
+                  "prose": "Kettenvalidierung vom Hersteller bis zum Zielsystem (End-to-End Trust).",
                   "parts": [
                     {
                       "id": "DET.5.10.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nahtlose Integration von Update-Verfügbarkeit bis Rollout-Erfolg."
+                      "prose": "Einsatz von Hardware Security Modules (HSM) zur Signaturprüfung im Build-Prozess."
                     },
                     {
                       "id": "DET.5.10.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung des CI/CD-Pipelines für das automatisierte OS-Patching."
+                      "prose": "Analyse der Trust-Chain in der automatisierten Deployment-Pipeline."
                     }
                   ]
                 }
@@ -7864,6 +7878,193 @@
                   "props": [
                     {
                       "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Patches werden gelegentlich auf einem Testrechner ausprobiert.",
+                  "parts": [
+                    {
+                      "id": "DET.5.10.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Installieren Sie den Patch auf einem unwichtigen System, bevor er überall verteilt wird."
+                    },
+                    {
+                      "id": "DET.5.10.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Audit: Gibt es ein Testgerät für Vorab-Updates?"
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.5.10.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Funktionstest kritischer Anwendungen nach dem Patching in einer Testumgebung.",
+                  "parts": [
+                    {
+                      "id": "DET.5.10.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Prüfen Sie nach dem Update manuell, ob die Hauptdienste noch starten."
+                    },
+                    {
+                      "id": "DET.5.10.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung: Dokumentierte Testergebnisse für das letzte Update-Bundle."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.5.10.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion KANN Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“ ausführen.",
+                  "parts": [
+                    {
+                      "id": "DET.5.10.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie das Patching in das formale Change Management der Organisation."
+                    },
+                    {
+                      "id": "DET.5.10.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie Change-Requests auf Verweise zu durchgeführten Patch-Tests."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.5.10.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Strukturierte Tests in einer produktionsnahen Staging-Umgebung.",
+                  "parts": [
+                    {
+                      "id": "DET.5.10.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie automatisierte Skripte, um die Anwendungsfunktionalität nach Patches zu testen."
+                    },
+                    {
+                      "id": "DET.5.10.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Review des automatisierten Test-Reports der Staging-Umgebung."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.5.10.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Blue-Green-Deployments ermöglichen risikolose Tests im Live-Betrieb.",
+                  "parts": [
+                    {
+                      "id": "DET.5.10.3-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Verwenden Sie Canary-Releases zur Überwachung der Patch-Stabilität bei Anwendern."
+                    },
+                    {
+                      "id": "DET.5.10.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Audit: Überprüfung der Fehlererkennungsrate während des gestaffelten Rollouts."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A30",
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.5.12",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.5.12_stm",
+              "parts": [
+                {
+                  "id": "DET.5.12-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
                       "value": "Technical",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
@@ -7880,19 +8081,19 @@
                   "prose": "Manuelle Abfrage des Patchstatus einzelner Komponenten.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m1_custom_gdn",
+                      "id": "DET.5.12-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Unregelmäßiger Abgleich installierter Versionen mit Herstellerangaben."
                     },
                     {
-                      "id": "DET.5.10.3-m1_custom_asm",
+                      "id": "DET.5.12-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobenartige Versionsprüfung. Check: '<app> --version' vs. Hersteller-Website."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m2_custom",
+                  "id": "DET.5.12-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7913,19 +8114,19 @@
                   "prose": "Inventarisierung der Anwendungsversionen in einer Liste.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m2_custom_gdn",
+                      "id": "DET.5.12-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Regelmäßige Aktualisierung des Bestandsverzeichnisses."
                     },
                     {
-                      "id": "DET.5.10.3-m2_custom_asm",
+                      "id": "DET.5.12-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Sichtung der Inventarliste und letztes Update-Datum. Check: Repository-Metadaten."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m3_custom",
+                  "id": "DET.5.12-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7943,22 +8144,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen KANN den Patchstatus durch {{ insert: param, det.5.10.3-prm1 }} überwachen.",
+                  "prose": "Detektion für Anwendungen KANN den Patchstatus durch {{ insert: param, det.5.12-prm1 }} überwachen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m3_custom_gdn",
+                      "id": "DET.5.12-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Überwachung des Patchstands basierend auf den definierten Parametern."
                     },
                     {
-                      "id": "DET.5.10.3-m3_custom_asm",
+                      "id": "DET.5.12-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Vergleich des Soll-Ist-Zustands der Patches. Check: 'yum check-update' oder API-Abfrage."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m4_custom",
+                  "id": "DET.5.12-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -7979,19 +8180,19 @@
                   "prose": "Automatisierter Abgleich des Patchstatus mit Schwachstellendatenbanken.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m4_custom_gdn",
+                      "id": "DET.5.12-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Integration von Vulnerability Scannern zur Identifikation fehlender Updates."
                     },
                     {
-                      "id": "DET.5.10.3-m4_custom_asm",
+                      "id": "DET.5.12-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Sichtung aktueller Scan-Reports und Identifikation kritischer Lücken."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m5_custom",
+                  "id": "DET.5.12-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -8012,12 +8213,12 @@
                   "prose": "Kontinuierliche Compliance-Überwachung mit automatisiertem Patch-Rollout in Testumgebungen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m5_custom_gdn",
+                      "id": "DET.5.12-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Echtzeit-Transparenz über den Patch-Level der gesamten Flotte."
                     },
                     {
-                      "id": "DET.5.10.3-m5_custom_asm",
+                      "id": "DET.5.12-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Pipeline-Logs auf automatische Patch-Vorschläge."
                     }
@@ -8032,7 +8233,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A30",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme DET.5.10.3 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme DET.5.12 fordert die Überwachung des Patchstatus von Anwendungen und deckt damit die geforderte Überwachung auf ordnungsgemäß eingespielte Patches und Updates inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -9887,19 +10088,19 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.10.3 fordert allgemein die Änderung von Default-Zugangsdaten und Passwörtern bei Anwendungen, was das Ändern der voreingestellten Passwörter von SAP-Standard-Konten direkt abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): KONF.10.3 adressiert allgemein die Änderung von Default-Zugangsdaten bei Anwendungen und schließt damit das Ändern voreingestellter Passwörter von SAP-Standard-Konten als anwendungsspezifischen Spezialfall ein. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.10.3 deckt den Aspekt der Änderung von Standardpasswörtern in Anwendungen ab, erfasst jedoch nicht den geforderten besonderen Schutz bestimmter Datenbanktabellen. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.10.3 adressiert mit der Änderung von Default-Zugangsdaten in Anwendungen den Teilaspekt des Änderns von Standardpasswörtern, während der geforderte besondere Schutz bestimmter Datenbanktabellen nicht Gegenstand der Maßnahme ist. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): KONF.10.3 fordert die generelle Änderung von Standard- und Default-Zugangsdaten bei Anwendungen, was das Ändern der Passwörter systemspezifischer Standardkonten (<sid>adm und <db><sid>) umfasst. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.10.3 empfiehlt das Ändern von Default-Zugangsdaten für Anwendungen, während der Satz die Änderung der Passwörter der systemspezifischen Konten <sid>adm und <db><sid> auf dem Betriebssystem Unix adressiert. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -11426,13 +11627,212 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert explizit die Änderung der voreingestellten Passwörter von Standard-Konten direkt nach der Installation, was einen konkreten Anwendungsfall der Änderung von Default-Zugangsdaten darstellt."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert die Änderung voreingestellter Passwörter von Standard-Konten direkt nach der Installation eines SAP-ERP-Systems, was ein technologiespezifischer Spezialfall der Änderung von Default-Zugangsdaten in KONF.2.3 ist."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 5): KONF.2.3 empfiehlt die Änderung von Default-Zugangsdaten und überschneidet sich daher mit der Forderung nach dem Ändern von Standardpasswörtern für SAP-Datenbanken; der geforderte besondere Schutz bestimmter Datenbanktabellen (wie USR*-Tabellen) wird von KONF.2.3 jedoch nicht adressiert."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Satz 3 fordert das Sperren eines während der Installation angelegten Standardkontos (<db><sid>), was laut Erläuterung von KONF.2.3 (Deaktivieren von Standardzugängen bei der Inbetriebnahme) eine direkte Umsetzung der Maßnahme darstellt."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.2.A17",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): KONF.2.3 fordert die allgemeine Änderung von Default-Zugangsdaten, was die geforderte Passwortänderung der bei der SAP-Installation standardmäßig angelegten Systemkonten direkt abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.2.5_stm",
+              "parts": [
+                {
+                  "id": "KONF.2.5-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Konfiguration wird sporadisch bei Problemen händisch überprüft.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Vergleichen Sie die aktuelle Konfiguration manuell mit alten Backups."
+                    },
+                    {
+                      "id": "KONF.2.5-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Fragen Sie Administratoren nach dem letzten manuellen Abgleich."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Ein regelmäßiger manueller Abgleich der Konfiguration mit einem schriftlichen Referenzzustand erfolgt quartalsweise.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Tabellen zum Vergleich von Key-Value-Paaren der Konfiguration."
+                    },
+                    {
+                      "id": "KONF.2.5-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichtung der Protokolle über durchgeführte Konfigurationsaudits."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand {{ insert: param, konf.2.5-prm1 }} überprüfen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Der Referenzzustand muss dokumentiert und als Baseline festgelegt sein."
+                    },
+                    {
+                      "id": "KONF.2.5-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abgleich der laufenden Konfiguration mit der im Parameter definierten Referenz."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Automatisierte Tools prüfen wöchentlich die Konfiguration gegen die definierte Baseline und melden Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Setzen Sie Open-Source-Lösungen wie 'RANCID' oder 'Oxidized' für das Diff-Monitoring ein."
+                    },
+                    {
+                      "id": "KONF.2.5-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der generierten Alarmierung bei unautorisierten Konfigurationsänderungen."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Echtzeit-Überwachung der Konfiguration mit automatischer Wiederherstellung (Self-Healing) bei Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie Configuration Management Tools zur permanenten Durchsetzung des Soll-Zustands."
+                    },
+                    {
+                      "id": "KONF.2.5-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulieren Sie eine Änderung und prüfen Sie die automatische Korrektur durch das System."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.2.A30",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Satz 1 fordert die laufende Überwachung der Korrektheit aller Sicherheitseinstellungen eines SAP-ERP-Systems, was einem regelmäßigen Abgleich der tatsächlichen Konfiguration mit dem Referenzzustand gemäß KONF.2.5 entspricht."
                 }
               ]
             }

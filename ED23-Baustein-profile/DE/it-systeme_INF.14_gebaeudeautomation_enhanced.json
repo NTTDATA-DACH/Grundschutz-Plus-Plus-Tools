@@ -3,8 +3,8 @@
     "uuid": "d1cdae97-12da-54b0-a9fc-89e2eb8c6d8a",
     "metadata": {
       "title": "INF.14 – Gebäudeautomation (IT-Systeme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:10.115131+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:55.933188+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein INF.14 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -78,7 +78,8 @@
               "BER.4.1.1",
               "BES.2.1",
               "DET.3.1",
-              "DET.3.1.3",
+              "DET.3.2",
+              "DET.3.2.3",
               "DET.4.13",
               "DET.4.15",
               "DET.6.1.2",
@@ -110,7 +111,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -697,7 +698,7 @@
                           "ARCH.2.2.1",
                           "ARCH.4.1",
                           "ARCH.4.1.2",
-                          "DET.3.1.3",
+                          "DET.3.2.3",
                           "GEB.5.2",
                           "KONF.2.4",
                           "KONF.3.7"
@@ -1497,7 +1498,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1"
+                          "DET.3.1",
+                          "DET.3.2"
                         ]
                       }
                     ]
@@ -1753,15 +1755,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1785,7 +1787,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1795,7 +1797,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -2993,13 +2995,13 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.14.A17",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Die G++-Maßnahme ARCH.2.2.1 fordert allgemein die Einschränkung von Verbindungen über externe Netzanschlüsse, was die restriktive Ausstattung von GA-Komponenten mit dedizierten öffentlichen Mobilfunkanschlüssen als Spezialfall abdeckt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2,3): Satz 2 fordert die Unterbindung unkontrollierter direkter IP-Kommunikation über öffentliche Mobilfunknetze (und Satz 3 die Beschränkung dedizierter Anschlüsse an öffentliche Netze auf das Notwendige), was direkt die Einschränkung von Verbindungen über externe Netzanschlüsse im Kontext der Gebäudeautomation umsetzt. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.14.A28",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme ARCH.2.2.1 fordert die Einschränkung von Verbindungen über externe Netzanschlüsse und deckt damit die Bereitstellung eines restriktiv reglementierten Internet-Zugangs inhaltlich ab. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 empfiehlt für GA-Netze abhängig vom Schutzbedarf einen dedizierten, restriktiv reglementierten Internet-Zugang (z. B. für externe Clouds), was sich mit der allgemeinen Empfehlung aus ARCH.2.2.1 überschneidet, Verbindungen über externe Netzanschlüsse architektonisch einzuschränken. [auch: satz_abdeckung, gsmap]"
                 }
               ]
             }
@@ -5709,21 +5711,208 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.14.A26",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Die G++-Maßnahme DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse und deckt damit die zentrale Anforderung des Satzes inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Beide Vorgaben überschneiden sich bei der Protokollierung sicherheitsrelevanter Ereignisse (sofern GA-Anwendungen betroffen sind), jedoch fordert DET.3.1 zusätzlich eine Aufbewahrungsfrist, während der Satz auch allgemeine Statusänderungen an sämtlichen GA-Komponenten einschließt. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.3",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.3_stm",
+              "by-id": "DET.3.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.3-m1_custom",
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Vereinzelt werden auf Systemen der Gebäudeautomation Ereignisse mit Standardwerten lokal protokolliert, ohne definierte Vorhaltezeit.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie das Standard-Logging auf kritischen GA-Komponenten, auch ohne feste Aufbewahrungsfristen."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung auf ausgewählten GA-Systemen, ob lokale Logdateien unter /var/log existieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse in der GA werden grundsätzlich protokolliert, die Aufbewahrungsdauer wird jedoch manuell konfiguriert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie die lokale Log-Rotation manuell so, dass Logs für einen grundlegenden Zeitraum vorgehalten werden."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Stichprobenartige Prüfung der Konfigurationsdateien (z.B. /etc/logrotate.conf) auf Einhaltung der Basis-Aufbewahrungsfristen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass die Log-Aufbewahrung auf allen GA-Systemen exakt auf den definierten Zeitraum konfiguriert ist und genug Speicherplatz existiert."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Log-Rotation-Konfiguration per Skript (z.B. grep 'rotate' /etc/logrotate.d/*) auf Einhaltung von {{ insert: param, det.3.2-prm1 }}."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Ereignisse der GA-Systeme werden zentral gesammelt und die Aufbewahrungsdauer von {{ insert: param, det.3.2-prm1 }} wird automatisiert überwacht und durchgesetzt.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie zentrale Log-Management-Systeme (z.B. rsyslog, Graylog) und erzwingen Sie die Aufbewahrungsdauer automatisiert über zentrale Richtlinien."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierter Abgleich der Retention-Policies im zentralen Log-Server via API-Abfrage (z.B. mittels curl gegen OpenSearch-Index-Policies)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung erfolgt zentral, revisionssicher und hochautomatisiert über 'Policy as Code' mit dynamischem Speichermanagement für {{ insert: param, det.3.2-prm1 }}.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie 'Logging as Code' mit revisionssicherer Speicherung (WORM) und automatischer Skalierung des Log-Speichers."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Kontinuierliche Compliance-Prüfung der Log-Retention und Speicherintegrität via Ansible-Playbook im CI/CD-Verfahren."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "INF.14.A26",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt die Protokollierung von Statusänderungen und sicherheitsrelevanten Ereignissen an GA-Komponenten, während DET.3.2 allgemein die Protokollierung sicherheitsrelevanter Ereignisse in IT-Systemen für eine bestimmte Frist vorsieht."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.3_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.3-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5744,19 +5933,19 @@
                   "prose": "Protokollierung von Hardware-Änderungen durch Standard-Kernel-Meldungen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.3-m1_custom_gdn",
+                      "id": "DET.3.2.3-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Überprüfung von dmesg-Ausgaben bei Hardware-Problemen."
                     },
                     {
-                      "id": "DET.3.1.3-m1_custom_asm",
+                      "id": "DET.3.2.3-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung von 'dmesg | grep -i usb' nach manuellem Einstecken."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.3-m2_custom",
+                  "id": "DET.3.2.3-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5777,19 +5966,19 @@
                   "prose": "Systematische Erfassung von USB- und Peripherie-Events in Logdateien.",
                   "parts": [
                     {
-                      "id": "DET.3.1.3-m2_custom_gdn",
+                      "id": "DET.3.2.3-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfiguration von udev-Regeln zur Protokollierung von Geräte-Anbindungen."
                     },
                     {
-                      "id": "DET.3.1.3-m2_custom_asm",
+                      "id": "DET.3.2.3-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Log-Files (z.B. /var/log/syslog) auf udev-Ereignisse."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.3-m3_custom",
+                  "id": "DET.3.2.3-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5810,19 +5999,19 @@
                   "prose": "Detektion für IT-Systeme SOLLTE das Anschließen von Peripheriegeräten protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.3-m3_custom_gdn",
+                      "id": "DET.3.2.3-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Erkennung unerlaubter Hardware zur Vermeidung von Datenabfluss oder Schadcode-Injektion."
                     },
                     {
-                      "id": "DET.3.1.3-m3_custom_asm",
+                      "id": "DET.3.2.3-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Kontrolle der Logs nach Anschluss eines Testgeräts. Automatisierter Check via udev-Monitoring."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.3-m4_custom",
+                  "id": "DET.3.2.3-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5843,19 +6032,19 @@
                   "prose": "Echtzeit-Alerting bei Anschluss nicht-autorisierter Hardware-IDs.",
                   "parts": [
                     {
-                      "id": "DET.3.1.3-m4_custom_gdn",
+                      "id": "DET.3.2.3-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Zentraler Abgleich angeschlossener IDs gegen eine Whitelist im Monitoring-System."
                     },
                     {
-                      "id": "DET.3.1.3-m4_custom_asm",
+                      "id": "DET.3.2.3-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Audit der Whitelist und Test-Alarmierung bei unbekannter Device-ID."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.3-m5_custom",
+                  "id": "DET.3.2.3-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -5876,12 +6065,12 @@
                   "prose": "Automatisierte Port-Sperrung und Incident-Response bei unerlaubter Peripherie.",
                   "parts": [
                     {
-                      "id": "DET.3.1.3-m5_custom_gdn",
+                      "id": "DET.3.2.3-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Integration von Endpoint Protection zur sofortigen Blockierung fremder USB-Geräte."
                     },
                     {
-                      "id": "DET.3.1.3-m5_custom_asm",
+                      "id": "DET.3.2.3-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Versuchter Anschluss eines gesperrten Geräts und Prüfung der automatischen Sperre."
                     }
@@ -5896,7 +6085,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.14.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.3 adressiert allgemein das Protokollieren beim Anschließen von Peripheriegeräten an IT-Systemen, während der Satz speziell den Anschluss unautorisierter oder unbekannter Komponenten an Schnittstellen der Gebäudeautomation betrifft. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.2.3 adressiert allgemein das Protokollieren beim Anschließen von Peripheriegeräten an IT-Systemen, während der Satz speziell den Anschluss unautorisierter oder unbekannter Komponenten an Schnittstellen der Gebäudeautomation betrifft. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -8340,7 +8529,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "INF.14.A1",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 10): KONF.2.5 deckt die regelmäßige Konfigurationsüberprüfung ab, umfasst jedoch weder anlassbezogene Prüfungen bei Bedarf noch den Abgleich einer umfassenden GA-Planung. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 10): KONF.2.5 empfiehlt den regelmäßigen Abgleich der aktuellen Konfiguration mit dem Referenzzustand, umfasst jedoch nicht den in Satz 10 zusätzlich geforderten Abgleich bei Bedarf. [auch: satz_abdeckung]"
                 }
               ]
             }

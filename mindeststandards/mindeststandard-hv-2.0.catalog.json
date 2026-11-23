@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "0a49a130-f304-4d6c-af62-82fca93714d3",
+    "uuid": "d7f6dc92-552a-4e67-a639-3024cbaf1e85",
     "metadata": {
       "title": "Mindeststandard des BSI zum HV-Benchmark kompakt 5.0 (Version 2.0) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:16:15.205Z",
+      "last-modified": "2026-11-23T17:08:38.531Z",
       "version": "2.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -82,7 +82,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.4.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.4.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -4332,7 +4332,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Prozess Behandlung von Sicherheitsvorfällen"
+                        "value": "Behandlung von Sicherheitsvorfällen"
                       },
                       {
                         "name": "result",
@@ -5831,7 +5831,7 @@
               {
                 "id": "ARCH.2.2.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Externe Netzanschlüsse",
+                "title": "Externe Netzanschlüsse einschränken",
                 "props": [
                   {
                     "name": "alt-identifier",
@@ -7276,7 +7276,7 @@
                     "rel": "related"
                   },
                   {
-                    "href": "#DET.3.1.1",
+                    "href": "#DET.3.2.1",
                     "rel": "related"
                   }
                 ],
@@ -7822,7 +7822,7 @@
               {
                 "id": "DET.3.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Protokollierung sicherheitsrelevanter Ereignisse",
+                "title": "Protokollierung in Anwendungen",
                 "params": [
                   {
                     "id": "det.3.1-prm1",
@@ -7929,7 +7929,7 @@
                   {
                     "id": "DET.3.1_gdn",
                     "name": "guidance",
-                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
+                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung von Sicherheitseinstellungen sowie Anmeldereignisse. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
                   },
                   {
                     "id": "DET.3.1_mst",
@@ -8249,17 +8249,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }

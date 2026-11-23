@@ -3,8 +3,8 @@
     "uuid": "4fed61be-9731-5370-b25f-facc6bff25bb",
     "metadata": {
       "title": "NG APP.4.8 – Graphdatenbanken (Anwendungen)",
-      "last-modified": "2026-10-19T01:05:45.102979+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:14.014886+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,16 +49,16 @@
           "text": "Baustein APP.4.8 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
               "ARCH.5.1",
-              "ASST.2.4",
+              "ASST.2.5",
               "BER.1.1.1",
               "BER.3.4",
               "BER.4.1",
@@ -66,8 +66,8 @@
               "BER.5.7",
               "BES.3.3",
               "DET.3.1",
-              "DET.3.1.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2.1",
               "DET.4.16",
               "DEV.1.1",
               "DEV.1.1.1",
@@ -520,8 +520,8 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.8",
-                          "DET.3.1.1",
+                          "DET.3.1.2",
+                          "DET.3.2.1",
                           "BER.3.4"
                         ]
                       }
@@ -636,7 +636,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "GC.7.1"
                         ]
                       }
@@ -753,15 +753,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -805,7 +805,7 @@
           ]
         },
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
@@ -814,7 +814,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.8.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): ASST.2.4 fordert die Zuweisung von Daten zu einer Schutzbedarfsklasse (Klassifizierung), was dem Prozess zur Identifikation schützenswerter Daten entspricht."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): ASST.2.5 fordert die Zuweisung von Daten zu einer Schutzbedarfsklasse (Klassifizierung), was dem Prozess zur Identifikation schützenswerter Daten entspricht."
                 }
               ]
             }
@@ -933,7 +933,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -942,14 +942,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.8.A8",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.1.1 fordert die Protokollierung von Authentifizierungen bei Erfolg und Fehlschlag (im Katalog auf IT-Systeme bezogen, fachlich hier auf die Datenbankanwendung angewandt)."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.2 fordert explizit die Protokollierung privilegierter Ereignisse in Anwendungen, was die administrativen Änderungen abdeckt."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.2.1",
           "adds": [
             {
               "position": "ending",
@@ -958,7 +958,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.8.A8",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.8 fordert explizit die Protokollierung privilegierter Ereignisse in Anwendungen, was die administrativen Änderungen abdeckt."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.2.1 fordert die Protokollierung von Authentifizierungen bei Erfolg und Fehlschlag (im Katalog auf IT-Systeme bezogen, fachlich hier auf die Datenbankanwendung angewandt)."
                 }
               ]
             }

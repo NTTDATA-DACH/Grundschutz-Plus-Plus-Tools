@@ -12,7 +12,17 @@ Profils bleiben unverändert).
 Aufruf (Repo-Wurzel):
   uv run --no-project python -I -X utf8 mindeststandards/repin.py \
       --alt <alter-katalog.json> --neu <neuer-katalog.json> --neu-commit <40er-SHA> \
-      [--check-only] [--stem mindeststandard-pd-2.1 ...] [--accept-changed BER.5.2,...]
+      [--check-only] [--stem mindeststandard-pd-2.1 ...] [--accept-changed BER.5.2,...] \
+      [--id-map <moves.json>]
+
+Umnummerierte Controls (Build 2026-11-23: 24 Controls in DET.3, DET.5.10 und ASST.2 mit
+gleicher alt-identifier unter neuer ID) nimmt --id-map entgegen, die Tabelle aus
+`Gpp-ai-tool/scripts/remap_control_ids.py derive` (Schluessel `controls` {alt: neu} und
+`params`). Profil und Ergaenzungskatalog werden dann zuerst in einem Durchgang umgeschrieben
+(with-ids, control-id, by-id, Part-IDs, Parameter-IDs, Fragment-Links und Linktexte), und der
+inhaltliche Vergleich stellt jedes Control unter seiner alten ID dem neuen Stand unter seiner
+neuen ID gegenueber. Steht ein Stamm schon auf umgeschriebenen IDs (Lauf wiederholt), findet
+die Tabelle nichts mehr und der Vergleich laeuft ueber die Rueckabbildung.
 
 Mit --check-only wird nur der Resolver gegen die vorhandenen Kataloge geprüft
 (Stämme, deren Profil schon auf dem neuen Pin steht, müssen bis auf uuid und
@@ -42,6 +52,45 @@ PHRASES = [('Konfiguration für Endgeräte', 'Konfiguration für Mobile Endgerä
            ('Nutzende von Endgeräten', 'Nutzende von Mobilen Endgeräten')]
 # Umbenannte Control-Klasse (Build 2026-10-22, Kernel-Konsolidierung: alle 901 Kernel-Controls)
 CLASS_RENAMES = {'BSI-Stand-der-Technik-Kernel-G0': 'BSI-Stand-der-Technik-Kernel'}
+# Umbenannte Werte der documentation-Prop (Build 2026-11-23, documentation_guidelines.csv neu
+# geschnitten; Namespace-Pflege, kein geaenderter Wortlaut der Controls)
+DOC_RENAMES = {
+    'Beschaffungskriterien': 'Leistungsbeschreibung',
+    'Detektions-Konzept': 'Detektionskonzept',
+    'Outsourcing Strategie': 'Outsourcing-Strategie',
+    'Übungsplan': 'Übungs- und Prüfplan',
+    'Prüfplan': 'Übungs- und Prüfplan',
+    'Anwendungsdokumentation': 'Betriebshandbuch',
+    'Systemdokumentation': 'Betriebshandbuch',
+    'Prozess Behandlung von Sicherheitsvorfällen': 'Behandlung von Sicherheitsvorfällen',
+}
+
+
+def id_token_pattern(ids):
+    """IDs als Token: davor kein [A-Za-z0-9._-], danach keine Ziffer, kein `.Ziffer`, kein Buchstabe."""
+    alts = sorted(ids, key=len, reverse=True)
+    return re.compile(r"(?<![A-Za-z0-9._-])(" + "|".join(re.escape(i) for i in alts) + r")(?![0-9A-Za-z]|\.[0-9])")
+
+
+def remap_ids_in_text(text: str, controls: dict, params: dict) -> tuple[str, int]:
+    """Ein Durchgang ueber alle Tokens (wie remap_control_ids.py apply): Control-IDs, dann Parameter-IDs."""
+    n = 0
+    if controls:
+        def sub(m):
+            nonlocal n
+            n += 1
+            return controls[m.group(1)]
+        text = id_token_pattern(controls).sub(sub, text)
+    lower = dict(params)
+    for a, b in controls.items():
+        lower.setdefault(a.lower(), b.lower())
+    if lower:
+        def psub(m):
+            nonlocal n
+            n += 1
+            return lower[m.group(1)]
+        text = id_token_pattern(lower).sub(psub, text)
+    return text, n
 
 
 def tool_constant(name: str) -> str:
@@ -81,13 +130,16 @@ def load_catalog(path: Path):
 def normalize_renames(ctl):
     """Alten Katalogwortlaut auf den neuen heben, genau so eng wie der Katalog selbst umbenannt
     hat: Kategorienwerte (target_object_categories) als Liste, Statements über die festen
-    Formulierungen, Control-Klassen über CLASS_RENAMES; sonstige Prosa (Guidance, „stationäre Endgeräte“) bleibt unangetastet."""
+    Formulierungen, Control-Klassen über CLASS_RENAMES, documentation-Werte über DOC_RENAMES;
+    sonstige Prosa (Guidance, „stationäre Endgeräte“) bleibt unangetastet."""
     c = copy.deepcopy(ctl)
 
     def walk(node):
         if isinstance(node, dict):
             if node.get('name') == 'target_object_categories' and isinstance(node.get('value'), str):
                 node['value'] = rename_categories(node['value'])
+            if node.get('name') == 'documentation' and node.get('value') in DOC_RENAMES:
+                node['value'] = DOC_RENAMES[node['value']]
             if node.get('class') in CLASS_RENAMES:
                 node['class'] = CLASS_RENAMES[node['class']]
             if isinstance(node.get('prose'), str):
@@ -216,9 +268,13 @@ def main(argv=None) -> int:
     ap.add_argument('--stem', action='append', help='nur diese Stämme (Standard: alle mit altem Pin)')
     ap.add_argument('--check-only', action='store_true', help='nur Resolver gegen vorhandene Kataloge prüfen')
     ap.add_argument('--accept-changed', action='append', default=[],
-                    help='Control-IDs (kommagetrennt), die upstream umformuliert wurden und in der neuen Fassung übernommen werden')
+                    help='Control-IDs (kommagetrennt, neue IDs), die upstream umformuliert wurden und in der neuen Fassung übernommen werden')
+    ap.add_argument('--id-map', type=Path, help='Umnummerierung alt -> neu (remap_control_ids.py derive), wird vor dem Vergleich auf Profil und Ergänzungskatalog angewandt')
     args = ap.parse_args(argv)
     accept = {i.strip() for s in args.accept_changed for i in s.split(',') if i.strip()}
+    id_moves = json.loads(args.id_map.read_text(encoding='utf-8')) if args.id_map else {'controls': {}, 'params': {}}
+    moved_controls, moved_params = id_moves.get('controls', {}), id_moves.get('params', {})
+    back = {b: a for a, b in moved_controls.items()}  # neue ID -> alte ID fuer den Vergleich
 
     warnings: list[str] = []
     warn = warnings.append
@@ -239,8 +295,17 @@ def main(argv=None) -> int:
     for stem in stems:
         prof_p, erg_p, cat_p = (HERE / f'{stem}.{k}.json' for k in ('profile', 'ergaenzungskatalog', 'catalog'))
         prof_text = prof_p.read_text(encoding='utf-8')
+        erg_text = erg_p.read_text(encoding='utf-8') if erg_p.exists() else None
+        n_ids = 0
+        if moved_controls and not args.check_only:
+            # Umnummerierung in EINEM Durchgang ueber beide Dateien, vor jedem Vergleich.
+            prof_text, n1 = remap_ids_in_text(prof_text, moved_controls, moved_params)
+            n_ids += n1
+            if erg_text is not None:
+                erg_text, n2 = remap_ids_in_text(erg_text, moved_controls, moved_params)
+                n_ids += n2
         prof = json.loads(prof_text)
-        erg = json.loads(erg_p.read_text(encoding='utf-8')) if erg_p.exists() else None
+        erg = json.loads(erg_text) if erg_text is not None else None
         cat = json.loads(cat_p.read_text(encoding='utf-8'))
         p = prof['profile']
         base_res = next(r for r in p['back-matter']['resources'] if CATALOG_PATH in r['rlinks'][0]['href'])
@@ -264,20 +329,36 @@ def main(argv=None) -> int:
             print(f'  {stem}: steht schon auf {args.neu_commit[:12]}, nichts zu tun')
             continue
         # 1) Inhaltliche Prüfung: verwendete Controls dürfen sich nur in Kategorienamen unterscheiden
-        ids = [i for imp in p['imports'] for ic in imp.get('include-controls', []) for i in ic.get('with-ids', []) if i in old or i in new]
-        changed, accepted, n_class = [], [], 0
+        ids = [i for imp in p['imports'] for ic in imp.get('include-controls', []) for i in ic.get('with-ids', []) if i in old or i in new or i in back]
+        changed, accepted, n_class, n_moved = [], [], 0, 0
         for i in ids:
             if i not in new:
                 sys.exit(f'{stem}: {i} fehlt im neuen Katalog')
-            a, b = dumps(old[i]), dumps(new[i])
+            old_id = back.get(i, i)          # verschobenes Control: alter Stand unter alter ID
+            if old_id != i:
+                n_moved += 1
+            if old_id not in old:
+                sys.exit(f'{stem}: {i} ist im alten Katalog unbekannt (weder {i} noch {old_id})')
+            o = copy.deepcopy(old[old_id])
+            if moved_controls:
+                # Alte Fassung auf die neuen IDs heben (Control-ID, Part-IDs, Parameter-IDs, auch
+                # related-Links auf verschobene Controls), damit nur echte Wortlautaenderungen bleiben.
+                o = json.loads(remap_ids_in_text(dumps(o), moved_controls, moved_params)[0])
+            # Kind-Controls zaehlen nicht: der Resolver nimmt sie nicht mit (resolve_control), und ein
+            # Stand waehlt Kinder einzeln per with-ids; sonst gilt jede Umnummerierung unter DET.3.1
+            # als Aenderung des Elterncontrols.
+            o.pop('controls', None)
+            nb = copy.deepcopy(new[i])
+            nb.pop('controls', None)
+            a, b = dumps(o), dumps(nb)
             if a == b:
                 continue
-            only_class = dumps(normalize_class(old[i]))
+            only_class = dumps(normalize_class(o))
             if only_class != a:
                 n_class += 1
             if only_class == b:
                 continue
-            if dumps(normalize_renames(old[i])) == b:
+            if dumps(normalize_renames(o)) == b:
                 changed.append(i)
             elif i in accept:
                 accepted.append(i)
@@ -288,7 +369,10 @@ def main(argv=None) -> int:
         if n_class:
             mech.append('Control-Klasse ' + ', '.join(f'{a} → {b}' for a, b in CLASS_RENAMES.items()) + f' ({n_class} Controls)')
         if changed:
-            mech.append(f'umbenannte Zielobjektkategorien ({len(changed)}: {", ".join(changed)})')
+            mech.append(f'umbenannte Zielobjektkategorien oder documentation-Werte ({len(changed)}: {", ".join(changed)})')
+        if n_moved:
+            mech.append(f'Umnummerierung bei gleicher alt-identifier ({n_moved} Controls, {n_ids} ID-Vorkommen in Profil und Ergänzungskatalog umgeschrieben: '
+                        + ', '.join(f'{back[i]} → {i}' for i in ids if i in back) + ')')
         befund = ('nur in ' + '; '.join(mech)) if mech else 'nicht'
         uebernommen = (f' Upstream umformuliert (Titel und Statement) und in der neuen Fassung übernommen: {", ".join(accepted)};'
                        ' die Anpassungen des Profils an diesen Controls (alters) bleiben unverändert.') if accepted else ''
@@ -369,7 +453,7 @@ def main(argv=None) -> int:
         new_catalog = build_catalog(prof, erg, new, cm, warn)
         cat_p.write_text(dumps(new_catalog), encoding='utf-8', newline='')
         n_ctl = sum(1 for _ in iter_controls(new_catalog['catalog']['groups']))
-        print(f'  {stem}: Profil auf {args.neu_commit[:12]} ({len(ids)} Controls, {n_class} mit neuer Klasse, {len(changed)} mit Kategorienamen, {len(accepted)} upstream umformuliert, {n_phr} Statement-Formulierungen nachgezogen), Katalog neu aufgelöst: {n_ctl} Controls, SHA-256 Profil {sha256(prof_text_new)[:12]}')
+        print(f'  {stem}: Profil auf {args.neu_commit[:12]} ({len(ids)} Controls, {n_class} mit neuer Klasse, {len(changed)} mit Kategorienamen, {n_moved} umnummeriert ({n_ids} ID-Vorkommen), {len(accepted)} upstream umformuliert, {n_phr} Statement-Formulierungen nachgezogen), Katalog neu aufgelöst: {n_ctl} Controls, SHA-256 Profil {sha256(prof_text_new)[:12]}')
     for w in warnings:
         print('  Hinweis:', w)
     return rc

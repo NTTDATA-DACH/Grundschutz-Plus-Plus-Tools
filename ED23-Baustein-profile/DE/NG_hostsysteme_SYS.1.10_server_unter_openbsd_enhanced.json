@@ -3,8 +3,8 @@
     "uuid": "afdffac6-7d83-50f0-b79c-270e4788d9b9",
     "metadata": {
       "title": "NG SYS.1.10 – Server unter OpenBSD (Hostsysteme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:04:35.048688+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.757280+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.10 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -62,8 +62,8 @@
               "ASST.2.3.1",
               "ASST.5.2",
               "BER.6.4",
-              "DET.3.1.1",
-              "DET.3.1.6",
+              "DET.3.2.1",
+              "DET.3.2.6",
               "DET.4.9",
               "DET.5.10",
               "DEV.2.3",
@@ -618,8 +618,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1",
-                          "DET.3.1.6"
+                          "DET.3.2.1",
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -900,15 +900,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1877,14 +1877,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.2.1",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.1_stm",
+              "by-id": "DET.3.2.1_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.1-m1_custom",
+                  "id": "DET.3.2.1-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1905,19 +1905,19 @@
                   "prose": "Erfolgreiche Logins werden vereinzelt in lokalen Logdateien erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.1-m1_custom_gdn",
+                      "id": "DET.3.2.1-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Aktivieren Sie die grundlegende Protokollierung in den Systemeinstellungen."
                     },
                     {
-                      "id": "DET.3.1.1-m1_custom_asm",
+                      "id": "DET.3.2.1-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung von /var/log/auth.log auf Einträge von heute."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.1-m2_custom",
+                  "id": "DET.3.2.1-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1938,19 +1938,19 @@
                   "prose": "Erfolge und Fehlschläge werden auf den meisten Systemen lokal protokolliert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.1-m2_custom_gdn",
+                      "id": "DET.3.2.1-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie den Syslog-Dienst so, dass authpriv-Ereignisse gespeichert werden."
                     },
                     {
-                      "id": "DET.3.1.1-m2_custom_asm",
+                      "id": "DET.3.2.1-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Befehl: 'grep -E \"Accepted|Failed\" /var/log/auth.log' ausführen und Ergebnisse sichten."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.1-m3_custom",
+                  "id": "DET.3.2.1-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1971,19 +1971,19 @@
                   "prose": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.1-m3_custom_gdn",
+                      "id": "DET.3.2.1-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Authentifizierungsereignisse lückenlos und zeitnah protokolliert werden."
                     },
                     {
-                      "id": "DET.3.1.1-m3_custom_asm",
+                      "id": "DET.3.2.1-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Review der Log-Konfiguration. Check: 'logger -p auth.info test' und Prüfung, ob Eintrag erscheint."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.1-m4_custom",
+                  "id": "DET.3.2.1-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2004,19 +2004,19 @@
                   "prose": "Zentrale Protokollierung und Echtzeit-Alerting bei verdächtigen Login-Mustern.",
                   "parts": [
                     {
-                      "id": "DET.3.1.1-m4_custom_gdn",
+                      "id": "DET.3.2.1-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Leiten Sie Auth-Logs an einen zentralen Server weiter und definieren Sie Schwellwerte für Fehlschläge."
                     },
                     {
-                      "id": "DET.3.1.1-m4_custom_asm",
+                      "id": "DET.3.2.1-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der rsyslog-Weiterleitung: 'grep \"@\" /etc/rsyslog.conf'. Validierung der Alarme im Dashboard."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.1-m5_custom",
+                  "id": "DET.3.2.1-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2037,12 +2037,12 @@
                   "prose": "Automatisierte Reaktion auf fehlgeschlagene Logins durch Integration in ein SIEM.",
                   "parts": [
                     {
-                      "id": "DET.3.1.1-m5_custom_gdn",
+                      "id": "DET.3.2.1-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Korrelieren Sie Login-Daten mit Standortdaten und blockieren Sie IPs automatisch bei Anomalien."
                     },
                     {
-                      "id": "DET.3.1.1-m5_custom_asm",
+                      "id": "DET.3.2.1-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Simulation eines Brute-Force Angriffs und Prüfung der automatischen Sperrung (z. B. via fail2ban/SIEM)."
                     }
@@ -2057,21 +2057,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.10.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.1 deckt die Protokollierung von erfolgreichen und fehlgeschlagenen Authentifizierungen auf IT-Systemen ab."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.2.1 deckt die Protokollierung von erfolgreichen und fehlgeschlagenen Authentifizierungen auf IT-Systemen ab."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.6_stm",
+              "by-id": "DET.3.2.6_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.6-m1_custom",
+                  "id": "DET.3.2.6-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2092,19 +2092,19 @@
                   "prose": "Spezifische Applikationsereignisse werden teilweise in separaten Dateien geloggt.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m1_custom_gdn",
+                      "id": "DET.3.2.6-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Identifizieren Sie die wichtigsten systemspezifischen Ereignisse für Ihr System."
                     },
                     {
-                      "id": "DET.3.1.6-m1_custom_asm",
+                      "id": "DET.3.2.6-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Applikations-Logordner auf vorhandene Dateien."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m2_custom",
+                  "id": "DET.3.2.6-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2125,19 +2125,19 @@
                   "prose": "Spezifische Ereignisse werden in einem strukturierten Format (z. B. JSON) lokal erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m2_custom_gdn",
+                      "id": "DET.3.2.6-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie Applikationen so, dass sie strukturierte Logs für einfachere Auswertung liefern."
                     },
                     {
-                      "id": "DET.3.1.6-m2_custom_asm",
+                      "id": "DET.3.2.6-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Sichtprüfung der Log-Struktur auf Lesbarkeit durch Parser."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m3_custom",
+                  "id": "DET.3.2.6-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2155,22 +2155,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.1.6-prm1 }} protokollieren.",
+                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.2.6-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m3_custom_gdn",
+                      "id": "DET.3.2.6-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass die als kritisch definierten systemspezifischen Parameter geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.6-m3_custom_asm",
+                      "id": "DET.3.2.6-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Abgleich der Log-Konfiguration mit der Liste der zu protokollierenden Parameter."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m4_custom",
+                  "id": "DET.3.2.6-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2191,19 +2191,19 @@
                   "prose": "Spezifische Ereignisse werden zentral korreliert und auf Anomalien geprüft.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m4_custom_gdn",
+                      "id": "DET.3.2.6-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Erstellen Sie spezifische Grok-Filter oder Parser im Log-Aggregator für diese Ereignisse."
                     },
                     {
-                      "id": "DET.3.1.6-m4_custom_asm",
+                      "id": "DET.3.2.6-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Parser-Konfiguration im SIEM/Log-Management-Tool."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m5_custom",
+                  "id": "DET.3.2.6-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2224,12 +2224,12 @@
                   "prose": "KI-basierte Anomalieerkennung wertet systemspezifische Ereignisse in Echtzeit aus.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m5_custom_gdn",
+                      "id": "DET.3.2.6-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Machine Learning (z. B. ELK ML-Features), um Abweichungen im Normalbetrieb zu finden."
                     },
                     {
-                      "id": "DET.3.1.6-m5_custom_asm",
+                      "id": "DET.3.2.6-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Audit der ML-Modell-Performance und Prüfung der generierten Anomalie-Alerts."
                     }
@@ -2244,7 +2244,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.10.A10",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.1.6 ermöglicht über den Parameter die Protokollierung systemspezifischer Ereignisse wie Firewall-Logs."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.2.6 ermöglicht über den Parameter die Protokollierung systemspezifischer Ereignisse wie Firewall-Logs."
                 }
               ]
             }

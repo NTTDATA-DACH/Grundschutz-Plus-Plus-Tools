@@ -3,8 +3,8 @@
     "uuid": "78ad1e39-9fb8-5785-b823-107786626a66",
     "metadata": {
       "title": "SYS.1.2.2 – Windows Server 2012 (Hostsysteme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:09:35.336491+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:18.899501+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -63,7 +63,8 @@
               "BER.3.20",
               "BER.3.21",
               "BES.2.1.3",
-              "DET.3.1.6",
+              "DET.3.2",
+              "DET.3.2.6",
               "DET.5.10",
               "DET.6.1",
               "KONF.14.4",
@@ -539,6 +540,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "DET.3.2",
                           "DET.6.1"
                         ]
                       }
@@ -651,7 +653,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.6"
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -666,15 +668,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1824,14 +1826,201 @@
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.6_stm",
+              "by-id": "DET.3.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.6-m1_custom",
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Auf einzelnen IT-Systemen findet eine unvollständige Ad-hoc-Protokollierung mit Betriebssystem-Standardwerten ohne zentrale Vorgaben statt.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie zumindest die Standardprotokollierung des Betriebssystems auf kritischen Servern, um grundlegende Anmeldeereignisse lokal zu erfassen."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie stichprobenartig die lokalen Protokolle (z. B. per Kommandozeile 'auditpol /get /category:*'). Es sind meist nur Standardwerte aktiv."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Eine grundlegende Protokollierung sicherheitsrelevanter Ereignisse ist auf den IT-Systemen manuell eingerichtet, wird aber nicht zentral überwacht.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie erweiterte Überwachungsrichtlinien manuell oder per Basis-Richtlinie für Anmeldungen, Systemstarts und Fehlermeldungen."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfen Sie die Überwachungsrichtlinien per Skript ('Get-EventLog -List' oder 'auditpol') auf Konsistenz über mehrere Server hinweg."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Definieren und verteilen Sie verbindliche Überwachungsrichtlinien (z. B. für Account Logon, Policy Change), die alle geforderten Ereignisse abdecken."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie automatisiert per Skript ('auditpol /get /category:*' und 'wevtutil gl Security'), ob alle definierten Parameter protokolliert werden."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse inklusive Befehlszeilen- und Skript-Aktivitäten werden detailliert protokolliert und zentral an ein SIEM weitergeleitet.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie Logs zentral an ein SIEM weiter. Aktivieren Sie zusätzlich die detaillierte Prozessüberwachung (Befehlszeilen) und Skript-Protokollierung."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die zentrale Log-Weiterleitung (z. B. 'wecutil gr') sowie die Konfiguration der Prozess- und Skriptblock-Protokollierung per Skript."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung wird durch Policy-as-Code erzwungen, auf Manipulation überwacht und in Echtzeit mittels KI/ML-Analysen automatisiert ausgewertet.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Policy-as-Code zur Durchsetzung der Log-Richtlinien. Integrieren Sie ML-gestützte Analysen zur automatisierten Erkennung von Anomalien."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validieren Sie kontinuierlich via Policy-as-Code-Pipelines die Log-Konfigurationen und prüfen Sie per API die Echtzeit-Anomalieerkennung im SIEM."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.2.2.A11",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt das zentrale Sammeln und Auswerten sicherheitsrelevanter Ereignisse in Windows Server 2012, während DET.3.2 die Protokollierung für eine bestimmte Frist vorsieht, ohne Zentralisierung und Auswertung zu verlangen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.6",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.6_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.6-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1852,19 +2041,19 @@
                   "prose": "Protokollierung systemspezifischer Ereignisse erfolgt nur nach Standardeinstellungen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m1_custom_gdn",
+                      "id": "DET.3.2.6-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Übernehmen Sie die Standard-Logeinstellungen der installierten Anwendungen."
                     },
                     {
-                      "id": "DET.3.1.6-m1_custom_asm",
+                      "id": "DET.3.2.6-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Sichten Sie die Applikations-Logs unter 'Anwendungs- und Dienstprotokolle'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m2_custom",
+                  "id": "DET.3.2.6-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1885,19 +2074,19 @@
                   "prose": "Konfiguration spezifischer Log-Pfade für geschäftskritische Systemdienste.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m2_custom_gdn",
+                      "id": "DET.3.2.6-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Passen Sie die Konfigurationsdateien der Dienste an, um detailliertere Logs in separate Files zu schreiben."
                     },
                     {
-                      "id": "DET.3.1.6-m2_custom_asm",
+                      "id": "DET.3.2.6-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie die Konfigurationsdateien (z.B. .conf, .xml) auf gesetzte Log-Level."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m3_custom",
+                  "id": "DET.3.2.6-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1915,22 +2104,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.1.6-prm1 }} protokollieren.",
+                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.2.6-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m3_custom_gdn",
+                      "id": "DET.3.2.6-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass die in {{ insert: param, det.3.1.6-prm1 }} definierten Ereignisse protokolliert werden können."
+                      "prose": "Stellen Sie sicher, dass die in {{ insert: param, det.3.2.6-prm1 }} definierten Ereignisse protokolliert werden können."
                     },
                     {
-                      "id": "DET.3.1.6-m3_custom_asm",
+                      "id": "DET.3.2.6-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfen Sie, ob das System zur Protokollierung der genannten Ereignisse konfiguriert ist."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m4_custom",
+                  "id": "DET.3.2.6-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1948,22 +2137,22 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Zentrale Konsolidierung der systemspezifischen Parameter {{ insert: param, det.3.1.6-prm1 }} in einem Log-Server.",
+                  "prose": "Zentrale Konsolidierung der systemspezifischen Parameter {{ insert: param, det.3.2.6-prm1 }} in einem Log-Server.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m4_custom_gdn",
+                      "id": "DET.3.2.6-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Log-Shipper (z.B. Filebeat), um die spezifischen Parameter strukturiert zu übertragen."
                     },
                     {
-                      "id": "DET.3.1.6-m4_custom_asm",
+                      "id": "DET.3.2.6-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie die Feld-Mappings im zentralen Log-System auf Vollständigkeit."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m5_custom",
+                  "id": "DET.3.2.6-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1981,15 +2170,15 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Dynamisches Log-Management, das die Detailtiefe von {{ insert: param, det.3.1.6-prm1 }} bei Bedrohungslage erhöht.",
+                  "prose": "Dynamisches Log-Management, das die Detailtiefe von {{ insert: param, det.3.2.6-prm1 }} bei Bedrohungslage erhöht.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m5_custom_gdn",
+                      "id": "DET.3.2.6-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Automatisieren Sie die Anpassung der Log-Level via API, wenn Sicherheitsvorfälle erkannt werden."
                     },
                     {
-                      "id": "DET.3.1.6-m5_custom_asm",
+                      "id": "DET.3.2.6-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Lösen Sie ein Test-Event aus und prüfen Sie, ob die Log-Detailtiefe automatisch ansteigt."
                     }
@@ -2004,7 +2193,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.2.2.A14",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz niedrig, Checker bestaetigt): Über die Protokollierung systemspezifischer Ereignisse (DET.3.1.6) kann das Festhalten der Entschlüsselung im Sicherheitsprotokoll (Satz 3) abgebildet werden."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz niedrig, Checker bestaetigt): Über die Protokollierung systemspezifischer Ereignisse (DET.3.2.6) kann das Festhalten der Entschlüsselung im Sicherheitsprotokoll (Satz 3) abgebildet werden."
                 }
               ]
             }

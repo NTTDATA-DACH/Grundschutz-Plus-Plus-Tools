@@ -3,8 +3,8 @@
     "uuid": "805c7d59-50f9-53cb-b3da-6c9ba980e302",
     "metadata": {
       "title": "OPS.3.2 – Anbieten von Outsourcing (Outsourcing) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:08:56.798383+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.379058+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,15 +49,15 @@
           "text": "Baustein OPS.3.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
-              "ASST.2.4",
+              "ASST.2.5",
               "ASST.4.5",
               "BER.1.1",
               "BER.4.1",
@@ -375,7 +375,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "STM.2.1"
                         ]
                       }
@@ -1193,15 +1193,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1229,14 +1229,14 @@
     "modify": {
       "alters": [
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.4_stm",
+              "by-id": "ASST.2.5_stm",
               "parts": [
                 {
-                  "id": "ASST.2.4-m1_custom",
+                  "id": "ASST.2.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1257,7 +1257,7 @@
                   "prose": "Vereinzelt werden kritische Daten und Assets im Outsourcing-Kontext ad-hoc und ohne formales Schema einer Schutzbedarfsklasse zugewiesen."
                 },
                 {
-                  "id": "ASST.2.4-m2_custom",
+                  "id": "ASST.2.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1278,7 +1278,7 @@
                   "prose": "Eine grundlegende, manuelle Zuweisung von Daten und Assets zu Schutzbedarfsklassen findet statt, wird jedoch nicht konsistent über alle Kundenumgebungen gepflegt."
                 },
                 {
-                  "id": "ASST.2.4-m3_custom",
+                  "id": "ASST.2.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1299,7 +1299,7 @@
                   "prose": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen."
                 },
                 {
-                  "id": "ASST.2.4-m4_custom",
+                  "id": "ASST.2.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1320,7 +1320,7 @@
                   "prose": "Alle Informationen und Daten-Assets werden verpflichtend und standardisiert bei Erstellung klassifiziert, unterstützt durch automatische Metadaten-Tags."
                 },
                 {
-                  "id": "ASST.2.4-m5_custom",
+                  "id": "ASST.2.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -1349,7 +1349,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "OPS.3.2.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): ASST.2.4 fordert allgemein die Zuweisung von Daten zu Schutzbedarfsklassen, schließt jedoch die bilaterale Pflicht zur Erstellung einer gemeinsamen Klassifikation zwischen Outsourcing-Partnern nicht vollständig ein. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): ASST.2.5 fordert allgemein die Zuweisung von Daten zu Schutzbedarfsklassen, schließt jedoch die bilaterale Pflicht zur Erstellung einer gemeinsamen Klassifikation zwischen Outsourcing-Partnern nicht vollständig ein. [auch: satz_abdeckung]"
                 }
               ]
             }

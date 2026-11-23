@@ -3,8 +3,8 @@
     "uuid": "153c32cc-6cce-51b8-822e-825483cc0453",
     "metadata": {
       "title": "APP.3.6 – DNS-Server (DNS-Server) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:08.343070+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.576085+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.3.6 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -67,13 +67,13 @@
               "ARCH.8.3",
               "ARCH.9.1",
               "ASST.1.1.2",
-              "ASST.2.4",
+              "ASST.2.5",
               "BER.4.1",
               "BES.2.1.4.1",
               "BES.4.2",
               "BES.4.3",
-              "DET.3.1.10",
-              "DET.3.1.11",
+              "DET.3.1",
+              "DET.3.1.5",
               "DET.4.14",
               "DET.4.15",
               "DET.4.16",
@@ -96,7 +96,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -162,7 +162,7 @@
                         "with-ids": [
                           "ARCH.1.1",
                           "ARCH.1.1.1",
-                          "ASST.2.4",
+                          "ASST.2.5",
                           "KONF.11.3",
                           "KONF.13.10"
                         ]
@@ -405,7 +405,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.11",
+                          "DET.3.1",
+                          "DET.3.1.5",
                           "DET.4.14",
                           "DET.4.15",
                           "DET.4.16",
@@ -773,7 +774,6 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.10",
                           "DET.6.1"
                         ]
                       }
@@ -1126,15 +1126,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1158,7 +1158,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1168,7 +1168,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -3067,14 +3067,14 @@
           ]
         },
         {
-          "control-id": "ASST.2.4",
+          "control-id": "ASST.2.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.4_stm",
+              "by-id": "ASST.2.5_stm",
               "parts": [
                 {
-                  "id": "ASST.2.4-m1_custom",
+                  "id": "ASST.2.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3095,19 +3095,19 @@
                   "prose": "Eine Zuweisung von Schutzbedarfsklassen für DNS-Daten und zugehörige Assets erfolgt nur vereinzelt und ohne einheitliche Methodik.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m1_custom_gdn",
+                      "id": "ASST.2.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Beginnen Sie damit, zumindest die wichtigsten DNS-Zonendaten und kryptografischen Schlüssel (z. B. für DNSSEC) zu identifizieren und deren Vertraulichkeit, Integrität und Verfügbarkeit grob einzuschätzen."
                     },
                     {
-                      "id": "ASST.2.4-m1_custom_asm",
+                      "id": "ASST.2.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobenartige Befragung der Administratoren und Sichtung vorhandener Bestandslisten, ob für kritische DNS-Zonen oder Konfigurationsdaten Schutzbedarfsklassen vermerkt sind."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m2_custom",
+                  "id": "ASST.2.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3128,19 +3128,19 @@
                   "prose": "Daten und Assets im Kontext der DNS-Infrastruktur sind grundsätzlich in einem Bestandsverzeichnis erfasst und manuell einer pauschalen Schutzbedarfsklasse zugewiesen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m2_custom_gdn",
+                      "id": "ASST.2.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Erfassen Sie alle relevanten DNS-Assets und Datenbestände in einem zentralen Verzeichnis und weisen Sie diesen manuell eine grundlegende Schutzbedarfsklasse (z. B. normal, hoch, sehr hoch) zu."
                     },
                     {
-                      "id": "ASST.2.4-m2_custom_asm",
+                      "id": "ASST.2.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Asset-Dokumentation (z. B. Tabellenkalkulationen oder CMDB) auf das Vorhandensein von Schutzbedarfsklassen für die primären DNS-Server und Zonendaten."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m3_custom",
+                  "id": "ASST.2.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3161,19 +3161,19 @@
                   "prose": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m3_custom_gdn",
+                      "id": "ASST.2.5-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Führen Sie eine strukturierte Schutzbedarfsfeststellung nach BSI IT-Grundschutz für alle DNS-bezogenen Informationen (Zonendaten, Logs, DNSSEC-Schlüssel) und Assets durch. Dokumentieren Sie die Begründungen für die Schutzbedarfsklassen nachvollziehbar."
                     },
                     {
-                      "id": "ASST.2.4-m3_custom_asm",
+                      "id": "ASST.2.5-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Formale Prüfung des ISMS-Verzeichnisses und der Schutzbedarfsfeststellung für alle DNS-relevanten Daten und Assets. Automatisierte Abfrage der CMDB-API (z. B. mittels `curl` und `jq`), ob das Attribut für die Schutzbedarfsklasse bei allen DNS-Assets befüllt ist."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m4_custom",
+                  "id": "ASST.2.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3194,19 +3194,19 @@
                   "prose": "Die Klassifizierung aller DNS-Daten und Assets wird durch automatisierte Workflows erzwungen, regelmäßig überprüft und berücksichtigt dynamische Abhängigkeiten im Informationsverbund.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m4_custom_gdn",
+                      "id": "ASST.2.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Verknüpfen Sie das Asset-Management mit dem ISMS-Tool, sodass neue DNS-Assets und Zonen bei der Erstellung zwingend klassifiziert werden müssen und ihren Schutzbedarf dynamisch aus abhängigen Geschäftsprozessen ableiten."
                     },
                     {
-                      "id": "ASST.2.4-m4_custom_asm",
+                      "id": "ASST.2.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der automatisierten Workflows in der CMDB bzw. im ISMS-Tool. Ausführung eines Skripts, das über die API prüft, ob unklassifizierte DNS-Assets existieren oder Abhängigkeiten fehlerhaft vererbt wurden."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.4-m5_custom",
+                  "id": "ASST.2.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3227,12 +3227,12 @@
                   "prose": "Die Zuweisung der Schutzbedarfsklassen erfolgt kontinuierlich und vollautomatisiert durch Auto-Discovery-Mechanismen, welche direkt die technischen Sicherheitsrichtlinien (Policy-as-Code) steuern.",
                   "parts": [
                     {
-                      "id": "ASST.2.4-m5_custom_gdn",
+                      "id": "ASST.2.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementieren Sie eine vollautomatische Erkennung und Klassifizierung von Daten und Assets (Data Discovery & Auto-Tagging). Koppeln Sie die Schutzbedarfsklasse direkt an Policy-as-Code-Mechanismen, die Sicherheitskontrollen automatisch durchsetzen."
                     },
                     {
-                      "id": "ASST.2.4-m5_custom_asm",
+                      "id": "ASST.2.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Auditierung der Policy-as-Code-Regeln für das Asset-Management und der automatischen Tagging-Mechanismen. Validierung per API-Check, ob Änderungen am Schutzbedarf automatisch technische Sicherheitsrichtlinien (z. B. Backup-Frequenz, Zugriffsschutz) anpassen."
                     }
@@ -3247,7 +3247,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.3.6.A1",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Die G++-Maßnahme ASST.2.4 deckt die Festlegung schützenswerter Domain-Informationen als allgemeine Pflicht zur Klassifizierung und Zuweisung von Schutzbedarfsklassen für Daten ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Die G++-Maßnahme ASST.2.5 deckt die Festlegung schützenswerter Domain-Informationen als allgemeine Pflicht zur Klassifizierung und Zuweisung von Schutzbedarfsklassen für Daten ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -4002,14 +4002,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.10",
+          "control-id": "DET.3.1",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.10_stm",
+              "by-id": "DET.3.1_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.10-m1_custom",
+                  "id": "DET.3.1-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4027,22 +4027,22 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Einfache Zugriffszahlen der Anwendung sind sporadisch einsehbar.",
+                  "prose": "Sicherheitsrelevante Ereignisse werden teilweise in lokalen Logdateien erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.10-m1_custom_gdn",
+                      "id": "DET.3.1-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie vorhandene Webserver-Statistiken für einen groben Überblick."
+                      "prose": "Aktivieren Sie das Basis-Logging in der Anwendungskonfiguration."
                     },
                     {
-                      "id": "DET.3.1.10-m1_custom_asm",
+                      "id": "DET.3.1-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichtung der Standard-Zugriffsstatistiken (z.B. Hits pro Tag)."
+                      "prose": "Prüfung auf Existenz von Log-Files: `tail -f /var/log/app/security.log`."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.10-m2_custom",
+                  "id": "DET.3.1-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4060,22 +4060,22 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Nutzungsstatistiken werden regelmäßig manuell aus den Log-Dateien generiert.",
+                  "prose": "Wichtige Sicherheitsereignisse werden strukturiert lokal und zeitlich begrenzt gespeichert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.10-m2_custom_gdn",
+                      "id": "DET.3.1-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erstellen Sie wöchentliche Berichte über die Anzahl der Nutzer und deren Aktivitäten."
+                      "prose": "Definieren Sie Log-Level und stellen Sie sicher, dass Login-Fehler aufgezeichnet werden."
                     },
                     {
-                      "id": "DET.3.1.10-m2_custom_asm",
+                      "id": "DET.3.1-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Abfrage der Log-Datenbank: `SELECT count(*) FROM access_logs GROUP BY day`."
+                      "prose": "Überprüfung der Logging-Konfiguration auf Erfassung von 'Auth-Failure' Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.10-m3_custom",
+                  "id": "DET.3.1-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4093,22 +4093,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen KANN eine Nutzungsstatistik protokollieren.",
+                  "prose": "Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.1-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.10-m3_custom_gdn",
+                      "id": "DET.3.1-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erfassen Sie Daten zur Nutzung der Anwendung, um Trends und Abweichungen zu erkennen."
+                      "prose": "Protokollieren Sie alle in {{ insert: param, det.3.1-prm1 }} definierten sicherheitsrelevanten Ereignisse."
                     },
                     {
-                      "id": "DET.3.1.10-m3_custom_asm",
+                      "id": "DET.3.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung, ob Nutzungsdaten systematisch erhoben und für Analysen bereitgestellt werden."
+                      "prose": "Audit der Log-Ereignisse gegen die Liste der geforderten Parameter aus {{ insert: param, det.3.1-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.10-m4_custom",
+                  "id": "DET.3.1-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4126,22 +4126,22 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Visualisierung der Nutzungsstatistik in Echtzeit-Dashboards für Kapazitätsmanagement.",
+                  "prose": "Zentrale Protokollierung aller Sicherheitsereignisse mit Echtzeit-Weiterleitung an ein SIEM.",
                   "parts": [
                     {
-                      "id": "DET.3.1.10-m4_custom_gdn",
+                      "id": "DET.3.1-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie Monitoring-Tools (z.B. Grafana), um Nutzungsmetriken visuell darzustellen."
+                      "prose": "Konfigurieren Sie Log-Forwarder (z.B. Fluentd), um Logs sofort zentral auszuwerten."
                     },
                     {
-                      "id": "DET.3.1.10-m4_custom_asm",
+                      "id": "DET.3.1-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Überprüfung der Dashboard-Metriken auf Aktualität und Korrektheit der Datenquellen."
+                      "prose": "Prüfung des Log-Eingangs im SIEM: `search 'app_name:my_app AND severity:high'`."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.10-m5_custom",
+                  "id": "DET.3.1-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4159,17 +4159,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Predictive Analytics nutzt Nutzungsstatistiken zur automatischen Skalierung von Ressourcen.",
+                  "prose": "Automatisierte Anomalieerkennung und Incident-Response basierend auf Sicherheitsereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.10-m5_custom_gdn",
+                      "id": "DET.3.1-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verknüpfen Sie Nutzungsdaten mit Auto-Scaling-Mechanismen Ihrer Infrastruktur."
+                      "prose": "Implementieren Sie SOAR-Workflows, die auf spezifische Log-Muster automatisch reagieren."
                     },
                     {
-                      "id": "DET.3.1.10-m5_custom_asm",
+                      "id": "DET.3.1-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung der Skalierungsereignisse basierend auf historischen Nutzungsspitzen."
+                      "prose": "Testen der Alarmkette durch Auslösen eines künstlichen Sicherheitsereignisses (Mock-Attack)."
                     }
                   ]
                 }
@@ -4181,22 +4181,22 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "APP.3.6.A15",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                  "value": "APP.3.6.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1 empfiehlt übergreifend die Protokollierung sicherheitsrelevanter Ereignisse für Anwendungen über eine bestimmte Frist und deckt damit die spezifische Protokollierung sicherheitsrelevanter DNS-Ereignisse vollständig ab."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.11",
+          "control-id": "DET.3.1.5",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.11_stm",
+              "by-id": "DET.3.1.5_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.11-m1_custom",
+                  "id": "DET.3.1.5-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4217,19 +4217,19 @@
                   "prose": "Spezifische Fehler in der Geschäftslogik werden gelegentlich protokolliert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m1_custom_gdn",
+                      "id": "DET.3.1.5-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Identifizieren Sie kritische Stellen im Code, die zusätzliche Logs benötigen könnten."
                     },
                     {
-                      "id": "DET.3.1.11-m1_custom_asm",
+                      "id": "DET.3.1.5-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Suche nach individuellen Log-Ausgaben im Quellcode oder in den App-Logs."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m2_custom",
+                  "id": "DET.3.1.5-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4250,19 +4250,19 @@
                   "prose": "Anwendungsspezifische Ereignisse werden für wichtige Transaktionen lokal erfasst.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m2_custom_gdn",
+                      "id": "DET.3.1.5-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementieren Sie Logging für den Erfolg oder Abbruch kritischer Business-Prozesse."
                     },
                     {
-                      "id": "DET.3.1.11-m2_custom_asm",
+                      "id": "DET.3.1.5-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Abgleich der Log-Einträge mit durchgeführten Test-Transaktionen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m3_custom",
+                  "id": "DET.3.1.5-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4280,22 +4280,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen KANN {{ insert: param, det.3.1.11-prm1 }} protokollieren.",
+                  "prose": "Detektion für Anwendungen KANN {{ insert: param, det.3.1.5-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m3_custom_gdn",
+                      "id": "DET.3.1.5-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Protokollieren Sie die in {{ insert: param, det.3.1.11-prm1 }} festgelegten anwendungsspezifischen Ereignisse."
+                      "prose": "Protokollieren Sie die in {{ insert: param, det.3.1.5-prm1 }} festgelegten anwendungsspezifischen Ereignisse."
                     },
                     {
-                      "id": "DET.3.1.11-m3_custom_asm",
+                      "id": "DET.3.1.5-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Logs auf Vollständigkeit der Ereignisse gemäß {{ insert: param, det.3.1.11-prm1 }}."
+                      "prose": "Prüfung der Logs auf Vollständigkeit der Ereignisse gemäß {{ insert: param, det.3.1.5-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m4_custom",
+                  "id": "DET.3.1.5-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4316,19 +4316,19 @@
                   "prose": "Strukturierte Erfassung anwendungsspezifischer Metriken für detailliertes Debugging.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m4_custom_gdn",
+                      "id": "DET.3.1.5-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie strukturierte Formate (JSON), um fachliche Metriken maschinenlesbar zu machen."
                     },
                     {
-                      "id": "DET.3.1.11-m4_custom_asm",
+                      "id": "DET.3.1.5-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der Log-Struktur: `jq '.' /var/log/app/business.json`."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.11-m5_custom",
+                  "id": "DET.3.1.5-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -4349,12 +4349,12 @@
                   "prose": "Korrelation von Fach-Events mit Systemmetriken zur Erkennung komplexer Angriffsvektoren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.11-m5_custom_gdn",
+                      "id": "DET.3.1.5-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Tracing-IDs, um fachliche Events über Microservices hinweg zu verfolgen."
                     },
                     {
-                      "id": "DET.3.1.11-m5_custom_asm",
+                      "id": "DET.3.1.5-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Trace-Abdeckung in einer verteilten Transaktion via Monitoring-Konsole."
                     }
@@ -4369,7 +4369,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.3.6.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.11 deckt die Forderung als allgemeine Bestimmung zur Protokollierung anwendungsspezifischer Ereignisse (wie z. B. DNS-spezifische Fehler und Zonentransfers) inhaltlich ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): DET.3.1.5 deckt die Forderung als allgemeine Bestimmung zur Protokollierung anwendungsspezifischer Ereignisse (wie z. B. DNS-spezifische Fehler und Zonentransfers) inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }

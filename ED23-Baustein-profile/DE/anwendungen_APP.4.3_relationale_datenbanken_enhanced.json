@@ -3,8 +3,8 @@
     "uuid": "7fa08d4d-061e-52f3-b74e-d98b4d106ff8",
     "metadata": {
       "title": "APP.4.3 – Relationale Datenbanken (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:51.282592+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:39.625480+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -942,6 +942,11 @@
                 ],
                 "links": [
                   {
+                    "href": "#KONF.2.5",
+                    "rel": "related",
+                    "text": "KONF.2.5 steht unter APP.4.3.A20"
+                  },
+                  {
                     "href": "#DET.4.6",
                     "rel": "related",
                     "text": "DET.4.6 steht unter APP.4.3.A20"
@@ -1137,15 +1142,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1746,7 +1751,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1759,17 +1764,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Anwendungen werden unsystematisch und dezentral erfasst.",
+                  "prose": "Vereinzelt werden relationale Datenbankanwendungen in informellen Listen ohne vollständige Angaben zu exaktem Versionsstand, Herkunft oder Lizenzierung erfasst.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es fehlt ein Überblick über installierte Softwareversionen und Lizenzen."
+                      "prose": "Erfassen Sie zumindest für geschäftskritische Datenbanken ad-hoc die eingesetzten RDBMS-Produkte und deren ungefähre Hauptversionen in einer einfachen Liste oder Tabelle."
                     },
                     {
                       "id": "ASST.2.3-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung einzelner Rechner auf installierte Software via `dpkg -l` oder `rpm -qa`."
+                      "prose": "Prüfung auf Existenz rudimentärer Listen für RDBMS-Instanzen. Manueller Abgleich auf ausgewählten Servern via CLI (z.B. 'psql -V' oder 'mysql --version') gegen die vorhandenen Notizen."
                     }
                   ]
                 },
@@ -1779,7 +1784,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1792,17 +1797,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Zentrale Liste installierter Standardsoftware wird manuell gepflegt.",
+                  "prose": "Ein grundlegendes Inventar der Datenbankanwendungen mit Produktname und Versionsstand wird manuell geführt, Angaben zu Herkunft und Lizenzierung sind jedoch oft unvollständig.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Grobübersicht der genutzten Applikationen ohne detaillierte Patch-Stände."
+                      "prose": "Führen Sie eine zentrale Tabelle (z.B. im Wiki), die alle RDBMS-Installationen mit Produktnamen und Versionen auflistet, und aktualisieren Sie diese manuell nach größeren System-Updates."
                     },
                     {
                       "id": "ASST.2.3-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsicht in die zentrale Softwareliste und Abgleich mit Stichproben-Hosts."
+                      "prose": "Stichprobenartige Kontrolle der zentralen Inventardokumentation. Überprüfung der Aktualität durch Abfrage der RDBMS-Versionen per SQL ('SELECT version();') auf produktiven Systemen."
                     }
                   ]
                 },
@@ -1812,7 +1817,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1825,17 +1830,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+                  "prose": "Informationen und Assets für IT-Systeme SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Führen Sie ein detailliertes Software-Inventar mit Fokus auf Compliance und Security."
+                      "prose": "Dokumentieren Sie alle RDBMS-Instanzen strukturiert in einem Asset-Management-System. Stellen Sie sicher, dass bei jeder Installation oder Änderung Produktname, exakte Version, Bezugsquelle und Lizenztyp gepflegt werden."
                     },
                     {
                       "id": "ASST.2.3-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Vollständigkeitsprüfung des Software-Inventars gegen tatsächliche Installationen via Audit-Skript."
+                      "prose": "Prüfung des Anwendungsinventars auf Vollständigkeit der Attribute (Produkt, Version, Herkunft, Lizenz). Automatisierter Abgleich mittels Ansible-Fakten oder 'osquery' ('SELECT name, version FROM deb_packages;')."
                     }
                   ]
                 },
@@ -1845,7 +1850,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1858,17 +1863,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Zentrales Software-Management-System zur Versions- und Lizenzüberwachung.",
+                  "prose": "Das Anwendungsinventar für Datenbanken wird durch automatisierte Discovery-Tools kontinuierlich aktualisiert und auf Abweichungen bei Versionen, Herkunft (Repositories) und Lizenzen überwacht.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Automatisierte Meldung bei veralteten Versionen oder Lizenzüberschreitungen."
+                      "prose": "Implementieren Sie Agenten (z.B. osquery) oder Netzwerk-Scanner, die installierte Datenbank-Pakete, Versionen und Quellen automatisch erfassen und regelmäßig mit einer zentralen CMDB synchronisieren."
                     },
                     {
                       "id": "ASST.2.3-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Dashboard-Alerts im Software-Asset-Management Tool auf Aktualität."
+                      "prose": "Überprüfung der CMDB-Integrationsskripte und Discovery-Jobs. Automatisierter Audit via REST-API der CMDB, ob alle im Netzwerk gescannten Datenbank-Ports einem vollständigen Inventareintrag zugeordnet sind."
                     }
                   ]
                 },
@@ -1878,7 +1883,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1891,17 +1896,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Continuous Compliance durch Policy-as-Code und automatisierte Software-Audits.",
+                  "prose": "Die Inventarisierung erfolgt vollautomatisch in Echtzeit über SBOMs und Policy-as-Code; nicht lizenzierten oder aus nicht verifizierten Quellen stammenden Datenbankanwendungen wird die Ausführung verweigert.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Software-Inventar ist direkt mit CVE-Datenbanken für automatische Risikobewertung gekoppelt."
+                      "prose": "Integrieren Sie die Inventarisierung in die Deployment-Pipeline (Infrastructure as Code). Erzwingen Sie kryptografisch signierte Software Bill of Materials (SBOM) und automatische Lizenz-Checks vor jedem RDBMS-Rollout."
                     },
                     {
                       "id": "ASST.2.3-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Verknüpfung zwischen Inventardatenbank und aktueller Vulnerability-API."
+                      "prose": "Audit der CI/CD-Pipelines auf SBOM-Generierung und Policy-Checks. Automatische Prüfung via Open-Source-Compliance-Scannern und API-Abfragen, ob unlizenzierte oder unbekannte RDBMS-Container blockiert werden."
                     }
                   ]
                 }
@@ -6605,7 +6610,13 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.3.A20",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Satz 2 fordert explizit den Abgleich des Ist-Zustands und der Konfiguration des Datenbanksystems mit dem dokumentierten Stand bzw. der Standardkonfiguration."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Satz 2 fordert genau wie KONF.2.5 die Überprüfung, ob der Ist-Zustand der Konfiguration der dokumentierten Standardkonfiguration (Referenzzustand) entspricht."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.3.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Systemkonfiguration gegen den Referenzzustand und überschneidet sich inhaltlich mit der Auditfunktion zur Überprüfung von Konfigurationsvorgaben, umfasst aber nicht die weiteren in Satz 2 geforderten Funktionen von Datenbank-Security-Tools wie Angriffserkennung oder Rechtemanagement."
                 }
               ]
             }

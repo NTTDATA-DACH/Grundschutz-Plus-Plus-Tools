@@ -3,8 +3,8 @@
     "uuid": "f23d1815-fff4-54f2-8506-17fe438a1f47",
     "metadata": {
       "title": "SYS.2.2.3 – Clients unter Windows (Mobile Endgeräte) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:04:35.105119+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.841262+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.2.2.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -68,7 +68,8 @@
               "BES.1.4",
               "BES.4.2",
               "DET.3.1.2",
-              "DET.3.1.6",
+              "DET.3.2.2",
+              "DET.3.2.6",
               "KONF.10.4",
               "KONF.14.1",
               "KONF.2.1",
@@ -1059,6 +1060,7 @@
                       {
                         "with-ids": [
                           "DET.3.1.2",
+                          "DET.3.2.2",
                           "KONF.7.10",
                           "KONF.7.12"
                         ]
@@ -1162,7 +1164,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.6"
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -1272,15 +1274,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -3215,17 +3217,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Die Kommandozeilenhistorie ist nur flüchtig in der aktuellen Sitzung verfügbar.",
+                  "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Informieren Sie Administratoren über die manuelle Sicherung von Verläufen bei Verdacht."
+                      "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
                       "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Manuelle Prüfung der 'Doskey /History' oder PowerShell History-Datei."
+                      "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
@@ -3248,17 +3250,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "PowerShell Script Block Logging ist für administrative Benutzer aktiviert.",
+                  "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Aktivieren Sie das Modul-Logging und Script-Block-Logging via GPO für PowerShell."
+                      "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
                       "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen auf Event ID 4104 im Protokoll 'Microsoft-Windows-PowerShell/Operational'."
+                      "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
@@ -3281,17 +3283,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+                  "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Die Protokollierung ermöglicht die Rekonstruktion von Angriffsvektoren wie Living-off-the-Land."
+                      "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
                       "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen, ob Event ID 4688 mit aktivierter 'Process Command Line' im Security Log erscheint."
+                      "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
@@ -3314,17 +3316,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Jeder Prozessstart wird inklusive der vollständigen Kommandozeile zentral auditiert.",
+                  "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Aktivieren Sie die Richtlinie 'Include command line in process creation events' via GPO."
+                      "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
                       "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Abfrage: 'wmic process get caption,commandline' stichprobenartig gegen Logs prüfen."
+                      "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
@@ -3347,15 +3349,202 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Kommandozeilen werden mittels EDR auf verdächtige Muster (z.B. Base64, Obfuskation) geprüft.",
+                  "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Open-Source Tools zur Analyse von PowerShell-Skripten auf bösartigen Code."
+                      "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
                       "id": "DET.3.1.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.2.2.3.A22",
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Kommandozeilenhistorie ist nur flüchtig in der aktuellen Sitzung verfügbar.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Informieren Sie Administratoren über die manuelle Sicherung von Verläufen bei Verdacht."
+                    },
+                    {
+                      "id": "DET.3.2.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Prüfung der 'Doskey /History' oder PowerShell History-Datei."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "PowerShell Script Block Logging ist für administrative Benutzer aktiviert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie das Modul-Logging und Script-Block-Logging via GPO für PowerShell."
+                    },
+                    {
+                      "id": "DET.3.2.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen auf Event ID 4104 im Protokoll 'Microsoft-Windows-PowerShell/Operational'."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Die Protokollierung ermöglicht die Rekonstruktion von Angriffsvektoren wie Living-off-the-Land."
+                    },
+                    {
+                      "id": "DET.3.2.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen, ob Event ID 4688 mit aktivierter 'Process Command Line' im Security Log erscheint."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Jeder Prozessstart wird inklusive der vollständigen Kommandozeile zentral auditiert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die Richtlinie 'Include command line in process creation events' via GPO."
+                    },
+                    {
+                      "id": "DET.3.2.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abfrage: 'wmic process get caption,commandline' stichprobenartig gegen Logs prüfen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Kommandozeilen werden mittels EDR auf verdächtige Muster (z.B. Base64, Obfuskation) geprüft.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Open-Source Tools zur Analyse von PowerShell-Skripten auf bösartigen Code."
+                    },
+                    {
+                      "id": "DET.3.2.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Test mit einem Base64-kodierten PowerShell-Befehl; Prüfung auf Detektion im EDR/SIEM."
                     }
@@ -3370,21 +3559,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.2.3.A22",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.1.2 deckt die Protokollierung von PowerShell-Befehlen im Rahmen allgemeiner Kommandozeilenbefehle ab, adressiert jedoch weder die zentrale Protokollierung noch die anschließende Überwachung der Protokolle. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): DET.3.2.2 deckt die Protokollierung von PowerShell-Befehlen im Rahmen allgemeiner Kommandozeilenbefehle ab, adressiert jedoch weder die zentrale Protokollierung noch die anschließende Überwachung der Protokolle. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.6_stm",
+              "by-id": "DET.3.2.6_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.6-m1_custom",
+                  "id": "DET.3.2.6-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3405,19 +3594,19 @@
                   "prose": "Spezifische Ereignisse werden nur nach expliziter Aufforderung temporär geloggt.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m1_custom_gdn",
+                      "id": "DET.3.2.6-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Aktivieren Sie Debug-Logging nur für die Dauer der Fehlersuche."
                     },
                     {
-                      "id": "DET.3.1.6-m1_custom_asm",
+                      "id": "DET.3.2.6-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen, ob temporäre Logdateien nach Abschluss gelöscht wurden."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m2_custom",
+                  "id": "DET.3.2.6-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3438,19 +3627,19 @@
                   "prose": "Ausgewählte applikationsspezifische Logs werden permanent auf dem Client vorgehalten.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m2_custom_gdn",
+                      "id": "DET.3.2.6-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Definieren Sie in {{ insert: param, det.3.1.6-prm1 }} wichtige Event-Quellen."
+                      "prose": "Definieren Sie in {{ insert: param, det.3.2.6-prm1 }} wichtige Event-Quellen."
                     },
                     {
-                      "id": "DET.3.1.6-m2_custom_asm",
+                      "id": "DET.3.2.6-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Stichprobe der definierten Log-Pfade auf Vorhandensein aktueller Daten."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m3_custom",
+                  "id": "DET.3.2.6-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3468,22 +3657,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.1.6-prm1 }} protokollieren.",
+                  "prose": "Detektion für IT-Systeme KANN {{ insert: param, det.3.2.6-prm1 }} protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m3_custom_gdn",
+                      "id": "DET.3.2.6-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Wählen Sie relevante Ereignisse basierend auf Ihrem spezifischen Schutzbedarf aus."
                     },
                     {
-                      "id": "DET.3.1.6-m3_custom_asm",
+                      "id": "DET.3.2.6-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Überprüfung der Konfiguration für {{ insert: param, det.3.1.6-prm1 }} auf dem Client."
+                      "prose": "Überprüfung der Konfiguration für {{ insert: param, det.3.2.6-prm1 }} auf dem Client."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m4_custom",
+                  "id": "DET.3.2.6-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3501,22 +3690,22 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Erweiterte Telemetrie für {{ insert: param, det.3.1.6-prm1 }} wird zentral gesammelt.",
+                  "prose": "Erweiterte Telemetrie für {{ insert: param, det.3.2.6-prm1 }} wird zentral gesammelt.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m4_custom_gdn",
+                      "id": "DET.3.2.6-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie spezialisierte Parser, um die Daten von {{ insert: param, det.3.1.6-prm1 }} nutzbar zu machen."
+                      "prose": "Nutzen Sie spezialisierte Parser, um die Daten von {{ insert: param, det.3.2.6-prm1 }} nutzbar zu machen."
                     },
                     {
-                      "id": "DET.3.1.6-m4_custom_asm",
+                      "id": "DET.3.2.6-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Abfrage der zentralen Datenbank nach spezifischen Feldern von {{ insert: param, det.3.1.6-prm1 }}."
+                      "prose": "Abfrage der zentralen Datenbank nach spezifischen Feldern von {{ insert: param, det.3.2.6-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.6-m5_custom",
+                  "id": "DET.3.2.6-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3534,15 +3723,15 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Konfigurationsänderungen an {{ insert: param, det.3.1.6-prm1 }} lösen einen Drift-Alarm aus.",
+                  "prose": "Konfigurationsänderungen an {{ insert: param, det.3.2.6-prm1 }} lösen einen Drift-Alarm aus.",
                   "parts": [
                     {
-                      "id": "DET.3.1.6-m5_custom_gdn",
+                      "id": "DET.3.2.6-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Überwachen Sie die Integrität der Logging-Konfiguration selbst gegen Manipulation."
                     },
                     {
-                      "id": "DET.3.1.6-m5_custom_asm",
+                      "id": "DET.3.2.6-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Änderung der Log-Konfiguration simulieren; Prüfung auf Integritäts-Alert."
                     }
@@ -3557,7 +3746,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.2.2.3.A24",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): Die Aktivierung des Last-Access-Zeitstempels dient der Aufzeichnung systemspezifischer Zugriffsdaten auf Dateien, was durch den generischen Parameter für systemspezifische Ereignisse in DET.3.1.6 abgebildet werden kann."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker fraglich): Die Aktivierung des Last-Access-Zeitstempels dient der Aufzeichnung systemspezifischer Zugriffsdaten auf Dateien, was durch den generischen Parameter für systemspezifische Ereignisse in DET.3.2.6 abgebildet werden kann."
                 }
               ]
             }

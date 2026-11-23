@@ -3,8 +3,8 @@
     "uuid": "1a23b223-fa56-575a-88de-39204b23ebc1",
     "metadata": {
       "title": "APP.4.4 – Kubernetes (Virtualisierungslösungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:08.697247+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:22:22.639794+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -69,12 +69,14 @@
               "BER.2.1",
               "BER.4.1",
               "BER.5.11",
+              "DET.3.1",
               "KONF.1.4",
               "KONF.10.1.1",
               "KONF.10.5.1",
               "KONF.11.1",
               "KONF.11.8",
               "KONF.14.1",
+              "KONF.15.2",
               "KONF.2.1.1",
               "KONF.2.5",
               "KONF.2.5.1",
@@ -97,7 +99,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -165,8 +167,7 @@
                       {
                         "with-ids": [
                           "ARCH.7.3",
-                          "KONF.6.1.2",
-                          "KONF.9.2"
+                          "KONF.6.1.2"
                         ]
                       }
                     ]
@@ -295,6 +296,18 @@
                     "id": "APP.4.4.A4_anforderung",
                     "name": "overview",
                     "prose": "Der Betriebssystem-Kernel der Nodes MUSS über Isolationsmechanismen zur Beschränkung von Sichtbarkeit und Ressourcennutzung der Pods untereinander verfügen (vergleiche Linux Namespaces und cgroups). Die Trennung MUSS dabei mindestens IDs von Prozessen sowie Benutzenden, Inter-Prozess-Kommunikation, Dateisystem und Netz inklusive Hostname umfassen."
+                  }
+                ],
+                "insert-controls": [
+                  {
+                    "include-controls": [
+                      {
+                        "with-ids": [
+                          "KONF.15.2",
+                          "KONF.9.2"
+                        ]
+                      }
+                    ]
                   }
                 ],
                 "links": [
@@ -716,6 +729,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "DET.3.1",
                           "KONF.14.1",
                           "TEST.5.2"
                         ]
@@ -1190,15 +1204,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1222,7 +1236,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1232,7 +1246,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -3535,6 +3549,193 @@
           ]
         },
         {
+          "control-id": "DET.3.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.1_stm",
+              "parts": [
+                {
+                  "id": "DET.3.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse werden nur bei Fehlern protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Logging ist auf Standard-Error-Streams beschränkt."
+                    },
+                    {
+                      "id": "DET.3.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Error-Logs: tail -n 100 /var/log/app.err."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Systematische Protokollierung von Logins und Zugriffen auf Lokalebene.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Standard-Logs erfassen An- und Abmeldungen."
+                    },
+                    {
+                      "id": "DET.3.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der lokalen Log-Files auf Login-Ereignisse."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.1-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfiguration der Anwendung zur Erfassung der definierten Parameter."
+                    },
+                    {
+                      "id": "DET.3.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abgleich der Log-Konfiguration mit der Parameterliste."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Zentralisierte Echtzeit-Protokollierung mit automatischer Alarmierung.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Weiterleitung strukturierter Logs an ein SIEM-System."
+                    },
+                    {
+                      "id": "DET.3.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Verifizierung des Log-Eingangs im zentralen Collector."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Automatisierte Reaktion auf detektierte Sicherheitsereignisse.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integration von Log-Events in SOAR-Workflows zur Incident-Response."
+                    },
+                    {
+                      "id": "DET.3.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulation eines Events und Prüfung der automatischen Sperrung."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.4.A12",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 überschneidet sich mit dem Satz hinsichtlich der Protokollierung von Veränderungen in Infrastruktur-Anwendungen (und ergänzt eine Aufbewahrungsfrist), deckt jedoch die weiteren Forderungen wie Account-Nutzung, Verschlüsselung, Berechtigungsminimierung und Datensicherung nicht ab."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "KONF.1.4",
           "adds": [
             {
@@ -4657,6 +4858,193 @@
           ]
         },
         {
+          "control-id": "KONF.15.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.15.2_stm",
+              "parts": [
+                {
+                  "id": "KONF.15.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Konfiguration schränkt die Rechenleistung nur vereinzelt und ad-hoc für bekannte, ressourcenintensive Pods auf den Nodes ein.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Definieren Sie zumindest für bekannte, ressourcenintensive Pods in den Deployment-Manifesten einfache CPU-Limits (resources.limits.cpu), um eine vollständige Auslastung der Worker-Nodes zu verhindern."
+                    },
+                    {
+                      "id": "KONF.15.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Stichprobe einzelner Pod-Manifeste in kritischen Namespaces via 'kubectl get pods -o yaml' auf das Vorhandensein von 'resources.limits.cpu'."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Standard-Limits für die Rechenleistung sind für zentrale Namespaces manuell definiert, werden aber nicht konsistent über den gesamten Cluster erzwungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Kubernetes LimitRanges in den wichtigsten Namespaces, um Standardwerte für CPU-Requests und -Limits zuzuweisen, falls diese in den Pod-Spezifikationen nicht explizit angegeben wurden."
+                    },
+                    {
+                      "id": "KONF.15.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung auf Existenz von LimitRanges via 'kubectl get limitrange -A' sowie stichprobenartige Kontrolle von Deployments auf gesetzte Ressourcen-Limits."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie durch verbindliche Vorgaben und ResourceQuotas sicher, dass für jede Anwendung im Cluster angemessene CPU- und Memory-Limits definiert sind, um Noisy-Neighbor-Effekte auf dem Hostsystem zu unterbinden."
+                    },
+                    {
+                      "id": "KONF.15.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung aller Pods ohne Limits mittels 'kubectl get pods -A -o json | jq \".items[] | select(.spec.containers[].resources.limits.cpu == null) | .metadata.name\"'."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Ressourcen-Limits für Rechenleistung und Speicher werden für alle {{ insert: param, konf.15.2-prm1 }} automatisiert durch Admission-Controller erzwungen und kontinuierlich überwacht.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie Policy-Engines wie Kyverno oder OPA Gatekeeper im Enforcing-Modus, um das Deployment von Pods ohne definierte CPU- und Memory-Limits automatisiert am API-Server abzulehnen."
+                    },
+                    {
+                      "id": "KONF.15.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validierung der aktiven Admission-Policies (z. B. via 'kubectl get constraints' bei OPA Gatekeeper oder 'kubectl get cpol' bei Kyverno) auf Erzwingung von Ressourcen-Limits."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Begrenzung der Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} erfolgt dynamisch und vollautomatisiert durch kontinuierliche Laufzeitanalyse und automatisches Rightsizing.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie den Vertical Pod Autoscaler (VPA) in Kombination mit Metrik-Analysen (z. B. via Prometheus), um Ressourcen-Limits basierend auf dem realen Laufzeitverhalten kontinuierlich und automatisiert anzupassen."
+                    },
+                    {
+                      "id": "KONF.15.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Konfiguration des Vertical Pod Autoscalers via 'kubectl get vpa -A' sowie Analyse der Prometheus-Metriken bezüglich Throttling und OOM-Kills."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.4.4.A4",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Beschränkung der Ressourcennutzung von Pods mittels Kernel-Mechanismen (wie cgroups), was sich inhaltlich mit der Begrenzung von Rechenleistung für Anwendungen/Mandanten auf Hostsystemen überschneidet."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "KONF.2.1.1",
           "adds": [
             {
@@ -5019,7 +5407,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.4.A13",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 fordert die regelmäßige Konfigurationsüberprüfung gegen einen Referenzzustand, verlangt jedoch im Gegensatz zum Ziel-Satz keine zwingend automatisierte Auditierung. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.2.5 empfiehlt allgemein den regelmäßigen Abgleich der Systemkonfiguration mit einem Referenzzustand, schreibt jedoch nicht zwingend ein automatisches Audit gegen standardisierte Benchmarks für Kubernetes-Umgebungen vor. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -6725,8 +7113,8 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "APP.4.4.A1",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert Regelungen zur CPU-Separierung, was die Begrenzung und Zuteilung der Rechenleistung für Kubernetes-Anwendungen umfasst."
+                  "value": "APP.4.4.A4",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Nutzung von Kernel-Mechanismen wie cgroups zur Beschränkung der Ressourcennutzung von Pods auf den Nodes (Hosts), was direkt die Begrenzung der verfügbaren Rechenleistung (CPU) umfasst."
                 }
               ]
             }

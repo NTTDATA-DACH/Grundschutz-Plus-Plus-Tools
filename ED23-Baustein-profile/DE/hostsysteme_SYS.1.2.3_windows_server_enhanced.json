@@ -3,8 +3,8 @@
     "uuid": "7e6159db-173c-5a21-a284-9477f1935515",
     "metadata": {
       "title": "SYS.1.2.3 – Windows Server (Hostsysteme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:09:02.616400+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.478612+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.2.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -63,6 +63,7 @@
               "BER.4.1",
               "BER.4.1.2",
               "DET.3.1.2",
+              "DET.3.2.2",
               "DET.4.2",
               "DET.6.1",
               "KONF.10.4",
@@ -452,6 +453,7 @@
                         "with-ids": [
                           "BER.4.1.2",
                           "DET.3.1.2",
+                          "DET.3.2.2",
                           "DET.4.2",
                           "DET.6.1",
                           "KONF.6.4.1",
@@ -527,15 +529,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1523,17 +1525,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Kommandozeilenbefehle werden nur in der History der jeweiligen Shell temporär gespeichert.",
+                  "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Verlassen Sie sich nicht nur auf .bash_history, sondern aktivieren Sie einfache Shell-Audits."
+                      "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
                       "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob Shell-History-Dateien auf dem System vorhanden und lesbar sind."
+                      "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
@@ -1556,17 +1558,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Eine grundlegende Protokollierung von Prozesserzeugungen ist aktiviert.",
+                  "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Aktivieren Sie die Überwachung für die Prozesserstellung in den System-Audit-Richtlinien."
+                      "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
                       "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob Event-ID 4688 generiert wird, wenn ein Befehl ausgeführt wird."
+                      "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
@@ -1589,17 +1591,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+                  "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Erfassen Sie den vollständigen Befehlstext inklusive aller Argumente für forensische Zwecke."
+                      "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
                       "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie, ob in den Logs die vollständige Befehlszeile (Command Line Auditing) sichtbar ist."
+                      "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
@@ -1622,17 +1624,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Erweiterte Protokollierung inklusive Script-Block-Logging (z. B. PowerShell) ist aktiv.",
+                  "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Aktivieren Sie PowerShell Transcription und Module Logging für tiefe Einblicke."
+                      "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
                       "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Suchen Sie in den Logs nach Event-ID 4104 (PowerShell Script Block Logging)."
+                      "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
@@ -1655,15 +1657,202 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Echtzeitanalyse von Befehlsketten erkennt bösartige Aktivitäten (z. B. Living-off-the-land).",
+                  "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie EDR-Lösungen, die CLI-Befehle gegen bekannte Angriffsmuster (MITRE ATT&CK) prüfen."
+                      "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
                       "id": "DET.3.1.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.2.3.A7",
+                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Kommandozeilenbefehle werden nur in der History der jeweiligen Shell temporär gespeichert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Verlassen Sie sich nicht nur auf .bash_history, sondern aktivieren Sie einfache Shell-Audits."
+                    },
+                    {
+                      "id": "DET.3.2.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie, ob Shell-History-Dateien auf dem System vorhanden und lesbar sind."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Eine grundlegende Protokollierung von Prozesserzeugungen ist aktiviert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie die Überwachung für die Prozesserstellung in den System-Audit-Richtlinien."
+                    },
+                    {
+                      "id": "DET.3.2.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie, ob Event-ID 4688 generiert wird, wenn ein Befehl ausgeführt wird."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Erfassen Sie den vollständigen Befehlstext inklusive aller Argumente für forensische Zwecke."
+                    },
+                    {
+                      "id": "DET.3.2.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie, ob in den Logs die vollständige Befehlszeile (Command Line Auditing) sichtbar ist."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Erweiterte Protokollierung inklusive Script-Block-Logging (z. B. PowerShell) ist aktiv.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie PowerShell Transcription und Module Logging für tiefe Einblicke."
+                    },
+                    {
+                      "id": "DET.3.2.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Suchen Sie in den Logs nach Event-ID 4104 (PowerShell Script Block Logging)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Echtzeitanalyse von Befehlsketten erkennt bösartige Aktivitäten (z. B. Living-off-the-land).",
+                  "parts": [
+                    {
+                      "id": "DET.3.2.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie EDR-Lösungen, die CLI-Befehle gegen bekannte Angriffsmuster (MITRE ATT&CK) prüfen."
+                    },
+                    {
+                      "id": "DET.3.2.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Führen Sie verdächtige Befehlsketten (z. B. Whoami + Ipconfig) aus und prüfen Sie die EDR-Reaktion."
                     }
@@ -1678,7 +1867,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.2.3.A7",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1.2 deckt die Protokollierung von PowerShell-Befehlen als Teil ausgeführter Kommandozeilenbefehle ab, adressiert jedoch keine explizit zentrale Protokollierung. [auch: satz_abdeckung, gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.2.2 deckt die Protokollierung von PowerShell-Befehlen als Teil ausgeführter Kommandozeilenbefehle ab, adressiert jedoch keine explizit zentrale Protokollierung. [auch: satz_abdeckung]"
                 }
               ]
             }

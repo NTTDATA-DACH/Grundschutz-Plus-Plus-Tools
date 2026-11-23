@@ -3,8 +3,8 @@
     "uuid": "3c01b33f-8c74-5ea4-916e-f25e95f146ab",
     "metadata": {
       "title": "APP.1.4 – Mobile Anwendungen (Apps) (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:04:57.334003+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:05.743558+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.1.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -672,15 +672,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1047,17 +1047,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Vereinzelte Cloud-Ereignisse werden manuell gesichtet.",
+                  "prose": "Sicherheitsrelevante Ereignisse mobiler Anwendungen werden nur sporadisch und rein lokal auf einzelnen Endgeräten protokolliert.",
                   "parts": [
                     {
                       "id": "DET.3.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Führen Sie stichprobenartige Log-Prüfungen durch."
+                      "prose": "Aktivieren Sie das Standard-Logging auf vereinzelten Geräten oder für ausgewählte Apps, um im Fehlerfall erste Anhaltspunkte zu haben."
                     },
                     {
                       "id": "DET.3.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie Stichproben der manuellen Sichtungsprotokolle."
+                      "prose": "Manuelle Stichprobenprüfung auf mobilen Endgeräten, ob lokale App-Logs (z.B. via ADB logcat) überhaupt existieren."
                     }
                   ]
                 },
@@ -1080,17 +1080,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Cloud-Logs werden separat vom internen Log-System gespeichert.",
+                  "prose": "Apps protokollieren grundlegende sicherheitsrelevante Ereignisse lokal, jedoch ohne zentrale Sammlung oder definierte Aufbewahrungsfristen.",
                   "parts": [
                     {
                       "id": "DET.3.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Archivieren Sie Cloud-Audit-Logs zentral auf einem zugriffsgeschützten Speicher."
+                      "prose": "Konfigurieren Sie Apps so, dass grundlegende Sicherheitsereignisse wie fehlgeschlagene Logins lokal im Gerätespeicher protokolliert werden."
                     },
                     {
                       "id": "DET.3.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichten Sie das Speicherverzeichnis. Befehl: `ls -lh /var/log/cloud-audit/`"
+                      "prose": "Prüfung der App-Konfigurationen und MDM-Profile auf Aktivierung der lokalen Protokollierung für sicherheitsrelevante Events."
                     }
                   ]
                 },
@@ -1113,17 +1113,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass die Protokollierung im Audit Log wie beschrieben erfolgt."
+                      "prose": "Stellen Sie sicher, dass Apps und Backend-Systeme alle definierten Sicherheitsereignisse konsistent und revisionssicher protokollieren."
                     },
                     {
                       "id": "DET.3.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Integration der Cloud-Ereignisse im zentralen Audit-Log-System."
+                      "prose": "Überprüfung der zentralen Log-Konfiguration und MDM-Policies via API-Abfrage, ob Events gemäß {{ insert: param, det.3.2-prm1 }} erfasst werden."
                     }
                   ]
                 },
@@ -1146,17 +1146,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Cloud-Events werden automatisiert und in Echtzeit in das SIEM integriert.",
+                  "prose": "Sicherheitsrelevante App-Ereignisse werden zentral in Echtzeit gesammelt, korreliert und bei Anomalien automatisch durch Alarme gemeldet.",
                   "parts": [
                     {
                       "id": "DET.3.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Konnektoren für die automatische Übermittlung sicherheitsrelevanter Events."
+                      "prose": "Leiten Sie App-Protokolle verschlüsselt an ein zentrales SIEM weiter und richten Sie automatische Alarme für definierte Schwellenwerte ein."
                     },
                     {
                       "id": "DET.3.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Validieren Sie den Datenstrom im SIEM. Test: `grep 'cloud_provider' /var/log/syslog`"
+                      "prose": "Automatisierter Check via SIEM-API, ob App-Logs von allen verwalteten Endgeräten kontinuierlich einlaufen und Korrelationsregeln greifen."
                     }
                   ]
                 },
@@ -1179,17 +1179,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Cloud-Ereignisse lösen automatisierte Incident-Response-Workflows aus.",
+                  "prose": "App-Logs werden kontinuierlich mittels ML-basierter Verhaltensanalyse ausgewertet und lösen bei Bedrohungen automatisierte Reaktionen (SOAR) aus.",
                   "parts": [
                     {
                       "id": "DET.3.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie Cloud-Security-Events in ein SOAR-System für sofortige Reaktion."
+                      "prose": "Integrieren Sie KI-gestützte Verhaltensanalysen (UEBA) für App-Telemetrie und automatisieren Sie die Eindämmung über MDM/SOAR-Schnittstellen."
                     },
                     {
                       "id": "DET.3.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Lösen Sie ein Test-Event aus und prüfen Sie den Workflow-Status via API."
+                      "prose": "Prüfung der SOAR-Playbooks und ML-Pipelines per Skript auf automatische Quarantäne-Aktionen bei verdächtigen App-Log-Mustern."
                     }
                   ]
                 }

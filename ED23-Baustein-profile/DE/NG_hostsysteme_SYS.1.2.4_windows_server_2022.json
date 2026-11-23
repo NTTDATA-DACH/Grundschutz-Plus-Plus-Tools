@@ -3,8 +3,8 @@
     "uuid": "5172e5b7-82a5-55cc-bfb4-3a2a4107072b",
     "metadata": {
       "title": "NG SYS.1.2.4 – Windows Server 2022 (Hostsysteme)",
-      "last-modified": "2026-10-19T01:09:05.272646+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.498880+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.2.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -66,11 +66,11 @@
               "BER.5.9",
               "BER.6.4",
               "BES.2.1.3",
-              "DET.3.1.1",
-              "DET.3.1.2",
-              "DET.3.1.6",
-              "DET.3.2",
-              "DET.3.5",
+              "DET.3.2.1",
+              "DET.3.2.2",
+              "DET.3.2.6",
+              "DET.3.4",
+              "DET.3.7",
               "DET.4.2",
               "DET.4.4",
               "DET.5.10",
@@ -370,10 +370,10 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1",
+                          "DET.3.2.1",
                           "BER.3.4",
                           "DET.4.4",
-                          "DET.3.5"
+                          "DET.3.7"
                         ]
                       }
                     ]
@@ -831,7 +831,7 @@
                       {
                         "with-ids": [
                           "KONF.2.5.1",
-                          "DET.3.2"
+                          "DET.3.4"
                         ]
                       }
                     ]
@@ -893,8 +893,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.2",
-                          "DET.3.1.6",
+                          "DET.3.2.2",
+                          "DET.3.2.6",
                           "DET.4.2",
                           "KONF.7.3"
                         ]
@@ -1029,15 +1029,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1215,7 +1215,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.2.1",
           "adds": [
             {
               "position": "ending",
@@ -1231,7 +1231,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.2",
+          "control-id": "DET.3.2.2",
           "adds": [
             {
               "position": "ending",
@@ -1240,14 +1240,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.2.4.A14",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.2 fordert die Protokollierung ausgeführter Kommandozeilenbefehle, was die detaillierte Erfassung von Prozess- und Skript-Ausführungen direkt abdeckt."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.2.2 fordert die Protokollierung ausgeführter Kommandozeilenbefehle, was die detaillierte Erfassung von Prozess- und Skript-Ausführungen direkt abdeckt."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
@@ -1256,14 +1256,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.2.4.A14",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): Über den Parameter in DET.3.1.6 lassen sich systemspezifische Ereignisse wie die detaillierte Prozess- und Skriptprotokollierung festlegen."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz mittel, Checker bestaetigt): Über den Parameter in DET.3.2.6 lassen sich systemspezifische Ereignisse wie die detaillierte Prozess- und Skriptprotokollierung festlegen."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.2",
+          "control-id": "DET.3.4",
           "adds": [
             {
               "position": "ending",
@@ -1272,14 +1272,14 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.2.4.A13",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz niedrig, Checker bestaetigt): DET.3.2 betrifft die Integration von Cloud-Diensten in das Audit-Log der Institution und stützt die geforderte Überwachung von Cloud-Management-Zugriffen."
+                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz niedrig, Checker bestaetigt): DET.3.4 betrifft die Integration von Cloud-Diensten in das Audit-Log der Institution und stützt die geforderte Überwachung von Cloud-Management-Zugriffen."
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "DET.3.5",
+          "control-id": "DET.3.7",
           "adds": [
             {
               "position": "ending",

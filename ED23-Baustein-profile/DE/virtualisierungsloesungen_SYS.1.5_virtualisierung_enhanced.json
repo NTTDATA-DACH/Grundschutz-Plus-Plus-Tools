@@ -3,8 +3,8 @@
     "uuid": "33923190-8520-5ebe-a668-72a4a7e2025e",
     "metadata": {
       "title": "SYS.1.5 – Virtualisierung (Virtualisierungslösungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:11.374003+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:23:46.911083+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.5 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -83,6 +83,7 @@
               "BES.2.1.3",
               "BES.2.1.4",
               "BES.4.8.1",
+              "DET.3.2",
               "DET.4.13",
               "DET.4.15",
               "GC.9.1.1.4",
@@ -103,6 +104,7 @@
               "KONF.6.1.2",
               "KONF.6.16",
               "KONF.6.4",
+              "KONF.9.2",
               "PERF.3.2",
               "PERS.2.1",
               "PERS.2.3.2",
@@ -114,7 +116,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -380,7 +382,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ARCH.2.6"
+                          "ARCH.2.6",
+                          "DET.3.2"
                         ]
                       }
                     ]
@@ -1151,7 +1154,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "KONF.15.4"
+                          "KONF.15.4",
+                          "KONF.9.2"
                         ]
                       }
                     ]
@@ -1498,15 +1502,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1530,7 +1534,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1540,7 +1544,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -6455,6 +6459,193 @@
           ]
         },
         {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Auf Virtualisierungsservern findet eine sporadische, rein lokale Protokollierung mit Standardeinstellungen statt, die nicht alle sicherheitsrelevanten Ereignisse abdeckt.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie zumindest die grundlegende lokale Protokollierung auf den wichtigsten Virtualisierungsservern, um bei Ausfällen erste Anhaltspunkte zur Fehlerbehebung zu haben."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Stichprobe auf einzelnen Hypervisoren, ob lokale Logdateien (z. B. /var/log/syslog oder /var/log/messages) existieren und rudimentäre Ereignisse enthalten."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse wie Anmeldungen und Systemfehler werden auf Virtualisierungsservern grundsätzlich lokal protokolliert, jedoch ohne zentrale Vorgaben für spezifische Ereignistypen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie die lokale Protokollierung aller Hypervisoren und Management-Systeme so, dass Anmeldeversuche und Systemfehler standardmäßig lokal aufgezeichnet werden."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der rsyslog- oder systemd-journald-Konfiguration auf den Hypervisoren auf Standard-Loglevel mittels manuellem CLI-Check (z. B. grep -i 'auth' /etc/rsyslog.conf)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Definieren Sie die zu protokollierenden Ereignisse (z. B. VM-Starts, Konfigurationsänderungen am Hypervisor) und setzen Sie diese konsistent in den Logging-Diensten der Virtualisierungsumgebung um."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der Konfigurationsdateien (z. B. auditd.conf, syslog) per Skript oder Ansible-Playbook, ob exakt die in {{ insert: param, det.3.2-prm1 }} definierten Ereignisse protokolliert werden."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Alle sicherheitsrelevanten Ereignisse gemäß {{ insert: param, det.3.2-prm1 }} sowie Änderungen an virtuellen Ressourcen werden zentralisiert, korreliert und aktiv auf Anomalien überwacht.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie alle Protokolldaten der Virtualisierungsinfrastruktur (Hypervisor, Management-Instanzen, virtuelle Switches) in Echtzeit an ein zentrales Log-Management oder SIEM-System weiter."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierter Compliance-Check (z. B. via OpenSCAP oder API-Abfrage des Log-Servers), ob alle Hypervisoren und VMs ihre Logs vollständig und manipulationssicher an ein zentrales SIEM senden."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Die Protokollierung ist vollständig als Code definiert, wird kontinuierlich validiert und nutzt ML-basierte Echtzeit-Analyse zur automatisierten Eindämmung von Bedrohungen im Hypervisor.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Policy-as-Code zur Durchsetzung der Logging-Richtlinien und integrieren Sie KI-gestützte Anomalieerkennung (UEBA) sowie automatisierte Reaktionen (SOAR) für die Virtualisierungsebene."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Kontinuierliche automatisierte Verifikation der Logging-Pipelines durch Policy-as-Code (z. B. Open Policy Agent) und automatisierte Tests der SOAR-Reaktionsketten durch simulierte Angriffe."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.5.A6",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die laufende Protokollierung des Betriebszustands, der Auslastung und der Netzanbindungen auf Ebene der virtuellen Infrastruktur (IT-Systeme), was sich inhaltlich mit der Protokollierung sicherheits- und betriebsrelevanter Ereignisse auf IT-Systemen in DET.3.2 überschneidet."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "DET.4.13",
           "adds": [
             {
@@ -8895,7 +9086,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.5.A19",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1,2): KONF.2.5 deckt die Konfigurationsüberprüfung von IT-Systemen ab, während der Ziel-Satz die Überprüfung des gesamten Ist-Zustands der virtuellen Infrastruktur gegen die Planung fordert. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1,2): Die G++-Maßnahme KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand (Standardkonfiguration) und deckt damit die allgemeine Tätigkeit für die Konfiguration virtueller Komponenten inhaltlich ab. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -10217,6 +10408,193 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.5.A2",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die Maßnahme KONF.6.4 fordert die Einschränkung privilegierter Systemfunktionen auf IT-Systemen, was die Reduzierung von Administrationsrechten auf das notwendige Maß allgemeingültig abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.9.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.9.2_stm",
+              "parts": [
+                {
+                  "id": "KONF.9.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Überwachung der CPU-Last durch das Betriebssystem.",
+                  "parts": [
+                    {
+                      "id": "KONF.9.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Administratoren prüfen die Last bei Performance-Problemen."
+                    },
+                    {
+                      "id": "KONF.9.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichtprüfung der CPU-Metriken. Befehl: top -n 1"
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.9.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Konfiguration von Prozess-Prioritäten (Nice-Levels).",
+                  "parts": [
+                    {
+                      "id": "KONF.9.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Wichtige Dienste erhalten eine höhere Priorität als Nutzerprozesse."
+                    },
+                    {
+                      "id": "KONF.9.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Priorisierung laufender Prozesse. Befehl: ps -el"
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.9.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für Hostsysteme KANN die zur Verfügung stehende Rechenleistung anhand von {{ insert: param, konf.9.2-prm1 }} einschränken.",
+                  "parts": [
+                    {
+                      "id": "KONF.9.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Die Begrenzung der Rechenleistung schützt vor Denial-of-Service durch einzelne Prozesse."
+                    },
+                    {
+                      "id": "KONF.9.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung der Ressourceneinschränkungen in der Systemkonfiguration."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.9.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Einsatz von Control Groups (cgroups) zur Ressourcenlimitierung.",
+                  "parts": [
+                    {
+                      "id": "KONF.9.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Harte Limits für CPU-Zyklen pro Benutzergruppe oder Dienst."
+                    },
+                    {
+                      "id": "KONF.9.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der cgroup-Konfiguration. Befehl: cgget -g cpu /"
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.9.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Dynamische Orchestrierung mit intelligenter Lastverteilung.",
+                  "parts": [
+                    {
+                      "id": "KONF.9.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Automatisches Drosseln oder Verschieben von Last in Container-Umgebungen."
+                    },
+                    {
+                      "id": "KONF.9.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Resource-Limits im Container-Orchestrator-Manifest."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.5.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Das Deaktivieren von Ressourcen-Überbuchung begrenzt die durch virtuelle Systeme nutzbare Rechenleistung auf die tatsächlich physisch verfügbaren Kapazitäten (wie CPU-Kerne) des Hostsystems."
                 }
               ]
             }

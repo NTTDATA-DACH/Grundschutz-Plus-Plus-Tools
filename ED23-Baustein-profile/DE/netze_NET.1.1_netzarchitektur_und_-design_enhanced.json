@@ -3,8 +3,8 @@
     "uuid": "96175556-9854-5032-b110-9b8024ef090b",
     "metadata": {
       "title": "NET.1.1 – Netzarchitektur und -design (Netze) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:08:21.711015+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:28.888568+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein NET.1.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -173,6 +173,7 @@
                           "ARCH.1.1.3",
                           "ARCH.1.2",
                           "ARCH.2.1",
+                          "ARCH.2.2.1",
                           "ARCH.2.6",
                           "UMS.1.1",
                           "UMS.5.1",
@@ -344,6 +345,11 @@
                     "href": "#ARCH.2.1",
                     "rel": "related",
                     "text": "ARCH.2.1 steht unter NET.1.1.A1"
+                  },
+                  {
+                    "href": "#ARCH.2.2.1",
+                    "rel": "related",
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
                   }
                 ]
               },
@@ -532,7 +538,6 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ARCH.2.2.1",
                           "ARCH.5.1.2",
                           "ARCH.5.1.4",
                           "ARCH.5.2"
@@ -542,6 +547,11 @@
                   }
                 ],
                 "links": [
+                  {
+                    "href": "#ARCH.2.2.1",
+                    "rel": "related",
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
+                  },
                   {
                     "href": "#ARCH.5.1",
                     "rel": "related",
@@ -594,6 +604,11 @@
                 ],
                 "links": [
                   {
+                    "href": "#ARCH.2.2.1",
+                    "rel": "related",
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
+                  },
+                  {
                     "href": "#ARCH.2.1",
                     "rel": "related",
                     "text": "ARCH.2.1 steht unter NET.1.1.A1"
@@ -602,11 +617,6 @@
                     "href": "#ARCH.2.2",
                     "rel": "related",
                     "text": "ARCH.2.2 steht unter NET.1.1.A4"
-                  },
-                  {
-                    "href": "#ARCH.2.2.1",
-                    "rel": "related",
-                    "text": "ARCH.2.2.1 steht unter NET.1.1.A8"
                   }
                 ]
               },
@@ -712,7 +722,7 @@
                   {
                     "href": "#ARCH.2.2.1",
                     "rel": "related",
-                    "text": "ARCH.2.2.1 steht unter NET.1.1.A8"
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
                   },
                   {
                     "href": "#ARCH.2.2.6",
@@ -770,6 +780,11 @@
                   }
                 ],
                 "links": [
+                  {
+                    "href": "#ARCH.2.2.1",
+                    "rel": "related",
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
+                  },
                   {
                     "href": "#ARCH.5.1.11",
                     "rel": "related",
@@ -1119,7 +1134,7 @@
                   {
                     "href": "#ARCH.2.2.1",
                     "rel": "related",
-                    "text": "ARCH.2.2.1 steht unter NET.1.1.A8"
+                    "text": "ARCH.2.2.1 steht unter NET.1.1.A1"
                   },
                   {
                     "href": "#ARCH.2.2.6",
@@ -2054,15 +2069,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -3584,26 +3599,44 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.1.A1",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert, in der Sicherheitsrichtlinie festzulegen, welche institutionsübergreifende Kommunikation zugelassen ist, was sich direkt mit der Einschränkung von Verbindungen über externe Netzanschlüsse in ARCH.2.2.1 überschneidet."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.1.A4",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): Satz 6 fordert die Kontrolle und Filterung jeglichen ein- und ausgehenden Datenverkehrs am äußeren Paketfilter (sowie gemäß Satz 1 bis 4 die Restriktion an den Außenanbindungen per Allowlist), was direkt die Einschränkung von Verbindungen über externe Netzanschlüsse umsetzt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.1.A8",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Satz 2 fordert die Einschränkung der Datenflüsse des Internetverkehrs auf benötigte Protokolle und Kommunikationsbeziehungen, was die Einschränkung von Verbindungen über externe Netzanschlüsse konkretisiert. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Einschränkung der Datenflüsse am Internetzugang auf benötigte Protokolle und Kommunikationsbeziehungen durch eine Firewall-Struktur, was sich mit der allgemeinen Empfehlung aus ARCH.2.2.1 zur Einschränkung externer Netzanschlüsse überschneidet. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.1.A9",
-                  "remarks": "Herkunft: KI-Vorschlag (intersects-with, Konfidenz hoch, Checker bestaetigt): ARCH.2.2.1 fordert die Einschränkung von Verbindungen über externe Netzanschlüsse und setzt damit die Absicherung gegenüber nicht vertrauenswürdigen Netzen wie dem Internet um."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert, nicht vertrauenswürdige Netze wie das Internet zu behandeln und abzusichern, was sich mit der Empfehlung aus ARCH.2.2.1 überschneidet, Verbindungen über externe Netzanschlüsse einzuschränken."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.1.A11",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Satz 2 schränkt externe Zugriffe auf das interne Netz konkret auf vertrauenswürdige IT-Systeme und Benutzende ein und setzt damit die Einschränkung von Verbindungen über externe Netzanschlüsse um."
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): Satz 6 untersagt den direkten Zugriff aus dem Internet oder der externen DMZ auf das interne Netz, was sich mit der architektonischen Empfehlung aus ARCH.2.2.1 überschneidet, Verbindungen über externe Netzanschlüsse einzuschränken."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "NET.1.1.A12",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Die zwingende Entkoppelung ausgehender Internet-Kommunikation an einem Sicherheits-Proxy (S1) ist eine konkrete architektonische Maßnahme, um Verbindungen über externe Netzanschlüsse einzuschränken und zu kontrollieren."
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "NET.1.1.A18",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (superset-of)"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 10): Die zwingende Entkopplung jeglichen Datenverkehrs zum Internet über ein ALG oder Sicherheits-Proxies (S10) schränkt direkte Verbindungen über den externen Netzanschluss architektonisch stark ein. [auch: gsmap]"
                 }
               ]
             }

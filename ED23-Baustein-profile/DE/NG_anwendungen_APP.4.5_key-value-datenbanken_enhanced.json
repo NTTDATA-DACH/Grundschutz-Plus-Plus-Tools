@@ -3,8 +3,8 @@
     "uuid": "0970e24a-e1de-57ab-a850-614c45798fef",
     "metadata": {
       "title": "NG APP.4.5 – Key-Value-Datenbanken (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:04:34.819780+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.626598+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.4.5 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe, NG-Baustein)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (Text des nutzergenerierten Bausteins (NG, NTT DATA), kein BSI-Text); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -65,9 +65,9 @@
               "BER.7.12",
               "BER.7.13",
               "DET.3.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
               "DET.4.6",
-              "DET.5.10.3",
+              "DET.5.12",
               "DET.5.3",
               "DET.6.1",
               "KONF.10.4",
@@ -492,7 +492,7 @@
                       {
                         "with-ids": [
                           "DET.3.1",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
                           "DET.4.6",
                           "DET.6.1"
                         ]
@@ -708,7 +708,7 @@
                         "with-ids": [
                           "KONF.10.5.1",
                           "DET.5.3",
-                          "DET.5.10.3"
+                          "DET.5.12"
                         ]
                       }
                     ]
@@ -723,15 +723,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2256,14 +2256,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.8_stm",
+              "by-id": "DET.3.1.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.8-m1_custom",
+                  "id": "DET.3.1.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2284,19 +2284,19 @@
                   "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m1_custom_gdn",
+                      "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
-                      "id": "DET.3.1.8-m1_custom_asm",
+                      "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m2_custom",
+                  "id": "DET.3.1.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2317,19 +2317,19 @@
                   "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m2_custom_gdn",
+                      "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
-                      "id": "DET.3.1.8-m2_custom_asm",
+                      "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m3_custom",
+                  "id": "DET.3.1.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2350,19 +2350,19 @@
                   "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m3_custom_gdn",
+                      "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
-                      "id": "DET.3.1.8-m3_custom_asm",
+                      "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m4_custom",
+                  "id": "DET.3.1.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2383,19 +2383,19 @@
                   "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m4_custom_gdn",
+                      "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
-                      "id": "DET.3.1.8-m4_custom_asm",
+                      "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.8-m5_custom",
+                  "id": "DET.3.1.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2416,12 +2416,12 @@
                   "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
-                      "id": "DET.3.1.8-m5_custom_gdn",
+                      "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
-                      "id": "DET.3.1.8-m5_custom_asm",
+                      "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
@@ -2436,7 +2436,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.4.5.A8",
-                  "remarks": "Herkunft: KI-Vorschlag (superset-of, Konfidenz hoch, Checker fraglich): DET.3.1.8 fordert die Protokollierung privilegierter Ereignisse in Anwendungen, worunter kritische Befehle in der Datenbank fallen."
+                  "remarks": "Herkunft: KI-Vorschlag (superset-of, Konfidenz hoch, Checker fraglich): DET.3.1.2 fordert die Protokollierung privilegierter Ereignisse in Anwendungen, worunter kritische Befehle in der Datenbank fallen."
                 }
               ]
             }
@@ -2630,14 +2630,14 @@
           ]
         },
         {
-          "control-id": "DET.5.10.3",
+          "control-id": "DET.5.12",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.5.10.3_stm",
+              "by-id": "DET.5.12_stm",
               "parts": [
                 {
-                  "id": "DET.5.10.3-m1_custom",
+                  "id": "DET.5.12-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2658,19 +2658,19 @@
                   "prose": "Manuelle Abfrage des Patch-Status einzelner Instanzen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m1_custom_gdn",
+                      "id": "DET.5.12-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Prüfung der Versionsnummern direkt auf dem System."
                     },
                     {
-                      "id": "DET.5.10.3-m1_custom_asm",
+                      "id": "DET.5.12-m1_custom_asm",
                       "name": "assessment",
                       "prose": "CLI: apt list --upgradable oder rpm -qa."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m2_custom",
+                  "id": "DET.5.12-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2691,19 +2691,19 @@
                   "prose": "Regelmäßiger Export des Patch-Status in zentrale Listen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m2_custom_gdn",
+                      "id": "DET.5.12-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Zentrale Ablage von Paketlisten zur Übersicht."
                     },
                     {
-                      "id": "DET.5.10.3-m2_custom_asm",
+                      "id": "DET.5.12-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Kontrolle der Aktualität der zentralen Inventarliste."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m3_custom",
+                  "id": "DET.5.12-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2721,22 +2721,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen KANN den Patchstatus durch {{ insert: param, det.5.10.3-prm1 }} überwachen.",
+                  "prose": "Detektion für Anwendungen KANN den Patchstatus durch {{ insert: param, det.5.12-prm1 }} überwachen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m3_custom_gdn",
+                      "id": "DET.5.12-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Überwachen Sie die Aktualität der Software basierend auf dem Parameter."
                     },
                     {
-                      "id": "DET.5.10.3-m3_custom_asm",
+                      "id": "DET.5.12-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Abgleich des Monitoring-Outputs mit {{ insert: param, det.5.10.3-prm1 }}."
+                      "prose": "Abgleich des Monitoring-Outputs mit {{ insert: param, det.5.12-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m4_custom",
+                  "id": "DET.5.12-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2757,19 +2757,19 @@
                   "prose": "Automatisierte Inventarisierung und Abgleich mit Schwachstellendatenbanken.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m4_custom_gdn",
+                      "id": "DET.5.12-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Integration von CVE-Feeds zur Bewertung offener Patches."
                     },
                     {
-                      "id": "DET.5.10.3-m4_custom_asm",
+                      "id": "DET.5.12-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung des Vulnerability-Scan-Reports auf fehlende Updates."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.3-m5_custom",
+                  "id": "DET.5.12-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2790,12 +2790,12 @@
                   "prose": "Continuous Compliance Monitoring mit automatischer Patch-Validierung.",
                   "parts": [
                     {
-                      "id": "DET.5.10.3-m5_custom_gdn",
+                      "id": "DET.5.12-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Vollautomatisches Rollout und Verifikation von Updates in Testumgebungen."
                     },
                     {
-                      "id": "DET.5.10.3-m5_custom_asm",
+                      "id": "DET.5.12-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Nachweis der Zeitspanne zwischen Patch-Release und produktiver Überwachung."
                     }

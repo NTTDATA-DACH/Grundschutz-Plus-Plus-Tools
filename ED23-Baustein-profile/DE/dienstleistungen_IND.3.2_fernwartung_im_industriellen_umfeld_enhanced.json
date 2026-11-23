@@ -3,8 +3,8 @@
     "uuid": "bcc5f779-7aeb-5109-b3aa-c0bb86c89722",
     "metadata": {
       "title": "IND.3.2 – Fernwartung im industriellen Umfeld (Dienstleistungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:06:54.955167+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:28.195975+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein IND.3.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -67,8 +67,8 @@
               "BER.4.1.2",
               "BES.5.4",
               "BES.5.5",
-              "DET.3.1.12",
-              "DET.3.1.2",
+              "DET.3.2.2",
+              "DET.3.3",
               "DET.4.11",
               "DET.4.2",
               "DET.4.6",
@@ -561,7 +561,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.12",
+                          "DET.3.3",
                           "DET.6.2",
                           "KONF.7.1"
                         ]
@@ -789,7 +789,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.2"
+                          "DET.3.2.2"
                         ]
                       }
                     ]
@@ -863,15 +863,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2799,201 +2799,14 @@
           ]
         },
         {
-          "control-id": "DET.3.1.12",
+          "control-id": "DET.3.2.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.3.1.12_stm",
+              "by-id": "DET.3.2.2_stm",
               "parts": [
                 {
-                  "id": "DET.3.1.12-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Die Verarbeitung von Daten wird nur vereinzelt und ad-hoc auf einzelnen Systemen ohne zentrale Vorgaben lokal protokolliert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.12-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Aktivieren Sie bei Bedarf die grundlegende lokale Protokollierung auf kritischen Systemen, wenn Fernwartungszugriffe Daten verarbeiten."
-                    },
-                    {
-                      "id": "DET.3.1.12-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Manuelle Prüfung auf ausgewählten OT-Systemen (z.B. per 'ls /var/log'), ob lokale Protokolldateien für Datenverarbeitungen existieren."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.12-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Datenverarbeitungen werden auf relevanten Systemen grundsätzlich mit Standardeinstellungen protokolliert, jedoch ohne zentrale Auswertung.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.12-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie die Standard-Protokollierungsfunktionen der Betriebssysteme und Applikationen, um Datenverarbeitungen während der Fernwartung aufzuzeichnen."
-                    },
-                    {
-                      "id": "DET.3.1.12-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Systemkonfigurationen per Skript (z.B. 'systemctl status rsyslog' oder 'auditd'), ob Standard-Logging für Datenzugriffe aktiv ist."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.12-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion für Daten KANN die Verarbeitung von Daten protokollieren.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.12-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Implementieren Sie eine konsistente Protokollierung für Datenverarbeitungsprozesse auf allen für die Fernwartung relevanten Systemen."
-                    },
-                    {
-                      "id": "DET.3.1.12-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Überprüfung des Logging-Konzepts und automatisierter Check via 'auditctl -l' auf Zielsystemen zur Verifikation der definierten Audit-Regeln."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.12-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Die Protokollierung von Datenverarbeitungen erfolgt zentralisiert, manipulationssicher und wird proaktiv durch automatisierte Regeln auf Anomalien überwacht.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.12-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Leiten Sie alle Protokolle über Datenverarbeitungen an ein zentrales SIEM weiter und richten Sie Korrelationsregeln für ungewöhnliche Datenzugriffe ein."
-                    },
-                    {
-                      "id": "DET.3.1.12-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Automatisierte API-Abfrage des zentralen Log-Servers (z.B. OpenSearch), ob Datenverarbeitungs-Logs vollständig eingehen und Alarme generieren."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.1.12-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Datenverarbeitungen werden lückenlos auf Kernel-Ebene protokolliert, mittels KI-Verhaltensanalyse in Echtzeit bewertet und bei Anomalien automatisch isoliert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.1.12-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie eBPF-basiertes Tracing und Machine Learning, um sämtliche Datenverarbeitungen lückenlos zu protokollieren und bei Anomalien sofort zu blockieren."
-                    },
-                    {
-                      "id": "DET.3.1.12-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Deployment-Pipelines auf Policy-as-Code für Logging sowie API-Check der ML-Engine auf aktive Echtzeit-Auswertung der Datenflüsse."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "IND.3.2.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): Die G++-Maßnahme DET.3.1.12 deckt die Protokollierung von Datenverarbeitungen wie Dateizugriffen und Datenexporten ab und umfasst damit inhaltlich die Protokollierung des Dateiaustauschs. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.2",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.1.2_stm",
-              "parts": [
-                {
-                  "id": "DET.3.1.2-m1_custom",
+                  "id": "DET.3.2.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3014,19 +2827,19 @@
                   "prose": "Die Shell-Historie wird auf lokalen Systemen für den Standard-User gespeichert.",
                   "parts": [
                     {
-                      "id": "DET.3.1.2-m1_custom_gdn",
+                      "id": "DET.3.2.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass die .bash_history nicht deaktiviert ist."
                     },
                     {
-                      "id": "DET.3.1.2-m1_custom_asm",
+                      "id": "DET.3.2.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Datei ~/.bash_history auf Inhalt."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.2-m2_custom",
+                  "id": "DET.3.2.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3047,19 +2860,19 @@
                   "prose": "Erweiterte Befehlshistorie mit Zeitstempeln ist auf kritischen Systemen aktiv.",
                   "parts": [
                     {
-                      "id": "DET.3.1.2-m2_custom_gdn",
+                      "id": "DET.3.2.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie HISTTIMEFORMAT in der globalen Shell-Konfiguration."
                     },
                     {
-                      "id": "DET.3.1.2-m2_custom_asm",
+                      "id": "DET.3.2.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Befehl 'history' ausführen und auf Vorhandensein von Zeitstempeln prüfen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.2-m3_custom",
+                  "id": "DET.3.2.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3080,19 +2893,19 @@
                   "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
                   "parts": [
                     {
-                      "id": "DET.3.1.2-m3_custom_gdn",
+                      "id": "DET.3.2.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Implementieren Sie eine systemweite Protokollierung aller ausgeführten Befehle, z. B. via auditd."
                     },
                     {
-                      "id": "DET.3.1.2-m3_custom_asm",
+                      "id": "DET.3.2.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der auditd-Regeln. Check: 'auditctl -l' sollte Regeln für execve-Systemaufrufe zeigen."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.2-m4_custom",
+                  "id": "DET.3.2.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3113,19 +2926,19 @@
                   "prose": "Lückenlose Übertragung aller Shell-Befehle an einen manipulationsgeschützten Log-Server.",
                   "parts": [
                     {
-                      "id": "DET.3.1.2-m4_custom_gdn",
+                      "id": "DET.3.2.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Tools wie 'snoopy' oder spezialisierte auditd-Plugins zur Fernprotokollierung."
                     },
                     {
-                      "id": "DET.3.1.2-m4_custom_asm",
+                      "id": "DET.3.2.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Log-Integrität auf dem zentralen Log-Server nach Befehlsausführung auf dem Client."
                     }
                   ]
                 },
                 {
-                  "id": "DET.3.1.2-m5_custom",
+                  "id": "DET.3.2.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3146,12 +2959,12 @@
                   "prose": "Echtzeitanalyse von Befehlsketten zur Erkennung von post-exploitation Aktivitäten.",
                   "parts": [
                     {
-                      "id": "DET.3.1.2-m5_custom_gdn",
+                      "id": "DET.3.2.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Integrieren Sie audit-Logs in ein Tool zur Verhaltensanalyse (UEBA), um Anomalien im Admin-Verhalten zu finden."
                     },
                     {
-                      "id": "DET.3.1.2-m5_custom_asm",
+                      "id": "DET.3.2.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Audit der SIEM-Use-Cases für verdächtige Befehlsketten (z. B. 'curl | bash' oder 'whoami')."
                     }
@@ -3166,7 +2979,194 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "IND.3.2.A13",
-                  "remarks": "Herkunft: KI-Vorschlag (subset-of, Konfidenz mittel, Checker fraglich): DET.3.1.2 verlangt die Protokollierung ausgeführter Kommandozeilenbefehle; die Anforderung geht darüber hinaus und verlangt die lückenlose Aufzeichnung sämtlicher Tätigkeiten und Sitzungsinhalte bei der Fernwartung (z. B. auch grafische Sitzungen)."
+                  "remarks": "Herkunft: KI-Vorschlag (subset-of, Konfidenz mittel, Checker fraglich): DET.3.2.2 verlangt die Protokollierung ausgeführter Kommandozeilenbefehle; die Anforderung geht darüber hinaus und verlangt die lückenlose Aufzeichnung sämtlicher Tätigkeiten und Sitzungsinhalte bei der Fernwartung (z. B. auch grafische Sitzungen)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.3_stm",
+              "parts": [
+                {
+                  "id": "DET.3.3-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Verarbeitung von Daten wird nur vereinzelt und ad-hoc auf einzelnen Systemen ohne zentrale Vorgaben lokal protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie bei Bedarf die grundlegende lokale Protokollierung auf kritischen Systemen, wenn Fernwartungszugriffe Daten verarbeiten."
+                    },
+                    {
+                      "id": "DET.3.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Manuelle Prüfung auf ausgewählten OT-Systemen (z.B. per 'ls /var/log'), ob lokale Protokolldateien für Datenverarbeitungen existieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Datenverarbeitungen werden auf relevanten Systemen grundsätzlich mit Standardeinstellungen protokolliert, jedoch ohne zentrale Auswertung.",
+                  "parts": [
+                    {
+                      "id": "DET.3.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie die Standard-Protokollierungsfunktionen der Betriebssysteme und Applikationen, um Datenverarbeitungen während der Fernwartung aufzuzeichnen."
+                    },
+                    {
+                      "id": "DET.3.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Systemkonfigurationen per Skript (z.B. 'systemctl status rsyslog' oder 'auditd'), ob Standard-Logging für Datenzugriffe aktiv ist."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für Daten KANN die Verarbeitung von Daten protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Implementieren Sie eine konsistente Protokollierung für Datenverarbeitungsprozesse auf allen für die Fernwartung relevanten Systemen."
+                    },
+                    {
+                      "id": "DET.3.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfung des Logging-Konzepts und automatisierter Check via 'auditctl -l' auf Zielsystemen zur Verifikation der definierten Audit-Regeln."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Die Protokollierung von Datenverarbeitungen erfolgt zentralisiert, manipulationssicher und wird proaktiv durch automatisierte Regeln auf Anomalien überwacht.",
+                  "parts": [
+                    {
+                      "id": "DET.3.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Leiten Sie alle Protokolle über Datenverarbeitungen an ein zentrales SIEM weiter und richten Sie Korrelationsregeln für ungewöhnliche Datenzugriffe ein."
+                    },
+                    {
+                      "id": "DET.3.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Automatisierte API-Abfrage des zentralen Log-Servers (z.B. OpenSearch), ob Datenverarbeitungs-Logs vollständig eingehen und Alarme generieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Datenverarbeitungen werden lückenlos auf Kernel-Ebene protokolliert, mittels KI-Verhaltensanalyse in Echtzeit bewertet und bei Anomalien automatisch isoliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.3-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie eBPF-basiertes Tracing und Machine Learning, um sämtliche Datenverarbeitungen lückenlos zu protokollieren und bei Anomalien sofort zu blockieren."
+                    },
+                    {
+                      "id": "DET.3.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Deployment-Pipelines auf Policy-as-Code für Logging sowie API-Check der ML-Engine auf aktive Echtzeit-Auswertung der Datenflüsse."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "IND.3.2.A9",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 4): Die G++-Maßnahme DET.3.3 deckt die Protokollierung von Datenverarbeitungen wie Dateizugriffen und Datenexporten ab und umfasst damit inhaltlich die Protokollierung des Dateiaustauschs. [auch: satz_abdeckung]"
                 }
               ]
             }

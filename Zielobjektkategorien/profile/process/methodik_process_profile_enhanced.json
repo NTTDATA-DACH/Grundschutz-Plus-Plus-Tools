@@ -3,13 +3,13 @@
     "uuid": "1b7ba8aa-4b97-53f3-b714-509921483c98",
     "metadata": {
       "title": "Methodik Prozess Profil - Enhanced (ED2023)",
-      "last-modified": "2026-07-28T12:35:36.877676+00:00",
+      "last-modified": "2026-11-23T17:25:04.910073+00:00",
       "version": "0.0.1",
       "oscal-version": "1.2.2"
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -157,6 +157,25 @@
         ]
       }
     ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "rlinks": [
+            {
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "hashes": [
+                {
+                  "algorithm": "SHA-256",
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "modify": {
       "alters": [
         {
@@ -6217,19 +6236,7 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Risikoidentifikation erfolgt rein intuitiv und unsystematisch.",
-                  "parts": [
-                    {
-                      "id": "GC.12.1-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Notieren Sie offensichtliche Gefahren für Ihre IT-Systeme."
-                    },
-                    {
-                      "id": "GC.12.1-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Befragung zu bekannten, aber undokumentierten Risiken."
-                    }
-                  ]
+                  "prose": "Governance und Compliance nutzt vereinzelt und ad-hoc informelle Ansätze zur Risikobetrachtung, ohne den Kontext oder Geschäftsprozesse systematisch einzubeziehen."
                 },
                 {
                   "id": "GC.12.1-m2_custom",
@@ -6250,19 +6257,7 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Einfache tabellarische Erfassung von Risiken ohne einheitliche Bewertung.",
-                  "parts": [
-                    {
-                      "id": "GC.12.1-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Erstellen Sie eine Liste von Bedrohungen und deren geschätzten Auswirkungen."
-                    },
-                    {
-                      "id": "GC.12.1-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Einsicht in die Risikoliste (Excel/Tabelle)."
-                    }
-                  ]
+                  "prose": "Eine grundlegende Methodik für das Risikomanagement ist vorhanden, wird jedoch manuell angewendet und berücksichtigt interessierte Parteien oder Prozessanalysen nur lückenhaft."
                 },
                 {
                   "id": "GC.12.1-m3_custom",
@@ -6283,19 +6278,7 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Governance und Compliance MUSS eine einheitliche Methodik für das Informationssicherheitsrisikomanagement unter Berücksichtigungen von Kontext, Geschäftsprozessanalyse und interessierten Parteien verankern.",
-                  "parts": [
-                    {
-                      "id": "GC.12.1-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Legen Sie eine methodische Vorgehensweise zur Risikobewertung verbindlich fest."
-                    },
-                    {
-                      "id": "GC.12.1-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Sichtung der Risikomanagement-Richtlinie und der aktuellen Risikoanalyse."
-                    }
-                  ]
+                  "prose": "Governance und Compliance MUSS {{ insert: param, gc.12.1-prm1 }} für das Informationssicherheitsrisikomanagement unter Berücksichtigungen von Kontext, Geschäftsprozessanalyse und interessierten Parteien verankern."
                 },
                 {
                   "id": "GC.12.1-m4_custom",
@@ -6316,19 +6299,7 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Toolgestützte Risikoanalyse mit Asset-Kopplung und Trend-Reporting.",
-                  "parts": [
-                    {
-                      "id": "GC.12.1-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie spezialisierte Software zur Modellierung von Risiko-Szenarien."
-                    },
-                    {
-                      "id": "GC.12.1-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Abfrage des Risikostatus über Tool-API: GET /risks/status."
-                    }
-                  ]
+                  "prose": "Die verankerte Risikomanagement-Methodik wird durch GRC-Tools gestützt, proaktiv überwacht und automatisch mit Aktualisierungen aus der Geschäftsprozessanalyse synchronisiert."
                 },
                 {
                   "id": "GC.12.1-m5_custom",
@@ -6349,19 +6320,7 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Dynamisches Echtzeit-Risikomanagement integriert in den operativen Betrieb.",
-                  "parts": [
-                    {
-                      "id": "GC.12.1-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Verknüpfen Sie Echtzeit-Threat-Feeds mit Ihrer Risiko-Methodik zur automatischen Neubewertung."
-                    },
-                    {
-                      "id": "GC.12.1-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der automatischen Risikoanpassung bei simulierten Bedrohungen."
-                    }
-                  ]
+                  "prose": "Das Risikomanagement ist vollständig als Policy-as-Code integriert, nutzt KI-gestützte Analysen für Echtzeit-Kontextänderungen und bezieht Stakeholder-Anforderungen kontinuierlich ein."
                 }
               ]
             }
@@ -21655,19 +21614,7 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Die Priorisierung von Maßnahmen erfolgt subjektiv nach Einschätzung einzelner Bearbeiter.",
-                  "parts": [
-                    {
-                      "id": "UMS.2.2-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Bearbeiten Sie Aufgaben nach persönlichem Ermessen."
-                    },
-                    {
-                      "id": "UMS.2.2-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Befragung zur Priorisierungslogik. Automatisierung: Keine direkte Prüfung möglich."
-                    }
-                  ]
+                  "prose": "Die Umsetzung von Sicherheitsmaßnahmen erfolgt ad-hoc und reaktiv, ohne eine systematische Priorisierung nach Risiken oder Ressourcen vorzunehmen."
                 },
                 {
                   "id": "UMS.2.2-m2_custom",
@@ -21688,19 +21635,7 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Maßnahmen werden grob in Kategorien (hoch, mittel, niedrig) ohne detaillierte Kriterien eingeteilt.",
-                  "parts": [
-                    {
-                      "id": "UMS.2.2-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie eine einfache Matrix zur Kategorisierung."
-                    },
-                    {
-                      "id": "UMS.2.2-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Sichtung der priorisierten Liste. Automatisierung: `awk -F',' '{print $2}' plan.csv | sort | uniq -c`."
-                    }
-                  ]
+                  "prose": "Eine grundlegende, manuelle Priorisierung von Maßnahmen findet statt, berücksichtigt jedoch Abhängigkeiten und Ressourcenverfügbarkeit nur unvollständig."
                 },
                 {
                   "id": "UMS.2.2-m3_custom",
@@ -21721,19 +21656,7 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Umsetzung MUSS eine Priorisierung der festgelegten Maßnahmen auf Basis der der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit festlegen.",
-                  "parts": [
-                    {
-                      "id": "UMS.2.2-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Dokumentieren Sie die Entscheidungsgrundlage für jede Priorisierungsstufe explizit."
-                    },
-                    {
-                      "id": "UMS.2.2-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Konsistenz zwischen Risiko und Priorität. Automatisierung: Skriptbasierte Prüfung der Risikowerte im Plan."
-                    }
-                  ]
+                  "prose": "Umsetzung MUSS eine Priorisierung der festgelegten Maßnahmen auf Basis der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit festlegen."
                 },
                 {
                   "id": "UMS.2.2-m4_custom",
@@ -21754,19 +21677,7 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Die Priorisierung erfolgt über ein gewichtetes Scoring-Modell unter Berücksichtigung von CVSS-Scores.",
-                  "parts": [
-                    {
-                      "id": "UMS.2.2-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Verwenden Sie quantitative Daten zur Objektivierung der Prioritäten."
-                    },
-                    {
-                      "id": "UMS.2.2-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Validierung des Scoring-Modells. Automatisierung: `curl https://nvd.nist.gov/feeds/json/cve/1.1` Abgleich."
-                    }
-                  ]
+                  "prose": "Die Maßnahmenpriorisierung wird toolgestützt und dynamisch durchgeführt, wobei Änderungen der Risikolage oder Ressourcen automatisch zu einer Neuberechnung führen."
                 },
                 {
                   "id": "UMS.2.2-m5_custom",
@@ -21787,19 +21698,7 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Ein KI-gestütztes System optimiert die Priorisierung unter Berücksichtigung von Real-Time-Threat-Intelligence.",
-                  "parts": [
-                    {
-                      "id": "UMS.2.2-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Integrieren Sie externe Bedrohungsfeeds in den Priorisierungsprozess."
-                    },
-                    {
-                      "id": "UMS.2.2-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Analyse der automatischen Prioritätsanpassung. Automatisierung: Überwachung der Prioritäts-Logs via ELK-Stack."
-                    }
-                  ]
+                  "prose": "Die Priorisierung erfolgt vollautomatisiert und kontinuierlich durch KI-Algorithmen, die Echtzeit-Risikodaten, komplexe Abhängigkeitsgraphen und Ressourcen-APIs auswerten."
                 }
               ]
             }
@@ -24435,25 +24334,6 @@
                       "prose": "Prüfen Sie das Monitoring-Dashboard. API-Check: `curl -X GET https://monitoring/controls/health`."
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "back-matter": {
-      "resources": [
-        {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "rlinks": [
-            {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
-              "hashes": [
-                {
-                  "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
                 }
               ]
             }

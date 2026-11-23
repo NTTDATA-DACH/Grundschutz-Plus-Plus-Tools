@@ -3,13 +3,13 @@
     "uuid": "d300db5e-d681-5cf6-b530-ce033b028161",
     "metadata": {
       "title": "Detektion Prozess Profil - Enhanced (ED2023)",
-      "last-modified": "2026-07-28T12:35:08.396617+00:00",
+      "last-modified": "2026-11-23T17:24:53.292543+00:00",
       "version": "0.0.1",
       "oscal-version": "1.2.2"
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -19,9 +19,9 @@
               "DET.2.1.3",
               "DET.2.2",
               "DET.2.3",
-              "DET.3.3",
-              "DET.3.4",
               "DET.3.5",
+              "DET.3.6",
+              "DET.3.7",
               "DET.4.1",
               "DET.4.3",
               "DET.4.4",
@@ -30,8 +30,8 @@
               "DET.5.1.1",
               "DET.5.10",
               "DET.5.10.1",
-              "DET.5.10.4",
-              "DET.5.10.5",
+              "DET.5.10.2",
+              "DET.5.10.3",
               "DET.5.2",
               "DET.5.3",
               "DET.5.3.1",
@@ -56,6 +56,25 @@
         ]
       }
     ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "rlinks": [
+            {
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "hashes": [
+                {
+                  "algorithm": "SHA-256",
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "modify": {
       "alters": [
         {
@@ -1115,358 +1134,6 @@
           ]
         },
         {
-          "control-id": "DET.3.3",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.3_stm",
-              "parts": [
-                {
-                  "id": "DET.3.3-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Vollständige Protokollierung ohne Filterung.",
-                  "parts": [
-                    {
-                      "id": "DET.3.3-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Alle Events werden ungefiltert gespeichert, was Ressourcen bindet."
-                    },
-                    {
-                      "id": "DET.3.3-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Check der Log-Files auf Redundanz und irrelevante Events."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.3-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Manuelle Filterung auf Applikationsebene.",
-                  "parts": [
-                    {
-                      "id": "DET.3.3-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Log-Level werden grob (z.B. Info/Warning) eingestellt."
-                    },
-                    {
-                      "id": "DET.3.3-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der Konfigurationsdateien (z.B. log4j.properties)."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.3-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.3-prm1 }} einschränken.",
-                  "parts": [
-                    {
-                      "id": "DET.3.3-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Gezielte Reduktion des Log-Volumens durch definierte Ausschlusskriterien."
-                    },
-                    {
-                      "id": "DET.3.3-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Abgleich der Filterregeln mit der Logging-Policy."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.3-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Dynamische Filterung mittels Log-Forwarder-Regeln.",
-                  "parts": [
-                    {
-                      "id": "DET.3.3-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Zentrale Filterregeln (z.B. Fluentd/Logstash) bereinigen Datenströme."
-                    },
-                    {
-                      "id": "DET.3.3-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Audit der Filter-Konfiguration: 'grep -i exclude /etc/logstash/conf.d/'."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.3-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Implementation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Intelligente Inhaltsfilterung mittels ML-Modellen.",
-                  "parts": [
-                    {
-                      "id": "DET.3.3-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nur sicherheitsrelevante Abweichungen werden hochauflösend geloggt."
-                    },
-                    {
-                      "id": "DET.3.3-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der ML-Modell-Metriken zur Datenreduktionsrate."
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.4",
-          "adds": [
-            {
-              "position": "ending",
-              "by-id": "DET.3.4_stm",
-              "parts": [
-                {
-                  "id": "DET.3.4-m1_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m1"
-                    }
-                  ],
-                  "prose": "Speicherplatz wird bei Ausfall manuell erweitert.",
-                  "parts": [
-                    {
-                      "id": "DET.3.4-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Keine proaktive Überwachung des Log-Speichers."
-                    },
-                    {
-                      "id": "DET.3.4-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung, ob Logs aufgrund von Platzmangel fehlen."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.4-m2_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m2"
-                    }
-                  ],
-                  "prose": "Einfaches Monitoring des Plattenplatzes vorhanden.",
-                  "parts": [
-                    {
-                      "id": "DET.3.4-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Schwellwert-Alarme informieren bei kritischem Füllstand."
-                    },
-                    {
-                      "id": "DET.3.4-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Check der Monitoring-Konsole (z.B. mit 'df -h' Skript)."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.4-m3_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m3"
-                    }
-                  ],
-                  "prose": "Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.4-prm1 }} überprüfen.",
-                  "parts": [
-                    {
-                      "id": "DET.3.4-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Regelmäßige Prüfung stellt sicher, dass keine Logs verloren gehen."
-                    },
-                    {
-                      "id": "DET.3.4-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Einsicht in Prüfprotokolle der Kapazitätsplanung."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.4-m4_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m4"
-                    }
-                  ],
-                  "prose": "Automatisierte Kapazitätserweiterung (Auto-Scaling).",
-                  "parts": [
-                    {
-                      "id": "DET.3.4-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Cloud-Native-Speicher wächst dynamisch mit den Anforderungen."
-                    },
-                    {
-                      "id": "DET.3.4-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Audit der Auto-Scaling-Groups in der Infrastruktur-Konfiguration."
-                    }
-                  ]
-                },
-                {
-                  "id": "DET.3.4-m5_custom",
-                  "name": "statement",
-                  "props": [
-                    {
-                      "name": "control_class",
-                      "value": "Technical",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "phase",
-                      "value": "Operation",
-                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
-                    },
-                    {
-                      "name": "label",
-                      "value": "m5"
-                    }
-                  ],
-                  "prose": "Prädiktive Kapazitätsplanung mittels Forecasting.",
-                  "parts": [
-                    {
-                      "id": "DET.3.4-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Systeme berechnen Log-Zuwachs und warnen vor zukünftigen Engpässen."
-                    },
-                    {
-                      "id": "DET.3.4-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Check der Trend-Analyse im Kapazitäts-Dashboard."
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "control-id": "DET.3.5",
           "adds": [
             {
@@ -1492,17 +1159,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Lokal gespeicherte Logs ohne Manipulationsschutz.",
+                  "prose": "Vollständige Protokollierung ohne Filterung.",
                   "parts": [
                     {
                       "id": "DET.3.5-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs können von Administratoren einfach gelöscht werden."
+                      "prose": "Alle Events werden ungefiltert gespeichert, was Ressourcen bindet."
                     },
                     {
                       "id": "DET.3.5-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Versuch, Test-Logs als Admin rückstandslos zu löschen."
+                      "prose": "Check der Log-Files auf Redundanz und irrelevante Events."
                     }
                   ]
                 },
@@ -1525,17 +1192,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Zentraler Syslog-Server empfängt Logs.",
+                  "prose": "Manuelle Filterung auf Applikationsebene.",
                   "parts": [
                     {
                       "id": "DET.3.5-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs werden extern kopiert, aber nicht kryptografisch geschützt."
+                      "prose": "Log-Level werden grob (z.B. Info/Warning) eingestellt."
                     },
                     {
                       "id": "DET.3.5-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Remote-Logging-Konfiguration in /etc/rsyslog.conf."
+                      "prose": "Prüfung der Konfigurationsdateien (z.B. log4j.properties)."
                     }
                   ]
                 },
@@ -1558,17 +1225,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion SOLLTE Änderungen am Audit Log revisionssicher dokumentieren.",
+                  "prose": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.5-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "DET.3.5-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Sicherstellung der Unveränderbarkeit durch geeignete Verfahren."
+                      "prose": "Gezielte Reduktion des Log-Volumens durch definierte Ausschlusskriterien."
                     },
                     {
                       "id": "DET.3.5-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung auf Einsatz von WORM-Speichern oder Signaturen."
+                      "prose": "Abgleich der Filterregeln mit der Logging-Policy."
                     }
                   ]
                 },
@@ -1591,17 +1258,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Kryptografische Verkettung (Hashing) der Log-Einträge.",
+                  "prose": "Dynamische Filterung mittels Log-Forwarder-Regeln.",
                   "parts": [
                     {
                       "id": "DET.3.5-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Jeder neue Log-Eintrag referenziert den Hash des vorherigen."
+                      "prose": "Zentrale Filterregeln (z.B. Fluentd/Logstash) bereinigen Datenströme."
                     },
                     {
                       "id": "DET.3.5-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Verifizierung der Hash-Kette mittels Audit-Tooling."
+                      "prose": "Audit der Filter-Konfiguration: 'grep -i exclude /etc/logstash/conf.d/'."
                     }
                   ]
                 },
@@ -1624,15 +1291,367 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Immutable Storage mit Blockchain-basierter Integritätssicherung.",
+                  "prose": "Intelligente Inhaltsfilterung mittels ML-Modellen.",
                   "parts": [
                     {
                       "id": "DET.3.5-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs sind absolut fälschungssicher und dezentral validiert."
+                      "prose": "Nur sicherheitsrelevante Abweichungen werden hochauflösend geloggt."
                     },
                     {
                       "id": "DET.3.5-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der ML-Modell-Metriken zur Datenreduktionsrate."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.6",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.6_stm",
+              "parts": [
+                {
+                  "id": "DET.3.6-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Speicherplatz wird bei Ausfall manuell erweitert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.6-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Keine proaktive Überwachung des Log-Speichers."
+                    },
+                    {
+                      "id": "DET.3.6-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung, ob Logs aufgrund von Platzmangel fehlen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.6-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Einfaches Monitoring des Plattenplatzes vorhanden.",
+                  "parts": [
+                    {
+                      "id": "DET.3.6-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Schwellwert-Alarme informieren bei kritischem Füllstand."
+                    },
+                    {
+                      "id": "DET.3.6-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Check der Monitoring-Konsole (z.B. mit 'df -h' Skript)."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.6-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.6-prm1 }} überprüfen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.6-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Regelmäßige Prüfung stellt sicher, dass keine Logs verloren gehen."
+                    },
+                    {
+                      "id": "DET.3.6-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Einsicht in Prüfprotokolle der Kapazitätsplanung."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.6-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Automatisierte Kapazitätserweiterung (Auto-Scaling).",
+                  "parts": [
+                    {
+                      "id": "DET.3.6-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Cloud-Native-Speicher wächst dynamisch mit den Anforderungen."
+                    },
+                    {
+                      "id": "DET.3.6-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Audit der Auto-Scaling-Groups in der Infrastruktur-Konfiguration."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.6-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Prädiktive Kapazitätsplanung mittels Forecasting.",
+                  "parts": [
+                    {
+                      "id": "DET.3.6-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Systeme berechnen Log-Zuwachs und warnen vor zukünftigen Engpässen."
+                    },
+                    {
+                      "id": "DET.3.6-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Check der Trend-Analyse im Kapazitäts-Dashboard."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.7",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.7_stm",
+              "parts": [
+                {
+                  "id": "DET.3.7-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Lokal gespeicherte Logs ohne Manipulationsschutz.",
+                  "parts": [
+                    {
+                      "id": "DET.3.7-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Logs können von Administratoren einfach gelöscht werden."
+                    },
+                    {
+                      "id": "DET.3.7-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Versuch, Test-Logs als Admin rückstandslos zu löschen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.7-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Zentraler Syslog-Server empfängt Logs.",
+                  "parts": [
+                    {
+                      "id": "DET.3.7-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Logs werden extern kopiert, aber nicht kryptografisch geschützt."
+                    },
+                    {
+                      "id": "DET.3.7-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Remote-Logging-Konfiguration in /etc/rsyslog.conf."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.7-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion SOLLTE Änderungen am Audit Log revisionssicher dokumentieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.7-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Sicherstellung der Unveränderbarkeit durch geeignete Verfahren."
+                    },
+                    {
+                      "id": "DET.3.7-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung auf Einsatz von WORM-Speichern oder Signaturen."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.7-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Kryptografische Verkettung (Hashing) der Log-Einträge.",
+                  "parts": [
+                    {
+                      "id": "DET.3.7-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Jeder neue Log-Eintrag referenziert den Hash des vorherigen."
+                    },
+                    {
+                      "id": "DET.3.7-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Verifizierung der Hash-Kette mittels Audit-Tooling."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.7-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Immutable Storage mit Blockchain-basierter Integritätssicherung.",
+                  "parts": [
+                    {
+                      "id": "DET.3.7-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Logs sind absolut fälschungssicher und dezentral validiert."
+                    },
+                    {
+                      "id": "DET.3.7-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Validierung der Smart-Contract-Interaktionen für die Log-Integrität."
                     }
@@ -3051,14 +3070,14 @@
           ]
         },
         {
-          "control-id": "DET.5.10.4",
+          "control-id": "DET.5.10.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.5.10.4_stm",
+              "by-id": "DET.5.10.2_stm",
               "parts": [
                 {
-                  "id": "DET.5.10.4-m1_custom",
+                  "id": "DET.5.10.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3079,19 +3098,19 @@
                   "prose": "Integritätsprüfung erfolgt durch Vergleich der Dateigröße.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m1_custom_gdn",
+                      "id": "DET.5.10.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Prüfen Sie grob, ob der Download vollständig abgeschlossen wurde."
                     },
                     {
-                      "id": "DET.5.10.4-m1_custom_asm",
+                      "id": "DET.5.10.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Wird nach dem Download die Dateigröße kurz geprüft?"
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m2_custom",
+                  "id": "DET.5.10.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3112,19 +3131,19 @@
                   "prose": "Manueller Abgleich von MD5- oder SHA-Prüfsummen bei kritischen Patches.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m2_custom_gdn",
+                      "id": "DET.5.10.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Kommandozeilentools, um Hashwerte der Downloads zu berechnen."
                     },
                     {
-                      "id": "DET.5.10.4-m2_custom_asm",
+                      "id": "DET.5.10.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Check: `sha256sum patch_file.zip` gegen Herstellerangabe."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m3_custom",
+                  "id": "DET.5.10.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3145,19 +3164,19 @@
                   "prose": "Detektion SOLLTE Patches vor der Installation auf Integrität testen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m3_custom_gdn",
+                      "id": "DET.5.10.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass Patches vor der Ausführung formal validiert werden."
                     },
                     {
-                      "id": "DET.5.10.4-m3_custom_asm",
+                      "id": "DET.5.10.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie, ob für alle Patches ein Integritätscheck durchgeführt wird."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m4_custom",
+                  "id": "DET.5.10.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3178,19 +3197,19 @@
                   "prose": "Automatisierte Validierung kryptografischer Signaturen durch den Paketmanager.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m4_custom_gdn",
+                      "id": "DET.5.10.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie Ihre Systeme so, dass unsignierte Pakete abgelehnt werden."
                     },
                     {
-                      "id": "DET.5.10.4-m4_custom_asm",
+                      "id": "DET.5.10.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Testversuch zur Installation eines unsignierten Pakets (muss scheitern)."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m5_custom",
+                  "id": "DET.5.10.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3211,12 +3230,12 @@
                   "prose": "Kettenvalidierung vom Hersteller bis zum Zielsystem (End-to-End Trust).",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m5_custom_gdn",
+                      "id": "DET.5.10.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Einsatz von Hardware Security Modules (HSM) zur Signaturprüfung im Build-Prozess."
                     },
                     {
-                      "id": "DET.5.10.4-m5_custom_asm",
+                      "id": "DET.5.10.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Analyse der Trust-Chain in der automatisierten Deployment-Pipeline."
                     }
@@ -3227,14 +3246,14 @@
           ]
         },
         {
-          "control-id": "DET.5.10.5",
+          "control-id": "DET.5.10.3",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.5.10.5_stm",
+              "by-id": "DET.5.10.3_stm",
               "parts": [
                 {
-                  "id": "DET.5.10.5-m1_custom",
+                  "id": "DET.5.10.3-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3255,19 +3274,19 @@
                   "prose": "Patches werden gelegentlich auf einem Testrechner ausprobiert.",
                   "parts": [
                     {
-                      "id": "DET.5.10.5-m1_custom_gdn",
+                      "id": "DET.5.10.3-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Installieren Sie den Patch auf einem unwichtigen System, bevor er überall verteilt wird."
                     },
                     {
-                      "id": "DET.5.10.5-m1_custom_asm",
+                      "id": "DET.5.10.3-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Gibt es ein Testgerät für Vorab-Updates?"
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.5-m2_custom",
+                  "id": "DET.5.10.3-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3288,19 +3307,19 @@
                   "prose": "Funktionstest kritischer Anwendungen nach dem Patching in einer Testumgebung.",
                   "parts": [
                     {
-                      "id": "DET.5.10.5-m2_custom_gdn",
+                      "id": "DET.5.10.3-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Prüfen Sie nach dem Update manuell, ob die Hauptdienste noch starten."
                     },
                     {
-                      "id": "DET.5.10.5-m2_custom_asm",
+                      "id": "DET.5.10.3-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung: Dokumentierte Testergebnisse für das letzte Update-Bundle."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.5-m3_custom",
+                  "id": "DET.5.10.3-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3321,19 +3340,19 @@
                   "prose": "Detektion KANN Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“ ausführen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.5-m3_custom_gdn",
+                      "id": "DET.5.10.3-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Integrieren Sie das Patching in das formale Change Management der Organisation."
                     },
                     {
-                      "id": "DET.5.10.5-m3_custom_asm",
+                      "id": "DET.5.10.3-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie Change-Requests auf Verweise zu durchgeführten Patch-Tests."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.5-m4_custom",
+                  "id": "DET.5.10.3-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3354,19 +3373,19 @@
                   "prose": "Strukturierte Tests in einer produktionsnahen Staging-Umgebung.",
                   "parts": [
                     {
-                      "id": "DET.5.10.5-m4_custom_gdn",
+                      "id": "DET.5.10.3-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie automatisierte Skripte, um die Anwendungsfunktionalität nach Patches zu testen."
                     },
                     {
-                      "id": "DET.5.10.5-m4_custom_asm",
+                      "id": "DET.5.10.3-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Review des automatisierten Test-Reports der Staging-Umgebung."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.5-m5_custom",
+                  "id": "DET.5.10.3-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -3387,12 +3406,12 @@
                   "prose": "Blue-Green-Deployments ermöglichen risikolose Tests im Live-Betrieb.",
                   "parts": [
                     {
-                      "id": "DET.5.10.5-m5_custom_gdn",
+                      "id": "DET.5.10.3-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Verwenden Sie Canary-Releases zur Überwachung der Patch-Stabilität bei Anwendern."
                     },
                     {
-                      "id": "DET.5.10.5-m5_custom_asm",
+                      "id": "DET.5.10.3-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Überprüfung der Fehlererkennungsrate während des gestaffelten Rollouts."
                     }
@@ -6706,25 +6725,6 @@
                       "prose": "Audit der physischen und logischen Trennung der Transferstrecken."
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "back-matter": {
-      "resources": [
-        {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "rlinks": [
-            {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
-              "hashes": [
-                {
-                  "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "uuid": "5c874f5f-7ae4-5cb8-9c0c-8b2aaea9fdb4",
     "metadata": {
       "title": "SYS.1.8 – Speicherlösungen (Dateiserver) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:11.554511+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.631048+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.8 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -92,6 +92,7 @@
               "KONF.2.1",
               "KONF.2.2",
               "KONF.2.4",
+              "KONF.2.5",
               "KONF.3.2",
               "KONF.4.4",
               "NOT.3.1",
@@ -113,7 +114,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -909,6 +910,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "KONF.2.5",
                           "PERF.3.1",
                           "PERF.3.1.2",
                           "VRB.2.1"
@@ -1304,15 +1306,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1336,7 +1338,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -1346,7 +1348,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -7914,6 +7916,193 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.8.A2",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): KONF.2.4 fordert allgemein die Deaktivierung nicht benötigter Systemfunktionen und Schnittstellen auf IT-Systemen, was die Deaktivierung ungenutzter Schnittstellen von Speichersystemen inhaltlich abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.5",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.2.5_stm",
+              "parts": [
+                {
+                  "id": "KONF.2.5-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Die Konfiguration wird sporadisch bei Problemen händisch überprüft.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Vergleichen Sie die aktuelle Konfiguration manuell mit alten Backups."
+                    },
+                    {
+                      "id": "KONF.2.5-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Fragen Sie Administratoren nach dem letzten manuellen Abgleich."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Ein regelmäßiger manueller Abgleich der Konfiguration mit einem schriftlichen Referenzzustand erfolgt quartalsweise.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Tabellen zum Vergleich von Key-Value-Paaren der Konfiguration."
+                    },
+                    {
+                      "id": "KONF.2.5-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Sichtung der Protokolle über durchgeführte Konfigurationsaudits."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand {{ insert: param, konf.2.5-prm1 }} überprüfen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Der Referenzzustand muss dokumentiert und als Baseline festgelegt sein."
+                    },
+                    {
+                      "id": "KONF.2.5-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Abgleich der laufenden Konfiguration mit der im Parameter definierten Referenz."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Automatisierte Tools prüfen wöchentlich die Konfiguration gegen die definierte Baseline und melden Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Setzen Sie Open-Source-Lösungen wie 'RANCID' oder 'Oxidized' für das Diff-Monitoring ein."
+                    },
+                    {
+                      "id": "KONF.2.5-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der generierten Alarmierung bei unautorisierten Konfigurationsänderungen."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.5-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Echtzeit-Überwachung der Konfiguration mit automatischer Wiederherstellung (Self-Healing) bei Abweichungen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.5-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Integrieren Sie Configuration Management Tools zur permanenten Durchsetzung des Soll-Zustands."
+                    },
+                    {
+                      "id": "KONF.2.5-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Simulieren Sie eine Änderung und prüfen Sie die automatische Korrektur durch das System."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.8.A18",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Das regelmäßige Auditieren von Speichersystemen auf Abweichungen von Vorgaben (S1, S4) überschneidet sich inhaltlich mit der regelmäßigen Überprüfung der Systemkonfiguration gegen den Referenzzustand."
                 }
               ]
             }

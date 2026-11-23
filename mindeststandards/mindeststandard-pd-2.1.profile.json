@@ -1,9 +1,9 @@
 {
   "profile": {
-    "uuid": "6397dbe2-3455-4d5b-be81-3749b83d976d",
+    "uuid": "eea99598-7f0c-4cac-b25b-9cfaf1a6d867",
     "metadata": {
       "title": "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1) – OSCAL-Profil auf dem Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-10-28T21:17:07.467Z",
+      "last-modified": "2026-11-23T17:08:39.670Z",
       "version": "2.1",
       "oscal-version": "1.2.2",
       "props": [
@@ -83,11 +83,11 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 48 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (0 betroffen: keines). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 48 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (44 Controls)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Pin am 2026-10-16 mechanisch von 4e11779438c3 auf a12831136f41 umgestellt (repin.py, Katalog neu aufgelöst); die 48 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannten Zielobjektkategorien (0 betroffen: keines). Pin am 2026-10-28 mechanisch von a12831136f41 auf 160c177db6c8 umgestellt (repin.py, Katalog neu aufgelöst); die 48 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in Control-Klasse BSI-Stand-der-Technik-Kernel-G0 → BSI-Stand-der-Technik-Kernel (44 Controls). Pin am 2026-11-23 mechanisch von 160c177db6c8 auf dc44ea4fb581 umgestellt (repin.py, Katalog neu aufgelöst); die 48 verwendeten Controls unterscheiden sich zwischen beiden Ständen nur in umbenannte Zielobjektkategorien oder documentation-Werte (19: BES.2.1.4, BES.5.10, BES.5.10.2, BES.5.3, BES.5.4, DET.1.1, DET.2.2, DET.3.5, DET.3.6, DET.3.7, DET.4.1, DET.4.2, DET.4.3, DET.5.8, DET.6.1, DET.6.1.1, DET.6.1.2, REA.1.1, REA.1.3); Umnummerierung bei gleicher alt-identifier (6 Controls, 65 ID-Vorkommen in Profil und Ergänzungskatalog umgeschrieben: DET.3.1.1 → DET.3.2.1, DET.3.1.11 → DET.3.1.5, DET.3.1.6 → DET.3.2.6, DET.3.3 → DET.3.5, DET.3.4 → DET.3.6, DET.3.5 → DET.3.7). Upstream umformuliert (Titel und Statement) und in der neuen Fassung übernommen: DET.3.1; die Anpassungen des Profils an diesen Controls (alters) bleiben unverändert."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -111,12 +111,12 @@
               "DET.2.1",
               "DET.2.2",
               "DET.3.1",
-              "DET.3.1.1",
-              "DET.3.1.11",
-              "DET.3.1.6",
-              "DET.3.3",
-              "DET.3.4",
+              "DET.3.2.1",
+              "DET.3.1.5",
+              "DET.3.2.6",
               "DET.3.5",
+              "DET.3.6",
+              "DET.3.7",
               "DET.4.1",
               "DET.4.2",
               "DET.4.3",
@@ -144,7 +144,7 @@
         ]
       },
       {
-        "href": "#59e0c053-2ec0-50fa-a7c7-4bdbb35deb19",
+        "href": "#274e15cd-1f6f-50c4-8c8d-cf00f82c4f92",
         "include-controls": [
           {
             "with-ids": [
@@ -721,7 +721,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.3"
+                          "DET.3.5"
                         ]
                       }
                     ]
@@ -1607,8 +1607,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.4",
-                          "DET.3.5",
+                          "DET.3.6",
+                          "DET.3.7",
                           "ARCH.5.2",
                           "MST-PD.2.2.03-a"
                         ]
@@ -1661,7 +1661,7 @@
                       {
                         "with-ids": [
                           "KONF.2.1",
-                          "DET.3.1.6"
+                          "DET.3.2.6"
                         ]
                       }
                     ]
@@ -1777,9 +1777,9 @@
                 ],
                 "links": [
                   {
-                    "href": "#DET.3.1.6",
+                    "href": "#DET.3.2.6",
                     "rel": "related",
-                    "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                    "text": "DET.3.2.6 steht unter PD.2.2.03 b"
                   }
                 ],
                 "insert-controls": [
@@ -1787,7 +1787,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1",
+                          "DET.3.2.1",
                           "BER.3.4"
                         ]
                       }
@@ -1835,9 +1835,9 @@
                 ],
                 "links": [
                   {
-                    "href": "#DET.3.1.6",
+                    "href": "#DET.3.2.6",
                     "rel": "related",
-                    "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                    "text": "DET.3.2.6 steht unter PD.2.2.03 b"
                   }
                 ]
               },
@@ -1884,7 +1884,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.11"
+                          "DET.3.1.5"
                         ]
                       }
                     ]
@@ -2038,9 +2038,9 @@
                 ],
                 "links": [
                   {
-                    "href": "#DET.3.1.6",
+                    "href": "#DET.3.2.6",
                     "rel": "related",
-                    "text": "DET.3.1.6 steht unter PD.2.2.03 b"
+                    "text": "DET.3.2.6 steht unter PD.2.2.03 b"
                   }
                 ]
               },
@@ -3243,13 +3243,13 @@
           ]
         },
         {
-          "param-id": "det.3.1.6-prm1",
+          "param-id": "det.3.2.6-prm1",
           "values": [
             "die von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse (Protokoll- und Protokollierungsdaten oder Sekundär-SRE)"
           ]
         },
         {
-          "param-id": "det.3.3-prm1",
+          "param-id": "det.3.5-prm1",
           "values": [
             "geprüfter Legitimität sowie rechtlichen und vertraglichen Rahmenbedingungen"
           ]
@@ -4669,7 +4669,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
+          "control-id": "DET.3.2.1",
           "adds": [
             {
               "position": "ending",
@@ -4686,7 +4686,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.1.1_mst",
+                  "id": "DET.3.2.1_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Ergänzend zu erfolgreichen und fehlgeschlagenen Anmeldeversuchen SOLLTEN auch Abmeldungen protokolliert werden.",
@@ -4702,7 +4702,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.11",
+          "control-id": "DET.3.1.5",
           "adds": [
             {
               "position": "ending",
@@ -4725,7 +4725,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.3.1.11_stm",
+                  "id": "DET.3.1.5_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -4754,7 +4754,7 @@
                       "value": "MUSS"
                     }
                   ],
-                  "prose": "Detektion für Anwendungen MÜSSEN {{ insert: param, det.3.1.11-prm1 }} protokollieren."
+                  "prose": "Detektion für Anwendungen MÜSSEN {{ insert: param, det.3.1.5-prm1 }} protokollieren."
                 }
               ]
             },
@@ -4762,7 +4762,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.1.11_mst",
+                  "id": "DET.3.1.5_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Für Querschnittsdienste und Fachverfahren MUSS systemabhängig definiert werden, welche Ereignisse protokolliert werden und wie diese in die zentralisierte Protokollierung mit einzubinden sind.",
@@ -4778,12 +4778,12 @@
           ],
           "removes": [
             {
-              "by-id": "DET.3.1.11_stm"
+              "by-id": "DET.3.1.5_stm"
             }
           ]
         },
         {
-          "control-id": "DET.3.1.6",
+          "control-id": "DET.3.2.6",
           "adds": [
             {
               "position": "ending",
@@ -4792,7 +4792,7 @@
                   "name": "mindeststandard-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "value": "PD.2.2.03 b",
-                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker bestaetigt): DET.3.1.6 regelt die Protokollierung bestimmter systemspezifischer Ereignisse auf IT-Systemen; Absatz b schreibt die Protokollierung der von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse verbindlich vor."
+                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker bestaetigt): DET.3.2.6 regelt die Protokollierung bestimmter systemspezifischer Ereignisse auf IT-Systemen; Absatz b schreibt die Protokollierung der von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse verbindlich vor."
                 },
                 {
                   "name": "mindeststandard-anforderung",
@@ -4824,7 +4824,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.3.1.6_stm",
+                  "id": "DET.3.2.6_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -4853,7 +4853,7 @@
                       "value": "MUSS"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.1.6-prm1 }} protokollieren."
+                  "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.2.6-prm1 }} protokollieren."
                 }
               ]
             },
@@ -4861,7 +4861,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.1.6_mst",
+                  "id": "DET.3.2.6_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Falls keine Konfigurationsvorgaben des BSI existieren oder aufgrund betrieblicher Aspekte oder der Geschäftstätigkeit der Einrichtung abweichende Konfigurationen vorgenommen werden müssen, MÜSSEN die von den Systemen als sicherheitsrelevant ausgegebenen Ereignisse (Protokoll- und Protokollierungsdaten oder Sekundär-SRE) protokolliert werden.\nDie Auslegung der Sichtbarkeiten für die Protokollierung aus IT-System-Sicht MUSS quellenspezifisch entschieden werden, wobei existierende Konfigurationsvorgaben vom BSI berücksichtigt werden MÜSSEN. Je Datensatz SOLLTEN mindestens Zeitstempel, Quellsystem, ggf. Benutzer, Event-IDs und Ereignisinformationen erhoben werden, sofern dies möglich ist.\nAuf allen in der Planungs- und Dokumentationsphase identifizierten Systemen MUSS die Protokollierung aktiviert werden. Es SOLLTE dabei NICHT zwischen virtuellen und physischen Systemen unterschieden werden.\nDie Auslegung der Sichtbarkeiten für die Protokollierung aus Netz-Sicht MUSS quellenspezifisch entschieden werden, wobei vorhandene Konfigurationsvorgaben vom BSI berücksichtigt werden MÜSSEN. Es SOLLTEN mindestens ein- und ausgehende Kommunikationen an allen (auch virtuellen) Netzgrenzen, die Kommunikation innerhalb von Netzen und zwischen IT-Systemen der relevanten Stufen sowie sicherheitsrelevante Ereignisse (SRE) der Netzwerkinfrastruktur protokolliert werden.",
@@ -4877,12 +4877,12 @@
           ],
           "removes": [
             {
-              "by-id": "DET.3.1.6_stm"
+              "by-id": "DET.3.2.6_stm"
             }
           ]
         },
         {
-          "control-id": "DET.3.3",
+          "control-id": "DET.3.5",
           "adds": [
             {
               "position": "ending",
@@ -4905,7 +4905,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.3.3_stm",
+                  "id": "DET.3.5_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -4934,7 +4934,7 @@
                       "value": "MUSS"
                     }
                   ],
-                  "prose": "Detektion MÜSSEN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.3-prm1 }} einschränken."
+                  "prose": "Detektion MÜSSEN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.5-prm1 }} einschränken."
                 }
               ]
             },
@@ -4942,7 +4942,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.3_mst",
+                  "id": "DET.3.5_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Es DÜRFEN NUR die Daten erhoben werden, für die die Legitimität geprüft worden ist.",
@@ -4958,12 +4958,12 @@
           ],
           "removes": [
             {
-              "by-id": "DET.3.3_stm"
+              "by-id": "DET.3.5_stm"
             }
           ]
         },
         {
-          "control-id": "DET.3.4",
+          "control-id": "DET.3.6",
           "adds": [
             {
               "position": "ending",
@@ -4972,7 +4972,7 @@
                   "name": "mindeststandard-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "value": "PD.2.2.03 a",
-                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.3.4 adressiert die Speicherkapazität für die Protokollierung; Absatz a konkretisiert die Dimensionierung der zentralisierten Protokollierungsinfrastruktur, die Zonenplatzierung und den Zugriffsschutz."
+                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (superset-of, Konfidenz mittel, Checker fraglich): DET.3.6 adressiert die Speicherkapazität für die Protokollierung; Absatz a konkretisiert die Dimensionierung der zentralisierten Protokollierungsinfrastruktur, die Zonenplatzierung und den Zugriffsschutz."
                 },
                 {
                   "name": "modal_verb_profil",
@@ -4986,7 +4986,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.3.4_stm",
+                  "id": "DET.3.6_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -5015,7 +5015,7 @@
                       "value": "MUSS"
                     }
                   ],
-                  "prose": "Detektion MUSS den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.4-prm1 }} überprüfen."
+                  "prose": "Detektion MUSS den für die Protokollierung zur Verfügung stehenden Speicherplatz {{ insert: param, det.3.6-prm1 }} überprüfen."
                 }
               ]
             },
@@ -5023,7 +5023,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.4_mst",
+                  "id": "DET.3.6_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Die Protokollierungsinfrastruktur MUSS derart dimensioniert werden, dass die protokollierten Ereignisse für die doppelte Dauer der identifizierten Speicherfrist vorgehalten werden könnten.",
@@ -5039,12 +5039,12 @@
           ],
           "removes": [
             {
-              "by-id": "DET.3.4_stm"
+              "by-id": "DET.3.6_stm"
             }
           ]
         },
         {
-          "control-id": "DET.3.5",
+          "control-id": "DET.3.7",
           "adds": [
             {
               "position": "ending",
@@ -5053,7 +5053,7 @@
                   "name": "mindeststandard-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "value": "PD.2.2.03 a",
-                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.5 fordert die revisionssichere Dokumentation von Änderungen am Audit Log, was den geforderten restriktiven und überwachten Zugriff auf Protokolldaten teilweise abdeckt."
+                  "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker fraglich): DET.3.7 fordert die revisionssichere Dokumentation von Änderungen am Audit Log, was den geforderten restriktiven und überwachten Zugriff auf Protokolldaten teilweise abdeckt."
                 },
                 {
                   "name": "modal_verb_profil",
@@ -5067,7 +5067,7 @@
               "position": "starting",
               "parts": [
                 {
-                  "id": "DET.3.5_stm",
+                  "id": "DET.3.7_stm",
                   "name": "statement",
                   "props": [
                     {
@@ -5104,7 +5104,7 @@
               "position": "ending",
               "parts": [
                 {
-                  "id": "DET.3.5_mst",
+                  "id": "DET.3.7_mst",
                   "name": "mindeststandard",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                   "prose": "Der Zugriff auf die Protokollierungsinfrastruktur sowie die Protokoll- und Protokollierungsdaten MUSS restriktiv konfiguriert und überwacht werden.",
@@ -5120,7 +5120,7 @@
           ],
           "removes": [
             {
-              "by-id": "DET.3.5_stm"
+              "by-id": "DET.3.7_stm"
             }
           ]
         },
@@ -6502,17 +6502,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -6546,7 +6546,7 @@
           ]
         },
         {
-          "uuid": "59e0c053-2ec0-50fa-a7c7-4bdbb35deb19",
+          "uuid": "274e15cd-1f6f-50c4-8c8d-cf00f82c4f92",
           "title": "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 6 neuen Controls, Datei mindeststandard-pd-2.1.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -6556,7 +6556,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "cbf4308555e54efa6a1dc5b5e14c286a836670e39de8e143fabb6ffaab0b4f04"
+                  "value": "5f417033f1088b7a7e220a17ec3d8c1294e4f3ddf1d523960a00ce8549380ce3"
                 }
               ]
             }

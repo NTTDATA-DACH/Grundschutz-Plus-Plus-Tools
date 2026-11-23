@@ -3,8 +3,8 @@
     "uuid": "735cb3a7-3716-5e02-8d44-f6329e6a309e",
     "metadata": {
       "title": "SYS.3.2.1 – Allgemeine Smartphones und Tablets (Mobile Endgeräte)",
-      "last-modified": "2026-10-19T01:11:04.722026+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:30.023395+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.3.2.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -843,6 +843,17 @@
                     "prose": "Kommunikationsschnittstellen SOLLTEN nur bei Bedarf und nur in geeigneten Umgebungen aktiviert werden. Wird ein MDM verwendet, SOLLTEN die Schnittstellen zentral über das MDM verwaltet werden."
                   }
                 ],
+                "insert-controls": [
+                  {
+                    "include-controls": [
+                      {
+                        "with-ids": [
+                          "KONF.2.6"
+                        ]
+                      }
+                    ]
+                  }
+                ],
                 "links": [
                   {
                     "href": "#KONF.2.4",
@@ -1026,6 +1037,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "ARCH.2.2.1",
                           "ARCH.6.2"
                         ]
                       }
@@ -1070,12 +1082,18 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "ARCH.2.2.1",
                           "ARCH.5.1.10",
                           "ARCH.5.1.8"
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#ARCH.2.2.1",
+                    "rel": "related",
+                    "text": "ARCH.2.2.1 steht unter SYS.3.2.1.A22"
                   }
                 ]
               },
@@ -1157,15 +1175,11 @@
                     "prose": "Smartphones und Tablets SOLLTEN durch ein MDM-System verwaltet werden."
                   }
                 ],
-                "insert-controls": [
+                "links": [
                   {
-                    "include-controls": [
-                      {
-                        "with-ids": [
-                          "KONF.2.6"
-                        ]
-                      }
-                    ]
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.1.A16"
                   }
                 ]
               },
@@ -1499,7 +1513,7 @@
                   {
                     "href": "#ARCH.2.2.1",
                     "rel": "related",
-                    "text": "ARCH.2.2.1 steht unter SYS.3.2.1.A28"
+                    "text": "ARCH.2.2.1 steht unter SYS.3.2.1.A22"
                   },
                   {
                     "href": "#BER.6.4",
@@ -1545,6 +1559,11 @@
                     "href": "#ASST.2.3.1",
                     "rel": "related",
                     "text": "ASST.2.3.1 steht unter SYS.3.2.1.A8"
+                  },
+                  {
+                    "href": "#KONF.2.6",
+                    "rel": "related",
+                    "text": "KONF.2.6 steht unter SYS.3.2.1.A16"
                   },
                   {
                     "href": "#KONF.7.9",
@@ -1605,15 +1624,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1649,14 +1668,20 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.1.A22",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 empfiehlt, mobile Endgeräte ausschließlich mittels VPN in die interne Infrastruktur zu integrieren, während ARCH.2.2.1 allgemein die Einschränkung externer Netzanschlüsse empfiehlt und VPN-Zwang nur beispielhaft nennt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.1.A28",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (subset-of)"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 empfiehlt die VPN-Einbindung mobiler Endgeräte zur Nutzung eines internen HTTP-Proxys, was sich mit dem in der Erläuterung von ARCH.2.2.1 genannten Beispiel überschneidet, externe Netzanschlüsse durch VPN-Verbindungen ins gefilterte Institutionsnetz einzuschränken. [auch: gsmap]"
                 },
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.1.A29",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): ARCH.2.2.1 fordert allgemein die Begrenzung externer Netzanschlüsse, thematisiert jedoch nicht die spezifische Prüfung und Nutzung institutionsbezogener APNs zur Gerätebegrenzung im Mobilfunk. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 1): Die G++-Maßnahme fordert die generelle Einschränkung von Verbindungen über externe Netzanschlüsse, was die Prüfung und Nutzung eines institutionsbezogenen APNs zur Begrenzung des Gerätezugriffs im Mobilfunknetz als spezifische Ausprägung umfasst."
                 }
               ]
             }
@@ -2166,7 +2191,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.1.A6",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): KONF.2.5 deckt die regelmäßige Prüfung der Einstellungen ab, fordert jedoch nicht das erneute Setzen von Berechtigungen. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 6): KONF.2.5 empfiehlt die regelmäßige Prüfung der Systemkonfiguration gegen den Referenzzustand, umfasst jedoch nicht das in Satz 6 zusätzlich geforderte erneute Setzen der Berechtigungseinstellungen. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2181,8 +2206,20 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.1.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die zentrale Verwaltung der Kommunikationsschnittstellen mobiler Endgeräte über ein MDM, was einen konkreten Teilaspekt der in KONF.2.6 geforderten Verwaltung durch ein MDM darstellt."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.3.2.1.A32",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Die G++-Maßnahme fordert explizit die Aktivierung der Verwaltung von Endgeräten durch ein Mobile Device Management (MDM) und deckt damit die Forderung des Satzes direkt ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (equal-to, Teilanforderung 1): Beide Anforderungen verlangen übereinstimmend, dass mobile Endgeräte wie Smartphones und Tablets durch ein Mobile Device Management (MDM) verwaltet werden sollten. [auch: satz_abdeckung]"
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.3.2.1.A30",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): Satz 2 fordert die Durchsetzung von App-Restriktionen (Allowlisting/Entfernung unbefugter Apps) über ein MDM, was sich direkt mit der MDM-Verwaltung und App-Prüfung aus KONF.2.6 überschneidet."
                 }
               ]
             }

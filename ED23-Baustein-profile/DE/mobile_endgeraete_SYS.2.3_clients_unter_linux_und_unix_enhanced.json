@@ -3,8 +3,8 @@
     "uuid": "e72935d8-f147-5891-90b1-d09058cb88a4",
     "metadata": {
       "title": "SYS.2.3 – Clients unter Linux und Unix (Mobile Endgeräte) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:10:06.172548+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:29.881592+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.2.3 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -952,15 +952,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -2135,17 +2135,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Shell-History wird lokal gespeichert.",
+                  "prose": "Sporadische Erfassung von Admin-Logins ohne zentrale Auswertung.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Die Standard-Bash-History wird pro User geschrieben, ist aber leicht durch den User manipulierbar."
+                      "prose": "Fokus auf die manuelle Sichtung lokaler Logdateien bei Vorfällen."
                     },
                     {
                       "id": "DET.3.1.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Datei .bash_history in den User-Home-Verzeichnissen."
+                      "prose": "Prüfung lokaler Logfiles auf Stichprobenbasis."
                     }
                   ]
                 },
@@ -2168,17 +2168,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Einsatz von auditd für kritische Befehle.",
+                  "prose": "Regelmäßige manuelle Protokollierung wichtiger administrativer Aktionen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Auditd protokolliert die Nutzung von 'sudo' oder 'su' auf dem lokalen System."
+                      "prose": "Nutzung lokaler Syslog-Dienste zur Speicherung privilegierter Events."
                     },
                     {
                       "id": "DET.3.1.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung mit 'ausearch -c sudo' auf vorhandene Einträge."
+                      "prose": "Manuelle Kontrolle der Syslog-Konfiguration: grep 'sudo' /var/log/auth.log."
                     }
                   ]
                 },
@@ -2201,17 +2201,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+                  "prose": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Implementieren Sie eine umfassende Prozessüberwachung, die ausgeführte Befehle inklusive Argumenten erfasst."
+                      "prose": "Stellen Sie sicher, dass alle Änderungen an Berechtigungen oder Sicherheitsfunktionen geloggt werden."
                     },
                     {
                       "id": "DET.3.1.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Kontrolle der audit.rules auf '-a exit,always -F arch=b64 -S execve'."
+                      "prose": "Überprüfung der Log-Files auf Events wie 'privilege escalation' oder 'disable firewall'."
                     }
                   ]
                 },
@@ -2234,17 +2234,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Fälschungssichere Kommandozeilen-Protokollierung.",
+                  "prose": "Automatisierte Echtzeit-Überwachung und Alarmierung bei privilegierten Ereignissen.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Signierte Audit-Logs werden sofort an ein zentrales System übertragen, um Manipulationen zu verhindern."
+                      "prose": "Implementierung von Schwellenwerten für Warnmeldungen bei Deaktivierung von Schutzmechanismen."
                     },
                     {
                       "id": "DET.3.1.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Verifikation des auditspd-Plugins zur Remote-Übertragung der Audit-Events."
+                      "prose": "Test der Alarmkette durch gezieltes Auslösen eines privilegierten Events."
                     }
                   ]
                 },
@@ -2267,17 +2267,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Kontextsensitive Befehlsanalyse in Echtzeit.",
+                  "prose": "Zentrale SIEM-Korrelation privilegierter Ereignisse mit Verhaltensanalyse.",
                   "parts": [
                     {
                       "id": "DET.3.1.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Automatisierte Korrelation von Befehlsfolgen zur Erkennung von Post-Exploitation-Aktivitäten."
+                      "prose": "Vollständige Integration in ein Security Operations Center (SOC) zur Anomalieerkennung."
                     },
                     {
                       "id": "DET.3.1.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der EDR-Regelsätze auf Erkennung von 'Living-off-the-land' Techniken."
+                      "prose": "Validierung der SIEM-Dashboards auf Korrektheit der Rechtedokumentation."
                     }
                   ]
                 }

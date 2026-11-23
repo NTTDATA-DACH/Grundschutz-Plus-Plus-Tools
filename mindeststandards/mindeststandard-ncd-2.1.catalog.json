@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "e4c65963-9c03-486c-9cb9-32220ae6c876",
+    "uuid": "320d84e0-8e73-43bf-a181-f9fbb3b1959d",
     "metadata": {
       "title": "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:17:07.410Z",
+      "last-modified": "2026-11-23T17:08:39.476Z",
       "version": "2.1",
       "oscal-version": "1.2.2",
       "props": [
@@ -92,7 +92,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -1384,7 +1384,7 @@
                 ],
                 "links": [
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.1.5",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.1.5",
                     "rel": "related",
                     "text": "BES.1.5 Autorisierung des Bereitstellungsmodells (Anwenderkatalog Grundschutz++)"
                   },
@@ -2070,7 +2070,7 @@
             ],
             "controls": [
               {
-                "id": "ASST.2.4",
+                "id": "ASST.2.5",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Klassifizierung",
                 "props": [
@@ -2117,7 +2117,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "NCD.2.1.03 f",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): ASST.2.4 verlangt die Klassifizierung von Daten; der Absatz gibt hierfür vier spezifische rechtlich-fachliche Datenkategorien für die Cloud-Nutzung vor."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): ASST.2.5 verlangt die Klassifizierung von Daten; der Absatz gibt hierfür vier spezifische rechtlich-fachliche Datenkategorien für die Cloud-Nutzung vor."
                   },
                   {
                     "name": "modal_verb_profil",
@@ -2128,7 +2128,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "ASST.2.4_stm",
+                    "id": "ASST.2.5_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -2160,12 +2160,12 @@
                     "prose": "Informationen und Assets für Daten MUSS diese einer Schutzbedarfsklasse zuweisen."
                   },
                   {
-                    "id": "ASST.2.4_gdn",
+                    "id": "ASST.2.5_gdn",
                     "name": "guidance",
                     "prose": "Klassifizierung dient dazu, Daten entsprechend ihrer Schutzbedürftigkeit systematisch zu ordnen, um angemessene Schutzmaßnahmen zielgerichtet umzusetzen und Risiken effektiv zu reduzieren. Unter Klassifizierung versteht man dabei die Einteilung von Daten in Kategorien, etwa \"öffentlich\", \"intern\", \"vertraulich\" oder \"Verschlussache - Nur für den Dienstgebrauch\". Beispielsweise ist eine öffentlich zugängliche Marketingbroschüre weniger sensibel als personenbezogene Kundendaten, Betriebs- und Geschäftsgeheimnisse oder staatliche Verschlusssachen. Anzahl der Klassen und Umfang der Beschreibungen können sich an den ermittelten Risiken und der Menge der verarbeiteten Informationen orientieren. Die Kriterien zur Klassifizierung können sich daran orientieren, mit welchen Schäden eine Kompromittierung der Vertraulichkeit, Integrität oder Verfügbarkeit verbunden wäre, z.B. geschätzte Umsatzverluste, Gefahr für die Allgemeinheit, Schädigung der Rechte und Freiheiten betroffener Personen. Für Assets ist es sinnvoll, diese im Einklang mit der Klassifikation der Informationen ebenfalls in Klassen zu unterteilen, für deren Verarbeitung sie gebraucht werden. Je nach Aufgaben der Institution und Arten von verarbeiteten Informationen bietet es sich an, ein bestehendes Klassifikationsschema 1:1 zu verwenden - etwa das Schema der Verschlusssachenanweisung (VSA) - oder ein eigenes Schema zu erstellen, in dem mehrere bestehende Schemata auf die eigenentwickelten Klassen abgebildet werden."
                   },
                   {
-                    "id": "ASST.2.4_mst",
+                    "id": "ASST.2.5_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Die Einrichtung MUSS die für die Verarbeitung im externen Cloud-Dienst identifizierten dienstlichen Daten den folgenden Kategorien zuordnen: Kategorie 1 (Privat-, Dienst-, Betriebs- und Geschäftsgeheimnisse gemäß StGB §§ 203 und 353b), Kategorie 2 (personenbezogene Daten gemäß DSGVO Art. 4 Nr. 1), Kategorie 3 (Verschlusssachen gemäß VSA), Kategorie 4 (sonstige Daten). Eine gleichzeitige Zuordnung zu den Kategorien 1, 2 und 3 ist zulässig.",
@@ -6747,7 +6747,7 @@
                     "text": "BES.6.3 Übertragbarkeit von Daten (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.8.2",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.8.2",
                     "rel": "related",
                     "text": "BES.8.2 Verfahren zur Übertragung von Geschäftsprozessen (Anwenderkatalog Grundschutz++)"
                   }
@@ -8485,7 +8485,7 @@
                     "text": "DLS.3.1 Einhaltung der Sicherheitsvorgaben (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.5.2",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BES.5.2",
                     "rel": "related",
                     "text": "BES.5.2 Service Level Agreement (Anwenderkatalog Grundschutz++)"
                   },
@@ -11260,7 +11260,7 @@
               {
                 "id": "KONF.2.6",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Automatische Konfigurationsverwaltung",
+                "title": "Mobile Device Management",
                 "props": [
                   {
                     "name": "alt-identifier",
@@ -11374,17 +11374,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -11418,7 +11418,7 @@
           ]
         },
         {
-          "uuid": "28488195-91cb-5129-ab0e-bf2aaa5597c2",
+          "uuid": "7e5502f3-80c1-57e5-b33f-be078c6d13c8",
           "title": "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 3 neuen Controls, Datei mindeststandard-ncd-2.1.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -11428,7 +11428,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "6dd02f725a41340adddb8c349b6919049f9236ba226dba0f311b033d0653a0cf"
+                  "value": "70b4350ede497edffb945486b37f5126a54c517c89ef68071489a215df51da35"
                 }
               ]
             }

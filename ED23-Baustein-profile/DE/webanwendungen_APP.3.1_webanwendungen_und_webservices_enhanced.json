@@ -3,8 +3,8 @@
     "uuid": "2eab114c-cde0-51ab-88fd-406a27c2e1bd",
     "metadata": {
       "title": "APP.3.1 – Webanwendungen und Webservices (Webanwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:36.371784+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:27.415309+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.3.1 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -91,6 +91,7 @@
               "KONF.12.10",
               "KONF.14.1",
               "KONF.14.1.1",
+              "KONF.15.3",
               "KONF.6.11",
               "KONF.6.9",
               "PERF.3.2",
@@ -314,7 +315,8 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "KONF.11.4"
+                          "KONF.11.4",
+                          "KONF.15.3"
                         ]
                       }
                     ]
@@ -650,6 +652,11 @@
                     "text": "KONF.14.1 steht unter APP.3.1.A11"
                   },
                   {
+                    "href": "#KONF.15.3",
+                    "rel": "related",
+                    "text": "KONF.15.3 steht unter APP.3.1.A7"
+                  },
+                  {
                     "href": "#KONF.6.9",
                     "rel": "related",
                     "text": "KONF.6.9 steht unter APP.3.1.A14"
@@ -887,6 +894,13 @@
                       }
                     ]
                   }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.15.3",
+                    "rel": "related",
+                    "text": "KONF.15.3 steht unter APP.3.1.A7"
+                  }
                 ]
               },
               {
@@ -929,15 +943,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -7322,6 +7336,205 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.3.1.A12",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): KONF.14.1.1 adressiert das Deaktivieren unverschlüsselter Verbindungen als wesentlichen Aspekt sicherer Kommunikation, deckt jedoch nicht alle organisatorisch und architektonisch vorgesehenen Zugriffspfade ab. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.15.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.15.3_stm",
+              "parts": [
+                {
+                  "id": "KONF.15.3-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Grundlegende Firewall-Regeln blockieren offensichtlich schädlichen Traffic.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie iptables oder nftables, um ungenutzte Ports zu schließen."
+                    },
+                    {
+                      "id": "KONF.15.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Scan der offenen Ports von extern."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Einfaches Rate-Limiting auf Webserver-Ebene für alle eingehenden Anfragen.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Module wie 'ngx_http_limit_req_module' in Nginx für globale Limits."
+                    },
+                    {
+                      "id": "KONF.15.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Durchführung vieler schneller Anfragen und Prüfung auf '429 Too Many Requests' Antworten."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN Schutzmaßnahmen gegen Denial of Service aktivieren.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie spezifische Abwehrmechanismen gegen DoS/DDoS auf Anwendungsebene."
+                    },
+                    {
+                      "id": "KONF.15.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Audit der Anti-DoS Konfigurationen (z.B. ModSecurity Regeln oder Fail2Ban)."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Einsatz einer Web Application Firewall (WAF) mit spezialisierten Signaturen gegen App-Layer-DDoS.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie IP-Reputationslisten und verhaltensbasierte Sperren in der WAF."
+                    },
+                    {
+                      "id": "KONF.15.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validierung der WAF-Reaktion auf bekannte DoS-Angriffsmuster."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.15.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Integrierter Cloud-basierter DDoS-Schutz mit Traffic-Scrubbing und automatischer Kapazitätserweiterung.",
+                  "parts": [
+                    {
+                      "id": "KONF.15.3-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Nutzen Sie Anycast-Netzwerke und externe Scrubbing-Center zur Lastverteilung bei Großangriffen."
+                    },
+                    {
+                      "id": "KONF.15.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Regelmäßige Red-Teaming Übungen zur Prüfung der Resilienz gegen volumetrische Angriffe."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.3.1.A7",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Der Schutz von Webanwendungen vor unberechtigter automatisierter Nutzung (z. B. durch Bots oder Skripte) in S1 überschneidet sich wesentlich mit der Aktivierung von Schutzmaßnahmen und Filtern gegen Denial-of-Service-Angriffe auf Anwendungsebene."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.3.1.A12",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): Das in Satz 4 geforderte Festlegen von Grenzwerten für Zugriffsversuche (Rate Limiting) bei der Konfiguration von Webanwendungen ist eine typische Schutzmaßnahme gegen Denial-of-Service-Angriffe auf Anwendungsebene."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.3.1.A20",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Der Einsatz einer Web Application Firewall (S1) dient dem Herausfiltern von Angriffsmustern bei Webanwendungen und überschneidet sich direkt mit den in der Erläuterung von KONF.15.3 genannten Filterfunktionen zum Schutz gegen Denial-of-Service-Angriffe."
                 }
               ]
             }

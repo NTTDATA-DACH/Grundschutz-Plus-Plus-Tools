@@ -3,8 +3,8 @@
     "uuid": "5b8d790e-68bc-5942-820f-d42dbe4a131c",
     "metadata": {
       "title": "APP.6 – Allgemeine Software (Anwendungen) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:13:32.218201+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:15.272075+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.6 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -63,7 +63,7 @@
               "ASST.1.1.3",
               "ASST.1.2",
               "ASST.2.3",
-              "ASST.2.3.2.1",
+              "ASST.2.4.1",
               "ASST.7.1",
               "BER.4.1",
               "BES.2.1",
@@ -84,8 +84,9 @@
               "BES.4.8",
               "BES.4.8.1",
               "BES.5.10.3",
+              "DET.3.1",
               "DET.5.10.1",
-              "DET.5.10.4",
+              "DET.5.10.2",
               "DEV.1.1.2",
               "DEV.2.1",
               "DEV.4.2",
@@ -351,7 +352,7 @@
                       {
                         "with-ids": [
                           "BER.4.1",
-                          "DET.5.10.4",
+                          "DET.5.10.2",
                           "KONF.10.1",
                           "KONF.10.4",
                           "KONF.6.1",
@@ -490,6 +491,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
+                          "DET.3.1",
                           "DEV.2.1",
                           "DEV.4.6",
                           "KONF.14.1"
@@ -639,7 +641,7 @@
                       {
                         "with-ids": [
                           "ASST.2.3",
-                          "ASST.2.3.2.1",
+                          "ASST.2.4.1",
                           "BES.2.1.5",
                           "STM.2.1.2"
                         ]
@@ -926,15 +928,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1904,7 +1906,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1917,17 +1919,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Anwendungen werden unsystematisch und dezentral erfasst.",
+                  "prose": "Ein Anwendungs-Inventar wird nur vereinzelt oder ad-hoc für kritische Systeme geführt. Informationen wie Versionsstand, Herkunft oder Lizenzierung sind meist unvollständig.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Es fehlt ein Überblick über installierte Softwareversionen und Lizenzen."
+                      "prose": "Erfassen Sie zumindest geschäftskritische Anwendungen ad-hoc in einfachen Listen. Notieren Sie hierbei den Produktnamen und idealerweise die aktuell eingesetzte Version, um einen ersten Überblick zu gewinnen."
                     },
                     {
                       "id": "ASST.2.3-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung einzelner Rechner auf installierte Software via `dpkg -l` oder `rpm -qa`."
+                      "prose": "Prüfen Sie stichprobenartig, ob Listen zu installierter Software existieren. Führen Sie auf ausgewählten Systemen Befehle wie 'dpkg -l' oder 'rpm -qa' aus und gleichen Sie diese manuell mit den vorhandenen Aufzeichnungen ab."
                     }
                   ]
                 },
@@ -1937,7 +1939,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1950,17 +1952,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Zentrale Liste installierter Standardsoftware wird manuell gepflegt.",
+                  "prose": "Ein grundlegendes Inventar der Anwendungen wird manuell gepflegt. Produktname und Version werden größtenteils erfasst, während Herkunft und Lizenzierung oft lückenhaft oder veraltet sind.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Grobübersicht der genutzten Applikationen ohne detaillierte Patch-Stände."
+                      "prose": "Etablieren Sie eine zentrale Tabelle oder Datenbank zur manuellen Pflege des Software-Inventars. Stellen Sie sicher, dass bei Neuinstallationen Produktname, Version, Quelle und Lizenztyp durch die Administratoren eingetragen werden."
                     },
                     {
                       "id": "ASST.2.3-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Einsicht in die zentrale Softwareliste und Abgleich mit Stichproben-Hosts."
+                      "prose": "Prüfen Sie das zentrale Software-Inventar auf Vorhandensein der Attribute Name, Version, Herkunft und Lizenz. Vergleichen Sie die Dokumentation stichprobenartig mittels 'osqueryi \"SELECT name, version FROM programs;\"' auf Zielsystemen."
                     }
                   ]
                 },
@@ -1970,7 +1972,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -1983,17 +1985,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+                  "prose": "Informationen und Assets für IT-Systeme SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Führen Sie ein detailliertes Software-Inventar mit Fokus auf Compliance und Security."
+                      "prose": "Definieren Sie einen verbindlichen Prozess zur Pflege des Anwendungs-Inventars in einem Asset-Management-System. Erfassen Sie konsistent Produktname, Version, Herkunft und Lizenzierung für alle IT-Systeme."
                     },
                     {
                       "id": "ASST.2.3-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Vollständigkeitsprüfung des Software-Inventars gegen tatsächliche Installationen via Audit-Skript."
+                      "prose": "Prüfen Sie den dokumentierten Prozess zur Inventarisierung. Nutzen Sie ein Skript oder Ansible-Playbook (z.B. 'package_facts' Modul), um die real installierten Pakete automatisiert abzurufen und mit dem Soll-Inventar abzugleichen."
                     }
                   ]
                 },
@@ -2003,7 +2005,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -2016,17 +2018,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Zentrales Software-Management-System zur Versions- und Lizenzüberwachung.",
+                  "prose": "Das Anwendungs-Inventar wird durch automatisierte Discovery-Scans kontinuierlich aktualisiert. Produktname, Version, Herkunft und Lizenzierung werden zentral korreliert und Abweichungen proaktiv gemeldet.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Automatisierte Meldung bei veralteten Versionen oder Lizenzüberschreitungen."
+                      "prose": "Implementieren Sie eine automatisierte Software-Inventarisierung mittels Agenten (z.B. OCS Inventory, Wazuh). Verknüpfen Sie diese Daten in einer CMDB mit Lizenz- und Herkunftsinformationen und richten Sie Alarme bei Abweichungen ein."
                     },
                     {
                       "id": "ASST.2.3-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Dashboard-Alerts im Software-Asset-Management Tool auf Aktualität."
+                      "prose": "Überprüfen Sie die Konfiguration des Discovery-Tools. Fragen Sie die API der CMDB (z.B. via 'curl' gegen NetBox/Snipe-IT) ab, um zu verifizieren, ob aktuelle Agenten-Daten zu Versionen und Lizenzen automatisch einfließen."
                     }
                   ]
                 },
@@ -2036,7 +2038,7 @@
                   "props": [
                     {
                       "name": "control_class",
-                      "value": "Technical",
+                      "value": "Operational",
                       "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
                     },
                     {
@@ -2049,17 +2051,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Continuous Compliance durch Policy-as-Code und automatisierte Software-Audits.",
+                  "prose": "Das Inventar wird in Echtzeit durch Agenten und CI/CD-Pipelines (inkl. SBOMs) gepflegt. Lizenz-Compliance, Herkunft (Supply-Chain) und Versionen werden kontinuierlich gegen Sicherheitsrichtlinien geprüft und durchgesetzt.",
                   "parts": [
                     {
                       "id": "ASST.2.3-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Software-Inventar ist direkt mit CVE-Datenbanken für automatische Risikobewertung gekoppelt."
+                      "prose": "Integrieren Sie die Inventarisierung vollständig in CI/CD-Pipelines und das Konfigurationsmanagement (Policy as Code). Nutzen Sie Software Bills of Materials (SBOM) im CycloneDX-Format für lückenlose Echtzeit-Transparenz."
                     },
                     {
                       "id": "ASST.2.3-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Verknüpfung zwischen Inventardatenbank und aktueller Vulnerability-API."
+                      "prose": "Prüfen Sie die CI/CD-Pipelines auf SBOM-Generierung (z.B. mittels 'syft' oder 'trivy') und validieren Sie per API-Abfrage am zentralen Dashboard, ob nicht-autorisierte Software automatisch blockiert und gemeldet wird."
                     }
                   ]
                 }
@@ -2072,21 +2074,21 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.6.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1,2,8): ASST.2.3 fordert ein detailliertes Inventar der Anwendungen inklusive Versionsstand, Herkunft und Lizenzierung und schließt die allgemeine Forderung nach einer Softwareinventarisierung vollständig ein. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1,2,8): Die G++-Maßnahme ASST.2.3 fordert ein Inventar der Anwendungen einschließlich spezifischer Pflichtangaben wie Produktname, Versionsstand, Herkunft und Lizenzierung. Der Satz fordert allgemein die Inventarisierung jeglicher Software (also auch Betriebssysteme oder Treiber), verlangt jedoch im ersten Satz keine spezifischen Detailattribute. [auch: satz_abdeckung]"
                 }
               ]
             }
           ]
         },
         {
-          "control-id": "ASST.2.3.2.1",
+          "control-id": "ASST.2.4.1",
           "adds": [
             {
               "position": "ending",
-              "by-id": "ASST.2.3.2.1_stm",
+              "by-id": "ASST.2.4.1_stm",
               "parts": [
                 {
-                  "id": "ASST.2.3.2.1-m1_custom",
+                  "id": "ASST.2.4.1-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2107,19 +2109,19 @@
                   "prose": "Software wird nur bei manuellen Wartungsintervallen stichprobenartig geprüft.",
                   "parts": [
                     {
-                      "id": "ASST.2.3.2.1-m1_custom_gdn",
+                      "id": "ASST.2.4.1-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Es erfolgt keine systematische Suche nach unbekannter Software im Netz."
                     },
                     {
-                      "id": "ASST.2.3.2.1-m1_custom_asm",
+                      "id": "ASST.2.4.1-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Befragung der Admins nach dem Vorgehen bei der Suche nach 'Shadow-IT'."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.3.2.1-m2_custom",
+                  "id": "ASST.2.4.1-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2140,19 +2142,19 @@
                   "prose": "Regelmäßige manuelle Scans mit Open-Source-Tools zur Softwareerkennung.",
                   "parts": [
                     {
-                      "id": "ASST.2.3.2.1-m2_custom_gdn",
+                      "id": "ASST.2.4.1-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Einsatz von Tools wie `nmap` oder `osquery` auf ausgewählten Zielsystemen."
                     },
                     {
-                      "id": "ASST.2.3.2.1-m2_custom_asm",
+                      "id": "ASST.2.4.1-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Sichtung der Scan-Ergebnisse der letzten drei Monate."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.3.2.1-m3_custom",
+                  "id": "ASST.2.4.1-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2170,22 +2172,22 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Informationen und Assets KANN die Aktualität des Inventars der Anwendungen durch ein automatisiertes Verfahren {{ insert: param, asst.2.3.2.1-prm1 }} überprüfen.",
+                  "prose": "Informationen und Assets KANN die Aktualität des Inventars der Anwendungen durch ein automatisiertes Verfahren {{ insert: param, asst.2.4.1-prm1 }} überprüfen.",
                   "parts": [
                     {
-                      "id": "ASST.2.3.2.1-m3_custom_gdn",
+                      "id": "ASST.2.4.1-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie automatisierte Discovery-Lösungen zur Validierung des Anwendungsbestands."
                     },
                     {
-                      "id": "ASST.2.3.2.1-m3_custom_asm",
+                      "id": "ASST.2.4.1-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Konfiguration des automatisierten Verfahrens {{ insert: param, asst.2.3.2.1-prm1 }}."
+                      "prose": "Prüfung der Konfiguration des automatisierten Verfahrens {{ insert: param, asst.2.4.1-prm1 }}."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.3.2.1-m4_custom",
+                  "id": "ASST.2.4.1-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2206,19 +2208,19 @@
                   "prose": "Kontinuierliches Discovery-Verfahren mit sofortiger Alarmierung bei unbekannter Software.",
                   "parts": [
                     {
-                      "id": "ASST.2.3.2.1-m4_custom_gdn",
+                      "id": "ASST.2.4.1-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Abweichungen zum Soll-Bestand werden unmittelbar an das Security-Team gemeldet."
                     },
                     {
-                      "id": "ASST.2.3.2.1-m4_custom_asm",
+                      "id": "ASST.2.4.1-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Test: Installation einer Test-Software und Prüfung der Alert-Reaktionszeit."
                     }
                   ]
                 },
                 {
-                  "id": "ASST.2.3.2.1-m5_custom",
+                  "id": "ASST.2.4.1-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -2239,12 +2241,12 @@
                   "prose": "Vollautomatisierte Identifikation und Isolation nicht autorisierter Software.",
                   "parts": [
                     {
-                      "id": "ASST.2.3.2.1-m5_custom_gdn",
+                      "id": "ASST.2.4.1-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Nicht im Inventar gelistete Software wird automatisch durch Agenten blockiert."
                     },
                     {
-                      "id": "ASST.2.3.2.1-m5_custom_asm",
+                      "id": "ASST.2.4.1-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfung der Enforcement-Regeln im Endpoint-Protection System via CLI-Check."
                     }
@@ -5893,6 +5895,188 @@
           ]
         },
         {
+          "control-id": "DET.3.1",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.1_stm",
+              "parts": [
+                {
+                  "id": "DET.3.1-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Anwendungsprotokolle werden lokal gespeichert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Speicherung von Logs im lokalen Dateisystem ohne Rotation."
+                    },
+                    {
+                      "id": "DET.3.1-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung von /var/log/ auf vorhandene Applikationslogs."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Zentrale Log-Sammlung ohne Langzeitarchivierung.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Weiterleitung an einen zentralen Syslog-Server."
+                    },
+                    {
+                      "id": "DET.3.1-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Check der rsyslog-Konfiguration auf Remote-Ziele."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.1-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Stellen Sie sicher, dass die Aufbewahrungsfrist dem Parameter entspricht."
+                    },
+                    {
+                      "id": "DET.3.1-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Stichprobenartige Prüfung des Alters der ältesten Logeinträge."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Integritätsschutz der Logs durch kryptographische Signaturen.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Verhinderung der nachträglichen Manipulation von Logdaten."
+                    },
+                    {
+                      "id": "DET.3.1-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Validierung der Hash-Ketten in den Log-Dateien."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.1-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Echtzeit-Analyse der Logs durch SIEM mit automatischer Reaktion.",
+                  "parts": [
+                    {
+                      "id": "DET.3.1-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Test der Alarmierungskette bei einem simulierten Sicherheitsvorfall."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.6.A6",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): DET.3.1 überschneidet sich mit dem Satz bezüglich der Protokollierungsfunktion von Software (und ergänzt eine Aufbewahrungsfrist), umfasst jedoch weder den Anforderungskatalog im Beschaffungsprozess noch die geforderte Authentifizierungsfunktion."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "control-id": "DET.5.10.1",
           "adds": [
             {
@@ -6080,14 +6264,14 @@
           ]
         },
         {
-          "control-id": "DET.5.10.4",
+          "control-id": "DET.5.10.2",
           "adds": [
             {
               "position": "ending",
-              "by-id": "DET.5.10.4_stm",
+              "by-id": "DET.5.10.2_stm",
               "parts": [
                 {
-                  "id": "DET.5.10.4-m1_custom",
+                  "id": "DET.5.10.2-m1_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6108,19 +6292,19 @@
                   "prose": "Integritätsprüfung erfolgt durch Vergleich der Dateigröße.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m1_custom_gdn",
+                      "id": "DET.5.10.2-m1_custom_gdn",
                       "name": "guidance",
                       "prose": "Prüfen Sie grob, ob der Download vollständig abgeschlossen wurde."
                     },
                     {
-                      "id": "DET.5.10.4-m1_custom_asm",
+                      "id": "DET.5.10.2-m1_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Wird nach dem Download die Dateigröße kurz geprüft?"
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m2_custom",
+                  "id": "DET.5.10.2-m2_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6141,19 +6325,19 @@
                   "prose": "Manueller Abgleich von MD5- oder SHA-Prüfsummen bei kritischen Patches.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m2_custom_gdn",
+                      "id": "DET.5.10.2-m2_custom_gdn",
                       "name": "guidance",
                       "prose": "Nutzen Sie Kommandozeilentools, um Hashwerte der Downloads zu berechnen."
                     },
                     {
-                      "id": "DET.5.10.4-m2_custom_asm",
+                      "id": "DET.5.10.2-m2_custom_asm",
                       "name": "assessment",
                       "prose": "Check: `sha256sum patch_file.zip` gegen Herstellerangabe."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m3_custom",
+                  "id": "DET.5.10.2-m3_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6174,19 +6358,19 @@
                   "prose": "Detektion SOLLTE Patches vor der Installation auf Integrität testen.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m3_custom_gdn",
+                      "id": "DET.5.10.2-m3_custom_gdn",
                       "name": "guidance",
                       "prose": "Stellen Sie sicher, dass Patches vor der Ausführung formal validiert werden."
                     },
                     {
-                      "id": "DET.5.10.4-m3_custom_asm",
+                      "id": "DET.5.10.2-m3_custom_asm",
                       "name": "assessment",
                       "prose": "Prüfen Sie, ob für alle Patches ein Integritätscheck durchgeführt wird."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m4_custom",
+                  "id": "DET.5.10.2-m4_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6207,19 +6391,19 @@
                   "prose": "Automatisierte Validierung kryptografischer Signaturen durch den Paketmanager.",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m4_custom_gdn",
+                      "id": "DET.5.10.2-m4_custom_gdn",
                       "name": "guidance",
                       "prose": "Konfigurieren Sie Ihre Systeme so, dass unsignierte Pakete abgelehnt werden."
                     },
                     {
-                      "id": "DET.5.10.4-m4_custom_asm",
+                      "id": "DET.5.10.2-m4_custom_asm",
                       "name": "assessment",
                       "prose": "Audit: Testversuch zur Installation eines unsignierten Pakets (muss scheitern)."
                     }
                   ]
                 },
                 {
-                  "id": "DET.5.10.4-m5_custom",
+                  "id": "DET.5.10.2-m5_custom",
                   "name": "statement",
                   "props": [
                     {
@@ -6240,12 +6424,12 @@
                   "prose": "Kettenvalidierung vom Hersteller bis zum Zielsystem (End-to-End Trust).",
                   "parts": [
                     {
-                      "id": "DET.5.10.4-m5_custom_gdn",
+                      "id": "DET.5.10.2-m5_custom_gdn",
                       "name": "guidance",
                       "prose": "Einsatz von Hardware Security Modules (HSM) zur Signaturprüfung im Build-Prozess."
                     },
                     {
-                      "id": "DET.5.10.4-m5_custom_asm",
+                      "id": "DET.5.10.2-m5_custom_asm",
                       "name": "assessment",
                       "prose": "Analyse der Trust-Chain in der automatisierten Deployment-Pipeline."
                     }
@@ -6260,7 +6444,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.6.A4",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 7): Satz 7 fordert die Überprüfung der Integrität von Installationspaketen mittels digitaler Signaturen oder Prüfsummen, was die allgemeinere Fassung der Integritätsprüfung von Installations- und Patchdateien darstellt. [auch: gsmap]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 7): Satz 7 fordert die Überprüfung der Integrität von Installationspaketen mittels digitaler Signaturen oder Prüfsummen, was die allgemeinere Fassung der Integritätsprüfung von Installations- und Patchdateien darstellt."
                 }
               ]
             }

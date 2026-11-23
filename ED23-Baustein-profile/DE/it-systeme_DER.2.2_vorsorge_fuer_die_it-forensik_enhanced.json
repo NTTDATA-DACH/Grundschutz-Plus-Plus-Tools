@@ -3,8 +3,8 @@
     "uuid": "4f61f25e-6f1e-50b4-94ff-f45317766d89",
     "metadata": {
       "title": "DER.2.2 – Vorsorge für die IT-Forensik (IT-Systeme) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:18:09.075886+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:33.844207+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein DER.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls. Prozess-Baustein ohne eigene Praktik in Grundschutz++; die Zielobjektkategorie ist nur informativ."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -82,7 +82,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -857,15 +857,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -889,7 +889,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -899,7 +899,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -1526,7 +1526,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "DER.2.2.A9",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (subset-of, Teilanforderung 1): Die Maßnahme DET.3.1 deckt die Aufbewahrung von Logdaten über eine definierte Frist als anwendungsbezogenen Spezialfall der geforderten Vorhaltung von Daten ab. [auch: satz_abdeckung, prozessbausteine_mapping]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Beide Vorgaben überschneiden sich bei der befristeten Aufbewahrung von Anwendungs-Logdaten, wobei der Satz darüber hinaus auch Netzwerk-Verkehrsmitschnitte, die Art der Vorhaltung sowie den spezifischen Zweck der forensischen Beweissicherung umfasst. [auch: satz_abdeckung, prozessbausteine_mapping]"
                 }
               ]
             }
@@ -1558,17 +1558,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Vereinzelte Cloud-Ereignisse werden manuell gesichtet.",
+                  "prose": "Protokollierung sicherheitsrelevanter Ereignisse erfolgt nur vereinzelt und ad-hoc auf ausgewählten IT-Systemen ohne definierte Aufbewahrungsfristen.",
                   "parts": [
                     {
                       "id": "DET.3.2-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Führen Sie stichprobenartige Log-Prüfungen durch."
+                      "prose": "Aktivieren Sie die Standardprotokollierung auf kritischen Systemen, um zumindest lokale Systemfehler und Logins ad-hoc nachvollziehen zu können."
                     },
                     {
                       "id": "DET.3.2-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie Stichproben der manuellen Sichtungsprotokolle."
+                      "prose": "Manuelle Stichprobe auf einzelnen Systemen mittels CLI (z.B. 'ls -la /var/log' oder 'Get-EventLog'), ob überhaupt Logs existieren."
                     }
                   ]
                 },
@@ -1591,17 +1591,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Cloud-Logs werden separat vom internen Log-System gespeichert.",
+                  "prose": "IT-Systeme protokollieren grundlegende Sicherheitsereignisse mit lokalen Standardeinstellungen, jedoch ohne einheitliche Steuerung der Vorhaltedauer.",
                   "parts": [
                     {
                       "id": "DET.3.2-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Archivieren Sie Cloud-Audit-Logs zentral auf einem zugriffsgeschützten Speicher."
+                      "prose": "Konfigurieren Sie lokale Log-Dienste (z.B. rsyslog, journald) manuell so, dass Sicherheitsereignisse für eine Mindestdauer lokal vorgehalten werden."
                     },
                     {
                       "id": "DET.3.2-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Sichten Sie das Speicherverzeichnis. Befehl: `ls -lh /var/log/cloud-audit/`"
+                      "prose": "Prüfung der Log-Rotation per Skript (z.B. 'grep rotate /etc/logrotate.conf') auf Einhaltung einer Basis-Aufbewahrungsfrist."
                     }
                   ]
                 },
@@ -1624,17 +1624,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
                   "parts": [
                     {
                       "id": "DET.3.2-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Stellen Sie sicher, dass die Protokollierung im Audit Log wie beschrieben erfolgt."
+                      "prose": "Definieren und implementieren Sie eine Richtlinie für die Protokollierung, die sicherstellt, dass relevante Events für den festgelegten Zeitraum verfügbar sind."
                     },
                     {
                       "id": "DET.3.2-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfen Sie die Integration der Cloud-Ereignisse im zentralen Audit-Log-System."
+                      "prose": "Automatisierter Check der Log-Konfiguration (z.B. via Ansible oder 'auditctl -l') gegen die definierte Vorhaltedauer {{ insert: param, det.3.2-prm1 }}."
                     }
                   ]
                 },
@@ -1657,17 +1657,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Cloud-Events werden automatisiert und in Echtzeit in das SIEM integriert.",
+                  "prose": "Sicherheitsrelevante Ereignisse werden zentralisiert, manipulationssicher für {{ insert: param, det.3.2-prm1 }} gespeichert und auf Vollständigkeit überwacht.",
                   "parts": [
                     {
                       "id": "DET.3.2-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Nutzen Sie Konnektoren für die automatische Übermittlung sicherheitsrelevanter Events."
+                      "prose": "Nutzen Sie zentrales Log-Management (z.B. mittels Fluentd/rsyslog) und überwachen Sie aktiv den freien Speicherplatz sowie das Einhalten der Aufbewahrungsfristen."
                     },
                     {
                       "id": "DET.3.2-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Validieren Sie den Datenstrom im SIEM. Test: `grep 'cloud_provider' /var/log/syslog`"
+                      "prose": "API-Abfrage des zentralen Log-Servers (z.B. OpenSearch API) zur Verifizierung der Index-Lifecycle-Policies und aktiven Log-Shipper."
                     }
                   ]
                 },
@@ -1690,17 +1690,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Cloud-Ereignisse lösen automatisierte Incident-Response-Workflows aus.",
+                  "prose": "Die Protokollierung erfolgt vollautomatisiert über Policy-as-Code mit kryptografischer Integritätssicherung und dynamischer Skalierung für forensische Analysen.",
                   "parts": [
                     {
                       "id": "DET.3.2-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Integrieren Sie Cloud-Security-Events in ein SOAR-System für sofortige Reaktion."
+                      "prose": "Implementieren Sie automatisierte Deployment-Prozesse für Audit-Regeln (z.B. auditd via Ansible) inklusive kryptografischer Signierung für forensische Beweissicherheit."
                     },
                     {
                       "id": "DET.3.2-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Lösen Sie ein Test-Event aus und prüfen Sie den Workflow-Status via API."
+                      "prose": "Kontinuierliche Compliance-Prüfung via Policy-as-Code (z.B. OpenSCAP/InSpec) auf korrekte Audit-Rules und kryptografische Log-Integrität."
                     }
                   ]
                 }
@@ -1713,7 +1713,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "DER.2.2.A9",
-                  "remarks": "Herkunft: BSI-GSMap ITGS→GS++ (intersects-with)"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Festlegung der Vorhaltefrist und des Umfangs für die Aufbewahrung von Logdaten (zu forensischen Zwecken), was sich direkt mit der geforderten Protokollierung sicherheitsrelevanter Ereignisse für eine bestimmte Frist überschneidet. [auch: gsmap]"
                 }
               ]
             }
@@ -1745,17 +1745,17 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Lokal gespeicherte Logs ohne Manipulationsschutz.",
+                  "prose": "Vollständige Protokollierung ohne Filterung.",
                   "parts": [
                     {
                       "id": "DET.3.5-m1_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs können von Administratoren einfach gelöscht werden."
+                      "prose": "Alle Events werden ungefiltert gespeichert, was Ressourcen bindet."
                     },
                     {
                       "id": "DET.3.5-m1_custom_asm",
                       "name": "assessment",
-                      "prose": "Versuch, Test-Logs als Admin rückstandslos zu löschen."
+                      "prose": "Check der Log-Files auf Redundanz und irrelevante Events."
                     }
                   ]
                 },
@@ -1778,17 +1778,17 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Zentraler Syslog-Server empfängt Logs.",
+                  "prose": "Manuelle Filterung auf Applikationsebene.",
                   "parts": [
                     {
                       "id": "DET.3.5-m2_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs werden extern kopiert, aber nicht kryptografisch geschützt."
+                      "prose": "Log-Level werden grob (z.B. Info/Warning) eingestellt."
                     },
                     {
                       "id": "DET.3.5-m2_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung der Remote-Logging-Konfiguration in /etc/rsyslog.conf."
+                      "prose": "Prüfung der Konfigurationsdateien (z.B. log4j.properties)."
                     }
                   ]
                 },
@@ -1811,17 +1811,17 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Detektion SOLLTE Änderungen am Audit Log revisionssicher dokumentieren.",
+                  "prose": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von {{ insert: param, det.3.5-prm1 }} einschränken.",
                   "parts": [
                     {
                       "id": "DET.3.5-m3_custom_gdn",
                       "name": "guidance",
-                      "prose": "Sicherstellung der Unveränderbarkeit durch geeignete Verfahren."
+                      "prose": "Gezielte Reduktion des Log-Volumens durch definierte Ausschlusskriterien."
                     },
                     {
                       "id": "DET.3.5-m3_custom_asm",
                       "name": "assessment",
-                      "prose": "Prüfung auf Einsatz von WORM-Speichern oder Signaturen."
+                      "prose": "Abgleich der Filterregeln mit der Logging-Policy."
                     }
                   ]
                 },
@@ -1844,17 +1844,17 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Kryptografische Verkettung (Hashing) der Log-Einträge.",
+                  "prose": "Dynamische Filterung mittels Log-Forwarder-Regeln.",
                   "parts": [
                     {
                       "id": "DET.3.5-m4_custom_gdn",
                       "name": "guidance",
-                      "prose": "Jeder neue Log-Eintrag referenziert den Hash des vorherigen."
+                      "prose": "Zentrale Filterregeln (z.B. Fluentd/Logstash) bereinigen Datenströme."
                     },
                     {
                       "id": "DET.3.5-m4_custom_asm",
                       "name": "assessment",
-                      "prose": "Verifizierung der Hash-Kette mittels Audit-Tooling."
+                      "prose": "Audit der Filter-Konfiguration: 'grep -i exclude /etc/logstash/conf.d/'."
                     }
                   ]
                 },
@@ -1877,17 +1877,17 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Immutable Storage mit Blockchain-basierter Integritätssicherung.",
+                  "prose": "Intelligente Inhaltsfilterung mittels ML-Modellen.",
                   "parts": [
                     {
                       "id": "DET.3.5-m5_custom_gdn",
                       "name": "guidance",
-                      "prose": "Logs sind absolut fälschungssicher und dezentral validiert."
+                      "prose": "Nur sicherheitsrelevante Abweichungen werden hochauflösend geloggt."
                     },
                     {
                       "id": "DET.3.5-m5_custom_asm",
                       "name": "assessment",
-                      "prose": "Validierung der Smart-Contract-Interaktionen für die Log-Integrität."
+                      "prose": "Prüfung der ML-Modell-Metriken zur Datenreduktionsrate."
                     }
                   ]
                 }

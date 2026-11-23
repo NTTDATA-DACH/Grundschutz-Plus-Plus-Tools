@@ -3,8 +3,8 @@
     "uuid": "05186651-97b6-5884-9877-c364759b6f38",
     "metadata": {
       "title": "APP.2.2 – Active Directory Domain Services (Verzeichnisdienste) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:27.564387+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:20:57.251751+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.2.2 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -75,6 +75,7 @@
               "BER.5.4",
               "BER.6.4",
               "DET.3.1",
+              "DET.3.2",
               "DET.4.6.1",
               "GC.7.2",
               "KONF.1.1.1",
@@ -85,6 +86,7 @@
               "KONF.14.1.1",
               "KONF.2.1",
               "KONF.2.2",
+              "KONF.2.3",
               "KONF.2.4",
               "KONF.5.1",
               "KONF.6.1",
@@ -294,6 +296,7 @@
                           "ARCH.7.1",
                           "BER.3.23",
                           "DET.3.1",
+                          "DET.3.2",
                           "GC.7.2",
                           "KONF.2.4",
                           "NOT.1.1",
@@ -447,7 +450,8 @@
                           "BER.2.6",
                           "BER.3.15",
                           "BER.3.21",
-                          "BER.6.4"
+                          "BER.6.4",
+                          "KONF.2.3"
                         ]
                       }
                     ]
@@ -1106,15 +1110,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -4555,7 +4559,194 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.2.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1 fordert die anwendungsbezogene Protokollierung über eine Frist, adressiert aber nicht die spezifische Dimensionierung des Sicherheitsprotokoll-Speichers auf einem Domänencontroller. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): G++ DET.3.1 fordert die Protokollierung sicherheitsrelevanter Ereignisse für eine bestimmte Frist und deckt damit die im Satz geforderte Vorhaltung des Sicherheitsprotokolls über den festgelegten Zeitraum materiell ab."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "DET.3.2_stm",
+              "parts": [
+                {
+                  "id": "DET.3.2-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Sicherheitsrelevante Ereignisse werden auf IT-Systemen nur vereinzelt und ohne einheitliche Vorgaben auf Basis von Standardeinstellungen protokolliert.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Aktivieren Sie auf kritischen Systemen wie Domänencontrollern zumindest die Basis-Protokollierung für Anmeldeereignisse. Eine zentrale Vorgabe fehlt auf dieser Stufe noch, die Konfiguration erfolgt manuell und ad-hoc."
+                    },
+                    {
+                      "id": "DET.3.2-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie stichprobenartig die lokalen Protokolleinstellungen der Domänencontroller. Automatisiert: Führen Sie 'auditpol /get /category:*' auf einzelnen Systemen aus, um zu prüfen, ob überhaupt Ereignisse protokolliert werden."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Eine grundlegende Protokollierung sicherheitsrelevanter Ereignisse ist auf den wichtigsten IT-Systemen manuell oder über Standard-Richtlinien eingerichtet, deckt jedoch nicht alle relevanten Ereigniskategorien ab.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Konfigurieren Sie die erweiterte Überwachungsrichtlinie über Gruppenrichtlinien für die wichtigsten Systeme, um grundlegende Sicherheitsereignisse (z. B. Kontoanmeldungen, Verzeichnisdienstzugriffe) konsistent lokal zu erfassen."
+                    },
+                    {
+                      "id": "DET.3.2-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie, ob Basis-Überwachungsrichtlinien auf den Systemen aktiv sind. Automatisiert: Nutzen Sie ein Skript mit 'Get-EventLog -LogName Security -Newest 10' oder 'wevtutil gli Security', um die aktive Protokollierung und Speichergrenzen zu validieren."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für {{ insert: param, det.3.2-prm1 }} protokollieren.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Definieren und implementieren Sie verbindliche Gruppenrichtlinien (Advanced Audit Policy Configuration) für alle Domänencontroller und IT-Systeme, die exakt die geforderten Ereigniskategorien (z. B. Objektzugriff, Richtlinienänderung) erfassen."
+                    },
+                    {
+                      "id": "DET.3.2-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die GPO-Konfiguration für die erweiterte Überwachungsrichtlinie gegen die Vorgaben. Automatisiert: Exportieren Sie die Richtlinie via 'auditpol /backup /file:audit.csv' und gleichen Sie die konfigurierten Kategorien per Skript mit den definierten Parametern ab."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Die Protokollierung umfasst zusätzlich granulare System- und Applikationsereignisse (z. B. Skriptausführungen, Kerberos-Ticket-Operationen) und wird automatisiert an eine zentrale Analyseplattform weitergeleitet.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Erweitern Sie die Protokollierung um tiefgehende Systemereignisse (z. B. PowerShell-Skriptblock-Logging, Prozess-Erstellung mit Kommandozeilenparametern) und leiten Sie alle Logs in Echtzeit an ein zentrales SIEM-System zur Korrelation weiter."
+                    },
+                    {
+                      "id": "DET.3.2-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Überprüfen Sie die zentrale Log-Weiterleitung und die Vollständigkeit der Ebenen (inkl. PowerShell/Sysmon). Automatisiert: Prüfen Sie per Skript über die API des zentralen Log-Collectors (z. B. OpenSearch), ob alle Systeme kontinuierlich die definierten Event-IDs liefern."
+                    }
+                  ]
+                },
+                {
+                  "id": "DET.3.2-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Technical",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Operation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Protokollierungsrichtlinien werden vollständig als Code verwaltet, kontinuierlich auf Integrität überwacht, bei Abweichungen automatisch wiederhergestellt und dynamisch an das aktuelle Bedrohungsniveau angepasst.",
+                  "parts": [
+                    {
+                      "id": "DET.3.2-m5_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Verwalten Sie sämtliche Protokollierungsrichtlinien als Code (Policy as Code). Nutzen Sie kontinuierliche Konfigurationsüberwachung, um Manipulationen an Logging-Einstellungen sofort automatisch zurückzusetzen, und passen Sie den Log-Level dynamisch an die Bedrohungslage an."
+                    },
+                    {
+                      "id": "DET.3.2-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfen Sie die Policy-as-Code-Pipelines und Selbstheilungsmechanismen für Logging-Agenten. Automatisiert: Führen Sie automatisierte Compliance-Scans (z. B. mittels OpenSCAP oder Ansible) durch, die Abweichungen der Audit-Policen in Echtzeit melden und korrigieren."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.2.2.A5",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Satz 3 fordert eine ausreichende Größe des Sicherheitsprotokolls auf dem Domänencontroller für einen festgelegten Zeitraum, während DET.3.2 allgemein empfiehlt, sicherheitsrelevante Ereignisse in IT-Systemen für eine bestimmte Frist zu protokollieren; die spezifische Dimensionierung der Protokollgröße geht über DET.3.2 hinaus."
                 }
               ]
             }
@@ -6428,6 +6619,188 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.2.2.A9",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Die G++-Maßnahme fordert die allgemeine Aktivierung kryptographischer Standardverfahren für die Authentisierung in IT-Systemen, was den spezifischen Einsatz des Kerberos-Protokolls in der Gesamtstruktur abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.2.3",
+          "adds": [
+            {
+              "position": "ending",
+              "by-id": "KONF.2.3_stm",
+              "parts": [
+                {
+                  "id": "KONF.2.3-m1_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m1"
+                    }
+                  ],
+                  "prose": "Default-Passwörter werden nur bei Bekanntwerden eines Risikos geändert.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m1_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Kein systematischer Prozess zur Initialpasswortänderung."
+                    },
+                    {
+                      "id": "KONF.2.3-m1_custom_asm",
+                      "name": "assessment",
+                      "prose": "Testzugriff mit Standard-Logins (admin/admin etc.)."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m2_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m2"
+                    }
+                  ],
+                  "prose": "Checklisten fordern die Änderung von Passwörtern bei der Installation.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m2_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Manuelle Dokumentation der Passwortänderung im Installationsprotokoll."
+                    },
+                    {
+                      "id": "KONF.2.3-m2_custom_asm",
+                      "name": "assessment",
+                      "prose": "Stichprobenartige Prüfung der Installationsberichte."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m3_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m3"
+                    }
+                  ],
+                  "prose": "Konfiguration für IT-Systeme SOLLTE die Änderung von Default-Zugangsdaten ausführen.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m3_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Werksseitig eingestellte Zugangsdaten müssen zwingend ersetzt werden."
+                    },
+                    {
+                      "id": "KONF.2.3-m3_custom_asm",
+                      "name": "assessment",
+                      "prose": "Nachweis der Passwortänderung durch Audit-Logs oder Passwort-Tresor-Einträge."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m4_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m4"
+                    }
+                  ],
+                  "prose": "Automatisierte Passwort-Tresore (Secrets Manager) rotieren Initialpasswörter.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m4_custom_gdn",
+                      "name": "guidance",
+                      "prose": "Systeme werden mit temporären Passwörtern bereitgestellt, die sofort ablaufen."
+                    },
+                    {
+                      "id": "KONF.2.3-m4_custom_asm",
+                      "name": "assessment",
+                      "prose": "Prüfung der Rotationseinstellungen im Password-Manager."
+                    }
+                  ]
+                },
+                {
+                  "id": "KONF.2.3-m5_custom",
+                  "name": "statement",
+                  "props": [
+                    {
+                      "name": "control_class",
+                      "value": "Operational",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "phase",
+                      "value": "Implementation",
+                      "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/tree/main/Dokumentation/namespaces/gpp_enhancement_props.md"
+                    },
+                    {
+                      "name": "label",
+                      "value": "m5"
+                    }
+                  ],
+                  "prose": "Identity-basiertes Bootstrapping ohne statische Initialpasswörter.",
+                  "parts": [
+                    {
+                      "id": "KONF.2.3-m5_custom_asm",
+                      "name": "assessment",
+                      "prose": "Review des automatisierten Provisionierungsprozesses (Zero-Touch)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "APP.2.2.A16",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Satz 3 fordert die Deaktivierung eines voreingestellten Standardkontos (Guest/Gast) und Satz 1 das Setzen komplexer Passwörter für Built-in-Konten, was genau der in KONF.2.3 geforderten Änderung bzw. Deaktivierung von Default-Zugangsdaten entspricht."
                 }
               ]
             }

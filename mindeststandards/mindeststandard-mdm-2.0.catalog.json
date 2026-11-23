@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "e2bb3ea9-006c-408b-9c24-57d6cc0ed8a8",
+    "uuid": "5ec152c7-1196-48b2-9d9f-22622e933c07",
     "metadata": {
       "title": "Mindeststandard des BSI für Mobile Device Management (Version 2.0) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:17:07.307Z",
+      "last-modified": "2026-11-23T17:08:39.203Z",
       "version": "2.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -92,7 +92,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -1345,7 +1345,7 @@
               {
                 "id": "KONF.2.6",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Automatische Konfigurationsverwaltung",
+                "title": "Mobile Device Management",
                 "props": [
                   {
                     "name": "alt-identifier",
@@ -4836,12 +4836,12 @@
             ],
             "controls": [
               {
-                "id": "DET.3.1.6",
+                "id": "DET.3.2.6",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Systemspezifische Ereignisse",
                 "params": [
                   {
-                    "id": "det.3.1.6-prm1",
+                    "id": "det.3.2.6-prm1",
                     "props": [
                       {
                         "name": "alt-identifier",
@@ -4898,7 +4898,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "MDM.2.3.01 a",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.1.6 adressiert die Protokollierung bestimmter systemspezifischer Ereignisse, was die Protokollierung von Änderungen an den Gerätemerkmalen der Endgeräte abdeckt."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.2.6 adressiert die Protokollierung bestimmter systemspezifischer Ereignisse, was die Protokollierung von Änderungen an den Gerätemerkmalen der Endgeräte abdeckt."
                   },
                   {
                     "name": "modal_verb_profil",
@@ -4909,7 +4909,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.1.6_stm",
+                    "id": "DET.3.2.6_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -4938,15 +4938,15 @@
                         "value": "MUSS"
                       }
                     ],
-                    "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.1.6-prm1 }} protokollieren."
+                    "prose": "Detektion für IT-Systeme MÜSSEN {{ insert: param, det.3.2.6-prm1 }} protokollieren."
                   },
                   {
-                    "id": "DET.3.1.6_gdn",
+                    "id": "DET.3.2.6_gdn",
                     "name": "guidance",
                     "prose": "Bestimmte systemspezifische Ereignisse meint hier, dass von der Instiution konkret festgehalten wurde, welche für das System relevanten Ereignisse im Einzelnen protokolliert werden. Beispiele sind Aktionen mit spezifisch konfigurierten privilegierten Berechtigungen, Prozessaktivitäten des Betriebssystems, wie das Starten eines Systemprozesses, Dateierzeugung oder das Laden eines Treibers, die Modifikation von Systemkonfigurationsdateien oder die Installation oder Deinstallation von Systemdiensten und Anwendungen, sowie das Herunterfahren oder Neustarten des Systems. Die Festlegung, welche dieser oder weiterer systemspezifischer Ereignisse protokolliert werden, obliegt der Institution und hängt von der jeweiligen Systemumgebung und dem Schutzbedarf ab."
                   },
                   {
-                    "id": "DET.3.1.6_mst",
+                    "id": "DET.3.2.6_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Das MDMS MUSS Änderungen an diesen Gerätemerkmalen, deren Verursacher, einen Zeitstempel und die Gerätekennung protokollieren und zentral zum Abruf bereitstellen.",
@@ -4960,7 +4960,7 @@
                 ]
               },
               {
-                "id": "DET.3.1.7",
+                "id": "DET.3.1.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Was, Wann, Wo",
                 "props": [
@@ -5007,7 +5007,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "MDM.2.3.01 a",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.7 verlangt die Protokollierung von Zeitpunkt, Quelle und Zielobjekt bei Ereignissen, was den Anforderungen an Zeitstempel, Verursacher und Gerätekennung entspricht."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz hoch, Checker bestaetigt): DET.3.1.1 verlangt die Protokollierung von Zeitpunkt, Quelle und Zielobjekt bei Ereignissen, was den Anforderungen an Zeitstempel, Verursacher und Gerätekennung entspricht."
                   },
                   {
                     "name": "mindeststandard-anforderung",
@@ -5030,7 +5030,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.1.7_stm",
+                    "id": "DET.3.1.1_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -5067,12 +5067,12 @@
                     "prose": "Detektion für Anwendungen MUSS zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle und das Zielobjekt protokollieren."
                   },
                   {
-                    "id": "DET.3.1.7_gdn",
+                    "id": "DET.3.1.1_gdn",
                     "name": "guidance",
                     "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Damit einem Ereignis zuverlässig ein bestimmter Zeitpunkt zugewiesen werden kann, ist eine einheitliche Zeitquelle für die Systemuhr (meist über NTP oder PTP) als Voraussetzung erforderlich. Bei der Protokollierung der Herkunft oder Quelle (z.B. Gerätenamen, IP-Adresse) besteht ein enger Zusammenhang zu Compliance-Anforderungen, etwa zum Datenschutz."
                   },
                   {
-                    "id": "DET.3.1.7_mst",
+                    "id": "DET.3.1.1_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Das MDMS MUSS Änderungen an den Gerätemerkmalen samt Verursacher, Zeitstempel und Gerätekennung zentral zum Abruf bereitstellen.\nBei sicherheitsrelevanten Aktionen im MDMS muss die Identität des Verursachers protokolliert werden.",
@@ -5134,7 +5134,7 @@
             ],
             "controls": [
               {
-                "id": "DET.3.5",
+                "id": "DET.3.7",
                 "class": "BSI-Stand-der-Technik-Kernel",
                 "title": "Revisionssicherheit",
                 "props": [
@@ -5186,7 +5186,7 @@
                     "name": "mindeststandard-anforderung",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "value": "MDM.2.3.01 b",
-                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.5 verlangt die revisionssichere Dokumentation im Audit Log, Absatz b fordert den Schutz der im MDMS erhobenen und protokollierten Gerätedaten vor Manipulation."
+                    "remarks": "Herkunft: KI-Vorschlag, vom Bearbeiter übernommen (intersects-with, Konfidenz mittel, Checker bestaetigt): DET.3.7 verlangt die revisionssichere Dokumentation im Audit Log, Absatz b fordert den Schutz der im MDMS erhobenen und protokollierten Gerätedaten vor Manipulation."
                   },
                   {
                     "name": "mindeststandard-anforderung",
@@ -5203,7 +5203,7 @@
                 ],
                 "parts": [
                   {
-                    "id": "DET.3.5_stm",
+                    "id": "DET.3.7_stm",
                     "name": "statement",
                     "props": [
                       {
@@ -5235,12 +5235,12 @@
                     "prose": "Detektion MUSS Änderungen am Audit Log revisionssicher dokumentieren."
                   },
                   {
-                    "id": "DET.3.5_gdn",
+                    "id": "DET.3.7_gdn",
                     "name": "guidance",
                     "prose": "Wenn die Protokollaufzeichnung unzureichend vor Veränderung geschützt ist, könnten Innentäter diese manipulieren oder löschen, um nicht erkannt oder belangt zu werden. Hierzu gehört auch, dass Administrierende die Protokolldaten zu ihren eigenen Tätigkeiten manipulieren oder löschen könnten. Die Integrität kann durch die Erstellung und getrennte Aufbewahrung von kryptografischen Hashes oder ein Versionskontrollsystem sichergestellt werden. Um sicherzustellen, dass nur autorisierte Personen die Protokolle verändern können, können z.B. Verschlüsselung und getrennte Aufbewahrung des Schlüssels, einmalig beschreibare Datenträger, oder ein Protokollierungsserver/SIEM mit stark eingeschränkten Zugriffsrechten eingesetzt werden. Auch die Aufzeichnung in einer öffentlichen Transparenzdatei ist möglich, wenn die Protokolle keine vertraulichen Daten enthalten."
                   },
                   {
-                    "id": "DET.3.5_mst",
+                    "id": "DET.3.7_mst",
                     "name": "mindeststandard",
                     "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/mindeststandard",
                     "prose": "Die Einrichtung MUSS durch technische oder organisatorische Maßnahmen (z. B. durch entsprechende Einschränkung der Berechtigungen der Rollen Auditor und Administrator) sicherstellen, dass die im MDMS erhobenen Gerätedaten nicht manipuliert werden können.\nDas MDMS muss so konfiguriert werden, dass die Einsicht der Protokolle auf Auditoren begrenzt ist. Durch technische oder organisatorische Maßnahmen muss sichergestellt werden, dass die Protokolle nicht manipuliert werden können.",
@@ -5301,16 +5301,16 @@
             ],
             "links": [
               {
-                "href": "#DET.3.1.7",
+                "href": "#DET.3.1.1",
                 "rel": "related",
-                "text": "DET.3.1.7 steht unter MDM.2.3.01 a"
+                "text": "DET.3.1.1 steht unter MDM.2.3.01 a"
               }
             ],
             "controls": [
               {
                 "id": "DET.3.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Protokollierung sicherheitsrelevanter Ereignisse",
+                "title": "Protokollierung in Anwendungen",
                 "params": [
                   {
                     "id": "det.3.1-prm1",
@@ -5417,7 +5417,7 @@
                   {
                     "id": "DET.3.1_gdn",
                     "name": "guidance",
-                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
+                    "prose": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung von Sicherheitseinstellungen sowie Anmeldereignisse. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
                   },
                   {
                     "id": "DET.3.1_mst",
@@ -5572,9 +5572,9 @@
             ],
             "links": [
               {
-                "href": "#DET.3.5",
+                "href": "#DET.3.7",
                 "rel": "related",
-                "text": "DET.3.5 steht unter MDM.2.3.01 b"
+                "text": "DET.3.7 steht unter MDM.2.3.01 b"
               }
             ]
           }
@@ -10290,7 +10290,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Detektions-Konzept"
+                        "value": "Detektionskonzept"
                       },
                       {
                         "name": "result",
@@ -10645,7 +10645,7 @@
               {
                 "id": "KONF.2.5",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Überprüfung der Konfiguration",
+                "title": "Überprüfung der Systemkonfiguration",
                 "params": [
                   {
                     "id": "konf.2.5-prm1",
@@ -11145,7 +11145,7 @@
                     "text": "BER.3.12 Systemsperre bei Inaktivität (Anwenderkatalog Grundschutz++, in diesem Profil)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BER.4.5",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#BER.4.5",
                     "rel": "related",
                     "text": "BER.4.5 Systemfunktionen ohne Authentifizierung (Anwenderkatalog Grundschutz++)"
                   }
@@ -13626,7 +13626,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Prozess Behandlung von Sicherheitsvorfällen"
+                        "value": "Behandlung von Sicherheitsvorfällen"
                       },
                       {
                         "name": "result",
@@ -15373,7 +15373,7 @@
                 ],
                 "links": [
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#ASST.7.1",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#ASST.7.1",
                     "rel": "related",
                     "text": "ASST.7.1 Nicht mehr benötigte Anwendungen (Anwenderkatalog Grundschutz++)"
                   },
@@ -15397,17 +15397,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -15441,7 +15441,7 @@
           ]
         },
         {
-          "uuid": "19c476bc-b03c-588b-86ea-aec365c7f14a",
+          "uuid": "a427827c-da3a-5e30-a503-d4dc21324d89",
           "title": "Mindeststandard des BSI für Mobile Device Management (Version 2.0) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 2 neuen Controls, Datei mindeststandard-mdm-2.0.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -15451,7 +15451,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "3a3ec4bce7fe9a1473ef8ed90a101c5deaa1d55ce5ba821213e2e24ff3880238"
+                  "value": "65e6c95ed919fd7807f620d4cd6dfc3203813e39c7fc93d13fd2c4ca590c1087"
                 }
               ]
             }

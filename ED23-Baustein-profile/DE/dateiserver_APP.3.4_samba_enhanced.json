@@ -3,8 +3,8 @@
     "uuid": "f7cf0cae-b4b3-5d37-adce-820f498ec891",
     "metadata": {
       "title": "APP.3.4 – Samba (Dateiserver) – Enhanced (ED2023)",
-      "last-modified": "2026-10-19T01:05:24.724384+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:21:51.396798+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein APP.3.4 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -783,15 +783,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -3107,19 +3107,7 @@
                       "value": "m1"
                     }
                   ],
-                  "prose": "Rechenleistung wird nicht explizit eingeschränkt; Samba nutzt verfügbare Ressourcen.",
-                  "parts": [
-                    {
-                      "id": "KONF.15.2-m1_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Überwachen Sie die Systemlast bei Performance-Einbrüchen."
-                    },
-                    {
-                      "id": "KONF.15.2-m1_custom_asm",
-                      "name": "assessment",
-                      "prose": "Beobachtung der CPU-Last durch Samba-Prozesse via top oder htop."
-                    }
-                  ]
+                  "prose": "Die Begrenzung der Rechenleistung für Samba-Prozesse erfolgt nur sporadisch und reaktiv bei akuten Lastspitzen."
                 },
                 {
                   "id": "KONF.15.2-m2_custom",
@@ -3140,19 +3128,7 @@
                       "value": "m2"
                     }
                   ],
-                  "prose": "Nutzung von Betriebssystem-Tools zur Priorisierung der Samba-Prozesse.",
-                  "parts": [
-                    {
-                      "id": "KONF.15.2-m2_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Setzen Sie 'nice' Werte für smbd und nmbd Daemons in den Init-Scripts."
-                    },
-                    {
-                      "id": "KONF.15.2-m2_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung des Nice-Levels der laufenden Prozesse. CMD: ps -el | grep smbd"
-                    }
-                  ]
+                  "prose": "Ressourcenlimits für Samba-Dienste sind manuell über Betriebssystemmechanismen mit Standardwerten eingerichtet."
                 },
                 {
                   "id": "KONF.15.2-m3_custom",
@@ -3173,19 +3149,7 @@
                       "value": "m3"
                     }
                   ],
-                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
-                  "parts": [
-                    {
-                      "id": "KONF.15.2-m3_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Implementieren Sie Ressourcen-Limits, um die Stabilität des Hostsystems sicherzustellen."
-                    },
-                    {
-                      "id": "KONF.15.2-m3_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfen Sie Konfigurationen wie 'max smbd processes' in der smb.conf."
-                    }
-                  ]
+                  "prose": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken."
                 },
                 {
                   "id": "KONF.15.2-m4_custom",
@@ -3206,19 +3170,7 @@
                       "value": "m4"
                     }
                   ],
-                  "prose": "Einsatz von Control Groups (cgroups) zur harten CPU-Limitierung.",
-                  "parts": [
-                    {
-                      "id": "KONF.15.2-m4_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Konfigurieren Sie systemd-Slices, um Samba eine maximale CPU-Quote zuzuweisen."
-                    },
-                    {
-                      "id": "KONF.15.2-m4_custom_asm",
-                      "name": "assessment",
-                      "prose": "Prüfung der cgroup-Limits. CMD: systemctl show samba.service -p CPUQuota"
-                    }
-                  ]
+                  "prose": "Die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} wird zentralisiert über Systemd-Cgroups verwaltet und aktiv überwacht."
                 },
                 {
                   "id": "KONF.15.2-m5_custom",
@@ -3239,19 +3191,7 @@
                       "value": "m5"
                     }
                   ],
-                  "prose": "Dynamische Ressourcen-Allokation basierend auf Echtzeit-Systemmetriken.",
-                  "parts": [
-                    {
-                      "id": "KONF.15.2-m5_custom_gdn",
-                      "name": "guidance",
-                      "prose": "Nutzen Sie eine Container-Orchestrierung, die Samba-Ressourcen je nach Last skaliert."
-                    },
-                    {
-                      "id": "KONF.15.2-m5_custom_asm",
-                      "name": "assessment",
-                      "prose": "Review der Orchestrierungs-Regeln für die Ressourcen-Zuweisung."
-                    }
-                  ]
+                  "prose": "Ressourcenlimits für Samba werden dynamisch und automatisiert per Policy-as-Code basierend auf Echtzeit-Lastanalysen skaliert und durchgesetzt."
                 }
               ]
             },
@@ -3262,7 +3202,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "APP.3.4.A2",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): Die Begrenzung der Rechenleistung für Anwendungen überschneidet sich mit der Konfiguration von Parametern zur Leistungsfähigkeit eines Samba-Servers, deckt aber andere leistungsbeeinflussende Faktoren nicht ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): KONF.15.2 fordert die Konfiguration von Beschränkungen der Rechenleistung für Anwendungen, was eine spezifische Ausprägung der geforderten Anpassung von Einstellungen zur Leistungsfähigkeit des Servers darstellt."
                 }
               ]
             }

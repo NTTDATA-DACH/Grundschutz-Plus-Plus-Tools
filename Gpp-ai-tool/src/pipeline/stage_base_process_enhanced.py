@@ -5,6 +5,12 @@ This stage takes the process profiles from `SDT_PROFILES_PROCESS_DIR`
 and enriches every control with AI-generated maturity sub-statements (levels 1-5)
 plus classifications (NIST class, ISMS phase), emitted as OSCAL `alter` blocks.
 The enhanced profile is written back to the same directory with `_enhanced.json` appended.
+
+Maturity texts are paid model output: like stage_ED23_profiles_enhanced, this stage first
+reuses the blocks in hilfsdateien/ed23_maturity_cache.json (key `prozess:<stem>`, else any
+Baustein, valid only while the control's statement prose is unchanged) and asks the model
+only for the controls without a usable cache entry. A pin change that renumbers controls
+or adds one (Build 2026-11-23: DET.3.2) therefore costs only the new or reworded controls.
 """
 
 import os
@@ -34,6 +40,9 @@ from utils.text_utils import sanitize_filename
 from utils.data_parser import find_bausteine_with_prose
 from utils.oscal_utils import extract_all_gpp_controls, normalize_id, validate_enhanced_profile_structure
 from clients.ai_client import AiClient
+from pipeline.stage_ED23_profiles_enhanced import (
+    harvest_existing_maturity, load_maturity_cache, maturity_for, save_maturity_cache,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -133,8 +142,10 @@ async def generate_enhanced_profile_data(
     prompt_instruction: str,
     enhanced_schema: dict,
     ai_client: AiClient,
+    maturity_cache: dict = None,
+    cache_key: str = "",
 ) -> list:
-    """Generates the enhanced profile 'alters' blocks using AI for all controls in the profile."""
+    """Generates the enhanced profile 'alters' blocks: cached maturity blocks first, AI for the rest."""
 
     if not os.path.exists(input_profile_path):
         logger.warning(f"Input profile not found for {baustein_id} at {input_profile_path}. Skipping.")
@@ -152,7 +163,20 @@ async def generate_enhanced_profile_data(
         logger.warning(f"No G++ controls found in profile {input_profile_path}")
         return None
 
-    logger.info(f"Generating AI enhancements for {len(gpp_controls_in_profile)} controls in Baustein {baustein_id}")
+    # Cached maturity blocks (same process profile first, then any Baustein); the m3 prose
+    # must equal the control's current statement, so reworded controls are regenerated.
+    cached_adds = {}
+    if maturity_cache is not None:
+        for cid in gpp_controls_in_profile:
+            prose = (gpp_controls_lookup.get(cid, {}) or {}).get("prose", "")
+            block = maturity_for(maturity_cache, cache_key, cid, prose)
+            if block:
+                cached_adds[cid] = block
+    to_generate = [cid for cid in gpp_controls_in_profile if cid not in cached_adds]
+    logger.info(
+        f"{baustein_title}: {len(cached_adds)} of {len(gpp_controls_in_profile)} controls from the "
+        f"maturity cache, {len(to_generate)} to generate."
+    )
 
     baustein_context = (
         f"**Context — the BSI IT-Grundschutz Baustein this profile is based on:**\n"
@@ -161,7 +185,7 @@ async def generate_enhanced_profile_data(
         f"* Description: {baustein_description or 'N/A'}\n\n"
     )
 
-    chunks = [gpp_controls_in_profile[i:i + CHUNK_SIZE] for i in range(0, len(gpp_controls_in_profile), CHUNK_SIZE)]
+    chunks = [to_generate[i:i + CHUNK_SIZE] for i in range(0, len(to_generate), CHUNK_SIZE)]
 
     async def process_chunk(chunk):
         prompt = (
@@ -196,6 +220,9 @@ async def generate_enhanced_profile_data(
 
     alters = []
     for gpp_control_id in gpp_controls_in_profile:
+        if gpp_control_id in cached_adds:
+            alters.append({"control-id": gpp_control_id, "adds": [cached_adds[gpp_control_id]]})
+            continue
         generated_data = ai_results_map.get(normalize_id(gpp_control_id))
         if not generated_data:
             logger.warning(f"No AI generated data for control {gpp_control_id} in Baustein {baustein_id}")
@@ -242,15 +269,18 @@ async def generate_enhanced_profile(
     prompt_instruction: str,
     enhanced_schema: dict,
     ai_client: AiClient,
+    maturity_cache: dict = None,
 ):
     """Orchestrates the generation and saving of an enhanced profile."""
     if os.path.exists(output_path) and not app_config.overwrite_temp_files:
         logger.info(f"Enhanced profile already exists at {output_path} and OVERWRITE_TEMP_FILES is false. Skipping.")
         return
 
+    cache_key = f"prozess:{os.path.basename(input_profile_path)[:-5]}"
     alters = await generate_enhanced_profile_data(
         baustein_id, baustein_title, baustein_description, input_profile_path,
         gpp_controls_lookup, prompt_instruction, enhanced_schema, ai_client,
+        maturity_cache, cache_key,
     )
 
     if alters:
@@ -318,6 +348,12 @@ async def run_stage_base_process_enhanced():
     gpp_controls_lookup = extract_all_gpp_controls(gpp_catalog)
     logger.info(f"Successfully extracted {len(gpp_controls_lookup)} G++ controls.")
 
+    # Harvest the existing enhanced process profiles into the shared maturity cache first, so a
+    # regeneration pays only for controls without a cached block.
+    maturity_cache = load_maturity_cache()
+    harvest_existing_maturity(SDT_PROFILES_PROCESS_DIR, maturity_cache, set())
+    save_maturity_cache(maturity_cache)
+
     sem = asyncio.Semaphore(app_config.max_concurrent_ai_requests)
 
     async def process_single_file(filename):
@@ -337,6 +373,7 @@ async def run_stage_base_process_enhanced():
             await generate_enhanced_profile(
                 baustein_id, baustein_title, baustein_description, input_path, output_path,
                 gpp_controls_lookup, prompt_instruction, enhanced_schema, ai_client,
+                maturity_cache,
             )
 
     tasks = []

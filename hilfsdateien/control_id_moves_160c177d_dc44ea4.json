@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "beschreibung": "Umnummerierung von Controls des Anwenderkatalogs Grundschutz++, ueber alt-identifier abgeleitet (Gpp-ai-tool/scripts/remap_control_ids.py derive).",
+    "katalog_alt_commit": "160c177db6c84d3c621fff614559943b1de8c600",
+    "katalog_neu_commit": "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35",
+    "anzahl_verschoben": 24,
+    "anzahl_parameter": 9,
+    "anzahl_neu": 1,
+    "anzahl_geaendert_gleiche_uuid": 12,
+    "hinweis": "controls und params in EINEM Durchgang anwenden (apply); 13 alte IDs existieren im neuen Stand weiter und bezeichnen ein anderes Control."
+  },
+  "controls": {
+    "ASST.2.3.2": "ASST.2.4",
+    "ASST.2.3.2.1": "ASST.2.4.1",
+    "ASST.2.4": "ASST.2.5",
+    "DET.3.1.1": "DET.3.2.1",
+    "DET.3.1.10": "DET.3.1.4",
+    "DET.3.1.11": "DET.3.1.5",
+    "DET.3.1.12": "DET.3.3",
+    "DET.3.1.2": "DET.3.2.2",
+    "DET.3.1.3": "DET.3.2.3",
+    "DET.3.1.4": "DET.3.2.4",
+    "DET.3.1.5": "DET.3.2.5",
+    "DET.3.1.6": "DET.3.2.6",
+    "DET.3.1.7": "DET.3.1.1",
+    "DET.3.1.8": "DET.3.1.2",
+    "DET.3.1.9": "DET.3.1.3",
+    "DET.3.2": "DET.3.4",
+    "DET.3.3": "DET.3.5",
+    "DET.3.4": "DET.3.6",
+    "DET.3.5": "DET.3.7",
+    "DET.3.6": "DET.3.8",
+    "DET.5.10.2": "DET.5.11",
+    "DET.5.10.3": "DET.5.12",
+    "DET.5.10.4": "DET.5.10.2",
+    "DET.5.10.5": "DET.5.10.3"
+  },
+  "params": {
+    "asst.2.3.2.1-prm1": "asst.2.4.1-prm1",
+    "det.3.1.11-prm1": "det.3.1.5-prm1",
+    "det.3.1.6-prm1": "det.3.2.6-prm1",
+    "det.3.3-prm1": "det.3.5-prm1",
+    "det.3.4-prm1": "det.3.6-prm1",
+    "det.3.6-prm1": "det.3.8-prm1",
+    "det.3.6-prm2": "det.3.8-prm2",
+    "det.5.10.2-prm1": "det.5.11-prm1",
+    "det.5.10.3-prm1": "det.5.12-prm1"
+  },
+  "neue_controls": {
+    "DET.3.2": "Protokollierung in IT-Systemen"
+  },
+  "entfallene_uuids": [],
+  "geaendert_gleiche_uuid": {
+    "ARCH.2.2.1": {
+      "alt_id": "ARCH.2.2.1",
+      "titel": {
+        "alt": "Externe Netzanschlüsse",
+        "neu": "Externe Netzanschlüsse einschränken"
+      },
+      "statement": null
+    },
+    "ASST.2.1": {
+      "alt_id": "ASST.2.1",
+      "titel": null,
+      "statement": {
+        "alt": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+        "neu": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren."
+      }
+    },
+    "ASST.2.3": {
+      "alt_id": "ASST.2.3",
+      "titel": null,
+      "statement": {
+        "alt": "Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+        "neu": "Informationen und Assets für IT-Systeme SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren."
+      }
+    },
+    "DET.3.1": {
+      "alt_id": "DET.3.1",
+      "titel": {
+        "alt": "Protokollierung sicherheitsrelevanter Ereignisse",
+        "neu": "Protokollierung in Anwendungen"
+      },
+      "statement": null
+    },
+    "GEB.8.1.1": {
+      "alt_id": "GEB.8.1.1",
+      "titel": {
+        "alt": "Archiv",
+        "neu": "Kritische Medien ins Archiv"
+      },
+      "statement": null
+    },
+    "KONF.10.3": {
+      "alt_id": "KONF.10.3",
+      "titel": {
+        "alt": "Änderung von Default-Zugangsdaten",
+        "neu": "Default-Zugangsdaten in Anwendungen"
+      },
+      "statement": null
+    },
+    "KONF.15.2": {
+      "alt_id": "KONF.15.2",
+      "titel": null,
+      "statement": {
+        "alt": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+        "neu": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro {{ insert: param, konf.15.2-prm1 }} einschränken."
+      }
+    },
+    "KONF.15.3": {
+      "alt_id": "KONF.15.3",
+      "titel": {
+        "alt": "Denial of Service",
+        "neu": "Schutz gegen Denial of Service"
+      },
+      "statement": null
+    },
+    "KONF.2.3": {
+      "alt_id": "KONF.2.3",
+      "titel": {
+        "alt": "Änderung von Default-Zugangsdaten",
+        "neu": "Default-Zugangsdaten in IT-Systemen"
+      },
+      "statement": null
+    },
+    "KONF.2.5": {
+      "alt_id": "KONF.2.5",
+      "titel": {
+        "alt": "Überprüfung der Konfiguration",
+        "neu": "Überprüfung der Systemkonfiguration"
+      },
+      "statement": null
+    },
+    "KONF.2.6": {
+      "alt_id": "KONF.2.6",
+      "titel": {
+        "alt": "Automatische Konfigurationsverwaltung",
+        "neu": "Mobile Device Management"
+      },
+      "statement": null
+    },
+    "KONF.9.2": {
+      "alt_id": "KONF.9.2",
+      "titel": {
+        "alt": "Begrenzung der Rechenleistung",
+        "neu": "Begrenzung der Hostleistung"
+      },
+      "statement": null
+    }
+  },
+  "wiederverwendete_ids": [
+    "ASST.2.4",
+    "DET.3.1.1",
+    "DET.3.1.2",
+    "DET.3.1.3",
+    "DET.3.1.4",
+    "DET.3.1.5",
+    "DET.3.2",
+    "DET.3.3",
+    "DET.3.4",
+    "DET.3.5",
+    "DET.3.6",
+    "DET.5.10.2",
+    "DET.5.10.3"
+  ]
+}

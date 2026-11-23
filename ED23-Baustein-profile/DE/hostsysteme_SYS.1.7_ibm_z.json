@@ -3,8 +3,8 @@
     "uuid": "e1fd97fa-4b46-5e71-a4fb-c37fb0128c18",
     "metadata": {
       "title": "SYS.1.7 – IBM Z (Hostsysteme)",
-      "last-modified": "2026-10-19T01:18:11.444620+00:00",
-      "version": "2026-10-19",
+      "last-modified": "2026-11-23T17:24:00.171641+00:00",
+      "version": "2026-11-23",
       "oscal-version": "1.2.2",
       "props": [
         {
@@ -49,11 +49,11 @@
           "text": "Baustein SYS.1.7 im BSI-IT-Grundschutz-Katalog Edition 2023 (benutzerdefinierte OSCAL-Ausgabe)"
         }
       ],
-      "remarks": "Erzeugt von Gpp-ai-tool 5.0.1 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin 160c177db6c8) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
+      "remarks": "Erzeugt von Gpp-ai-tool 5.2.0 (stage_ED23_profiles_enhanced). Die Anforderungen des Bausteins sind Gruppen mit dem Originaltext als Part „overview“ (amtlicher Wortlaut des XML-Kompendiums 2023); die Controls stammen aus dem Anwenderkatalog Grundschutz++ (Pin dc44ea4fb581) und dem NG Ergänzungskatalog (NG-ergaenzungskatalog.json, nutzergeneriert). Jede Zuordnung nennt ihre Herkunft in der Prop ed23-anforderung des Controls."
     },
     "imports": [
       {
-        "href": "#c45ef8e9-7d97-5035-b3df-6af73bf31126",
+        "href": "#1743f782-c978-51fd-acd0-81168bc1727f",
         "include-controls": [
           {
             "with-ids": [
@@ -82,8 +82,8 @@
               "BER.5.6",
               "BES.2.1.5",
               "DET.1.1",
-              "DET.3.1.1",
-              "DET.3.1.8",
+              "DET.3.1.2",
+              "DET.3.2.1",
               "DET.4.15",
               "DET.5.10",
               "KONF.1.1",
@@ -91,6 +91,7 @@
               "KONF.10.3",
               "KONF.10.4",
               "KONF.14.1",
+              "KONF.15.2",
               "KONF.2.1",
               "KONF.2.1.1",
               "KONF.2.2",
@@ -102,6 +103,7 @@
               "KONF.6.6.1",
               "KONF.6.7",
               "KONF.7.9",
+              "KONF.9.2",
               "NOT.3.6",
               "NOT.4.1",
               "NOT.4.15",
@@ -123,7 +125,7 @@
         ]
       },
       {
-        "href": "#6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+        "href": "#d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
         "include-controls": [
           {
             "with-ids": [
@@ -192,7 +194,8 @@
                           "BER.3.9",
                           "BER.4.1",
                           "BER.4.3",
-                          "DET.3.1.8",
+                          "DET.3.1.2",
+                          "KONF.2.3",
                           "KONF.6.4",
                           "NOT.3.6"
                         ]
@@ -398,11 +401,17 @@
                           "KONF.10.3",
                           "KONF.10.4",
                           "KONF.14.1",
-                          "KONF.2.3",
                           "KONF.2.4"
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.2.3",
+                    "rel": "related",
+                    "text": "KONF.2.3 steht unter SYS.1.7.A1"
                   }
                 ]
               },
@@ -571,9 +580,14 @@
                     "text": "BER.4.1.1 steht unter SYS.1.7.A7"
                   },
                   {
+                    "href": "#KONF.10.3",
+                    "rel": "related",
+                    "text": "KONF.10.3 steht unter SYS.1.7.A5"
+                  },
+                  {
                     "href": "#KONF.2.3",
                     "rel": "related",
-                    "text": "KONF.2.3 steht unter SYS.1.7.A5"
+                    "text": "KONF.2.3 steht unter SYS.1.7.A1"
                   },
                   {
                     "href": "#KONF.6.4",
@@ -1076,6 +1090,7 @@
                       {
                         "with-ids": [
                           "KONF.2.1.1",
+                          "KONF.2.5",
                           "TEST.4.3"
                         ]
                       }
@@ -1170,7 +1185,9 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "BER.3.1"
+                          "BER.3.1",
+                          "KONF.15.2",
+                          "KONF.9.2"
                         ]
                       }
                     ]
@@ -1193,6 +1210,11 @@
                     "text": "DET.5.10 steht unter SYS.1.7.A3"
                   },
                   {
+                    "href": "#KONF.10.3",
+                    "rel": "related",
+                    "text": "KONF.10.3 steht unter SYS.1.7.A5"
+                  },
+                  {
                     "href": "#KONF.2.2",
                     "rel": "related",
                     "text": "KONF.2.2 steht unter SYS.1.7.A8"
@@ -1200,7 +1222,7 @@
                   {
                     "href": "#KONF.2.3",
                     "rel": "related",
-                    "text": "KONF.2.3 steht unter SYS.1.7.A5"
+                    "text": "KONF.2.3 steht unter SYS.1.7.A1"
                   },
                   {
                     "href": "#KONF.2.4",
@@ -1303,6 +1325,11 @@
                     "href": "#DET.4.15",
                     "rel": "related",
                     "text": "DET.4.15 steht unter SYS.1.7.A16"
+                  },
+                  {
+                    "href": "#KONF.9.2",
+                    "rel": "related",
+                    "text": "KONF.9.2 steht unter SYS.1.7.A23"
                   }
                 ]
               },
@@ -1659,11 +1686,17 @@
                         "with-ids": [
                           "KONF.1.1",
                           "KONF.1.1.3",
-                          "KONF.2.1",
-                          "KONF.2.5"
+                          "KONF.2.1"
                         ]
                       }
                     ]
+                  }
+                ],
+                "links": [
+                  {
+                    "href": "#KONF.2.5",
+                    "rel": "related",
+                    "text": "KONF.2.5 steht unter SYS.1.7.A21"
                   }
                 ]
               },
@@ -1939,7 +1972,7 @@
                     "include-controls": [
                       {
                         "with-ids": [
-                          "DET.3.1.1"
+                          "DET.3.2.1"
                         ]
                       }
                     ]
@@ -1961,15 +1994,15 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -1993,7 +2026,7 @@
           ]
         },
         {
-          "uuid": "6b2c3fe8-7370-556a-9c3c-540d81d5de99",
+          "uuid": "d90b7ecf-6e9a-5717-a2e7-c12d3f20764c",
           "title": "NG Ergänzungskatalog zu den ED23-Baustein-Profilen – Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "NG Ergänzungskatalog mit 69 nutzergenerierten Controls, Datei NG-ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -2003,7 +2036,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "d3f468817e2304409a2f7a9f1433818d7839ff6ee3e0b46a01978f12666d9b96"
+                  "value": "23b9a008dfc85ef8836e03335e06dbb435fe43852b215430db991d19b16ffc0b"
                 }
               ]
             }
@@ -2504,23 +2537,7 @@
           ]
         },
         {
-          "control-id": "DET.3.1.1",
-          "adds": [
-            {
-              "position": "ending",
-              "props": [
-                {
-                  "name": "ed23-anforderung",
-                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
-                  "value": "SYS.1.7.A38",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die Maßnahme DET.3.1.1 verlangt allgemein die Protokollierung von fehlgeschlagenen Authentifizierungen, was die nachträgliche Kontrolle abgewiesener Login-Versuche inhaltlich abdeckt. [auch: satz_abdeckung]"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "DET.3.1.8",
+          "control-id": "DET.3.1.2",
           "adds": [
             {
               "position": "ending",
@@ -2529,7 +2546,23 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A1",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.8 erfasst privilegierte Ereignisse in Anwendungen, was die Nachvollziehbarkeit der Nutzung hochprivilegierter z/OS-Berechtigungen berührt, aber keine z/OS-spezifische Nachweisführung vorschreibt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): DET.3.1.2 erfasst privilegierte Ereignisse in Anwendungen, was die Nachvollziehbarkeit der Nutzung hochprivilegierter z/OS-Berechtigungen berührt, aber keine z/OS-spezifische Nachweisführung vorschreibt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "DET.3.2.1",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A38",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die Maßnahme DET.3.2.1 verlangt allgemein die Protokollierung von fehlgeschlagenen Authentifizierungen, was die nachträgliche Kontrolle abgewiesener Login-Versuche inhaltlich abdeckt. [auch: satz_abdeckung]"
                 }
               ]
             }
@@ -2621,7 +2654,19 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A5",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.10.3 bezieht sich auf die Konfiguration von Anwendungen, während Satz 3 den Wechsel voreingestellter Passwörter speziell für systemnahe z/OS-Terminals und -Konsolen verlangt. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.10.3 adressiert die Änderung von Default-Zugangsdaten bei Anwendungen, während sich der Satz auf das Ändern voreingestellter Passwörter bei systemnahen z/OS-Terminals und Konsolen bezieht. [auch: satz_abdeckung]"
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A8",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.10.3 adressiert die Änderung von Default-Zugangsdaten bei Anwendungen, während der Satz spezifisch voreingestellte Passwörter im z/OS-Sicherheitssystem RACF (RVARY-Kommando und neu angelegte User-IDs) betrifft."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A23",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 2): KONF.10.3 adressiert die Änderung von Default-Zugangsdaten bei Anwendungen, während sich der Satz auf voreingestellte Passwörter des Hypervisors bzw. Betriebssystems z/VM bezieht."
                 }
               ]
             }
@@ -2666,6 +2711,22 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A11",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 1): Die G++-Maßnahme KONF.14.1 fordert die Transportverschlüsselung der Anwendungskommunikation über Netze, was die verschlüsselte Übertragung von Verbindungs- und Session-Daten direkt abdeckt. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.15.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A23",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 7): Der Satz verlangt speziell unter z/VM sowohl die Beschränkung aller Ressourcen (inklusive Rechenleistung) als auch eine strikte Trennung virtueller Maschinen, während KONF.15.2 allgemein für Hostsysteme die Einschränkung der Rechenleistung pro Konto oder Mandant vorsieht."
                 }
               ]
             }
@@ -2734,6 +2795,12 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A1",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 5): Satz 5 fordert das dauerhafte Sperren der Standard-Installationskennung IBMUSER nach der Neuinstallation, was der Deaktivierung von Default-Zugangsdaten gemäß KONF.2.3 entspricht."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A5",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): Die G++-Maßnahme KONF.2.3 fordert explizit die Änderung von Default-Zugangsdaten und deckt damit die Pflicht zur Änderung voreingestellter Passwörter inhaltlich vollständig ab. [auch: satz_abdeckung]"
                 },
@@ -2741,7 +2808,7 @@
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A8",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): KONF.2.3 fordert die generelle Änderung von Default-Zugangsdaten für IT-Systeme und deckt damit die z/OS-spezifische Pflicht zur Änderung voreingestellter Passwörter für RVARY und neu angelegte User-IDs direkt ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 3): KONF.2.3 empfiehlt die Änderung werkseitiger Default-Zugangsdaten und trifft damit das voreingestellte Passwort für das RVARY-Kommando; die Pflicht zur Passwortänderung bei sämtlichen im laufenden Betrieb neu angelegten User-IDs geht jedoch über die Erstinbetriebnahme von Systemen hinaus. [auch: satz_abdeckung]"
                 },
                 {
                   "name": "ed23-anforderung",
@@ -2790,8 +2857,14 @@
                 {
                   "name": "ed23-anforderung",
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A21",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 4): KONF.2.5 empfiehlt die regelmäßige Überprüfung der Konfiguration gegen den Soll-Zustand, während Satz 4 spezifisch eine ereignisbezogene Kontrolle des Systemstatus unmittelbar nach dem Startvorgang anhand einer Prüfliste fordert."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A32",
-                  "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 3): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand und deckt damit die allgemeine Forderung nach regelmäßiger Überprüfung der Einhaltung definierter Konfigurationsstandards ab. [auch: satz_abdeckung]"
+                  "remarks": "Herkunft: satz_abdeckung (intersects-with, Satz 3): KONF.2.5 fordert die regelmäßige Überprüfung der tatsächlichen Konfiguration gegen den Referenzzustand und deckt damit die allgemeine Forderung nach regelmäßiger Überprüfung der Einhaltung definierter Konfigurationsstandards ab."
                 }
               ]
             }
@@ -2950,6 +3023,28 @@
                   "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
                   "value": "SYS.1.7.A2",
                   "remarks": "Herkunft: gpp_ed23_anforderungen (superset-of, Teilanforderung 2): Die G++-Maßnahme KONF.7.9 fordert die Einschränkung der Installation von Anwendungen, was dem Verhindern der unerlaubten Installation von (Fremd-)Programmen entspricht. [auch: satz_abdeckung]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "control-id": "KONF.9.2",
+          "adds": [
+            {
+              "position": "ending",
+              "props": [
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A23",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 7): Satz 7 fordert die Beschränkung der Ressourcenzuteilung für virtuelle Maschinen unter z/VM auf das notwendige Maß, was sich inhaltlich mit der Begrenzung der zur Verfügung stehenden Rechenleistung in KONF.9.2 überschneidet."
+                },
+                {
+                  "name": "ed23-anforderung",
+                  "ns": "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/ed23-baustein",
+                  "value": "SYS.1.7.A25",
+                  "remarks": "Herkunft: gpp_ed23_anforderungen (intersects-with, Teilanforderung 1): Satz 1 fordert die Festlegung von Grenzen für die maximale Belastung von Ressourcen wie der Anzahl der CPUs, was sich mit der Begrenzung der Rechenleistung durch Schwellwerte oder die Beschränkung verwendeter Rechenkerne in KONF.9.2 überschneidet."
                 }
               ]
             }

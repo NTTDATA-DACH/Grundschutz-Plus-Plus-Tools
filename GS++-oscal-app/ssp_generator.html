@@ -685,7 +685,7 @@
             </div>
         </div>
 
-        <div class="rail-foot">BUILD V5.18.1</div>
+        <div class="rail-foot">BUILD V5.18.2</div>
     </aside>
 
     <div id="rail-splitter" class="splitter" title="Rail-Breite ziehen"></div>
@@ -927,11 +927,11 @@
         // Gleiche Werte wie Gpp-ai-tool/src/constants.py und die gepinnten Repo-Profile.
         // Bewusst NICHT über gppSource umleitbar: SHA-256 und resource-uuid (uuid5 der
         // URL) sind hier fest verdrahtet — ein Repin würde Hash und Inhalt auseinanderziehen.
-        const GPP_CATALOG_PIN_COMMIT = '160c177db6c84d3c621fff614559943b1de8c600';
-        const GPP_CATALOG_PIN_SHA256 = '7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90';
+        const GPP_CATALOG_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
+        const GPP_CATALOG_PIN_SHA256 = '9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a';
         const CATALOG_URL_BASE = `https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/${GPP_CATALOG_PIN_COMMIT}/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json`;
         // uuid5(NAMESPACE_URL, CATALOG_URL_BASE) — identisch zu den gepinnten Repo-Profilen.
-        const GPP_CATALOG_RESOURCE_UUID = 'c45ef8e9-7d97-5035-b3df-6af73bf31126';
+        const GPP_CATALOG_RESOURCE_UUID = '1743f782-c978-51fd-acd0-81168bc1727f';
 
         async function sha256Hex(buf) {
             const d = await crypto.subtle.digest('SHA-256', buf);
@@ -945,7 +945,7 @@
         const SDT_REPO_OWNER = 'BSI-Bund';
         const SDT_REPO_NAME = 'Stand-der-Technik-Bibliothek';
         // BSI implementation_layer: fertige Component-Definitions (Keycloak, Netzarchitektur, ...)
-        const SDT_PIN_COMMIT = '160c177db6c84d3c621fff614559943b1de8c600';
+        const SDT_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
         const PRAKTIKEN_FILE_SUFFIX = '_process_profile.json';
 
         // Praktik-Kürzel → Begriff. Fallback für die Anzeige, falls der Basis-Katalog (mit
@@ -1020,14 +1020,14 @@
            sonst wird nichts übernommen. Neue Exporte: Commit und Hashes hier nachziehen (check_pins.py prüft SHA-256-Konstanten). */
         const MST_PIN_COMMIT = '7fc5416d987f36dffe27c1fe920cbc8896152854'; // Release 4.3, Commit 1 (umgepinnte Staende), 16.10.2026
         const MST_PINNED = [
-            { file: 'mindeststandard-hv-2.0.profile.json', kurz: 'HV', version: '2.0', stand: '11/2023', title: "Mindeststandard des BSI zum HV-Benchmark kompakt 5.0 (Version 2.0)", sha256: '4a8c86b67da9b697d0610fae8a8ef2900fe1dd65bb0a3bd14934ea8a3c1e6159' },
-            { file: 'mindeststandard-isms_itkb-1.0a.profile.json', kurz: 'ISMS ITKB', version: '1.0a', stand: '07/2025', title: "Regelungsdokument für das Informationssicherheitsmanagementsystem in der IT-Konsolidierung Bund (Mindeststandard ISMS ITKB) (Version 1.0a)", sha256: '7ee1b40c0e190701824a5a60e89c570a41061c71c4e78a230c6e58d77857f412' },
-            { file: 'mindeststandard-mdm-2.0.profile.json', kurz: 'MDM', version: '2.0', stand: '09/2022', title: "Mindeststandard des BSI für Mobile Device Management (Version 2.0)", sha256: 'd80cb484cca0585a2a8d286a5d646a9c2938c1331a169581c105e474feeb5291' },
-            { file: 'mindeststandard-ncd-2.1.profile.json', kurz: 'NCD', version: '2.1', stand: '12/2022', title: "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1)", sha256: '5f7309f6ea823cb79ff7c16a69c059390a85223103bb0a5e1035828ce463696f' },
-            { file: 'mindeststandard-pd-2.1.profile.json', kurz: 'PD', version: '2.1', stand: '11/2024', title: "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1)", sha256: 'dd79582373251b15ce90a0f03f0b38d54535dafdd9f9a7e3ec590ae779edf9d1' },
-            { file: 'mindeststandard-tls-2.4.profile.json', kurz: 'TLS', version: '2.4', stand: '05/2023', title: "Mindeststandard des BSI zur Verwendung von Transport Layer Security (TLS) (Version 2.4)", sha256: 'fa984d29914c8788bd3e7043571db4eda423d38c1e53a2f9015fbc5eed5cafc0' },
-            { file: 'mindeststandard-vk-1.0.profile.json', kurz: 'VK', version: '1.0', stand: '10/2021', title: "Mindeststandard des BSI für Videokonferenzdienste (Version 1.0)", sha256: 'b45f7e9e2f19f05ae86dc7b4341346e496202bffab3692936fb2ff7797c740a1' },
-            { file: 'mindeststandard-wb-3.0.profile.json', kurz: 'WB', version: '3.0', stand: '02/2024', title: "Mindeststandard des BSI für Webbrowser (Version 3.0)", sha256: '1199a8a2af8819a8582f31548bd429189f9903e7063cc1e59789526ba999c522' }
+            { file: 'mindeststandard-hv-2.0.profile.json', kurz: 'HV', version: '2.0', stand: '11/2023', title: "Mindeststandard des BSI zum HV-Benchmark kompakt 5.0 (Version 2.0)", sha256: '1fc8ed6cae99e75f44313cf41d9577799f998ec7058b11f319d89c944cc10ac6' },
+            { file: 'mindeststandard-isms_itkb-1.0a.profile.json', kurz: 'ISMS ITKB', version: '1.0a', stand: '07/2025', title: "Regelungsdokument für das Informationssicherheitsmanagementsystem in der IT-Konsolidierung Bund (Mindeststandard ISMS ITKB) (Version 1.0a)", sha256: '419167a329cc9a44ed394ade1a56182879e18b542d3dcffac0cf591ad617f30f' },
+            { file: 'mindeststandard-mdm-2.0.profile.json', kurz: 'MDM', version: '2.0', stand: '09/2022', title: "Mindeststandard des BSI für Mobile Device Management (Version 2.0)", sha256: 'db713406576218dce9d31e941e7db986e9c97d105455aeb6ae4956b692b61a2e' },
+            { file: 'mindeststandard-ncd-2.1.profile.json', kurz: 'NCD', version: '2.1', stand: '12/2022', title: "Mindeststandard des BSI zur Nutzung externer Cloud-Dienste (Version 2.1)", sha256: '4474bb44ae5d52fbbfca3c32e8e85c690d6f0ec0d902c729eb20e94811757100' },
+            { file: 'mindeststandard-pd-2.1.profile.json', kurz: 'PD', version: '2.1', stand: '11/2024', title: "Mindeststandard des BSI zur Protokollierung und Detektion von Cyber-Angriffen (Version 2.1)", sha256: '15a5ff60bdfb2c26a061b5869b3a1ca3cf700d1134b8aefc4b0197252440e512' },
+            { file: 'mindeststandard-tls-2.4.profile.json', kurz: 'TLS', version: '2.4', stand: '05/2023', title: "Mindeststandard des BSI zur Verwendung von Transport Layer Security (TLS) (Version 2.4)", sha256: '68a16b0dd46851ad7ed565abe654ab2aa4308bb885feb6beae7abbe2d5f7455d' },
+            { file: 'mindeststandard-vk-1.0.profile.json', kurz: 'VK', version: '1.0', stand: '10/2021', title: "Mindeststandard des BSI für Videokonferenzdienste (Version 1.0)", sha256: 'c5e66118e1b5730f2b1125e8de681ededf8b961b63f1badad5cb00fbbf15d444' },
+            { file: 'mindeststandard-wb-3.0.profile.json', kurz: 'WB', version: '3.0', stand: '02/2024', title: "Mindeststandard des BSI für Webbrowser (Version 3.0)", sha256: 'b11ca510f420f66cefec1cfe8fb32037d9a8010f254eea8d5ee6a7a36cf8161f' }
         ];
 
         const OSCAL_NAMESPACES = {
@@ -1671,7 +1671,7 @@ Verfügbare Controls als Kandidaten für mitigatingControlIds (ID: Titel):
         let BSI_ITGS_MAP = {};
         // Pin des BSI-GSMap ITGS→GS++ auf denselben Commit wie der Katalog; der SHA-256
         // wird beim Laden geprueft (Grundregel 8, gilt auch fuers Mapping).
-        const BSI_ITGS_MAP_PIN_COMMIT = '160c177db6c84d3c621fff614559943b1de8c600';
+        const BSI_ITGS_MAP_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
         const BSI_ITGS_MAP_PIN_SHA256 = 'df7ea11261ace956a3ebb440f60928851a4815f5545775ac9b24e4d3d22f267f';
         const BSI_ITGS_MAP_URL = `https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/${BSI_ITGS_MAP_PIN_COMMIT}/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS%2B%2B-mapping_collection.json`;
         function buildBsiItgsMapFromOscal(doc) {

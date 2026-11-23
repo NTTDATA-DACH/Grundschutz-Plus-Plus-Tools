@@ -1,9 +1,9 @@
 {
   "catalog": {
-    "uuid": "691f63ee-ef72-43b7-8bad-0fca642e7f27",
+    "uuid": "eef49472-5070-41f0-8c2a-464f8f024a5f",
     "metadata": {
       "title": "Mindeststandard des BSI für Videokonferenzdienste (Version 1.0) – als Grundschutz++-Katalog",
-      "last-modified": "2026-10-28T21:17:07.545Z",
+      "last-modified": "2026-11-23T17:08:39.941Z",
       "version": "1.0",
       "oscal-version": "1.2.2",
       "props": [
@@ -92,7 +92,7 @@
           ]
         }
       ],
-      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py)."
+      "remarks": "Erzeugt mit mindeststandard-oscal.html (build 1.2.1). Die Anforderungen des Mindeststandards sind Gruppen mit dem Originaltext als Part „overview“; die Controls stammen unverändert aus dem Anwenderkatalog Grundschutz++ und werden nur über modify (set-parameters, alters) angepasst. Zuordnungen mit Herkunft „BSI-GSMap“ folgen der Referenztabelle des BSI und dem amtlichen Mapping ITGS 2023 → Grundschutz++ (Status draft), alle anderen sind fachliche Auslegung des Erstellers. Am 2026-10-16 gegen den Anwenderkatalog-Stand a12831136f41 neu aufgelöst (repin.py). Am 2026-10-28 gegen den Anwenderkatalog-Stand 160c177db6c8 neu aufgelöst (repin.py). Am 2026-11-23 gegen den Anwenderkatalog-Stand dc44ea4fb581 neu aufgelöst (repin.py)."
     },
     "groups": [
       {
@@ -2434,17 +2434,17 @@
                 ],
                 "links": [
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.1.1",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.1.1",
                     "rel": "related",
                     "text": "NOT.1.1 Verfahren und Regelungen (Anwenderkatalog Grundschutz++)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.1",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.1",
                     "rel": "related",
                     "text": "NOT.3.1 Wiederanlaufplan (Anwenderkatalog Grundschutz++)"
                   },
                   {
-                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.5",
+                    "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json#NOT.3.5",
                     "rel": "related",
                     "text": "NOT.3.5 Ausweich-Telekommunikation (Anwenderkatalog Grundschutz++)"
                   }
@@ -2706,7 +2706,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Prozess Behandlung von Sicherheitsvorfällen"
+                        "value": "Behandlung von Sicherheitsvorfällen"
                       },
                       {
                         "name": "result",
@@ -6124,7 +6124,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Beschaffungskriterien"
+                        "value": "Leistungsbeschreibung"
                       },
                       {
                         "name": "result",
@@ -6485,7 +6485,7 @@
                       {
                         "name": "documentation",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/documentation_guidelines.csv",
-                        "value": "Beschaffungskriterien"
+                        "value": "Leistungsbeschreibung"
                       },
                       {
                         "name": "result",
@@ -9751,17 +9751,17 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "c45ef8e9-7d97-5035-b3df-6af73bf31126",
-          "title": "Grundschutz++-resolved_catalog.json @ 160c177db6c8",
-          "description": "Anwenderkatalog Grundschutz++, Version 2026-10-22T12:58:16.507815+00:00",
+          "uuid": "1743f782-c978-51fd-acd0-81168bc1727f",
+          "title": "Grundschutz++-resolved_catalog.json @ dc44ea4fb581",
+          "description": "Anwenderkatalog Grundschutz++, Version 2026-11-19T08:31:48.012242+00:00",
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/160c177db6c84d3c621fff614559943b1de8c600/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+              "href": "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
               "media-type": "application/json",
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "7c3acebd0867724e8fc2e6ce73f942642fcd37e533600e0952699f130a8bca90"
+                  "value": "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a"
                 }
               ]
             }
@@ -9795,7 +9795,7 @@
           ]
         },
         {
-          "uuid": "bbe31a06-b791-5d3f-9e63-0d1f238e0f35",
+          "uuid": "854f0e47-fead-5d73-ab5b-48a8fb0fe11f",
           "title": "Mindeststandard des BSI für Videokonferenzdienste (Version 1.0) – Ergänzungskatalog: Anforderungen ohne Entsprechung im Anwenderkatalog Grundschutz++",
           "description": "Ergänzungskatalog mit 5 neuen Controls, Datei mindeststandard-vk-1.0.ergaenzungskatalog.json neben diesem Profil",
           "rlinks": [
@@ -9805,7 +9805,7 @@
               "hashes": [
                 {
                   "algorithm": "SHA-256",
-                  "value": "a00fd8ab159c67165fe3c0bc229e1760635eb72183ed1fee2b24359bfb0e6b04"
+                  "value": "242639baf8e6ed20cb3e6152801a4a3ce0a3327543bbf75872fe534c464c827b"
                 }
               ]
             }
