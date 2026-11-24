@@ -27,7 +27,7 @@ ABGLEICH = {
     "SYS.1.1.A1": {"zuordnungen": [Z("KONF.1.1"), Z("GC.1.1", "satz_abdeckung")], "neues_control": None, "ohne_control": None, "pruefung": None},
     "SYS.1.1.A3": {"zuordnungen": [Z("KONF.1.1", "prozessbausteine_mapping")], "neues_control": None, "ohne_control": None,
                    "pruefung": {"art": "umsetzungsanforderung"}},
-    "SYS.1.1.A4": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A4", "titel": "x"}, "ohne_control": None, "pruefung": None},
+    "SYS.1.1.A4": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A4", "titel": "x", "checker": "bestaetigt"}, "ohne_control": None, "pruefung": None},
     "SYS.1.1.A5": {"zuordnungen": [], "neues_control": None, "ohne_control": {"art": "hinweis", "begruendung": "nur Hinweis"}, "pruefung": {"art": "hinweis"}},
     "SYS.1.1.A10": {"zuordnungen": [Z("DET.1.1", "ki", konfidenz="hoch", checker="bestaetigt")], "neues_control": None, "ohne_control": None, "pruefung": None},
 }
@@ -139,7 +139,7 @@ async def test_run_writes_profiles_idempotently(tmp_path):
         {"id": "GC.1.1", "title": "G", "parts": [{"id": "GC.1.1_stm", "name": "statement", "prose": "Governance MUSS g."}]}]}]}]}}
     abgleich = {"ed23_baustein_abgleich": {"meta": {"version": "2026-10-18"}, "anforderungen": {
         "SYS.1.1.A1": {"zuordnungen": [Z("GC.1.1")], "neues_control": None, "ohne_control": None, "pruefung": None},
-        "SYS.1.1.A2": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A2"}, "ohne_control": None, "pruefung": None}}}}
+        "SYS.1.1.A2": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A2", "checker": "bestaetigt"}, "ohne_control": None, "pruefung": None}}}}
     ng_catalog = {"catalog": {"metadata": {"title": "NG Ergänzungskatalog"}, "groups": [{"id": "SYS", "groups": [
         {"id": "SYS.1.1", "controls": [{"id": "NG-SYS.1.1.A2"}]}]}]}}
     out_dir = tmp_path / "DE"
@@ -193,3 +193,33 @@ async def test_run_writes_profiles_idempotently(tmp_path):
     finally:
         for p in patches:
             p.stop()
+
+
+def test_strict_checker_gate_blocks_unapproved_ki_and_allows_manual_approval():
+    ordered = [
+        _rec("SYS.1.1.A1", "B"),
+        _rec("SYS.1.1.A2", "B"),
+        _rec("SYS.1.1.A3", "B"),
+        _rec("SYS.1.1.A4", "B"),
+        _rec("SYS.1.1.A5", "B"),
+    ]
+    abgleich = {
+        "SYS.1.1.A1": {"zuordnungen": [Z("GC.1.1", "ki", checker="fraglich")], "neues_control": None, "ohne_control": None},
+        "SYS.1.1.A2": {"zuordnungen": [Z("KONF.1.1", "ki", checker="unsicher")], "neues_control": None, "ohne_control": None},
+        "SYS.1.1.A3": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A3", "checker": "nicht geprüft"}, "ohne_control": None},
+        "SYS.1.1.A4": {"zuordnungen": [Z("GC.1.1", "ki", checker="fraglich", freigabe="genehmigt")], "neues_control": None, "ohne_control": None},
+        "SYS.1.1.A5": {"zuordnungen": [], "neues_control": {"id": "NG-SYS.1.1.A5", "checker": "unsicher", "manual_approval": True}, "ohne_control": None},
+    }
+    first_owner, inserted, _ = st.control_placement(ordered, abgleich)
+    assert set(first_owner) == {"GC.1.1", "NG-SYS.1.1.A5"}
+    assert inserted["SYS.1.1.A1"] == [] and inserted["SYS.1.1.A2"] == [] and inserted["SYS.1.1.A3"] == []
+    assert inserted["SYS.1.1.A4"] == ["GC.1.1"] and inserted["SYS.1.1.A5"] == ["NG-SYS.1.1.A5"]
+
+    ctx = dict(CTX, ordered=ordered, abgleich=abgleich)
+    doc = st.build_profile(ctx, "plain")
+    b_groups = {g["id"]: g for g in doc["profile"]["merge"]["custom"]["groups"][0]["groups"]}
+    for blocked_id in ("SYS.1.1.A1", "SYS.1.1.A2", "SYS.1.1.A3"):
+        oc = [p for p in b_groups[blocked_id]["props"] if p["name"] == "ohne-control"][0]
+        assert oc["value"] == "pending_review"
+    assert doc["profile"]["imports"][0]["include-controls"][0]["with-ids"] == ["GC.1.1"]
+    assert doc["profile"]["imports"][1]["include-controls"][0]["with-ids"] == ["NG-SYS.1.1.A5"]

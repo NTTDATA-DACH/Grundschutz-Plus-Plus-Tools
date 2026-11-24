@@ -45,6 +45,8 @@ phase loses almost nothing; the client logs a token totals line at the end.
 """
 
 import asyncio
+import datetime
+import hashlib
 import json
 import logging
 import os
@@ -61,6 +63,7 @@ from utils.oscal_mapping import to_oscal_mapping_collection
 from utils.ed23_xml import fetch_official_xml, load_official_xml
 from constants import (
     GPP_KOMPENDIUM_JSON_PATH,
+    GPP_CATALOG_PIN_COMMIT,
     GPP_CATALOG_PIN_SHA256,
     GPP_ED23_ANFORDERUNGEN_JSON_PATH,
     ED23_ANFORDERUNGEN_STRIPPED_JSON_PATH,
@@ -448,8 +451,84 @@ async def _verify_candidate(
 # phase loses at most a handful of calls (docs/token-kostenplan.md, Maßnahme 7 — the
 # 265M-token maker phase of the crashed v2 run lived only in RAM).
 CHECKPOINT_PATH = GPP_ED23_ANFORDERUNGEN_JSON_PATH + ".partial"
+CACHE_MANIFEST_PATH = GPP_ED23_ANFORDERUNGEN_JSON_PATH + ".cache.json"
 CHECKPOINT_KEY = "gpp_ed23_anforderungen_map"
 CANDIDATES_KEY = "ed23_maker_kandidaten"
+INPUT_HASHES_KEY = "input_hashes"
+CANDIDATE_HASHES_KEY = "candidate_hashes"
+PROVENANCE_KEY = "provenance"
+
+
+def _canonical_sha256(payload: Any) -> str:
+    raw = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def compute_control_input_hash(
+    control_id: str,
+    control: Dict[str, str],
+    corpus_hash: str,
+    prompt_hash: str,
+    model: str,
+    maker_thinking: str,
+    checker_thinking: str,
+) -> str:
+    """Deterministic SHA-256 over all decision-relevant inputs for mapping one G++ control."""
+    return _canonical_sha256({
+        "control_id": control_id,
+        "control": {
+            "title": control.get("title", ""),
+            "prose": control.get("prose", ""),
+            "guidance": control.get("guidance", ""),
+            "praktik": control.get("praktik", ""),
+            "siblings": control.get("siblings", ""),
+        },
+        "corpus_hash": corpus_hash,
+        "prompt_hash": prompt_hash,
+        "model": model,
+        "maker_thinking": maker_thinking,
+        "checker_thinking": checker_thinking,
+    })
+
+
+def _matches_valid_for_corpus(matches: Any, id_lookup: Dict[str, Dict[str, Any]]) -> bool:
+    if not isinstance(matches, list):
+        return False
+    for m in matches:
+        if not isinstance(m, dict):
+            return False
+        if normalize_id(str(m.get("id", ""))) not in id_lookup:
+            return False
+    return True
+
+
+def _load_cache_manifest(path: str) -> Tuple[Dict[str, List[Dict[str, Any]]], Dict[str, str], Dict[str, Dict[str, Any]]]:
+    """Loads per-control cached matches, input hashes, and provenance (empty dicts if absent)."""
+    if not os.path.exists(path):
+        return {}, {}, {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return (
+            dict(data.get(CHECKPOINT_KEY) or {}),
+            dict(data.get(INPUT_HASHES_KEY) or {}),
+            dict(data.get(PROVENANCE_KEY) or {}),
+        )
+    except Exception as e:  # noqa: BLE001 — corrupt cache manifest is discarded with reason logged
+        logger.warning(f"Could not read cache manifest '{path}' ({e}); ignoring it.")
+        return {}, {}, {}
+
+
+def _save_cache_manifest(
+    path: str,
+    matches: Dict[str, List[Dict[str, Any]]],
+    input_hashes: Dict[str, str],
+    provenance: Dict[str, Dict[str, Any]],
+) -> None:
+    _atomic_save_json(
+        {CHECKPOINT_KEY: matches, INPUT_HASHES_KEY: input_hashes, PROVENANCE_KEY: provenance},
+        path,
+    )
 
 
 def _atomic_save_json(data: Dict[str, Any], path: str) -> None:
@@ -477,36 +556,37 @@ def _atomic_save_json(data: Dict[str, Any], path: str) -> None:
         raise
 
 
-def _load_checkpoint(path: str) -> Tuple[Dict[str, List[Dict[str, Any]]], Dict[str, List[Dict[str, Any]]]]:
-    """Loads finished results and pending maker candidates from a prior run."""
+def _load_checkpoint(path: str) -> Tuple[
+    Dict[str, List[Dict[str, Any]]],
+    Dict[str, List[Dict[str, Any]]],
+    Dict[str, str],
+    Dict[str, str],
+    Dict[str, Dict[str, Any]],
+]:
+    """Loads finished results, pending maker candidates, their input hashes, and provenance."""
     if not os.path.exists(path):
-        return {}, {}
+        return {}, {}, {}, {}, {}
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        done = data.get(CHECKPOINT_KEY, {})
-        kandidaten = data.get(CANDIDATES_KEY, {})
+        done = dict(data.get(CHECKPOINT_KEY) or {})
+        kandidaten = dict(data.get(CANDIDATES_KEY) or {})
+        done_hashes = dict(data.get(INPUT_HASHES_KEY) or {})
+        cand_hashes = dict(data.get(CANDIDATE_HASHES_KEY) or {})
+        provenance = dict(data.get(PROVENANCE_KEY) or {})
         logger.info(
             f"Resuming from checkpoint '{path}': {len(done)} controls done, "
             f"{len(kandidaten)} with maker candidates awaiting verification."
         )
-        return done, kandidaten
-    except Exception as e:
+        return done, kandidaten, done_hashes, cand_hashes, provenance
+    except Exception as e:  # noqa: BLE001 — corrupt checkpoint is discarded with reason logged
         logger.warning(f"Could not read checkpoint '{path}' ({e}); starting fresh.")
-        return {}, {}
+        return {}, {}, {}, {}, {}
 
 
 async def run_stage_ed23_anforderungen() -> None:
     """Main entry point for the G++ → ED2023 Anforderungen mapping stage."""
     logger.info("Starting stage_ed23_anforderungen...")
-
-    # Idempotency (Rule 5.2.7): skip if output exists and overwriting is disabled.
-    if os.path.exists(GPP_ED23_ANFORDERUNGEN_JSON_PATH) and not app_config.overwrite_temp_files:
-        logger.info(
-            "Output file already exists and OVERWRITE_TEMP_FILES is false. "
-            "Skipping stage_ed23_anforderungen."
-        )
-        return
 
     # Load sources: the pinned G++ catalog plus the OFFICIAL ED23 XML Kompendium (sha256-
     # pinned download via utils.ed23_xml) — the amtliche Wortlaut is the only ED23 basis.
@@ -514,7 +594,7 @@ async def run_stage_ed23_anforderungen() -> None:
     if not gpp_catalog:
         logger.error("Failed to load G++ Kompendium. Aborting stage.")
         return
-    xml_bytes, _xml_sha = fetch_official_xml()
+    xml_bytes, xml_sha = fetch_official_xml()
     official, _rejected = load_official_xml(xml_bytes)
 
     prompt_config = load_json_file(PROMPT_CONFIG_PATH)
@@ -542,28 +622,110 @@ async def run_stage_ed23_anforderungen() -> None:
     logger.info(f"Built ED2023 corpus with {len(stripped)} Anforderungen ({len(corpus_text)} chars).")
     save_json_file({"ed23_anforderungen": stripped}, ED23_ANFORDERUNGEN_STRIPPED_JSON_PATH)
 
-    ai_client = AiClient(app_config)
-
-    # The corpus is the stable prefix of every maker prompt (implicit caching discounts a
-    # repeated prefix; there is no explicit cache on Argon). The system instruction goes into
-    # the request's system field.
-    inline_prefix = (
-        f"Verfügbare BSI ED2023 Anforderungen "
-        f"(Format: ID | Name | Beschreibung als nummerierte Sätze (S1) (S2) ...):\n{corpus_text}"
-    )
-
     # Respect Test Mode (Rule 9.1): only the first 3 controls.
     control_items = list(gpp_controls.items())
     if app_config.is_test_mode:
         control_items = control_items[:3]
         logger.info("TEST mode: limiting to the first 3 G++ controls.")
 
-    # Resume support: finished controls and pending maker candidate lists both live in the
-    # checkpoint, so a crash in either phase costs at most the last few (throttled) steps.
-    final_map, kandidaten_map = _load_checkpoint(CHECKPOINT_PATH)
+    # Deterministic input hashes per control: reuse only on exact hash match, never blindly
+    # by output-file existence alone.
+    corpus_hash = _canonical_sha256({"xml_sha256": xml_sha, "corpus": corpus_text})
+    prompt_hash = _canonical_sha256({
+        "system": system_instruction,
+        "batch_prompt": batch_prompt_template,
+        "verify_prompt": verify_prompt_template,
+        "batch_schema": batch_schema,
+        "verify_schema": verify_schema,
+    })
+    expected_hashes: Dict[str, str] = {
+        cid: compute_control_input_hash(
+            cid, ctrl, corpus_hash, prompt_hash,
+            app_config.gemini_model, app_config.maker_thinking_level, app_config.checker_thinking_level,
+        )
+        for cid, ctrl in control_items
+    }
+
+    final_map: Dict[str, List[Dict[str, Any]]] = {}
+    final_hashes: Dict[str, str] = {}
+    final_provenance: Dict[str, Dict[str, Any]] = {}
+    kandidaten_map: Dict[str, List[Dict[str, Any]]] = {}
+    kandidaten_hashes: Dict[str, str] = {}
+    invalidated = 0
+    cached_keys: set[str] = set()
+
+    if not app_config.overwrite_temp_files:
+        cached_matches, cached_hashes, cached_prov = _load_cache_manifest(CACHE_MANIFEST_PATH)
+        cached_keys = set(cached_matches.keys())
+        for cid in expected_hashes:
+            if cid not in cached_matches:
+                continue
+            if (
+                cached_hashes.get(cid) == expected_hashes[cid]
+                and _matches_valid_for_corpus(cached_matches[cid], id_lookup)
+            ):
+                final_map[cid] = cached_matches[cid]
+                final_hashes[cid] = cached_hashes[cid]
+                if cid in cached_prov:
+                    final_provenance[cid] = cached_prov[cid]
+            else:
+                invalidated += 1
+
+        cp_done, cp_kand, cp_done_hashes, cp_cand_hashes, cp_prov = _load_checkpoint(CHECKPOINT_PATH)
+        for cid, matches in cp_done.items():
+            if cid not in expected_hashes or cid in final_map:
+                continue
+            if (
+                cp_done_hashes.get(cid) == expected_hashes[cid]
+                and _matches_valid_for_corpus(matches, id_lookup)
+            ):
+                final_map[cid] = matches
+                final_hashes[cid] = cp_done_hashes[cid]
+                if cid in cp_prov:
+                    final_provenance[cid] = cp_prov[cid]
+            else:
+                invalidated += 1
+        for cid, cands in cp_kand.items():
+            if cid in expected_hashes and cid not in final_map and cp_cand_hashes.get(cid) == expected_hashes[cid]:
+                kandidaten_map[cid] = cands
+                kandidaten_hashes[cid] = cp_cand_hashes[cid]
+
     pending = [(cid, control) for cid, control in control_items if cid not in final_map]
+    logger.info(
+        f"resume: {len(final_map)} ok (reused), {len(pending)} pending"
+        + (f", {invalidated} invalidated (input hash / corpus drift)" if invalidated else "")
+        + "."
+    )
+
+    if (
+        not pending
+        and cached_keys == set(expected_hashes.keys())
+        and not app_config.overwrite_temp_files
+        and not app_config.is_test_mode
+        and os.path.exists(GPP_ED23_ANFORDERUNGEN_JSON_PATH)
+    ):
+        logger.info("All G++ controls match cached input hashes; output is up to date.")
+        return
+
+    # The corpus is the stable prefix of every maker prompt (implicit caching discounts a
+    # repeated prefix). The system instruction goes into the request's system field.
+    inline_prefix = (
+        f"Verfügbare BSI ED2023 Anforderungen "
+        f"(Format: ID | Name | Beschreibung als nummerierte Sätze (S1) (S2) ...):\n{corpus_text}"
+    )
+
+    ai_client: Optional[AiClient] = AiClient(app_config) if pending else None
     checkpoint_lock = asyncio.Lock()
     semaphore = asyncio.Semaphore(app_config.max_concurrent_ai_requests)
+    stand = datetime.date.today().isoformat()
+    run_provenance = {
+        "model": app_config.gemini_model,
+        "maker_thinking": app_config.maker_thinking_level,
+        "checker_thinking": app_config.checker_thinking_level,
+        "gpp_pin": GPP_CATALOG_PIN_COMMIT,
+        "xml_sha256": xml_sha,
+        "stand": stand,
+    }
 
     since_save = 0
 
@@ -574,7 +736,14 @@ async def run_stage_ed23_anforderungen() -> None:
         since_save += 1
         if force or since_save >= 10:
             _atomic_save_json(
-                {CHECKPOINT_KEY: final_map, CANDIDATES_KEY: kandidaten_map}, CHECKPOINT_PATH
+                {
+                    CHECKPOINT_KEY: final_map,
+                    CANDIDATES_KEY: kandidaten_map,
+                    INPUT_HASHES_KEY: final_hashes,
+                    CANDIDATE_HASHES_KEY: kandidaten_hashes,
+                    PROVENANCE_KEY: final_provenance,
+                },
+                CHECKPOINT_PATH,
             )
             since_save = 0
 
@@ -591,18 +760,22 @@ async def run_stage_ed23_anforderungen() -> None:
     )
 
     async def _match_and_store(batch) -> None:
+        assert ai_client is not None
         result = await _match_batch(
             ai_client, batch, batch_prompt_template, batch_schema, id_lookup,
             inline_prefix, system_instruction, semaphore,
         )
         async with checkpoint_lock:
-            kandidaten_map.update(result)
+            for cid, cands in result.items():
+                kandidaten_map[cid] = cands
+                kandidaten_hashes[cid] = expected_hashes[cid]
             _save_checkpoint()
 
     if batches:
         await asyncio.gather(*(_match_and_store(b) for b in batches))
-    async with checkpoint_lock:
-        _save_checkpoint(force=True)
+    if pending:
+        async with checkpoint_lock:
+            _save_checkpoint(force=True)
 
     # --- Phase B: strict verification per candidate, skipping pre-verified triples ---
     gespart = 0
@@ -610,6 +783,7 @@ async def run_stage_ed23_anforderungen() -> None:
 
     async def _verify_and_checkpoint(cid: str, control: Dict[str, Any]) -> None:
         nonlocal gespart
+        assert ai_client is not None
         candidates = kandidaten_map.get(cid, [])
         uebernommen, zu_pruefen = split_bestaetigte(cid, candidates, satz_bestaetigt)
         verified = await asyncio.gather(*(
@@ -626,28 +800,38 @@ async def run_stage_ed23_anforderungen() -> None:
         async with checkpoint_lock:
             gespart += len(uebernommen)
             final_map[cid] = matches
+            final_hashes[cid] = expected_hashes[cid]
+            final_provenance[cid] = dict(run_provenance)
             kandidaten_map.pop(cid, None)
+            kandidaten_hashes.pop(cid, None)
             _save_checkpoint()
 
     if pending:
         await asyncio.gather(*(_verify_and_checkpoint(cid, c) for cid, c in pending))
     else:
-        logger.info("All G++ controls already present in checkpoint; nothing to verify.")
+        logger.info("All G++ controls already present in cache/checkpoint; nothing to verify.")
     logger.info(f"Verify skips via Satz-Abdeckung: {gespart} candidate pair(s) reused without a call.")
 
     # The .partial checkpoint stays in the internal {control_id: [matches]} shape (simple to
     # resume); only the final, published artifact is serialized as OSCAL.
-    output_data = to_oscal_mapping_collection(final_map)
+    active_ids = {cid for cid, _ in control_items}
+    published_map = {cid: final_map[cid] for cid in active_ids if cid in final_map}
+    published_hashes = {cid: final_hashes[cid] for cid in active_ids if cid in final_hashes}
+    published_prov = {cid: final_provenance[cid] for cid in active_ids if cid in final_provenance}
+
+    output_data = to_oscal_mapping_collection(published_map)
     save_json_file(output_data, GPP_ED23_ANFORDERUNGEN_JSON_PATH)
+    _save_cache_manifest(CACHE_MANIFEST_PATH, published_map, published_hashes, published_prov)
     # Final output is written; the checkpoint is redundant once every control is covered.
-    if os.path.exists(CHECKPOINT_PATH) and len(final_map) >= len(control_items):
+    if os.path.exists(CHECKPOINT_PATH) and len(published_map) >= len(control_items):
         os.remove(CHECKPOINT_PATH)
-    total = sum(len(m) for m in final_map.values())
+    total = sum(len(m) for m in published_map.values())
     logger.info(
-        f"stage_ed23_anforderungen finished. Mapped {len(final_map)} G++ controls "
+        f"stage_ed23_anforderungen finished. Mapped {len(published_map)} G++ controls "
         f"to {total} ED2023 Anforderung references ({gespart} verifies saved via Satz-Abdeckung)."
     )
-    ai_client.log_usage_summary("stage_ed23_anforderungen")
+    if ai_client is not None:
+        ai_client.log_usage_summary("stage_ed23_anforderungen")
 
 
 if __name__ == "__main__":

@@ -368,5 +368,141 @@ class TestToOscalMappingCollection(unittest.TestCase):
         self.assertEqual(json.dumps(self.doc, sort_keys=True), json.dumps(again, sort_keys=True))
 
 
+async def test_run_stage_ed23_anforderungen_input_hash_cache_and_selective_recompute(tmp_path):
+    """#6: Does not skip blindly by file existence; recomputes only changed controls and keeps provenance."""
+    import os
+    from unittest.mock import patch
+    from pipeline import stage_ed23_anforderungen as st
+
+    out_path = str(tmp_path / "gpp_ed23_anforderungen.json")
+    stripped_path = str(tmp_path / "stripped.json")
+    cp_path = out_path + ".partial"
+    cache_path = out_path + ".cache.json"
+
+    gpp_catalog = {
+        "catalog": {
+            "groups": [{
+                "id": "GC",
+                "title": "Governance",
+                "controls": [
+                    {"id": "GC.1.1", "title": "Leitung", "parts": [{"name": "statement", "prose": "Leitung MUSS handeln."}]},
+                    {"id": "GC.1.2", "title": "Rollen", "parts": [{"name": "statement", "prose": "Rollen MUSS festlegen."}]},
+                ],
+            }]
+        }
+    }
+    official = official_fixture()
+    prompts = {
+        "ed23_abgleich_system": "sys",
+        "ed23_abgleich_batch_prompt": "{controls_block}",
+        "ed23_abgleich_verify_prompt": "{control_id} {anf_id} {anf_saetze}",
+    }
+
+    class FakeAnfClient:
+        def __init__(self, *_):
+            self.calls = []
+
+        async def generate_validated_json_response(self, prompt, json_schema, request_context_log, **kw):
+            self.calls.append(request_context_log)
+            if request_context_log.startswith("ED23Abgleich-Batch"):
+                ids = [line.split()[1] for line in prompt.splitlines() if line.startswith("### ")]
+                return {
+                    "ergebnisse": [
+                        {"control_id": cid, "treffer": [{"id": "ISMS.1.A1", "satz_nr": 1, "begruendung": "passt"}]}
+                        for cid in ids
+                    ]
+                }
+            return {"bestaetigt": True, "satz_nr": 1, "begruendung": "ok"}
+
+        def log_usage_summary(self, label=""):
+            pass
+
+    def _run_with(catalog_doc, prompt_doc, client):
+        loads = {
+            st.GPP_KOMPENDIUM_JSON_PATH: catalog_doc,
+            st.PROMPT_CONFIG_PATH: prompt_doc,
+            st.ED23_BATCH_RESPONSE_SCHEMA_PATH: {"type": "object"},
+            st.ED23_VERIFY_RESPONSE_SCHEMA_PATH: {"type": "object"},
+        }
+        return [
+            patch.object(st, "load_json_file", lambda path, expected_sha256=None: loads.get(path, {})),
+            patch.object(st, "fetch_official_xml", lambda: (b"<xml/>", "xmlsha1")),
+            patch.object(st, "load_official_xml", lambda _b: (official, [])),
+            patch.object(st, "load_satz_bestaetigt", lambda _p: {}),
+            patch.object(st, "AiClient", lambda cfg: client),
+            patch.object(st, "GPP_ED23_ANFORDERUNGEN_JSON_PATH", out_path),
+            patch.object(st, "ED23_ANFORDERUNGEN_STRIPPED_JSON_PATH", stripped_path),
+            patch.object(st, "CHECKPOINT_PATH", cp_path),
+            patch.object(st, "CACHE_MANIFEST_PATH", cache_path),
+            patch.object(st.app_config, "overwrite_temp_files", False),
+            patch.object(st.app_config, "is_test_mode", False),
+        ]
+
+    # Run 1: computes both controls
+    fake1 = FakeAnfClient()
+    patches = _run_with(gpp_catalog, prompts, fake1)
+    for p in patches:
+        p.start()
+    try:
+        await st.run_stage_ed23_anforderungen()
+    finally:
+        for p in patches:
+            p.stop()
+    assert os.path.exists(out_path) and os.path.exists(cache_path)
+    assert any("ED23Abgleich-Batch" in c for c in fake1.calls)
+    assert any("GC.1.1" in c for c in fake1.calls) and any("GC.1.2" in c for c in fake1.calls)
+
+    # Stamp original provenance on GC.1.1 to prove it is preserved on reuse
+    with open(cache_path, encoding="utf-8") as f:
+        cache_doc = json.load(f)
+    cache_doc[st.PROVENANCE_KEY]["GC.1.1"]["stand"] = "2020-01-01"
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(cache_doc, f)
+
+    # Run 2: identical inputs -> zero LLM calls
+    fake2 = FakeAnfClient()
+    patches = _run_with(gpp_catalog, prompts, fake2)
+    for p in patches:
+        p.start()
+    try:
+        await st.run_stage_ed23_anforderungen()
+    finally:
+        for p in patches:
+            p.stop()
+    assert fake2.calls == []
+
+    # Run 3: modify ONLY GC.1.2 statement -> must NOT skip blindly; recomputes ONLY GC.1.2
+    gpp_mod = json.loads(json.dumps(gpp_catalog))
+    gpp_mod["catalog"]["groups"][0]["controls"][1]["parts"][0]["prose"] = "Rollen MUSS geaendert festlegen."
+    fake3 = FakeAnfClient()
+    patches = _run_with(gpp_mod, prompts, fake3)
+    for p in patches:
+        p.start()
+    try:
+        await st.run_stage_ed23_anforderungen()
+    finally:
+        for p in patches:
+            p.stop()
+    verify_calls = [c for c in fake3.calls if c.startswith("ED23Verify")]
+    assert len(verify_calls) == 1 and "GC.1.2" in verify_calls[0]
+    with open(cache_path, encoding="utf-8") as f:
+        cache_after = json.load(f)
+    assert cache_after[st.PROVENANCE_KEY]["GC.1.1"]["stand"] == "2020-01-01"
+
+    # Run 4: modify prompt -> invalidates all controls
+    prompts_mod = dict(prompts, ed23_abgleich_system="sys-v2")
+    fake4 = FakeAnfClient()
+    patches = _run_with(gpp_mod, prompts_mod, fake4)
+    for p in patches:
+        p.start()
+    try:
+        await st.run_stage_ed23_anforderungen()
+    finally:
+        for p in patches:
+            p.stop()
+    verify_calls4 = [c for c in fake4.calls if c.startswith("ED23Verify")]
+    assert len(verify_calls4) == 2
+
+
 if __name__ == "__main__":
     unittest.main()

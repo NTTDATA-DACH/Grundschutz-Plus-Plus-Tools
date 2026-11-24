@@ -349,3 +349,93 @@ def _title_str(value: Any) -> str:
     if isinstance(value, list):
         return str(value[0]) if value else ""
     return str(value or "")
+
+
+# ── strict checker approval & review status ───────────────────────────────────────────────
+APPROVED_CHECKER_VERDICTS = frozenset({"bestaetigt", "bestätigt"})
+REVIEW_CHECKER_VERDICTS = frozenset({"fraglich", "unsicher"})
+UNCHECKED_CHECKER_VERDICT = "nicht geprüft"
+APPROVED_FREIGABE_VALUES = frozenset({"genehmigt", "approved"})
+
+
+def is_manually_approved(item: Optional[Dict[str, Any]]) -> bool:
+    """True only when an explicit human approval field is set on the item (fail closed)."""
+    if not isinstance(item, dict):
+        return False
+    freigabe = item.get("freigabe")
+    if isinstance(freigabe, str) and freigabe.strip().lower() in APPROVED_FREIGABE_VALUES:
+        return True
+    manual = item.get("manual_approval")
+    if manual is True:
+        return True
+    if isinstance(manual, str) and manual.strip().lower() in APPROVED_FREIGABE_VALUES:
+        return True
+    return False
+
+
+def is_ki_item_approved(item: Optional[Dict[str, Any]]) -> bool:
+    """Strict publication gate for AI-generated proposals: `bestaetigt` or explicit manual approval."""
+    if not isinstance(item, dict):
+        return False
+    if is_manually_approved(item):
+        return True
+    verdict = str(item.get("checker") or "").strip().lower()
+    return verdict in APPROVED_CHECKER_VERDICTS
+
+
+def is_zuordnung_publishable(zuordnung: Optional[Dict[str, Any]]) -> bool:
+    """Deterministic assignments always publish; KI assignments require strict approval."""
+    if not isinstance(zuordnung, dict):
+        return False
+    if zuordnung.get("quelle") != "ki":
+        return True
+    return is_ki_item_approved(zuordnung)
+
+
+def is_ng_control_publishable(neues_control: Optional[Dict[str, Any]]) -> bool:
+    """Every proposed NG control is AI-generated and requires strict approval to publish."""
+    return is_ki_item_approved(neues_control)
+
+
+def ki_item_status(item: Optional[Dict[str, Any]]) -> str:
+    """Status of one KI item: `approved`, `pending_review` (fraglich/unsicher), or `pending` (unchecked)."""
+    if is_ki_item_approved(item):
+        return "approved"
+    verdict = str((item or {}).get("checker") or "").strip().lower()
+    if verdict in REVIEW_CHECKER_VERDICTS:
+        return "pending_review"
+    return "pending"
+
+
+def ki_block_status(ki: Optional[Dict[str, Any]]) -> str:
+    """Aggregate status of a KI result block across all its KI assignments and optional NG control."""
+    if not isinstance(ki, dict):
+        return "pending"
+    items: List[Dict[str, Any]] = [
+        z for z in (ki.get("zuordnungen") or []) if isinstance(z, dict) and z.get("quelle") == "ki"
+    ]
+    nc = ki.get("neues_control")
+    if isinstance(nc, dict):
+        items.append(nc)
+    if not items:
+        return "approved"
+    statuses = [ki_item_status(item) for item in items]
+    if "pending" in statuses:
+        return "pending"
+    if "pending_review" in statuses:
+        return "pending_review"
+    return "approved"
+
+
+def has_unapproved_ki_proposals(entry: Optional[Dict[str, Any]]) -> bool:
+    """True when an abgleich entry carries KI proposals withheld by the strict approval gate."""
+    if not isinstance(entry, dict):
+        return False
+    for z in entry.get("zuordnungen") or []:
+        if isinstance(z, dict) and z.get("quelle") == "ki" and not is_zuordnung_publishable(z):
+            return True
+    nc = entry.get("neues_control")
+    if isinstance(nc, dict) and not is_ng_control_publishable(nc):
+        return True
+    return False
+

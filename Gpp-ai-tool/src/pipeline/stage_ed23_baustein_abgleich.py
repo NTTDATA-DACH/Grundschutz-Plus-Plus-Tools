@@ -32,6 +32,7 @@ finished `ki` blocks of a published output are reused unless OVERWRITE_TEMP_FILE
 
 import asyncio
 import datetime
+import hashlib
 import json
 import logging
 import os
@@ -50,7 +51,9 @@ from utils.ed23_baustein import (
     detect_ng,
     dominant_modal_verb,
     invert_mapping_collection,
+    is_ng_control_publishable,
     iter_bausteine,
+    ki_block_status,
     load_ed23_catalogs,
     load_gsmap_by_anforderung,
     load_prozess_mapping,
@@ -282,7 +285,13 @@ def filter_maker_result(
 
 
 def apply_checker_verdict(result: Dict[str, Any], verdict: Optional[Dict[str, Any]]) -> Dict[str, Any]:
-    """Records the checker's verdicts; removes rejected assignments / new control. Never rewrites."""
+    """Records the checker's verdicts; removes rejected assignments / new control. Never rewrites.
+
+    Sets `result['status']` via `ki_block_status`:
+    * `approved` — all surviving KI items are `bestaetigt` (or manually approved), or none survived;
+    * `pending_review` — at least one surviving KI item is `fraglich`/`unsicher` (withheld from publication);
+    * `pending` — checker failed (`nicht geprüft`), must not be cached as done.
+    """
     if not isinstance(verdict, dict):
         for z in result["zuordnungen"]:
             z["checker"] = "nicht geprüft"
@@ -293,6 +302,7 @@ def apply_checker_verdict(result: Dict[str, Any], verdict: Optional[Dict[str, An
             result["neues_control"] = None
         elif nc:
             nc["checker"] = "nicht geprüft"
+        result["status"] = ki_block_status(result)
         return result
     urteile = {u.get("control_id"): u for u in verdict.get("urteile") or [] if isinstance(u, dict)}
     kept = []
@@ -321,6 +331,7 @@ def apply_checker_verdict(result: Dict[str, Any], verdict: Optional[Dict[str, An
     if not result["zuordnungen"] and not result.get("neues_control") and not result.get("ohne_control"):
         result["ohne_control"] = {"art": "abgelehnt-durch-checker", "begruendung": (verdict.get("gesamt") or "").strip()}
     result["gesamt"] = (verdict.get("gesamt") or "").strip()
+    result["status"] = ki_block_status(result)
     return result
 
 
@@ -451,14 +462,73 @@ def _load_published_ki(path: str) -> Dict[str, Any]:
         return {}
 
 
-def _revalidate_ki(ki: Dict[str, Any], gpp_lookup: Dict[str, str]) -> Optional[Dict[str, Any]]:
-    """Drops a stored ki block whose control ids no longer exist in the current catalog."""
+def _canonical_sha256(payload: Any) -> str:
+    raw = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def compute_abgleich_input_hash(
+    record: Dict[str, Any],
+    baustein: Dict[str, Any],
+    zielobjekt_name: str,
+    gpp_corpus_hash: str,
+    prompt_hash: str,
+    model: str,
+    maker_thinking: str,
+    checker_thinking: str,
+) -> str:
+    """Deterministic SHA-256 over all decision-relevant inputs for one Anforderung."""
+    return _canonical_sha256({
+        "anforderung": {
+            "id": record.get("id"),
+            "baustein": record.get("baustein"),
+            "titel": record.get("titel"),
+            "level": record.get("level"),
+            "rolle": record.get("rolle"),
+            "herkunft": record.get("herkunft"),
+            "modalverb": record.get("modalverb"),
+            "kann_only": bool(record.get("kann_only")),
+            "saetze": list(record.get("saetze") or []),
+        },
+        "baustein": {
+            "id": baustein.get("id"),
+            "title": baustein.get("title"),
+            "zielsetzung": (baustein.get("zielsetzung") or "")[:2000],
+            "zielobjekt": zielobjekt_name or "",
+        },
+        "gpp_corpus_hash": gpp_corpus_hash,
+        "prompt_hash": prompt_hash,
+        "model": model,
+        "maker_thinking": maker_thinking,
+        "checker_thinking": checker_thinking,
+    })
+
+
+def _revalidate_ki(
+    ki: Dict[str, Any],
+    gpp_lookup: Dict[str, str],
+    expected_input_hash: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
+    """Validates a cached ki block before reuse (fail closed).
+
+    Drops the block if:
+    * any referenced G++ control id no longer exists in the current catalog;
+    * its checker status is `pending` (e.g. `nicht geprüft` after a checker error — must retry);
+    * `expected_input_hash` is given and does not match `ki['input_hash']` (legacy entries
+      without `input_hash` are not silently certified under new inputs).
+    """
     for z in ki.get("zuordnungen") or []:
         if normalize_id(z.get("control_id", "")) not in gpp_lookup:
             return None
     nc = ki.get("neues_control") or {}
     for v in nc.get("verwandte_controls") or []:
         if normalize_id(v) not in gpp_lookup:
+            return None
+    if ki_block_status(ki) == "pending":
+        return None
+    if expected_input_hash is not None:
+        stored_hash = ki.get("input_hash")
+        if not stored_hash or stored_hash != expected_input_hash:
             return None
     return ki
 
@@ -481,7 +551,7 @@ def _serialize(records, det_by_id, ki_by_id, meta) -> Dict[str, Any]:
             "neues_control": (ki or {}).get("neues_control"),
             "ohne_control": (ki or {}).get("ohne_control") if ki else (
                 None if (zuordnungen or r["entfallen"]) else {"art": "unbeantwortet", "begruendung": ""}),
-            "ki": ({k: ki[k] for k in ("maker", "checker", "stand", "verworfen", "offen", "gesamt") if k in ki}
+            "ki": ({k: ki[k] for k in ("maker", "checker", "stand", "status", "input_hash", "verworfen", "offen", "gesamt") if k in ki}
                    if ki else None),
         }
     return {OUTPUT_KEY: {"meta": meta, "anforderungen": anforderungen}}
@@ -532,18 +602,73 @@ async def run_stage_ed23_baustein_abgleich() -> None:
         f"{len(pending_ids)} go to the model."
     )
 
-    # Resume state: published ki blocks (unless --fresh) + checkpoint.
+    # Load prompts/schemas before resume evaluation so input hashes cover prompt and schema drift.
+    prompt_config = load_json_file(PROMPT_CONFIG_PATH)
+    maker_schema = load_json_file(ED23_BAUSTEIN_ABGLEICH_MAKER_SCHEMA_PATH)
+    checker_schema = load_json_file(ED23_BAUSTEIN_ABGLEICH_CHECKER_SCHEMA_PATH)
+    system_instruction = prompt_config["ed23_baustein_abgleich_system"]
+    maker_template = prompt_config["ed23_baustein_abgleich_maker_prompt"]
+    checker_template = prompt_config["ed23_baustein_abgleich_checker_prompt"]
+
+    gpp_corpus_hash = _canonical_sha256({
+        "gpp_pin": GPP_CATALOG_PIN_COMMIT,
+        "corpus": corpus_text,
+        "contexts": {
+            cid: {
+                "title": c.get("title", ""),
+                "prose": c.get("prose", ""),
+                "guidance": c.get("guidance", ""),
+            }
+            for cid, c in sorted(contexts.items())
+        },
+    })
+    prompt_hash = _canonical_sha256({
+        "system": system_instruction,
+        "maker": maker_template,
+        "checker": checker_template,
+        "maker_schema": maker_schema,
+        "checker_schema": checker_schema,
+    })
+    input_hashes: Dict[str, str] = {}
+    for aid in pending_ids:
+        rec = records[aid]
+        bid = rec["baustein"]
+        zo_name = zo_names.get((baustein_map.get("baustein_zielobjekt_map") or {}).get(bid, ""), "")
+        input_hashes[aid] = compute_abgleich_input_hash(
+            rec, bausteine[bid], zo_name, gpp_corpus_hash, prompt_hash,
+            app_config.gemini_model, app_config.maker_thinking_level, app_config.checker_thinking_level,
+        )
+
+    # Resume state: published ki blocks (unless --fresh) + checkpoint, gated on input_hash and status.
     ki_by_id: Dict[str, Any] = {}
+    invalidated = 0
     if not app_config.overwrite_temp_files:
         for aid, ki in _load_published_ki(ED23_BAUSTEIN_ABGLEICH_JSON_PATH).items():
-            if aid in records and _revalidate_ki(ki, gpp_lookup):
-                ki_by_id[aid] = ki
+            if aid in records and aid in input_hashes:
+                valid = _revalidate_ki(ki, gpp_lookup, expected_input_hash=input_hashes[aid])
+                if valid:
+                    ki_by_id[aid] = valid
+                else:
+                    invalidated += 1
     done_cp, kandidaten = _load_checkpoint(CHECKPOINT_PATH)
     for aid, ki in done_cp.items():
-        if aid in records and _revalidate_ki(ki, gpp_lookup):
-            ki_by_id[aid] = ki
+        if aid in records and aid in input_hashes:
+            valid = _revalidate_ki(ki, gpp_lookup, expected_input_hash=input_hashes[aid])
+            if valid:
+                ki_by_id[aid] = valid
+            else:
+                invalidated += 1
+    # Drop stale checkpoint candidates whose inputs changed (or that lack an input_hash).
+    for aid in list(kandidaten):
+        cand = kandidaten[aid]
+        if aid not in input_hashes or cand.get("input_hash") != input_hashes[aid]:
+            kandidaten.pop(aid, None)
     todo = [aid for aid in pending_ids if aid not in ki_by_id]
-    logger.info(f"resume: {len(pending_ids) - len(todo)} ok (reused), {len(todo)} pending model work.")
+    logger.info(
+        f"resume: {len(pending_ids) - len(todo)} ok (reused), {len(todo)} pending model work"
+        + (f", {invalidated} invalidated (input hash / unchecked)" if invalidated else "")
+        + "."
+    )
     if app_config.is_test_mode:
         todo = todo[:3]
         logger.info("TEST mode: limiting to the first 3 pending Anforderungen; output is not published.")
@@ -558,12 +683,6 @@ async def run_stage_ed23_baustein_abgleich() -> None:
     }
 
     if todo:
-        prompt_config = load_json_file(PROMPT_CONFIG_PATH)
-        maker_schema = load_json_file(ED23_BAUSTEIN_ABGLEICH_MAKER_SCHEMA_PATH)
-        checker_schema = load_json_file(ED23_BAUSTEIN_ABGLEICH_CHECKER_SCHEMA_PATH)
-        system_instruction = prompt_config["ed23_baustein_abgleich_system"]
-        maker_template = prompt_config["ed23_baustein_abgleich_maker_prompt"]
-        checker_template = prompt_config["ed23_baustein_abgleich_checker_prompt"]
         prefix = f"ANWENDERKATALOG GRUNDSCHUTZ++ (Format: ID | Titel | Statement)\n{corpus_text}"
         praktiken_block = _praktiken_block()
         kategorien_block = "\n".join(sorted(kategorie_names))
@@ -591,15 +710,25 @@ async def run_stage_ed23_baustein_abgleich() -> None:
             record = records[aid]
             result = kandidaten[aid]
             verdict = None
-            if result["zuordnungen"] or result.get("neues_control"):
+            needs_check = bool(result["zuordnungen"] or result.get("neues_control"))
+            if needs_check:
                 verdict = await _checker(ai_client, record, bausteine[record["baustein"]], result, contexts,
                                          checker_template, checker_schema, semaphore)
+                if verdict is None:
+                    # Checker failed: never cache as done; keep in kandidaten for retry on resume.
+                    logger.warning(f"{aid}: checker failed; keeping pending in checkpoint for retry.")
+                    async with lock:
+                        save_checkpoint()
+                    return
             result = apply_checker_verdict(result, verdict)
+            status = ki_block_status(result)
             ki = {
                 "pruefung": result["pruefung"], "zuordnungen": result["zuordnungen"],
                 "neues_control": result.get("neues_control"), "ohne_control": result.get("ohne_control"),
                 "offen": result.get("offen", ""), "gesamt": result.get("gesamt", ""),
                 "verworfen": result.get("verworfen", []),
+                "status": status,
+                "input_hash": input_hashes[aid],
                 "maker": model_label, "checker": checker_label, "stand": stand,
             }
             async with lock:
@@ -629,7 +758,9 @@ async def run_stage_ed23_baustein_abgleich() -> None:
                                          system_instruction, maker_schema, praktiken_block, kategorien_block, semaphore)
                 async with lock:
                     for aid, item in raw.items():
-                        kandidaten[aid] = filter_maker_result(item, records[aid], gpp_lookup, praktik_ids, kategorie_names)
+                        filtered = filter_maker_result(item, records[aid], gpp_lookup, praktik_ids, kategorie_names)
+                        filtered["input_hash"] = input_hashes[aid]
+                        kandidaten[aid] = filtered
                     save_checkpoint()
 
             await asyncio.gather(*(run_batch(b) for b in batches))
@@ -640,7 +771,7 @@ async def run_stage_ed23_baustein_abgleich() -> None:
             kandidaten[aid] = {"pruefung": {"art": None, "modalverb": None, "control_noetig": None, "hinweis": ""},
                                "zuordnungen": [], "neues_control": None,
                                "ohne_control": {"art": "unbeantwortet", "begruendung": f"kein Maker-Ergebnis in {MAX_ROUNDS} Runden"},
-                               "offen": "", "verworfen": []}
+                               "offen": "", "verworfen": [], "input_hash": input_hashes[aid]}
 
         # Only pending work goes to the checker: kandidaten already reused from the published
         # output (or no longer in the selection) are dropped from the checkpoint instead.
@@ -655,7 +786,8 @@ async def run_stage_ed23_baustein_abgleich() -> None:
             logger.info(f"TEST mode: checkpoint kept at '{CHECKPOINT_PATH}', output not published.")
             return
 
-    n_new = sum(1 for ki in ki_by_id.values() if ki.get("neues_control"))
+    n_new = sum(1 for ki in ki_by_id.values() if is_ng_control_publishable(ki.get("neues_control")))
+    n_pending_review = sum(1 for ki in ki_by_id.values() if ki_block_status(ki) == "pending_review")
     n_ohne = sum(1 for ki in ki_by_id.values() if ki.get("ohne_control"))
     verdicts: Dict[str, int] = {}
     for ki in ki_by_id.values():
@@ -665,13 +797,20 @@ async def run_stage_ed23_baustein_abgleich() -> None:
             k = "neu:" + (ki["neues_control"].get("checker") or "-")
             verdicts[k] = verdicts.get(k, 0) + 1
     meta.update({"anforderungen": len(records), "modell_anforderungen": len(pending_ids),
-                 "neue_controls": n_new, "ohne_control": n_ohne, "checker_urteile": verdicts})
+                 "neue_controls": n_new, "pending_review": n_pending_review,
+                 "checker_fehler": len(kandidaten), "ohne_control": n_ohne, "checker_urteile": verdicts})
     save_json_file(_serialize(records, det_by_id, ki_by_id, meta), ED23_BAUSTEIN_ABGLEICH_JSON_PATH)
-    if os.path.exists(CHECKPOINT_PATH):
+    if os.path.exists(CHECKPOINT_PATH) and not kandidaten:
         os.remove(CHECKPOINT_PATH)
+    elif kandidaten:
+        logger.warning(
+            f"Keeping checkpoint '{CHECKPOINT_PATH}': {len(kandidaten)} Anforderung(en) still pending "
+            f"checker retry."
+        )
     logger.info(
-        f"stage_ed23_baustein_abgleich finished: {len(records)} Anforderungen, {n_new} new NG controls, "
-        f"{n_ohne} ohne Control, checker verdicts {verdicts}."
+        f"stage_ed23_baustein_abgleich finished: {len(records)} Anforderungen, {n_new} approved NG controls, "
+        f"{n_pending_review} pending_review, {len(kandidaten)} checker_fehler, {n_ohne} ohne Control, "
+        f"checker verdicts {verdicts}."
     )
 
 

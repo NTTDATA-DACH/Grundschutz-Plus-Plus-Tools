@@ -225,3 +225,209 @@ async def test_run_publishes_output_and_resumes_without_calls():
         finally:
             for p in patches:
                 p.stop()
+
+
+def _run_patches(tmp, fake, *, official=None, gpp=None, prompts=None):
+    out = os.path.join(tmp, "ed23_baustein_abgleich.json")
+    prompt_cfg = prompts or {
+        "ed23_baustein_abgleich_system": "s",
+        "ed23_baustein_abgleich_maker_prompt": "{praktiken}{zielobjektkategorien}{baustein_id}{baustein_titel}{herkunft_satz}{zielsetzung}{zielobjektkategorie}{n}\n{anforderungen}",
+        "ed23_baustein_abgleich_checker_prompt": "{baustein_id}{baustein_titel}{herkunft_satz}{anforderung}{vorschlag}{controls}",
+    }
+    loads = {
+        st.GPP_KOMPENDIUM_JSON_PATH: gpp or GPP,
+        st.PROMPT_CONFIG_PATH: prompt_cfg,
+        st.ED23_BAUSTEIN_ABGLEICH_MAKER_SCHEMA_PATH: {"type": "object"},
+        st.ED23_BAUSTEIN_ABGLEICH_CHECKER_SCHEMA_PATH: {"type": "object"},
+    }
+    reads = {
+        st.BAUSTEIN_ZIELOBJEKT_JSON_PATH: {"baustein_zielobjekt_map": {"SYS.1.1": "u1"}},
+        st.GPP_ED23_ANFORDERUNGEN_JSON_PATH: MAPPING,
+        st.ED23_SATZ_ABDECKUNG_JSON_PATH: {},
+        st.PROZZESSBAUSTEINE_CONTROLS_JSON_PATH: {},
+    }
+    patches = [
+        patch.object(st, "load_json_file", lambda path, expected_sha256=None: loads.get(path, {})),
+        patch.object(st, "read_json_file", lambda path, expected_sha256=None: reads.get(path, {})),
+        patch.object(st, "load_zielobjekte_csv", lambda _p: [{"UUID": "u1", "Zielobjekt": "IT-Systeme"}]),
+        patch.object(st, "load_ed23_catalogs", lambda: (BD, PLAIN)),
+        patch.object(st, "fetch_official_xml", lambda: (b"", "sha")),
+        patch.object(st, "load_official_xml", lambda _b: (official or OFFICIAL, [])),
+        patch.object(st, "fetch_cached", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("offline"))),
+        patch.object(st, "AiClient", lambda cfg: fake),
+        patch.object(st, "ED23_BAUSTEIN_ABGLEICH_JSON_PATH", out),
+        patch.object(st, "CHECKPOINT_PATH", out + ".partial"),
+        patch.object(st.app_config, "overwrite_temp_files", False),
+        patch.object(st.app_config, "is_test_mode", False),
+    ]
+    return out, patches
+
+
+class _ConfigurableFakeClient(FakeClient):
+    def __init__(self, checker_verdict="bestaetigt", fail_checker=False):
+        super().__init__()
+        self.checker_verdict = checker_verdict
+        self.fail_checker = fail_checker
+
+    async def generate_validated_json_response(self, prompt, json_schema, request_context_log, **kw):
+        if request_context_log.startswith("ED23BausteinCheck"):
+            self.calls.append(request_context_log)
+            if self.fail_checker:
+                return None
+            return {"urteile": [], "neues_control": {"urteil": self.checker_verdict, "begruendung": "verdict"}, "gesamt": ""}
+        return await super().generate_validated_json_response(prompt, json_schema, request_context_log, **kw)
+
+
+async def test_checker_error_is_not_cached_as_done_and_retries_on_resume():
+    with tempfile.TemporaryDirectory() as tmp:
+        fake_fail = _ConfigurableFakeClient(fail_checker=True)
+        out, patches = _run_patches(tmp, fake_fail)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            # Checker failed -> must NOT be in CHECKPOINT_DONE, checkpoint must remain for retry.
+            assert os.path.exists(out + ".partial")
+            with open(out + ".partial", encoding="utf-8") as f:
+                cp = json.load(f)
+            assert "SYS.1.1.A2" not in cp[st.CHECKPOINT_DONE]
+            assert "SYS.1.1.A2" in cp[st.CHECKPOINT_KANDIDATEN]
+            with open(out, encoding="utf-8") as f:
+                doc = json.load(f)["ed23_baustein_abgleich"]
+            # Must NOT be published as approved/done in output while checker failed.
+            assert doc["anforderungen"]["SYS.1.1.A2"]["ki"] is None
+            assert doc["anforderungen"]["SYS.1.1.A2"]["neues_control"] is None
+            assert doc["meta"]["checker_fehler"] == 1
+            assert doc["meta"]["neue_controls"] == 0
+        finally:
+            for p in patches:
+                p.stop()
+
+        # Next run with working checker: reuses maker candidate from checkpoint, runs checker only,
+        # and clears the checkpoint once approved.
+        fake_ok = _ConfigurableFakeClient(checker_verdict="bestaetigt")
+        out, patches = _run_patches(tmp, fake_ok)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert fake_ok.calls == ["ED23BausteinCheck-SYS.1.1.A2"]
+            assert not os.path.exists(out + ".partial")
+            with open(out, encoding="utf-8") as f:
+                doc = json.load(f)["ed23_baustein_abgleich"]
+            assert doc["anforderungen"]["SYS.1.1.A2"]["ki"]["status"] == "approved"
+            assert doc["meta"]["checker_fehler"] == 0
+        finally:
+            for p in patches:
+                p.stop()
+
+
+async def test_fraglich_and_unsicher_stored_as_pending_review():
+    for verdict in ("fraglich", "unsicher"):
+        with tempfile.TemporaryDirectory() as tmp:
+            fake = _ConfigurableFakeClient(checker_verdict=verdict)
+            out, patches = _run_patches(tmp, fake)
+            for p in patches:
+                p.start()
+            try:
+                await st.run_stage_ed23_baustein_abgleich()
+                with open(out, encoding="utf-8") as f:
+                    doc = json.load(f)["ed23_baustein_abgleich"]
+                assert doc["anforderungen"]["SYS.1.1.A2"]["ki"]["status"] == "pending_review"
+                assert doc["anforderungen"]["SYS.1.1.A2"]["neues_control"]["checker"] == verdict
+                assert doc["meta"]["pending_review"] == 1
+                assert doc["meta"]["neue_controls"] == 0
+            finally:
+                for p in patches:
+                    p.stop()
+
+
+async def test_input_hash_invalidates_on_text_control_prompt_or_legacy_entry():
+    with tempfile.TemporaryDirectory() as tmp:
+        fake = _ConfigurableFakeClient(checker_verdict="bestaetigt")
+        out, patches = _run_patches(tmp, fake)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert len(fake.calls) == 2
+            with open(out, encoding="utf-8") as f:
+                doc1 = json.load(f)["ed23_baustein_abgleich"]
+            orig_ki = doc1["anforderungen"]["SYS.1.1.A2"]["ki"]
+            assert orig_ki["input_hash"]
+            # Stamp custom provenance to verify reuse preserves original provenance.
+            doc1["anforderungen"]["SYS.1.1.A2"]["ki"]["stand"] = "2020-01-01"
+            with open(out, "w", encoding="utf-8") as f:
+                json.dump({"ed23_baustein_abgleich": doc1}, f)
+
+            fake.calls.clear()
+            await st.run_stage_ed23_baustein_abgleich()
+            assert fake.calls == []
+            with open(out, encoding="utf-8") as f:
+                doc_reused = json.load(f)["ed23_baustein_abgleich"]
+            assert doc_reused["anforderungen"]["SYS.1.1.A2"]["ki"]["stand"] == "2020-01-01"
+        finally:
+            for p in patches:
+                p.stop()
+
+        # 1. Changing Anforderung wording invalidates cache
+        official_mod = dict(OFFICIAL)
+        official_mod["SYS.1.1.A2"] = dict(OFFICIAL["SYS.1.1.A2"], saetze=["Es MUSS b (geaendert)."])
+        fake.calls.clear()
+        _, patches = _run_patches(tmp, fake, official=official_mod)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert len(fake.calls) == 2
+        finally:
+            for p in patches:
+                p.stop()
+
+        # 2. Changing G++ control statement invalidates cache
+        gpp_mod = json.loads(json.dumps(GPP))
+        gpp_mod["catalog"]["groups"][0]["groups"][0]["controls"][0]["parts"][0]["prose"] = "Geaendert MUSS k."
+        fake.calls.clear()
+        _, patches = _run_patches(tmp, fake, official=official_mod, gpp=gpp_mod)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert len(fake.calls) == 2
+        finally:
+            for p in patches:
+                p.stop()
+
+        # 3. Changing prompt invalidates cache
+        prompts_mod = {
+            "ed23_baustein_abgleich_system": "s-v2",
+            "ed23_baustein_abgleich_maker_prompt": "{praktiken}{zielobjektkategorien}{baustein_id}{baustein_titel}{herkunft_satz}{zielsetzung}{zielobjektkategorie}{n}\n{anforderungen}",
+            "ed23_baustein_abgleich_checker_prompt": "{baustein_id}{baustein_titel}{herkunft_satz}{anforderung}{vorschlag}{controls}",
+        }
+        fake.calls.clear()
+        _, patches = _run_patches(tmp, fake, official=official_mod, gpp=gpp_mod, prompts=prompts_mod)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert len(fake.calls) == 2
+        finally:
+            for p in patches:
+                p.stop()
+
+        # 4. Legacy entry without input_hash is NOT silently reused
+        with open(out, encoding="utf-8") as f:
+            legacy_doc = json.load(f)
+        legacy_doc["ed23_baustein_abgleich"]["anforderungen"]["SYS.1.1.A2"]["ki"].pop("input_hash", None)
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(legacy_doc, f)
+        fake.calls.clear()
+        _, patches = _run_patches(tmp, fake, official=official_mod, gpp=gpp_mod, prompts=prompts_mod)
+        for p in patches:
+            p.start()
+        try:
+            await st.run_stage_ed23_baustein_abgleich()
+            assert len(fake.calls) == 2
+        finally:
+            for p in patches:
+                p.stop()

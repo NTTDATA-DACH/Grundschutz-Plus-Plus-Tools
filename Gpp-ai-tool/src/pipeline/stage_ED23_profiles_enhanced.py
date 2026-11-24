@@ -51,6 +51,10 @@ from utils.ed23_baustein import (
     anforderung_sort_key,
     build_anforderung_records,
     detect_ng,
+    has_unapproved_ki_proposals,
+    is_manually_approved,
+    is_ng_control_publishable,
+    is_zuordnung_publishable,
     iter_bausteine,
     load_ed23_catalogs,
     profile_file_stem,
@@ -313,7 +317,11 @@ def order_anforderungen(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 def control_placement(ordered: List[Dict[str, Any]], abgleich: Dict[str, Any]) -> Tuple[Dict[str, str], Dict[str, List[str]], Dict[str, List[Tuple[str, Dict[str, Any]]]]]:
-    """Returns (first placement per control, control ids per Anforderung, provenance per control)."""
+    """Returns (first placement per control, control ids per Anforderung, provenance per control).
+
+    Enforces the strict checker gate: KI assignments and proposed NG controls are included only
+    when confirmed (`bestaetigt`) or explicitly manually approved (`freigabe`/`manual_approval`).
+    """
     first: Dict[str, str] = {}
     by_anf: Dict[str, List[str]] = {}
     provenance: Dict[str, List[Tuple[str, Dict[str, Any]]]] = {}
@@ -323,12 +331,14 @@ def control_placement(ordered: List[Dict[str, Any]], abgleich: Dict[str, Any]) -
         entry = abgleich.get(rec["id"], {}) or {}
         ids: List[str] = []
         for z in entry.get("zuordnungen") or []:
+            if not is_zuordnung_publishable(z):
+                continue
             cid = z["control_id"]
             if cid not in ids:
                 ids.append(cid)
             provenance.setdefault(cid, []).append((rec["id"], z))
         nc = entry.get("neues_control")
-        if nc and nc.get("id"):
+        if is_ng_control_publishable(nc) and nc.get("id"):
             ids.append(nc["id"])
         by_anf[rec["id"]] = ids
         for cid in ids:
@@ -355,8 +365,9 @@ def herkunft_remark(z: Dict[str, Any]) -> str:
     elif quelle == "gsmap":
         head = f"Herkunft: BSI-GSMap ITGS→GS++ ({rel})"
     else:
+        manual_suffix = ", manuell freigegeben" if is_manually_approved(z) else ""
         head = (f"Herkunft: KI-Vorschlag ({rel}, Konfidenz {z.get('konfidenz') or 'n/a'}, "
-                f"Checker {z.get('checker') or 'nicht geprüft'})")
+                f"Checker {z.get('checker') or 'nicht geprüft'}{manual_suffix})")
     others = [q for q in (z.get("quellen") or []) if q != quelle]
     text = head + (f": {beg}" if beg else "")
     if others:
@@ -406,7 +417,13 @@ def build_merge_groups(baustein_id: str, ordered: List[Dict[str, Any]], abgleich
             group["links"] = [{"href": f"#{cid}", "rel": "related", "text": f"{cid} steht unter {first[cid]}"}
                               for cid in elsewhere]
         if not own and not elsewhere:
-            oc = entry.get("ohne_control") or {"art": "unbeantwortet", "begruendung": ""}
+            if has_unapproved_ki_proposals(entry):
+                oc = {
+                    "art": "pending_review",
+                    "begruendung": "KI-Vorschlag wartet auf manuelle Freigabe (Checker-Urteil nicht bestätigt)",
+                }
+            else:
+                oc = entry.get("ohne_control") or {"art": "unbeantwortet", "begruendung": ""}
             group["props"].append(_prop("ohne-control", oc.get("art") or "unbestimmt", ED23_BAUSTEIN_NS,
                                         oc.get("begruendung") or None))
         lg["groups"].append(group)
