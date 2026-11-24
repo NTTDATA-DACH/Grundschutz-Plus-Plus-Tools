@@ -776,6 +776,7 @@ function importAR(d,fn){
         title:f.title,
         description:f.description,
         remarks:f.remarks||'',
+        props:f.props||[],
         targetId:f.target?.['target-id']||'',
         status:f.target?.status?.state||'',
         relRisks:(f['related-risks']||[]).map(r=>r['risk-uuid']),
@@ -805,6 +806,15 @@ function importAR(d,fn){
             if(ob) {
                 obsTxt = ob.description || '';
                 if(ob.subjects) subjectsList = ob.subjects.filter(s => s.type === 'component');
+            }
+        }
+        // Fallback auf finding.props (component-uuid/component-title), damit die
+        // Komponentenzuordnung auch ohne Observation erhalten bleibt.
+        if (subjectsList.length === 0 && Array.isArray(f.props)) {
+            const propUuid = f.props.find(p => p && p.name === 'component-uuid')?.value || '';
+            const propTitle = f.props.find(p => p && p.name === 'component-title')?.value || '';
+            if (propUuid) {
+                subjectsList = [{ 'subject-uuid': propUuid, type: 'component', title: propTitle || propUuid }];
             }
         }
 

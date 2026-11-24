@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.0/marked.min.js" integrity="sha384-5S+6C4bM5PFDRwie5G8wVUoq/5EzdFEaE2bg7xLLhNiz4fjj7fsecAfOl8VzZ/co" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="gpp-core.css?v=4.1">
     <script>/* Farbschema vor dem ersten Rendern (gpp-core.js laedt erst am Ende): Wert aus localStorage, Vorgabe dunkel, "system" = kein Attribut */try{var _t=localStorage.getItem("gpp:cfg:ui:theme")||"dark";if(_t!=="system")document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
     <style>
@@ -2657,7 +2657,7 @@ Controls (ID · Titel · Anforderung · Stufen):
 
         if (!forceRefresh && aiCache[cid] && aiCache[cid][type]) {
             L.debug(`${cid} · ${type}: aus dem lokalen KI-Cache bedient (kein API-Call).`);
-            out.innerHTML = marked.parse(aiCache[cid][type]) + `<button onclick="triggerAI('${rk}','${cid}','${type}',true)" class="text-[9px] text-violet-400 hover:text-white mt-2 font-bold uppercase block text-right w-full">⋯ Neu generieren</button>`;
+            out.innerHTML = gppRenderMarkdown(aiCache[cid][type]) + `<button onclick="triggerAI('${rk}','${cid}','${type}',true)" class="text-[9px] text-violet-400 hover:text-white mt-2 font-bold uppercase block text-right w-full">⋯ Neu generieren</button>`;
             return;
         }
 
@@ -2707,7 +2707,7 @@ Controls (ID · Titel · Anforderung · Stufen):
             aiCache[cid][type] = txt;
             autoSave();
             L.ok(`${cid} · ${promptKind} fertig — ${(txt.length / 1024).toFixed(1)} kB in ${Math.round(performance.now() - tAi)}ms (inkl. Retries), im Cache abgelegt.`);
-            out.innerHTML = marked.parse(txt) + `<button onclick="triggerAI('${rk}','${cid}','${type}',true)" class="text-[9px] text-violet-400 hover:text-white mt-2 font-bold uppercase block text-right w-full">⋯ Neu generieren</button>`;
+            out.innerHTML = gppRenderMarkdown(txt) + `<button onclick="triggerAI('${rk}','${cid}','${type}',true)" class="text-[9px] text-violet-400 hover:text-white mt-2 font-bold uppercase block text-right w-full">⋯ Neu generieren</button>`;
         } catch(e) {
             L.err(`${cid} · ${promptKind}: ${truncErr(e.message)}`);
             out.innerHTML = `<span class="text-red-400 text-xs">Fehler: ${ed23Esc(truncErr(e.message))}</span>`;
@@ -2875,7 +2875,7 @@ Controls (ID · Titel · Anforderung · Stufen):
                 + '</Relationships>' },
             { name: 'xl/workbook.xml', text: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
                 + '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>'
-                + blaetter.map((b, i) => '<sheet name="' + xlsEsc(xlsBlattName(b.name)) + '" sheetId="' + (i + 1) + '" r:id="rId' + (i + 1) + '"/>').join('')
+                + blaetter.map((b, i) => '<sheet name="' + xlsEsc(xlsBlattName(b.name)) + '" sheetId="' + (i + 1) + '"' + (b.hidden ? ' state="hidden"' : '') + ' r:id="rId' + (i + 1) + '"/>').join('')
                 + '</sheets></workbook>' },
             { name: 'xl/_rels/workbook.xml.rels', text: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
                 + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
@@ -3032,7 +3032,14 @@ Controls (ID · Titel · Anforderung · Stufen):
                     bearbeiter: prop('implementing-user'),
                     datum: prop('implementation-date'),
                     reifegrad: gewaehlt ? (gewaehlt.description || gewaehlt['statement-id'] || '') : '',
-                    optionen: stmts.map(s => s.description || s['statement-id'] || '').filter(Boolean).join(' | ')
+                    optionen: stmts.map(s => s.description || s['statement-id'] || '').filter(Boolean).join(' | '),
+                    _base: {
+                        state,
+                        description: sReq?.description || '',
+                        name: prop('implementing-user'),
+                        date: prop('implementation-date'),
+                        statementId: prop('implemented-statement-id')
+                    }
                 });
             });
         });
@@ -3089,6 +3096,30 @@ Controls (ID · Titel · Anforderung · Stufen):
             hinweis('Zeilen', zeilen.length + ' Control-Zuordnung(en) über ' + comps.length + ' Komponente(n)')
         ];
 
+        // Verstecktes Baseline-Blatt für Drei-Wege-Merge beim Re-Import: hält den
+        // exakten Exportstand jedes Controls und Parameters, damit veraltete
+        // Workbooks neuere SSP-Änderungen nicht still zurückdrehen.
+        const baselineRows = [
+            ['type', 'key', 'f1', 'f2', 'f3', 'f4', 'f5'].map(v => ({ v, s: XLS_STYLE.NORM })),
+            ['meta', 'baseline_v1', ssp.uuid || '', ssp.metadata?.['last-modified'] || '', new Date().toISOString(), '', ''].map(v => ({ v, s: XLS_STYLE.NORM }))
+        ];
+        zeilen.forEach(z => {
+            const b = z._base || {};
+            baselineRows.push([
+                'control',
+                z.cid + '||' + z.uuid,
+                b.state || '',
+                b.description || '',
+                b.name || '',
+                b.date || '',
+                b.statementId || ''
+            ].map(v => ({ v, s: XLS_STYLE.NORM })));
+        });
+        Array.from(params.keys()).sort().forEach(pid => {
+            const e = params.get(pid);
+            baselineRows.push(['param', pid, e.wert || '', '', '', '', ''].map(v => ({ v, s: XLS_STYLE.NORM })));
+        });
+
         const mappe = xlsWorkbook([
             {
                 name: 'Controls', rows: controlRows, fixiert: true, filter: true,
@@ -3100,16 +3131,80 @@ Controls (ID · Titel · Anforderung · Stufen):
                 }] : []
             },
             { name: 'Parameter', rows: paramRows, fixiert: true, filter: true, cols: [{ w: 34, stil: XLS_STYLE.KEY }, { w: 30, stil: XLS_STYLE.INFO }, { w: 30, stil: XLS_STYLE.EDIT }, { w: 46, stil: XLS_STYLE.INFO }] },
-            { name: 'Hinweise', rows: hinweisRows, cols: [{ w: 22, stil: XLS_STYLE.KEY }, { w: 118, stil: XLS_STYLE.INFO }] }
+            { name: 'Hinweise', rows: hinweisRows, cols: [{ w: 22, stil: XLS_STYLE.KEY }, { w: 118, stil: XLS_STYLE.INFO }] },
+            { name: '_gpp_baseline', rows: baselineRows, hidden: true }
         ]);
 
         const basis = (sspFileName || 'ssp').replace(/\.json$/i, '').replace(/[^\w.-]+/g, '_');
         const name = basis + '_Controls_' + new Date().toISOString().slice(0, 10) + '.xlsx';
         gppDownloadBlob(name, new Blob([mappe], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
-        L.ok(`Excel-Export „${name}": ${zeilen.length} Control-Zeile(n) über ${comps.length} Komponente(n), ${params.size} Parameter — ${Math.round(performance.now() - t0)}ms.`);
+        L.ok(`Excel-Export „${name}": ${zeilen.length} Control-Zeile(n) über ${comps.length} Komponente(n), ${params.size} Parameter (inkl. Export-Baseline) — ${Math.round(performance.now() - t0)}ms.`);
+        return mappe;
     };
 
-    /* ---------- Import: ausgefüllte Mappe zurücklesen ---------- */
+    function showXlsConflictDialog(conflicts) {
+        return new Promise(resolve => {
+            const existing = document.getElementById('xls-conflict-modal');
+            if (existing) existing.remove();
+            const esc = v => (typeof gppEscapeHtml === 'function') ? gppEscapeHtml(v) : String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            const choices = new Map(conflicts.map((_, i) => [i, 'ssp']));
+            const overlay = document.createElement('div');
+            overlay.id = 'xls-conflict-modal';
+            overlay.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4';
+            overlay.innerHTML = `<div class="bg-slate-900 border border-amber-600/70 rounded-xl shadow-2xl max-w-4xl w-full max-h-[85vh] flex flex-col">
+                <div class="p-4 border-b border-slate-700 flex items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-base font-bold text-amber-300">Excel-Import: ${conflicts.length} Drei-Wege-Konflikt(e) erkannt</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Sowohl das SSP als auch die Excel-Datei wurden seit dem Export geändert. Wähle je Konflikt, welcher Stand gelten soll (Vorgabe: aktuellen SSP behalten).</p>
+                    </div>
+                    <div class="flex gap-2 flex-shrink-0">
+                        <button type="button" id="xls-cf-all-ssp" class="px-2.5 py-1 text-xs rounded border border-slate-600 bg-slate-800 text-slate-200 hover:bg-slate-700">Alle: SSP behalten</button>
+                        <button type="button" id="xls-cf-all-xls" class="px-2.5 py-1 text-xs rounded border border-amber-700 bg-amber-950/60 text-amber-200 hover:bg-amber-900/60">Alle: Excel übernehmen</button>
+                    </div>
+                </div>
+                <div class="overflow-auto p-4 space-y-2 flex-1">
+                    ${conflicts.map((c, i) => `<div class="p-3 rounded-lg border border-slate-700 bg-slate-950/70 text-xs" data-conflict-idx="${i}">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="font-bold text-slate-200">${esc(c.label)} <span class="text-amber-400">· ${esc(c.fieldLabel)}</span></span>
+                            <div class="flex items-center gap-3">
+                                <label class="inline-flex items-center gap-1 cursor-pointer text-emerald-300"><input type="radio" name="xls-cf-${i}" value="ssp" checked> SSP behalten</label>
+                                <label class="inline-flex items-center gap-1 cursor-pointer text-amber-300"><input type="radio" name="xls-cf-${i}" value="excel"> Excel übernehmen</label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <div class="p-2 rounded bg-slate-900 border border-slate-800"><div class="text-[10px] uppercase text-slate-500 font-bold mb-0.5">Export-Baseline</div><div class="text-slate-400 break-words">${esc(c.baseVal || '— leer —')}</div></div>
+                            <div class="p-2 rounded bg-emerald-950/30 border border-emerald-800/50"><div class="text-[10px] uppercase text-emerald-400 font-bold mb-0.5">Aktueller SSP</div><div class="text-emerald-200 break-words">${esc(c.sspVal || '— leer —')}</div></div>
+                            <div class="p-2 rounded bg-amber-950/30 border border-amber-800/50"><div class="text-[10px] uppercase text-amber-400 font-bold mb-0.5">Excel-Import</div><div class="text-amber-200 break-words">${esc(c.xlsVal || '— leer —')}</div></div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+                <div class="p-4 border-t border-slate-700 flex justify-end gap-2">
+                    <button type="button" id="xls-cf-cancel" class="px-4 py-2 text-xs font-bold rounded border border-slate-600 bg-slate-800 text-slate-300 hover:bg-slate-700">Import abbrechen</button>
+                    <button type="button" id="xls-cf-apply" class="px-4 py-2 text-xs font-bold rounded border border-emerald-700 bg-emerald-900/50 text-emerald-200 hover:bg-emerald-800/70">Auswahl anwenden</button>
+                </div>
+            </div>`;
+            document.body.appendChild(overlay);
+            const setAll = (val) => {
+                conflicts.forEach((_, i) => {
+                    choices.set(i, val);
+                    const r = overlay.querySelector(`input[name="xls-cf-${i}"][value="${val}"]`);
+                    if (r) r.checked = true;
+                });
+            };
+            overlay.querySelector('#xls-cf-all-ssp').addEventListener('click', () => setAll('ssp'));
+            overlay.querySelector('#xls-cf-all-xls').addEventListener('click', () => setAll('excel'));
+            overlay.querySelectorAll('input[type="radio"]').forEach(r => {
+                r.addEventListener('change', () => {
+                    const idx = Number(r.name.replace('xls-cf-', ''));
+                    choices.set(idx, r.value);
+                });
+            });
+            overlay.querySelector('#xls-cf-cancel').addEventListener('click', () => { overlay.remove(); resolve({ cancelled: true, choices }); });
+            overlay.querySelector('#xls-cf-apply').addEventListener('click', () => { overlay.remove(); resolve({ cancelled: false, choices }); });
+        });
+    }
+
+    /* ---------- Import: ausgefüllte Mappe zurücklesen (Drei-Wege-Merge) ---------- */
     window.importControlsXlsx = async (datei) => {
         if (!datei) return;
         if (!sspData || !sspData['system-security-plan']) { alert('Kein SSP geladen — bitte zuerst einen Arbeitsstand öffnen.'); return; }
@@ -3128,6 +3223,42 @@ Controls (ID · Titel · Anforderung · Stufen):
             const ci = ssp['control-implementation'];
             const comps = ssp['system-implementation']?.components || [];
             const requirements = ci['implemented-requirements'];
+
+            // Verstecktes Baseline-Blatt lesen (Exportstand für 3-Wege-Merge)
+            const baseBlattName = Array.from(blaetter.keys()).find(n => xlsKopfNorm(n) === '_gpp_baseline');
+            const baseControls = new Map();
+            const baseParams = new Map();
+            let hasBaseline = false;
+            if (baseBlattName) {
+                const bz = blaetter.get(baseBlattName) || [];
+                for (let i = 1; i < bz.length; i++) {
+                    const row = bz[i] || [];
+                    const typ = String(row[0] ?? '').trim();
+                    const key = String(row[1] ?? '').trim();
+                    if (typ === 'meta') { hasBaseline = true; continue; }
+                    if (typ === 'control' && key) {
+                        hasBaseline = true;
+                        baseControls.set(key, {
+                            state: String(row[2] ?? '').trim(),
+                            description: String(row[3] ?? '').trim(),
+                            name: String(row[4] ?? '').trim(),
+                            date: String(row[5] ?? '').trim(),
+                            statementId: String(row[6] ?? '').trim()
+                        });
+                    } else if (typ === 'param' && key) {
+                        hasBaseline = true;
+                        baseParams.set(key, String(row[2] ?? '').trim());
+                    }
+                }
+            }
+            if (!hasBaseline) {
+                L.warn('Excel-Import: Keine Export-Baseline (_gpp_baseline) enthalten — älteres Workbook-Format; Drei-Wege-Abgleich nicht möglich.');
+                if (!confirm('Warnung: Diese Excel-Datei enthält keine Export-Baseline (älteres Format).\nNeuere Änderungen im SSP können beim Import überschrieben werden.\n\nTrotzdem importieren?')) {
+                    L.info('Excel-Import ohne Baseline vom Nutzer abgebrochen.');
+                    progressEnd('Import abgebrochen');
+                    return;
+                }
+            }
 
             // Zuordnung nur gegen das, was im SSP wirklich existiert.
             const modelle = new Map();
@@ -3160,10 +3291,19 @@ Controls (ID · Titel · Anforderung · Stufen):
                 .map(s => s.kopf);
             if (fehlend.length) L.warn(`Nicht in der Datei enthalten und deshalb unverändert gelassen: ${fehlend.join(', ')}.`);
 
-            progress('Zeilen übernehmen', 2, 3);
-            let gelesen = 0, uebernommen = 0, unveraendert = 0;
+            progress('Zeilen abgleichen', 2, 3);
+            let gelesen = 0, uebernommen = 0, unveraendert = 0, geschuetzt = 0;
             const probleme = [];
             const gesehen = new Set();
+            const conflicts = [];
+            const pendingControls = [];
+            const FIELD_META = [
+                { col: 'status', key: 'state', label: 'Status' },
+                { col: 'kommentar', key: 'description', label: 'Kommentar / Begründung' },
+                { col: 'bearbeiter', key: 'name', label: 'Bearbeiter' },
+                { col: 'datum', key: 'date', label: 'Datum' },
+                { col: 'reifegrad', key: 'statementId', label: 'Reifegrad' }
+            ];
 
             for (let i = kopfIdx + 1; i < zeilen.length; i++) {
                 const z = zeilen[i] || [];
@@ -3188,33 +3328,33 @@ Controls (ID · Titel · Anforderung · Stufen):
 
                 const sReq = modell.sMap.get(cid);
                 const prop = n => sReq?.props?.find(p => p && p.name === n)?.value || '';
-                const werte = {
+                const aktuell = {
                     state: sReq?.['implementation-status']?.state || '',
                     description: sReq?.description || '',
                     name: prop('implementing-user'),
                     date: prop('implementation-date'),
                     statementId: prop('implemented-statement-id')
                 };
-                const vorher = JSON.stringify(werte);
+                const eingehend = { ...aktuell };
 
                 if (spalte.status != null) {
                     const roh = zell(z, 'status');
                     const kl = roh.toLowerCase();
                     const treffer = XLS_STATUS.find(s => s.label.toLowerCase() === kl || (s.state && s.state === kl));
-                    if (!roh || kl === 'open') werte.state = '';
-                    else if (treffer) werte.state = treffer.state;
+                    if (!roh || kl === 'open') eingehend.state = '';
+                    else if (treffer) eingehend.state = treffer.state;
                     else { probleme.push(`Zeile ${nr} (${cid}): Status "${roh}" ist keiner der erlaubten Werte.`); continue; }
                 }
-                if (spalte.kommentar != null) werte.description = zell(z, 'kommentar');
-                if (spalte.bearbeiter != null) werte.name = zell(z, 'bearbeiter');
+                if (spalte.kommentar != null) eingehend.description = zell(z, 'kommentar');
+                if (spalte.bearbeiter != null) eingehend.name = zell(z, 'bearbeiter');
                 if (spalte.datum != null) {
                     const d = xlsDatum(zell(z, 'datum'));
                     if (!d.ok) { probleme.push(`Zeile ${nr} (${cid}): "${zell(z, 'datum')}" ist kein Datum (erwartet JJJJ-MM-TT).`); continue; }
-                    werte.date = d.wert;
+                    eingehend.date = d.wert;
                 }
                 if (spalte.reifegrad != null) {
                     const roh = zell(z, 'reifegrad');
-                    if (!roh) werte.statementId = '';
+                    if (!roh) eingehend.statementId = '';
                     else {
                         const stmts = (modell.dMap.get(cid)?.statements || []).filter(Boolean);
                         const kl = roh.toLowerCase();
@@ -3224,18 +3364,50 @@ Controls (ID · Titel · Anforderung · Stufen):
                             probleme.push(`Zeile ${nr} (${cid}): Reifegrad "${roh}" gibt es hier nicht — möglich: ${moeglich || 'keiner'}.`);
                             continue;
                         }
-                        werte.statementId = treffer['statement-id'] || '';
+                        eingehend.statementId = treffer['statement-id'] || '';
                     }
                 }
 
-                if (JSON.stringify(werte) === vorher) { unveraendert++; continue; }
-                applyControlValues(requirements, cid, uuid, werte);
-                uebernommen++;
+                const base = hasBaseline ? baseControls.get(schluessel) : null;
+                const ziel = { ...aktuell };
+                let rowHasConflict = false;
+                FIELD_META.forEach(fm => {
+                    if (spalte[fm.col] == null) return;
+                    const sspVal = aktuell[fm.key] || '';
+                    const xlsVal = eingehend[fm.key] || '';
+                    if (base) {
+                        const baseVal = base[fm.key] || '';
+                        if (xlsVal === baseVal) {
+                            if (sspVal !== baseVal) geschuetzt++;
+                            return; // Excel unverändert → neueren SSP-Wert schützen
+                        }
+                        if (sspVal === baseVal || sspVal === xlsVal) {
+                            ziel[fm.key] = xlsVal;
+                        } else {
+                            rowHasConflict = true;
+                            conflicts.push({
+                                kind: 'control',
+                                label: `${cid} (${modell.comp.title || uuid})`,
+                                fieldLabel: fm.label,
+                                fieldKey: fm.key,
+                                baseVal, sspVal, xlsVal,
+                                cid, uuid, targetObj: ziel
+                            });
+                        }
+                    } else {
+                        ziel[fm.key] = xlsVal;
+                    }
+                });
+
+                pendingControls.push({ cid, uuid, aktuell, ziel, rowHasConflict });
             }
 
             // Zweites Blatt: Tailoring-Parameter. Fehlt es, bleibt alles wie es war.
             let paramGeaendert = 0;
             const pBlatt = Array.from(blaetter.keys()).find(n => xlsKopfNorm(n) === 'parameter');
+            const pMap = new Map((ci['set-parameters'] || [])
+                .filter(p => p?.['param-id'] && p.values?.length).map(p => [p['param-id'], p.values.slice()]));
+            const pendingParams = [];
             if (pBlatt) {
                 const pz = blaetter.get(pBlatt) || [];
                 const pKopfIdx = pz.findIndex(z => z.some(c => xlsKopfNorm(c) === 'parameter-id'));
@@ -3245,10 +3417,6 @@ Controls (ID · Titel · Anforderung · Stufen):
                     const idIdx = pKopf.indexOf('parameter-id'), wertIdx = pKopf.indexOf('wert');
                     if (wertIdx < 0) L.warn(`Blatt "${pBlatt}": Spalte "Wert" fehlt — Parameter wurden nicht übernommen.`);
                     else {
-                        /* Das vollständige values-Array halten: OSCAL erlaubt mehrwertige
-                           Parameter, die Tabelle zeigt nur den ersten Wert. */
-                        const pMap = new Map((ci['set-parameters'] || [])
-                            .filter(p => p?.['param-id'] && p.values?.length).map(p => [p['param-id'], p.values.slice()]));
                         for (let i = pKopfIdx + 1; i < pz.length; i++) {
                             const pid = String(pz[i]?.[idIdx] ?? '').trim();
                             if (!pid) continue;
@@ -3256,21 +3424,76 @@ Controls (ID · Titel · Anforderung · Stufen):
                                 probleme.push(`Blatt "${pBlatt}", Zeile ${i + 1}: Parameter ${pid} ist im Katalog unbekannt.`);
                                 continue;
                             }
-                            const wert = String(pz[i]?.[wertIdx] ?? '').trim();
+                            const xlsVal = String(pz[i]?.[wertIdx] ?? '').trim();
                             const alt = pMap.get(pid);
-                            if (wert) {
-                                if (alt && alt.length > 1) { if (alt[0] === wert) continue; alt[0] = wert; }
-                                else { if (alt && alt[0] === wert) continue; pMap.set(pid, [wert]); }
+                            const sspVal = alt ? (alt[0] || '') : '';
+                            if (hasBaseline && baseParams.has(pid)) {
+                                const baseVal = baseParams.get(pid) || '';
+                                if (xlsVal === baseVal) {
+                                    if (sspVal !== baseVal) geschuetzt++;
+                                    continue;
+                                }
+                                if (sspVal === baseVal || sspVal === xlsVal) {
+                                    if (sspVal !== xlsVal) pendingParams.push({ pid, wert: xlsVal });
+                                } else {
+                                    const entry = { pid, wert: sspVal };
+                                    pendingParams.push(entry);
+                                    conflicts.push({
+                                        kind: 'param',
+                                        label: `Parameter ${pid}`,
+                                        fieldLabel: 'Wert',
+                                        fieldKey: 'wert',
+                                        baseVal, sspVal, xlsVal,
+                                        pid, targetObj: entry
+                                    });
+                                }
                             } else {
-                                if (!alt) continue;
-                                pMap.delete(pid);
+                                if (sspVal !== xlsVal) pendingParams.push({ pid, wert: xlsVal });
                             }
-                            paramGeaendert++;
                         }
-                        const gesetzt = Array.from(pMap.entries()).map(([pid, values]) => ({ 'param-id': pid, values }));
-                        if (gesetzt.length) ci['set-parameters'] = gesetzt; else delete ci['set-parameters'];
                     }
                 }
+            }
+
+            // Echte Drei-Wege-Konflikte dem Nutzer zur Entscheidung vorlegen
+            let konflikteGeloest = 0;
+            if (conflicts.length > 0) {
+                L.warn(`Excel-Import: ${conflicts.length} Drei-Wege-Konflikt(e) erkannt — warte auf Entscheidung.`);
+                const res = await showXlsConflictDialog(conflicts);
+                if (res.cancelled) {
+                    L.info('Excel-Import wegen Konflikten vom Nutzer abgebrochen — SSP bleibt unverändert.');
+                    progressEnd('Import abgebrochen');
+                    return;
+                }
+                conflicts.forEach((c, idx) => {
+                    const pick = res.choices.get(idx) || 'ssp';
+                    if (pick === 'excel') c.targetObj[c.fieldKey] = c.xlsVal;
+                    else c.targetObj[c.fieldKey] = c.sspVal;
+                    konflikteGeloest++;
+                });
+            }
+
+            pendingControls.forEach(item => {
+                if (JSON.stringify(item.ziel) === JSON.stringify(item.aktuell)) { unveraendert++; return; }
+                applyControlValues(requirements, item.cid, item.uuid, item.ziel);
+                uebernommen++;
+            });
+
+            if (pBlatt && pendingParams.length) {
+                pendingParams.forEach(({ pid, wert }) => {
+                    const alt = pMap.get(pid);
+                    const sspVal = alt ? (alt[0] || '') : '';
+                    if (wert === sspVal) return;
+                    if (wert) {
+                        if (alt && alt.length > 1) alt[0] = wert;
+                        else pMap.set(pid, [wert]);
+                    } else {
+                        pMap.delete(pid);
+                    }
+                    paramGeaendert++;
+                });
+                const gesetzt = Array.from(pMap.entries()).map(([pid, values]) => ({ 'param-id': pid, values }));
+                if (gesetzt.length) ci['set-parameters'] = gesetzt; else delete ci['set-parameters'];
             }
 
             pruneImplementedRequirements(ci);
@@ -3285,9 +3508,11 @@ Controls (ID · Titel · Anforderung · Stufen):
                 + `\n• ${n(gelesen)} Zeile(n) gelesen (Blatt „${blattName}")`
                 + `\n• ${n(uebernommen)} Änderung(en) übernommen`
                 + `\n• ${n(unveraendert)} Zeile(n) unverändert`
+                + (geschuetzt ? `\n• ${n(geschuetzt)} neuere SSP-Feld(er) vor veralteten Excel-Zellen geschützt` : '')
+                + (konflikteGeloest ? `\n• ${n(konflikteGeloest)} Konflikt(e) aufgelöst` : '')
                 + (paramGeaendert ? `\n• ${n(paramGeaendert)} Parameter angepasst` : '')
                 + (probleme.length ? `\n• ${n(probleme.length)} Zeile(n) übersprungen — Einzelheiten in der Log-Konsole` : '');
-            L.ok(`Excel-Import fertig in ${Math.round(performance.now() - t0)}ms: ${gelesen} gelesen, ${uebernommen} übernommen, ${unveraendert} unverändert, ${probleme.length} übersprungen.`);
+            L.ok(`Excel-Import fertig in ${Math.round(performance.now() - t0)}ms: ${gelesen} gelesen, ${uebernommen} übernommen, ${unveraendert} unverändert, ${geschuetzt} geschützt, ${konflikteGeloest} Konflikte, ${probleme.length} übersprungen.`);
             progressEnd('Excel importiert');
             alert(bericht);
         } catch (e) {
