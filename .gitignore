@@ -26,3 +26,9 @@ terraform.tfvars
 
 # Replay-Ausgaben der QS-Laeufe (Browser -> lokaler Empfaenger), reproduzierbar
 QS/fixtures/replay/
+
+# Playwright / Node test artifacts
+node_modules/
+playwright-report/
+test-results/
+

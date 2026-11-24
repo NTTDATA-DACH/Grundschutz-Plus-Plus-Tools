@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.0/marked.min.js" integrity="sha384-5S+6C4bM5PFDRwie5G8wVUoq/5EzdFEaE2bg7xLLhNiz4fjj7fsecAfOl8VzZ/co" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="gpp-core.css?v=4.1">
     <script>/* Farbschema vor dem ersten Rendern (gpp-core.js laedt erst am Ende): Wert aus localStorage, Vorgabe dunkel, "system" = kein Attribut */try{var _t=localStorage.getItem("gpp:cfg:ui:theme")||"dark";if(_t!=="system")document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
     <style>
@@ -662,7 +662,7 @@
         </div>
     </div>
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
     <script>
         if (typeof gppCfg === 'undefined' || typeof GPP_CORE_VERSION === 'undefined' || Number(GPP_CORE_VERSION) < 2) {
             document.body.innerHTML = '<div style="font:15px/1.6 system-ui;padding:40px;max-width:60ch;color:#eee;background:#0f172a">' +
@@ -738,7 +738,7 @@
         };
 
         // Einzige Quelle der Build-Version. Titel und Topbar-Badge werden daraus gesetzt.
-        const BUILD_VERSION = "v9.11";
+        const BUILD_VERSION = "v9.12";
 
         const byId = id => document.getElementById(id);
 
@@ -895,12 +895,11 @@
         let loadedControlIds = new Set();
         let aiCache = {};
 
-        // --- G++-Katalog-Pin (Handbuch 3.13/3.14, Katalogarbeit-Skill Grundregel 8) ---
-        // Gleiche Werte wie Gpp-ai-tool/src/constants.py und die gepinnten Profile.
-        // Katalog-Update = bewusster Pin-Wechsel an allen Stellen zugleich.
-        const GPP_CATALOG_PIN_COMMIT = "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35";
-        const GPP_CATALOG_PIN_SHA256 = "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a";
-        const GPP_CATALOG_PINNED_URL = "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/" + GPP_CATALOG_PIN_COMMIT + "/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json";
+        // --- G++-Katalog-Pin aus dem gemeinsamen Release-Manifest (gpp-core.js) ---
+        const GPP_VIEWER_MANIFEST = (typeof gppReleaseManifest !== 'undefined') ? gppReleaseManifest.active() : null;
+        const GPP_CATALOG_PIN_COMMIT = GPP_VIEWER_MANIFEST ? GPP_VIEWER_MANIFEST.catalog.commit : "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35";
+        const GPP_CATALOG_PIN_SHA256 = GPP_VIEWER_MANIFEST ? GPP_VIEWER_MANIFEST.catalog.sha256 : "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a";
+        const GPP_CATALOG_PINNED_URL = GPP_VIEWER_MANIFEST ? GPP_VIEWER_MANIFEST.catalog.url : ("https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/" + GPP_CATALOG_PIN_COMMIT + "/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json");
 
         async function sha256Hex(buf) {
             const d = await crypto.subtle.digest("SHA-256", buf);
@@ -1535,9 +1534,9 @@ eine KI. Dein Satzbau ist Abwechslungsreich, konkret, präßise und du nutzt kei
 
             if (!forceRefresh && aiCache[controlId] && aiCache[controlId][type]) {
                 const cachedRes = aiCache[controlId][type];
-                contentArea.innerHTML = (typeof marked !== 'undefined' ? marked.parse(cachedRes) : cachedRes) +
+                contentArea.innerHTML = gppRenderMarkdown(cachedRes) +
                     `<div class="ai-refresh-row">
-                        <button class="ai-refresh-btn" onclick="triggerAI('${controlId}', '${type}', true)">▶ Neu generieren</button>
+                        <button class="ai-refresh-btn" onclick="triggerAI('${gppAttrArg(controlId)}', '${gppAttrArg(type)}', true)">▶ Neu generieren</button>
                     </div>`;
                 L.debug(`Cache-Treffer ${controlId} · ${type} (${(cachedRes.length / 1024).toFixed(1)}kb) — kein API-Aufruf`);
                 return;
@@ -1591,9 +1590,9 @@ eine KI. Dein Satzbau ist Abwechslungsreich, konkret, präßise und du nutzt kei
                 aiCache[controlId][type] = response;
                 localStorage.setItem('gspp_ai_cache', JSON.stringify(aiCache));
 
-                contentArea.innerHTML = (typeof marked !== 'undefined' ? marked.parse(response) : response) +
+                contentArea.innerHTML = gppRenderMarkdown(response) +
                     `<div class="ai-refresh-row">
-                        <button class="ai-refresh-btn" onclick="triggerAI('${controlId}', '${type}', true)">▶ Neu generieren</button>
+                        <button class="ai-refresh-btn" onclick="triggerAI('${gppAttrArg(controlId)}', '${gppAttrArg(type)}', true)">▶ Neu generieren</button>
                     </div>`;
                 L.ok(`KI-Antwort gespeichert: ${label} (${(response.length / 1024).toFixed(1)}kb, Cache-Einträge: ${Object.keys(aiCache).length})`);
                 taskEnd(`KI · ${controlId} fertig`, true);
@@ -1733,51 +1732,123 @@ eine KI. Dein Satzbau ist Abwechslungsreich, konkret, präßise und du nutzt kei
                 activeProfileIds = ids;
                 const matNote = activeProfileMaturity ? ` (inkl. Reifegrade für ${activeProfileMaturity.size} Controls)` : '';
 
-                // Pin-Prüfung: Fragment-Import → back-matter-Resource (Commit-URL + SHA-256).
-                // Abgleich gegen die Hashes der tatsächlich geladenen Kataloge, dazu der
-                // Drift-Check über die Control-ID-Schnittmenge.
-                const imp0 = (data.profile.imports || [])[0];
-                const pin = imp0 ? resolveImportHref(data.profile, imp0.href) : null;
-                // NG-Controls (NG-…, nutzergeneriert) kommen aus dem NG-Ergänzungskatalog der
-                // ED23-Baustein-Profile (zweiter Import), nicht aus dem Anwenderkatalog — sie
-                // zählen nicht als Drift. Dokumentation/namespaces/ed23_baustein_props.md.
+                // Pin- und Import-Prüfung für JEDEN Profil-Import separat (inkl. NG-Ergänzungskatalog).
+                // NG-Controls werden NICHT pauschal als Treffer gezählt, sondern nur dann als
+                // gültig/aufgelöst gewertet, wenn sie im geladenen und SHA-256-geprüften Import enthalten sind.
+                const imports = data.profile?.imports || [];
+                const profileBaseUrl = new URL(url, window.location.href).href;
+                const verifiedNgControlIds = new Set();
+                const importErrors = [];
+                const importWarnings = [];
+                const importOkNotes = [];
                 const ngIds = [...ids].filter(id => /^NG-/.test(id));
-                if (ngIds.length) {
-                    const imp1 = (data.profile.imports || [])[1];
-                    const ngRes = imp1 ? resolveImportHref(data.profile, imp1.href) : null;
-                    L.info(`${ngIds.length} NG-Controls (nutzergeneriert, NTT DATA) aus dem NG-Ergänzungskatalog${ngRes?.url ? ` (${ngRes.url})` : ''} — nicht Teil des Anwenderkatalogs, im Drift-Check ausgenommen.`);
+                let hasValidNgImport = false;
+
+                for (let idx = 0; idx < imports.length; idx++) {
+                    const imp = imports[idx];
+                    const impIds = new Set();
+                    (imp['include-controls'] || []).forEach(inc => (inc['with-ids'] || []).forEach(id => impIds.add(id)));
+                    const pin = resolveImportHref(data.profile, imp.href);
+                    const isNgImport = [...impIds].some(id => /^NG-/.test(id)) || (pin?.url && /ng[-_]?ergaenzungskatalog/i.test(pin.url));
+
+                    if (!pin) {
+                        const label = isNgImport ? `NG-Import #${idx + 1}` : `Import #${idx + 1}`;
+                        importErrors.push(`${label} (${imp.href || 'ohne href'}): back-matter-Resource fehlt oder unvollständig.`);
+                        L.err(`${label}: back-matter-Resource für "${imp.href || ''}" fehlt oder hat keinen rlink.`);
+                        continue;
+                    }
+
+                    let resolvedUrl = pin.url;
+                    try { resolvedUrl = new URL(pin.url, profileBaseUrl).href; } catch (e) {}
+
+                    if (pin.pinned && pin.sha256) {
+                        let matchedSource = loadedCatalogSources.find(s => s.sha256 === pin.sha256);
+                        // Sekundäre Imports (z. B. NG-Ergänzungskatalog) bei Bedarf automatisch nachladen & gegen SHA-256 prüfen
+                        if (!matchedSource && (isNgImport || idx > 0)) {
+                            try {
+                                L.info(`Lade Profil-Import #${idx + 1} (${resolvedUrl}) und prüfe SHA-256…`);
+                                const impRes = await fetch(resolvedUrl);
+                                if (!impRes.ok) throw new Error(`HTTP ${impRes.status}`);
+                                const buf = await impRes.arrayBuffer();
+                                const actualHash = await sha256Hex(buf);
+                                if (actualHash !== pin.sha256) {
+                                    importErrors.push(`${isNgImport ? 'NG-Import' : `Import #${idx + 1}`}: SHA-256-Abweichung (erwartet ${pin.sha256.slice(0, 12)}…, erhalten ${actualHash.slice(0, 12)}…) — nicht geladen.`);
+                                    L.err(`Hash-Prüfung fehlgeschlagen für ${resolvedUrl}: erwartet ${pin.sha256}, erhalten ${actualHash}.`);
+                                    continue;
+                                }
+                                const impDoc = JSON.parse(new TextDecoder().decode(buf));
+                                if (!impDoc?.catalog) throw new Error('Geladene Datei ist kein gültiger OSCAL-Katalog.');
+                                processCatalog(impDoc, { url: resolvedUrl, sha256: actualHash });
+                                matchedSource = loadedCatalogSources.find(s => s.sha256 === pin.sha256);
+                                L.ok(`Import #${idx + 1} geladen und per SHA-256 verifiziert (${actualHash.slice(0, 12)}…).`);
+                            } catch (err) {
+                                importErrors.push(`${isNgImport ? 'NG-Import' : `Import #${idx + 1}`} konnte nicht geladen/verifiziert werden: ${truncateError(err.message)}.`);
+                                L.err(`Import #${idx + 1} (${resolvedUrl}) fehlgeschlagen: ${truncateError(err.message)}`);
+                                continue;
+                            }
+                        }
+
+                        if (matchedSource) {
+                            importOkNotes.push(isNgImport ? "NG-Import SHA-256 geprüft" : "Basis-Katalog SHA-256 geprüft");
+                            L.ok(`Pin-Prüfung bestanden für Import #${idx + 1} (SHA-256 ${pin.sha256.slice(0, 12)}…).`);
+                            if (isNgImport && matchedSource.controlIds) {
+                                hasValidNgImport = true;
+                                matchedSource.controlIds.forEach(cid => verifiedNgControlIds.add(cid));
+                            }
+                        } else if (loadedCatalogSources.length) {
+                            const commitHint = pin.url.includes('/') ? (pin.url.split('/')[5] || '').slice(0, 12) : '?';
+                            importWarnings.push(`Kein geladener Katalog entspricht Import #${idx + 1} (Commit ${commitHint}, SHA-256 ${pin.sha256.slice(0, 12)}…).`);
+                            if (idx === 0) document.getElementById('urlInput').value = resolvedUrl;
+                            L.warn(`Pin-Prüfung: kein geladener Katalog passt zu Import #${idx + 1} — gepinnte Quelle ins URL-Feld übernommen.`);
+                        } else {
+                            importWarnings.push(`Import #${idx + 1} ist gepinnt, aber noch kein Katalog geladen — Quelle ins URL-Feld übernommen.`);
+                            if (idx === 0) document.getElementById('urlInput').value = resolvedUrl;
+                            L.info(`Import #${idx + 1} ist gepinnt; noch kein Katalog geladen.`);
+                        }
+                    } else if (isNgImport) {
+                        importErrors.push(`NG-Import #${idx + 1} hat keinen SHA-256-Pin — NG-Controls gelten als unaufgelöst.`);
+                        L.err(`NG-Import #${idx + 1} (${resolvedUrl}) ohne SHA-256-Hash abgelehnt.`);
+                    } else {
+                        importWarnings.push(`Import #${idx + 1} nutzt einen ungepinnten Import (kein SHA-256).`);
+                        L.warn(`Import #${idx + 1} nutzt einen ungepinnten Import (kein SHA-256 hinterlegt).`);
+                    }
                 }
-                const matched = loadedControlIds.size ? [...ids].filter(id => loadedControlIds.has(id) || /^NG-/.test(id)).length : null;
+
+                if (ngIds.length && !hasValidNgImport) {
+                    const alreadyReported = importErrors.some(e => /NG-Import/.test(e));
+                    if (!alreadyReported) {
+                        importErrors.push(`${ngIds.length} NG-Control(s) im Profil, aber kein gültiger, hash-geprüfter NG-Import vorhanden.`);
+                        L.err(`NG-Prüfung fehlgeschlagen: ${ngIds.length} NG-Control(s) im Profil, aber kein hash-geprüfter NG-Ergänzungskatalog geladen.`);
+                    }
+                }
+
+                // Echte Abdeckung: reguläre Controls gegen loadedControlIds, NG-Controls ausschließlich gegen verifiedNgControlIds!
+                const isControlResolved = (id) => /^NG-/.test(id) ? verifiedNgControlIds.has(id) : loadedControlIds.has(id);
+                const resolvedCount = (loadedControlIds.size || verifiedNgControlIds.size)
+                    ? [...ids].filter(isControlResolved).length
+                    : (ngIds.length ? 0 : null);
+                const unresolvedNg = ngIds.filter(id => !verifiedNgControlIds.has(id));
+
                 let msg = `${ids.size} Maßnahmen im Profil aktiv${matNote}${ngIds.length ? ` (davon ${ngIds.length} NG)` : ''}.`;
                 let color = "var(--green)";
                 L.ok(`Profil geladen: ${ids.size} Control-IDs${activeProfileMaturity ? `, Reifegrade für ${activeProfileMaturity.size} Controls` : ''} (${Math.round(performance.now() - t0)}ms)`);
-                if (matched !== null && matched < ids.size) {
-                    msg = `${matched} von ${ids.size} Profil-Maßnahmen im geladenen Katalog gefunden${matNote}.`;
-                    color = "var(--amber)";
-                    L.warn(`Profil-Drift: nur ${matched} von ${ids.size} Profil-IDs sind im geladenen Katalog vorhanden.`);
-                } else if (matched !== null) {
-                    L.debug(`Profil-Drift-Check ok: alle ${ids.size} Profil-IDs im geladenen Katalog vorhanden.`);
+
+                if (resolvedCount !== null && resolvedCount < ids.size) {
+                    msg = `${resolvedCount} von ${ids.size} Profil-Maßnahmen aufgelöst${matNote}${unresolvedNg.length ? ` (${unresolvedNg.length} NG unaufgelöst)` : ''}.`;
+                    color = unresolvedNg.length ? "var(--red)" : "var(--amber)";
+                    L.warn(`Profil-Drift: nur ${resolvedCount} von ${ids.size} Profil-IDs aufgelöst${unresolvedNg.length ? ` (davon ${unresolvedNg.length} NG unaufgelöst)` : ''}.`);
+                } else if (resolvedCount !== null && !importErrors.length && !importWarnings.length) {
+                    L.debug(`Profil-Drift-Check ok: alle ${ids.size} Profil-IDs in den geladenen, geprüften Katalogen vorhanden.`);
                 }
-                if (pin && pin.pinned && pin.sha256) {
-                    const hashMatch = loadedCatalogSources.some(s => s.sha256 === pin.sha256);
-                    L.debug(`Pin-Prüfung: Profil verlangt SHA-256 ${pin.sha256.slice(0, 12)}… (${pin.url})`);
-                    if (hashMatch) {
-                        msg += " Katalog entspricht dem Pin des Profils (SHA-256 geprüft).";
-                        L.ok("Pin-Prüfung bestanden: geladener Katalog entspricht dem Profil-Pin (SHA-256).");
-                    } else if (loadedCatalogSources.length) {
-                        msg += ` Achtung: Kein geladener Katalog entspricht der gepinnten Version (Commit ${pin.url.includes('/') ? (pin.url.split('/')[5] || '').slice(0, 12) : '?'}). Gepinnte Quelle wurde ins URL-Feld übernommen.`;
-                        color = "var(--amber)";
-                        document.getElementById('urlInput').value = pin.url;
-                        L.warn("Pin-Prüfung: kein geladener Katalog passt zum Profil-Pin — gepinnte Quelle ins URL-Feld übernommen.");
-                    } else {
-                        msg += " Profil ist gepinnt; gepinnte Katalog-Quelle wurde ins URL-Feld übernommen — per „Katalog hinzufügen“ laden.";
-                        document.getElementById('urlInput').value = pin.url;
-                        L.info("Profil ist gepinnt; noch kein Katalog geladen — gepinnte Quelle ins URL-Feld übernommen.");
-                    }
-                } else if (pin && !pin.pinned) {
-                    msg += " Hinweis: Profil nutzt noch den ungepinnten Branch-Import (kein SHA-256).";
-                    color = "var(--amber)";
-                    L.warn("Profil nutzt einen ungepinnten Branch-Import (kein SHA-256 hinterlegt).");
+
+                if (importErrors.length) {
+                    msg += " FEHLER: " + importErrors.join(" ");
+                    color = "var(--red)";
+                } else if (importWarnings.length) {
+                    msg += " Hinweis: " + importWarnings.join(" ");
+                    if (color === "var(--green)") color = "var(--amber)";
+                } else if (importOkNotes.length) {
+                    msg += " " + importOkNotes.join(", ") + ".";
                 }
                 infoSpan.textContent = msg;
                 infoSpan.style.color = color;
@@ -1896,8 +1967,10 @@ eine KI. Dein Satzbau ist Abwechslungsreich, konkret, präßise und du nutzt kei
             const idsBefore = loadedControlIds.size;
             const t0 = performance.now();
             loadedCatalogs.push(catMeta);
-            if (source) loadedCatalogSources.push(source);
-            collectControlIds(data.catalog, loadedControlIds);
+            const catIds = new Set();
+            collectControlIds(data.catalog, catIds);
+            catIds.forEach(id => loadedControlIds.add(id));
+            if (source) loadedCatalogSources.push({ ...source, controlIds: catIds });
             updateMetaDisplay();
 
             const fragment = document.createDocumentFragment();

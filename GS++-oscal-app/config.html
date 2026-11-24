@@ -201,6 +201,11 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
     </div>
     <div style="margin-top:16px">
       <div class="toggle">
+        <span>API-Keys &amp; GitHub-Token dauerhaft im Browser speichern (<code>localStorage</code>) <span class="note" style="display:block;margin:2px 0 0">Standardmäßig aus: Schlüssel bleiben nur für diese Sitzung im <code>sessionStorage</code>/Speicher und werden beim Schließen des Tabs verworfen. Nur auf eigenen, vertrauenswürdigen Geräten einschalten.</span></span>
+        <input type="checkbox" id="sec-persist-local">
+      </div>
+      <div class="note" id="sec-migration-note" style="display:none;color:var(--amber);margin:4px 0 8px"></div>
+      <div class="toggle">
         <span>Google-Search-Grounding <span class="note" style="display:block;margin:2px 0 0">Schaltet strukturierte Ausgaben ab — nur einschalten, wenn Belege wichtiger sind als Schema-Treue.</span></span>
         <input type="checkbox" id="grounding">
       </div>
@@ -242,12 +247,19 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
   </div>
 
   <div class="card" id="sec-quellen">
-    <h2>Quellen und Pins</h2>
-    <p class="sub">Kataloge und Hilfsdateien hängen an einem festen Commit, damit dieselbe Eingabe morgen dasselbe Ergebnis liefert (Handbuch 3.13/3.14, Grundregel 8). Aktuell bleiben Sie trotzdem: „Nach Updates suchen" holt den neuesten Commit der jeweiligen Datei, zeigt ihn an und übernimmt ihn erst auf Klick.</p>
-    <div class="row" style="margin-bottom:12px">
+    <h2>Quellen und Release-Manifest</h2>
+    <p class="sub">Katalog, Mappings und Profile werden als <strong>atomares Release-Manifest</strong> zusammen gepinnt, damit Control-IDs, Parameter und SHA-256-Hashes konsistent bleiben (Handbuch 3.13/3.14, Grundregel 8).</p>
+    <div id="release-manifest-box" class="src" style="margin-bottom:14px"></div>
+    <div class="toggle" style="margin-bottom:12px">
+      <span><strong>Experten-Modus: Einzel-Overrides für Quellen erlauben</strong>
+        <span class="note" style="display:block;margin:2px 0 0">Standardmäßig aus. <strong style="color:var(--amber)">Kompatibilitätswarnung:</strong> Das einzelne Umpinnen von Profilen oder Hilfsdateien gegen einen fest gepinnten Katalog kann Control-IDs, Parameter oder Hash-Prüfungen auseinanderziehen. Nur für Tests oder gezielte Ausnahmen aktivieren.</span>
+      </span>
+      <input type="checkbox" id="src-expert-mode">
+    </div>
+    <div class="row" id="src-expert-actions" style="margin-bottom:12px">
       <button class="btn primary" id="btn-check-all">⟳ Alle Quellen prüfen</button>
-      <button class="btn" id="btn-update-all" title="Alle prüfbaren Quellen in einem Rutsch auf den jeweils neuesten Commit umpinnen (mit Rückfrage; inhaltsgepinnte Quellen bleiben unberührt)">⤒ Alle updaten</button>
-      <button class="btn" id="btn-reset-src">Alle auf Tool-Standard zurücksetzen</button>
+      <button class="btn" id="btn-update-all" title="Alle prüfbaren Quellen im Experten-Modus einzeln auf den jeweils neuesten Commit umpinnen (mit Kompatibilitätswarnung)">⤒ Alle einzeln updaten (Experten-Modus)</button>
+      <button class="btn" id="btn-reset-src">Einzel-Overrides zurücksetzen</button>
       <span class="note" id="src-summary" style="margin:0"></span>
     </div>
     <div style="margin-bottom:14px">
@@ -256,8 +268,8 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
       <div class="note">Nur zum <b>Auflisten</b> von Verzeichnissen und zur Update-Prüfung — ein Token ohne Rechte
         („public repo, read-only") genügt. Ohne Token erlaubt GitHub 60 Anfragen pro Stunde und meldet danach
         <code>403</code>; mit Token sind es 5000. <b>Die Anmeldung im Browser hilft dabei nicht:</b>
-        <code>api.github.com</code> wertet keine Session-Cookies aus. Der Token bleibt im
-        <code>localStorage</code> dieses Browsers.</div>
+        <code>api.github.com</code> wertet keine Session-Cookies aus. Der Token bleibt standardmäßig nur für
+        diese Sitzung im <code>sessionStorage</code> (dauerhaftes Speichern im <code>localStorage</code> nur per Opt-in unter „KI-Zugang“).</div>
     </div>
     <div id="src-body"></div>
   </div>
@@ -345,7 +357,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
   </div>
 </main>
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
 <script>
 /* Diese Seite unterdrückt den selbst einhängenden Status-Chip des Kerns —
    der Zustand steht hier ausführlich im Abschnitt "Zusammenarbeit". */
@@ -383,7 +395,7 @@ const FIELDS = [
   ["db-provider", "db:auth:provider"], ["db-email", "db:email"],
   ["ui-theme", "ui:theme"],
 ];
-const TOGGLES = [["grounding", "ai:grounding"], ["or-structuredonly", "ai:or:structuredonly"]];
+const TOGGLES = [["sec-persist-local", "sec:persist:localStorage"], ["grounding", "ai:grounding"], ["or-structuredonly", "ai:or:structuredonly"]];
 
 FIELDS.forEach(([id, key]) => {
   const el = $(id);
@@ -406,6 +418,13 @@ TOGGLES.forEach(([id, key]) => {
   el.checked = gppCfg.getBool(key);
   el.addEventListener("change", () => { gppCfg.set(key, el.checked ? "1" : "0"); flashSaved(); });
 });
+if (gppCfg._migratedSecretsCount > 0) {
+  const mn = $("sec-migration-note");
+  if (mn) {
+    mn.textContent = `Hinweis: ${gppCfg._migratedSecretsCount} gespeicherte(r) Schlüssel wurde(n) aus localStorage in den Sitzungsspeicher übernommen und aus localStorage entfernt. Dauerhaftes Speichern ist nun ein Opt-in.`;
+    mn.style.display = "";
+  }
+}
 function applyBackend() {
   const be = gppCfg.get("ai:backend");
   const dim = (id, aktiv) => { const el = $(id); if (el) el.style.opacity = aktiv ? "1" : ".45"; };
@@ -582,34 +601,51 @@ function sourceRegistrations() {
 }
 /* Pin-Zerlegung liegt im Core, damit Tools und diese Seite dieselbe Regel nutzen */
 const commitOf = gppCommitOf;
+function renderReleaseManifest() {
+  const m = gppReleaseManifest.active();
+  const expert = gppReleaseManifest.expertOverridesEnabled();
+  const overrides = gppReleaseManifest.individualOverrides();
+  const box = $("release-manifest-box");
+  if (!box) return;
+  box.innerHTML = `<div class="hd">
+      <span class="nm">Aktives Release-Manifest: ${gppEscapeHtml(m.label)}</span>
+      <span class="pill ${expert && overrides.length ? "warn" : "ok"}">${expert && overrides.length ? `Experten-Modus · ${overrides.length} Einzel-Override(s) aktiv` : "Atomares Manifest aktiv"}</span>
+    </div>
+    <div class="note" style="margin:4px 0 6px">Manifest-ID: <code>${gppEscapeHtml(m.id)}</code> · Stand: ${gppEscapeHtml(m.date)} · BSI SdT: <code>${gppEscapeHtml(m.sdtCommit.slice(0, 10))}</code> · Tools-Repo: <code>${gppEscapeHtml(m.toolsCommit.slice(0, 10))}</code></div>
+    <div class="note" style="margin:0">Katalog-SHA-256: <code>${gppEscapeHtml(m.catalog.sha256.slice(0, 16))}…</code> · BSI-Mapping-SHA-256: <code>${gppEscapeHtml(m.bsiItgsMap.sha256.slice(0, 16))}…</code></div>
+    ${!expert && overrides.length ? `<div class="note" style="color:var(--amber);margin-top:6px">Hinweis: Es sind ${overrides.length} gespeicherte Einzel-Override(s) vorhanden, aber im Standardmodus inaktiv — alle Tools nutzen das atomare Release-Manifest.</div>` : ""}`;
+  $("src-expert-mode").checked = expert;
+  $("btn-check-all").disabled = !expert;
+  $("btn-update-all").disabled = !expert;
+}
 function sourceRowHTML(s) {
+  const expert = gppReleaseManifest.expertOverridesEnabled();
   const url = gppSource(s.id, s.default);
   const pinned = !gppIsUnpinned(url);
   const commit = commitOf(url);
-  const overridden = !!localStorage.getItem("gpp:cfg:src:" + s.id);
-  return `<div class="src" data-src="${s.id}">
+  const storedOverride = localStorage.getItem("gpp:cfg:src:" + s.id);
+  const overridden = expert && !!storedOverride;
+  return `<div class="src" data-src="${gppEscapeHtml(s.id)}">
     <div class="hd">
-      <span class="nm">${s.label || s.id}</span>
-      <span class="pill ${pinned ? "ok" : "bad"}">${pinned ? "gepinnt " + (commit || "").slice(0, 10) : "Branch — ungepinnt"}</span>
-      ${overridden ? '<span class="pill warn">abweichend vom Tool-Standard</span>' : ""}
+      <span class="nm">${gppEscapeHtml(s.label || s.id)}</span>
+      <span class="pill ${pinned ? "ok" : "bad"}">${pinned ? "gepinnt " + gppEscapeHtml((commit || "").slice(0, 10)) : "Branch — ungepinnt"}</span>
+      ${overridden ? '<span class="pill warn">Experten-Override aktiv</span>' : (storedOverride ? '<span class="pill">Override inaktiv (Manifest aktiv)</span>' : '<span class="pill">Release-Manifest</span>')}
       ${s.fixed ? '<span class="pill">inhaltsgepinnt (SHA-256)</span>' : ""}
       <span style="flex:1"></span>
-      ${s.fixed ? "" : `<button class="btn" data-check="${s.id}">Nach Updates suchen</button>`}
+      ${s.fixed ? "" : (expert ? `<button class="btn" data-check="${gppEscapeHtml(s.id)}">Nach Updates suchen</button>` : '<span class="note" style="margin:0">über Release-Manifest gesteuert</span>')}
     </div>
-    <div class="note" style="margin:0 0 4px">${s.repo || ""}${s.path ? " · " + s.path : ""} — genutzt von ${(s.tools || []).join(", ")}</div>
-    <code>${url}</code>
-    <div class="note" data-result="${s.id}"></div>
+    <div class="note" style="margin:0 0 4px">${gppEscapeHtml(s.repo || "")}${s.path ? " · " + gppEscapeHtml(s.path) : ""} — genutzt von ${gppEscapeHtml((s.tools || []).join(", "))}</div>
+    <code>${gppEscapeHtml(url)}</code>
+    <div class="note" data-result="${gppEscapeHtml(s.id)}"></div>
   </div>`;
 }
 function updateSourceSummary(regs) {
   const unpinned = regs.filter(s => gppIsUnpinned(gppSource(s.id, s.default))).length;
-  $("src-summary").textContent = `${regs.length} Quellen · ${unpinned ? unpinned + " ungepinnt" : "alle gepinnt"}`;
+  const expert = gppReleaseManifest.expertOverridesEnabled();
+  $("src-summary").textContent = `${regs.length} Quellen · ${unpinned ? unpinned + " ungepinnt" : "alle gepinnt"} · ${expert ? "Experten-Modus" : "Atomares Manifest"}`;
 }
-/* Genau EINE Zeile neu aufbauen (Pill „gepinnt …", URL, Ergebnistext) —
-   NICHT die ganze Liste: Das frühere renderSources() nach jedem „umstellen"
-   wischte die Prüfergebnisse aller übrigen Quellen weg, und die Update-Prüfung
-   wirkte, als höre sie nach der ersten Quelle auf. */
 function refreshSourceRow(s, resultHtml) {
+  renderReleaseManifest();
   const row = $("src-body").querySelector(`[data-src="${s.id}"]`);
   if (!row) return;
   row.outerHTML = sourceRowHTML(s);
@@ -620,6 +656,7 @@ function refreshSourceRow(s, resultHtml) {
   updateSourceSummary(sourceRegistrations());
 }
 function renderSources() {
+  renderReleaseManifest();
   const regs = sourceRegistrations();
   const body = $("src-body");
   if (!regs.length) {
@@ -632,6 +669,16 @@ function renderSources() {
   body.querySelectorAll("button[data-check]").forEach(b =>
     b.addEventListener("click", () => checkSource(regs.find(s => s.id === b.dataset.check))));
 }
+$("src-expert-mode").addEventListener("change", ev => {
+  const wantOn = ev.target.checked;
+  if (wantOn && !confirm("Kompatibilitätswarnung:\n\nEinzel-Overrides entkoppeln Profile oder Hilfsdateien vom atomaren Release-Manifest (Katalog-Pin + SHA-256). Control-IDs, Parameter oder Hash-Prüfungen können dadurch inkonsistent werden.\n\nExperten-Modus wirklich aktivieren?")) {
+    ev.target.checked = false;
+    return;
+  }
+  gppReleaseManifest.setExpertOverrides(wantOn);
+  renderSources();
+  flashSaved();
+});
 /* Jüngster Commit, der den Pfad der Quelle berührt — der Kandidat fürs Umpinnen. */
 async function latestCommitOf(s) {
   const api = `https://api.github.com/repos/${s.repo}/commits?path=${encodeURIComponent(s.path)}&per_page=1`;
@@ -681,18 +728,18 @@ async function checkSource(s) {
       } catch (e) { /* Inhaltsvergleich nicht möglich (Limit/Netz) — konservativ den Vorschlag zeigen */ }
     }
     const newUrl = gppRepinUrl(gppSource(s.id, s.default), latest.sha);
-    box.innerHTML = `Neuer Commit <code>${latest.sha.slice(0, 10)}</code> vom ${latest.datum}: ${latest.botschaft}
+    box.innerHTML = `Neuer Commit <code>${gppEscapeHtml(latest.sha.slice(0, 10))}</code> vom ${gppEscapeHtml(latest.datum)}: ${gppEscapeHtml(latest.botschaft)}
       <div class="row" style="margin-top:6px">
-        <button class="btn primary" id="apply-${s.id}">Auf diesen Commit umstellen</button>
+        <button class="btn primary" id="apply-${gppEscapeHtml(s.id)}">Auf diesen Commit umstellen</button>
         <span class="note" style="margin:0">Änderungen an Katalogen können Ergebnisse verschieben — bewusst übernehmen.</span>
       </div>`;
     box.querySelector("#apply-" + s.id).addEventListener("click", () => {
       localStorage.setItem("gpp:cfg:src:" + s.id, newUrl);
       flashSaved();
-      refreshSourceRow(s, `<span style="color:var(--green)">Umgestellt auf ${latest.sha.slice(0, 10)} vom ${latest.datum}.</span>`);
+      refreshSourceRow(s, `<span style="color:var(--green)">Umgestellt auf ${gppEscapeHtml(latest.sha.slice(0, 10))} vom ${gppEscapeHtml(latest.datum)}.</span>`);
     });
   } catch (e) {
-    box.innerHTML = `<span style="color:var(--amber)">Update-Prüfung fehlgeschlagen: ${e.message}</span>`;
+    box.innerHTML = `<span style="color:var(--amber)">Update-Prüfung fehlgeschlagen: ${gppEscapeHtml(e.message)}</span>`;
   }
 }
 $("btn-check-all").addEventListener("click", async () => {
@@ -723,10 +770,10 @@ $("btn-update-all").addEventListener("click", async ev => {
       }
       localStorage.setItem("gpp:cfg:src:" + s.id, gppRepinUrl(gppSource(s.id, s.default), latest.sha));
       umgestellt++;
-      refreshSourceRow(s, `<span style="color:var(--green)">Umgestellt auf ${latest.sha.slice(0, 10)} vom ${latest.datum}: ${latest.botschaft}</span>`);
+      refreshSourceRow(s, `<span style="color:var(--green)">Umgestellt auf ${gppEscapeHtml(latest.sha.slice(0, 10))} vom ${gppEscapeHtml(latest.datum)}: ${gppEscapeHtml(latest.botschaft)}</span>`);
     } catch (e) {
       fehler++;
-      box.innerHTML = `<span style="color:var(--amber)">Update-Prüfung fehlgeschlagen: ${e.message}</span>`;
+      box.innerHTML = `<span style="color:var(--amber)">Update-Prüfung fehlgeschlagen: ${gppEscapeHtml(e.message)}</span>`;
     }
   }));
   if (umgestellt) flashSaved();
@@ -734,7 +781,8 @@ $("btn-update-all").addEventListener("click", async ev => {
   btn.disabled = false;
 });
 $("btn-reset-src").addEventListener("click", () => {
-  for (const k of Object.keys(localStorage)) if (k.startsWith("gpp:cfg:src:")) localStorage.removeItem(k);
+  gppReleaseManifest.clearIndividualOverrides();
+  gppReleaseManifest.setExpertOverrides(false);
   renderSources(); flashSaved();
 });
 renderSources();

@@ -55,3 +55,30 @@ def test_builder_is_deterministic():
     from utils.oscal_utils import json_equal_ignoring
     assert json_equal_ignoring(a, b) and a["catalog"]["uuid"] == b["catalog"]["uuid"]
     assert st.sec_level_for("5", None) == "normal-SdT" and st.sec_level_for("3", "erhöht") == "normal-SdT"
+
+
+def test_strict_checker_gate_blocks_unapproved_and_allows_manual_approval():
+    abgleich = {
+        "ed23_baustein_abgleich": {
+            "meta": {"version": "2026-10-18", "ng_bausteine": [], "model": "gemini-4-hydrogen"},
+            "anforderungen": {
+                "SYS.1.1.A1": _rec("SYS.1.1", id="NG-SYS.1.1.A1", checker="bestaetigt"),
+                "SYS.1.1.A2": _rec("SYS.1.1", id="NG-SYS.1.1.A2", checker="bestätigt"),
+                "SYS.1.1.A3": _rec("SYS.1.1", id="NG-SYS.1.1.A3", checker="fraglich"),
+                "SYS.1.1.A4": _rec("SYS.1.1", id="NG-SYS.1.1.A4", checker="unsicher"),
+                "SYS.1.1.A5": _rec("SYS.1.1", id="NG-SYS.1.1.A5", checker="nicht geprüft"),
+                "SYS.1.1.A6": _rec("SYS.1.1", id="NG-SYS.1.1.A6", checker="abgelehnt"),
+                "SYS.1.1.A7": _rec("SYS.1.1", id="NG-SYS.1.1.A7", checker=""),
+                "SYS.1.1.A8": _rec("SYS.1.1", id="NG-SYS.1.1.A8", checker="fraglich", freigabe="genehmigt"),
+                "SYS.1.1.A9": _rec("SYS.1.1", id="NG-SYS.1.1.A9", checker="unsicher", manual_approval=True),
+            },
+        }
+    }
+    doc = st.build_ng_katalog(abgleich, BD, {}, None, "2026-01-01T00:00:00Z")
+    controls = doc["catalog"]["groups"][0]["groups"][0]["controls"]
+    published_ids = [c["id"] for c in controls]
+    assert published_ids == ["NG-SYS.1.1.A1", "NG-SYS.1.1.A2", "NG-SYS.1.1.A8", "NG-SYS.1.1.A9"]
+    by_id = {c["id"]: c for c in controls}
+    for manual_id in ("NG-SYS.1.1.A8", "NG-SYS.1.1.A9"):
+        checker_prop = next(p for p in by_id[manual_id]["props"] if p["name"] == "checker")
+        assert "Freigabe: manuell genehmigt" in checker_prop.get("remarks", "")

@@ -685,7 +685,7 @@
             </div>
         </div>
 
-        <div class="rail-foot">BUILD V5.18.2</div>
+        <div class="rail-foot">BUILD V5.18.3</div>
     </aside>
 
     <div id="rail-splitter" class="splitter" title="Rail-Breite ziehen"></div>
@@ -870,7 +870,7 @@
         </div>
     </div>
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
     <script>
         if (typeof gppCfg === 'undefined' || typeof GPP_CORE_VERSION === 'undefined' || Number(GPP_CORE_VERSION) < 4) {
             document.body.innerHTML = '<div style="font:15px/1.6 system-ui;padding:40px;max-width:60ch;color:#eee;background:#0f172a">' +
@@ -920,18 +920,13 @@
               default: 'https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/hilfsdateien/gpp_ed23_anforderungen.json' },
         ]);
 
-        // --- CONFIG & STATE ---
-        // Die Stand-der-Technik-Bibliothek wurde umstrukturiert (control_layer/…): alter
-        // Pfad "Anwenderkataloge/…" liefert 404.
-        // --- G++-Katalog-Pin (Handbuch 3.13/3.14, Katalogarbeit-Skill Grundregel 8) ---
-        // Gleiche Werte wie Gpp-ai-tool/src/constants.py und die gepinnten Repo-Profile.
-        // Bewusst NICHT über gppSource umleitbar: SHA-256 und resource-uuid (uuid5 der
-        // URL) sind hier fest verdrahtet — ein Repin würde Hash und Inhalt auseinanderziehen.
-        const GPP_CATALOG_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
-        const GPP_CATALOG_PIN_SHA256 = '9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a';
-        const CATALOG_URL_BASE = `https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/${GPP_CATALOG_PIN_COMMIT}/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json`;
+        // --- Atomares Release-Manifest aus gpp-core.js (Katalog + Profile + Mappings als Einheit) ---
+        const GPP_MANIFEST = gppReleaseManifest.active();
+        const GPP_CATALOG_PIN_COMMIT = GPP_MANIFEST.catalog.commit;
+        const GPP_CATALOG_PIN_SHA256 = GPP_MANIFEST.catalog.sha256;
+        const CATALOG_URL_BASE = GPP_MANIFEST.catalog.url;
         // uuid5(NAMESPACE_URL, CATALOG_URL_BASE) — identisch zu den gepinnten Repo-Profilen.
-        const GPP_CATALOG_RESOURCE_UUID = '1743f782-c978-51fd-acd0-81168bc1727f';
+        const GPP_CATALOG_RESOURCE_UUID = GPP_MANIFEST.catalog.resourceUuid;
 
         async function sha256Hex(buf) {
             const d = await crypto.subtle.digest('SHA-256', buf);
@@ -941,11 +936,11 @@
            Repo mit 24-h-Cache statt einer contents-Anfrage je Verzeichnis. */
         const GPP_REPO_OWNER = 'NTT-Data-Deutschland-SE';
         const GPP_REPO_NAME = 'Grundschutz-Plus-Plus-Tools';
-        const GPP_TOOLS_PIN_COMMIT = '1880842a9bb07ce5d47cdda929aa31f713bc2cbf';
+        const GPP_TOOLS_PIN_COMMIT = GPP_MANIFEST.toolsCommit;
         const SDT_REPO_OWNER = 'BSI-Bund';
         const SDT_REPO_NAME = 'Stand-der-Technik-Bibliothek';
         // BSI implementation_layer: fertige Component-Definitions (Keycloak, Netzarchitektur, ...)
-        const SDT_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
+        const SDT_PIN_COMMIT = GPP_MANIFEST.sdtCommit;
         const PRAKTIKEN_FILE_SUFFIX = '_process_profile.json';
 
         // Praktik-Kürzel → Begriff. Fallback für die Anzeige, falls der Basis-Katalog (mit
@@ -1018,7 +1013,7 @@
         /* Gepinnte Mindeststandard-Profile (Ordner mindeststandards/, erzeugt mit „Mindeststandard → OSCAL“):
            Commit + SHA-256 je Profil, nie Branch. Die Datei kommt vom Pin-Commit und muss den Hash treffen,
            sonst wird nichts übernommen. Neue Exporte: Commit und Hashes hier nachziehen (check_pins.py prüft SHA-256-Konstanten). */
-        const MST_PIN_COMMIT = '1880842a9bb07ce5d47cdda929aa31f713bc2cbf'; // Release 5.2, Commit 1 (neu aufgeloeste Staende), 23.11.2026
+        const MST_PIN_COMMIT = GPP_MANIFEST.toolsCommit; // aus atomarem Release-Manifest
         const MST_PINNED = [
             { file: 'mindeststandard-hv-2.0.profile.json', kurz: 'HV', version: '2.0', stand: '11/2023', title: "Mindeststandard des BSI zum HV-Benchmark kompakt 5.0 (Version 2.0)", sha256: '1fc8ed6cae99e75f44313cf41d9577799f998ec7058b11f319d89c944cc10ac6' },
             { file: 'mindeststandard-isms_itkb-1.0a.profile.json', kurz: 'ISMS ITKB', version: '1.0a', stand: '07/2025', title: "Regelungsdokument für das Informationssicherheitsmanagementsystem in der IT-Konsolidierung Bund (Mindeststandard ISMS ITKB) (Version 1.0a)", sha256: '419167a329cc9a44ed394ade1a56182879e18b542d3dcffac0cf591ad617f30f' },
@@ -1671,9 +1666,9 @@ Verfügbare Controls als Kandidaten für mitigatingControlIds (ID: Titel):
         let BSI_ITGS_MAP = {};
         // Pin des BSI-GSMap ITGS→GS++ auf denselben Commit wie der Katalog; der SHA-256
         // wird beim Laden geprueft (Grundregel 8, gilt auch fuers Mapping).
-        const BSI_ITGS_MAP_PIN_COMMIT = 'dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35';
-        const BSI_ITGS_MAP_PIN_SHA256 = 'df7ea11261ace956a3ebb440f60928851a4815f5545775ac9b24e4d3d22f267f';
-        const BSI_ITGS_MAP_URL = `https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/${BSI_ITGS_MAP_PIN_COMMIT}/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS%2B%2B-mapping_collection.json`;
+        const BSI_ITGS_MAP_PIN_COMMIT = GPP_MANIFEST.bsiItgsMap.commit;
+        const BSI_ITGS_MAP_PIN_SHA256 = GPP_MANIFEST.bsiItgsMap.sha256;
+        const BSI_ITGS_MAP_URL = GPP_MANIFEST.bsiItgsMap.url;
         function buildBsiItgsMapFromOscal(doc) {
             const mirror = { "subset-of": "superset-of", "superset-of": "subset-of" };
             const out = {}, mc = doc && doc["mapping-collection"];
@@ -6983,6 +6978,7 @@ Verfügbare Controls als Kandidaten für mitigatingControlIds (ID: Titel):
                     metadata: {
                         title: `${t} - Profil`,
                         version: bpState.metadata.version, "last-modified": ts, "oscal-version": "1.2.2",
+                        props: gppReleaseManifest.backMatterProps(),
                         remarks: bpState.metadata.description
                     },
                     imports: orderedCatalogs.map(catalog => ({ href: `#${catalog.resourceUuid}` })),
@@ -7905,6 +7901,10 @@ Verfügbare Controls als Kandidaten für mitigatingControlIds (ID: Titel):
                 });
             }
             if (backMatterResources.length) ssp["system-security-plan"]["back-matter"] = { resources: backMatterResources };
+            ssp["system-security-plan"].metadata.props = [
+                ...(ssp["system-security-plan"].metadata.props || []),
+                ...gppReleaseManifest.backMatterProps()
+            ];
 
             return ssp;
         }

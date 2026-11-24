@@ -20,7 +20,15 @@ from typing import Any, Dict, List, Optional
 
 from utils.data_loader import load_json_file
 from utils.file_utils import read_csv_file, read_json_file, write_json_file
-from utils.ed23_baustein import anforderung_sort_key, baustein_sort_key, iter_bausteine, load_ed23_catalogs, ng_title
+from utils.ed23_baustein import (
+    anforderung_sort_key,
+    baustein_sort_key,
+    is_manually_approved,
+    is_ng_control_publishable,
+    iter_bausteine,
+    load_ed23_catalogs,
+    ng_title,
+)
 from utils.oscal_utils import (
     make_prop as _prop,
     extract_all_gpp_controls,
@@ -89,6 +97,7 @@ def build_ng_control(anf_id: str, rec: Dict[str, Any], gpp_titles: Dict[str, str
     # OSCAL allows no `remarks` on a control: the checker's verdict and reasoning live in a prop.
     checker_remark = " ".join(
         s for s in (f"Checker: {nc['checker_begruendung']}" if nc.get("checker_begruendung") else "",
+                    "Freigabe: manuell genehmigt" if is_manually_approved(nc) else "",
                     f"Hinweis: {nc['hinweis']}" if nc.get("hinweis") else "") if s) or None
     props.append(_prop("checker", nc.get("checker") or "nicht geprüft", ED23_BAUSTEIN_NS, checker_remark))
     stm_props = []
@@ -118,7 +127,14 @@ def build_ng_katalog(
     meta = root.get("meta", {}) or {}
     ng_bausteine = set(meta.get("ng_bausteine") or [])
     bausteine = {b["id"]: b for b in iter_bausteine(bd)}
-    with_new = {aid: r for aid, r in (root.get("anforderungen") or {}).items() if r.get("neues_control")}
+    all_with_new = {aid: r for aid, r in (root.get("anforderungen") or {}).items() if r.get("neues_control")}
+    with_new = {aid: r for aid, r in all_with_new.items() if is_ng_control_publishable(r.get("neues_control"))}
+    blocked = len(all_with_new) - len(with_new)
+    if blocked:
+        logger.info(
+            f"NG catalog gate: withheld {blocked} unapproved neues_control proposal(s) "
+            f"(only 'bestaetigt' or explicit manual approval publishes)."
+        )
 
     layers: Dict[str, Dict[str, Any]] = {}
     for aid in sorted(with_new, key=anforderung_sort_key):

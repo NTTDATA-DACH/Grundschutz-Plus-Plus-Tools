@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="gpp-core.css?v=4.1">
 <script>/* Farbschema vor dem ersten Rendern (gpp-core.js laedt erst am Ende): Wert aus localStorage, Vorgabe dunkel, "system" = kein Attribut */try{var _t=localStorage.getItem("gpp:cfg:ui:theme")||"dark";if(_t!=="system")document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
 <style>
@@ -608,7 +608,7 @@ select{color-scheme:dark}
 
 </div>
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
 <script>
 "use strict";
 if (typeof gppCfg === "undefined" || typeof GPP_CORE_VERSION === "undefined" || Number(GPP_CORE_VERSION) < 2) {
@@ -626,7 +626,7 @@ const GPP_TOOL_ID = "Baustein_2_Profile";
    Konstante; keine handgepflegten Versionsstrings mehr im File.
    ════════════════════════════════════════════════════════════════════════ */
 
-const APP_VERSION  = "0.12.1";
+const APP_VERSION = "0.12.2";
 const APP_NAME     = "Baustein_2_Profile";
 
 // Fallback, wenn zentral kein Gemini-Modell gesetzt ist (config.html).

@@ -25,7 +25,7 @@
    abzubrechen. Die Prüfung auf ein beliebiges Symbol reicht dafür nicht.
    v4: gppAi (KI-Aufrufe mit Schema, Pool, Chunking, Cache) und gppDocText
    (Text aus PDF/DOCX/…) — Generator und Editor haben keine eigene Kopie mehr. */
-const GPP_CORE_VERSION = "4";
+const GPP_CORE_VERSION = "4.2";
 const GPP_CFG_PREFIX = "gpp:cfg:";
 
 /* gpp-core.css gehoert seit Issue #40 zum Kern (Design-Tokens, Scrollbalken):
@@ -163,10 +163,102 @@ const GPP_CFG_DEFAULTS = {
   "db:auth:mode": "passwort",
   "db:auth:provider": "keycloak",
   "db:email": "",
+  // Opt-in für dauerhaftes Speichern von Secrets (API-Keys, GitHub-Token) im
+  // localStorage. Standardmäßig aus: Secrets bleiben nur im sessionStorage / Speicher.
+  "sec:persist:localStorage": "0",
 };
 
+const GPP_SECRET_PERSIST_KEY = "sec:persist:localStorage";
+const _gppSecretMem = new Map();
+function _gppIsSecretKey(key) {
+  return key === "gh:token" || String(key || "").startsWith("ai:key:");
+}
+function _gppSessionGet(fullKey) {
+  try { return sessionStorage.getItem(fullKey); } catch (e) { return null; }
+}
+function _gppSessionSet(fullKey, val) {
+  try { sessionStorage.setItem(fullKey, val); } catch (e) { /* private mode / quota */ }
+}
+function _gppSessionRemove(fullKey) {
+  try { sessionStorage.removeItem(fullKey); } catch (e) { /* noop */ }
+}
+function _gppMigrateLegacySecrets() {
+  let migrated = 0;
+  try {
+    if (localStorage.getItem(GPP_CFG_PREFIX + GPP_SECRET_PERSIST_KEY) === "1") return 0;
+    for (const fullKey of Object.keys(localStorage)) {
+      if (!fullKey.startsWith(GPP_CFG_PREFIX)) continue;
+      const key = fullKey.slice(GPP_CFG_PREFIX.length);
+      if (!_gppIsSecretKey(key)) continue;
+      const val = localStorage.getItem(fullKey);
+      if (val) {
+        _gppSecretMem.set(key, val);
+        if (_gppSessionGet(fullKey) === null) _gppSessionSet(fullKey, val);
+        migrated++;
+      }
+      localStorage.removeItem(fullKey);
+    }
+  } catch (e) { /* kein Storage */ }
+  return migrated;
+}
+
 const gppCfg = {
+  _migratedSecretsCount: _gppMigrateLegacySecrets(),
+  isSecretKey: _gppIsSecretKey,
+  persistSecrets() {
+    return localStorage.getItem(GPP_CFG_PREFIX + GPP_SECRET_PERSIST_KEY) === "1";
+  },
+  setPersistSecrets(enabled) {
+    const on = !!enabled;
+    localStorage.setItem(GPP_CFG_PREFIX + GPP_SECRET_PERSIST_KEY, on ? "1" : "0");
+    try {
+      const secretKeys = new Set(["ai:key:gemini", "ai:key:openrouter", "ai:key:openai", "gh:token", ..._gppSecretMem.keys()]);
+      try {
+        for (const k of Object.keys(sessionStorage)) {
+          if (k.startsWith(GPP_CFG_PREFIX)) {
+            const shortKey = k.slice(GPP_CFG_PREFIX.length);
+            if (_gppIsSecretKey(shortKey)) secretKeys.add(shortKey);
+          }
+        }
+      } catch (e) { /* kein sessionStorage */ }
+      for (const k of Object.keys(localStorage)) {
+        if (k.startsWith(GPP_CFG_PREFIX)) {
+          const shortKey = k.slice(GPP_CFG_PREFIX.length);
+          if (_gppIsSecretKey(shortKey)) secretKeys.add(shortKey);
+        }
+      }
+      for (const key of secretKeys) {
+        const fullKey = GPP_CFG_PREFIX + key;
+        if (on) {
+          const val = _gppSecretMem.get(key) ?? _gppSessionGet(fullKey);
+          if (val) localStorage.setItem(fullKey, val);
+        } else {
+          const val = localStorage.getItem(fullKey);
+          if (val) {
+            _gppSecretMem.set(key, val);
+            if (_gppSessionGet(fullKey) === null) _gppSessionSet(fullKey, val);
+          }
+          localStorage.removeItem(fullKey);
+        }
+      }
+    } catch (e) { /* Storage nicht verfügbar */ }
+  },
   get(key, fallback) {
+    if (_gppIsSecretKey(key)) {
+      const fullKey = GPP_CFG_PREFIX + key;
+      if (_gppSecretMem.has(key)) return _gppSecretMem.get(key);
+      const sv = _gppSessionGet(fullKey);
+      if (sv !== null) { _gppSecretMem.set(key, sv); return sv; }
+      if (this.persistSecrets()) {
+        const lv = localStorage.getItem(fullKey);
+        if (lv !== null) {
+          _gppSecretMem.set(key, lv);
+          _gppSessionSet(fullKey, lv);
+          return lv;
+        }
+      }
+      return fallback !== undefined ? fallback : (GPP_CFG_DEFAULTS[key] ?? "");
+    }
     const v = localStorage.getItem(GPP_CFG_PREFIX + key);
     if (v !== null) return v;
     return fallback !== undefined ? fallback : (GPP_CFG_DEFAULTS[key] ?? "");
@@ -176,8 +268,33 @@ const gppCfg = {
     return Number.isFinite(n) ? n : fallback;
   },
   getBool(key) { return this.get(key) === "1"; },
-  set(key, value) { localStorage.setItem(GPP_CFG_PREFIX + key, String(value)); },
-  remove(key) { localStorage.removeItem(GPP_CFG_PREFIX + key); },
+  set(key, value) {
+    const str = String(value);
+    const fullKey = GPP_CFG_PREFIX + key;
+    if (_gppIsSecretKey(key)) {
+      _gppSecretMem.set(key, str);
+      if (str) _gppSessionSet(fullKey, str); else _gppSessionRemove(fullKey);
+      if (this.persistSecrets()) {
+        if (str) localStorage.setItem(fullKey, str); else localStorage.removeItem(fullKey);
+      } else {
+        localStorage.removeItem(fullKey);
+      }
+      return;
+    }
+    if (key === GPP_SECRET_PERSIST_KEY) {
+      this.setPersistSecrets(str === "1");
+      return;
+    }
+    localStorage.setItem(fullKey, str);
+  },
+  remove(key) {
+    const fullKey = GPP_CFG_PREFIX + key;
+    if (_gppIsSecretKey(key)) {
+      _gppSecretMem.delete(key);
+      _gppSessionRemove(fullKey);
+    }
+    localStorage.removeItem(fullKey);
+  },
   /* Backend + Key + Modell in einem Rutsch — was jeder AI-Aufruf braucht.
      Beim eigenen OpenAI-kompatiblen Endpoint kommt die Basis-URL dazu. */
   target(backend) {
@@ -221,6 +338,101 @@ const gppCfg = {
    unkritisch. Gegenstück im Handler ist decodeURIComponent(). */
 function gppAttrArg(value) {
   return encodeURIComponent(String(value == null ? "" : value)).replace(/'/g, "%27");
+}
+
+/* ---------- HTML- & Markdown-Sanitizer (XSS-Schutz) ----------
+   Whitelist-Sanitizer für Modell- und Markdown-Ausgaben vor innerHTML.
+   Entfernt <script>, <iframe>, <style>, <svg>, Event-Handler (on*) sowie
+   unsichere URL-Schemas (javascript:, data:, vbscript:). */
+function gppEscapeHtml(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const _GPP_ALLOWED_TAGS = new Set([
+  "P", "BR", "STRONG", "B", "EM", "I", "U", "S", "DEL", "CODE", "PRE",
+  "BLOCKQUOTE", "UL", "OL", "LI", "H1", "H2", "H3", "H4", "H5", "H6",
+  "HR", "TABLE", "THEAD", "TBODY", "TFOOT", "TR", "TH", "TD", "A",
+  "SPAN", "DIV", "SUB", "SUP", "DL", "DT", "DD",
+]);
+const _GPP_DROP_SUBTREE_TAGS = new Set([
+  "SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "APPLET", "FORM",
+  "INPUT", "BUTTON", "TEXTAREA", "SELECT", "META", "LINK", "BASE",
+  "SVG", "MATH", "TEMPLATE", "NOSCRIPT", "IMG", "VIDEO", "AUDIO", "SOURCE",
+]);
+function _gppSafeHref(raw) {
+  const cleaned = String(raw || "").replace(/[\u0000-\u001f\u007f\s]+/g, "").toLowerCase();
+  if (!cleaned) return "";
+  if (cleaned.startsWith("#") || cleaned.startsWith("http://") || cleaned.startsWith("https://") || cleaned.startsWith("mailto:")) {
+    return String(raw).trim();
+  }
+  return "";
+}
+function gppSanitizeHtml(dirtyHtml) {
+  const input = String(dirtyHtml == null ? "" : dirtyHtml);
+  if (typeof DOMParser === "undefined") return gppEscapeHtml(input);
+  const doc = new DOMParser().parseFromString(input, "text/html");
+  const cleanNode = (node) => {
+    for (let child = node.firstChild; child;) {
+      const next = child.nextSibling;
+      if (child.nodeType === 1) {
+        const tag = child.tagName.toUpperCase();
+        if (_GPP_DROP_SUBTREE_TAGS.has(tag)) {
+          child.remove();
+        } else if (!_GPP_ALLOWED_TAGS.has(tag)) {
+          cleanNode(child);
+          while (child.firstChild) node.insertBefore(child.firstChild, child);
+          child.remove();
+        } else {
+          for (const attr of Array.from(child.attributes)) {
+            const name = attr.name.toLowerCase();
+            if (name.startsWith("on") || name === "style") {
+              child.removeAttribute(attr.name);
+              continue;
+            }
+            if (tag === "A" && name === "href") {
+              const safe = _gppSafeHref(attr.value);
+              if (safe) {
+                child.setAttribute("href", safe);
+                if (/^https?:\/\//i.test(safe)) {
+                  child.setAttribute("target", "_blank");
+                  child.setAttribute("rel", "noopener noreferrer");
+                }
+              } else {
+                child.removeAttribute("href");
+              }
+            } else if (tag === "A" && name === "title") {
+              // erlaubt
+            } else if ((tag === "TH" || tag === "TD") && (name === "colspan" || name === "rowspan" || name === "align")) {
+              if ((name === "colspan" || name === "rowspan") && !/^\d+$/.test(attr.value)) child.removeAttribute(attr.name);
+            } else if ((tag === "CODE" || tag === "PRE") && name === "class") {
+              if (!/^[a-zA-Z0-9 _-]+$/.test(attr.value)) child.removeAttribute(attr.name);
+            } else {
+              child.removeAttribute(attr.name);
+            }
+          }
+          cleanNode(child);
+        }
+      } else if (child.nodeType === 8) {
+        child.remove();
+      }
+      child = next;
+    }
+  };
+  cleanNode(doc.body);
+  return doc.body.innerHTML;
+}
+
+function gppRenderMarkdown(md) {
+  const raw = String(md == null ? "" : md);
+  if (typeof marked !== "undefined" && typeof marked.parse === "function") {
+    return gppSanitizeHtml(marked.parse(raw));
+  }
+  return gppEscapeHtml(raw).replace(/\r?\n/g, "<br>");
 }
 
 /* Hängt den zentral gesetzten Unternehmenskontext an eine System-Instruktion
@@ -268,13 +480,112 @@ function gppPrompt(toolId, promptId, fallbackDefault) {
   return fallbackDefault;
 }
 
-/* ---------- Quellen-Pins ----------
-   Gepinnt ist der Normalfall (Handbuch 3.13/3.14, Grundregel 8). config.html
-   kann pro Quelle den aktuellen Upstream-Stand auflösen und den Pin bewusst
-   umsetzen — Aktualität ist ein sichtbarer Klick, kein stilles Nachziehen. */
+/* ---------- Atomares Release-Manifest & Quellen-Pins ----------
+   Katalog, Mappings und kompatible Profile gehören zusammen: ein einzelnes
+   Umpinnen von Profilen gegen einen fest verdrahteten Katalog kann Control-IDs,
+   Parameter und Hashes auseinanderziehen. Deshalb liefert gppReleaseManifest
+   standardmäßig ein atomares, zusammengehöriges Release-Paket; Einzel-Overrides
+   über localStorage ("gpp:cfg:src:<id>") greifen nur im expliziten Experten-Modus
+   ("gpp:cfg:src:expertMode" === "1"). */
+const GPP_RELEASE_MANIFEST_NS = "https://github.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/ns/release-manifest";
+const GPP_RELEASE_MANIFESTS = [
+  {
+    id: "release-5.2",
+    label: "GS++ Release 5.2 (BSI SdT dc44ea4 · Tools 1880842)",
+    date: "2026-11-23",
+    sdtCommit: "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35",
+    toolsCommit: "1880842a9bb07ce5d47cdda929aa31f713bc2cbf",
+    catalog: {
+      commit: "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35",
+      sha256: "9497c7a94207a2a1f3a20e00bcf72b95c062a8052c4f04a33dd5aaf79ac90d7a",
+      resourceUuid: "1743f782-c978-51fd-acd0-81168bc1727f",
+      url: "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Grundschutz%2B%2B/Grundschutz%2B%2B-resolved_catalog.json",
+    },
+    bsiItgsMap: {
+      commit: "dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35",
+      sha256: "df7ea11261ace956a3ebb440f60928851a4815f5545775ac9b24e4d3d22f267f",
+      url: "https://raw.githubusercontent.com/BSI-Bund/Stand-der-Technik-Bibliothek/dc44ea4fb5815ef84b941a8b5bcc4eaf363daf35/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS%2B%2B-mapping_collection.json",
+    },
+    sources: {
+      "c5-katalog": "https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/kataloge/c5-2026-oscal-catalog.json",
+      "c3a-katalog": "https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/kataloge/c3a_oscal_catalog.json",
+      "methodik-profil": "https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/Zielobjektkategorien/profile/process/methodik_process_profile.json",
+      "methodik-profil-enhanced": "https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/Zielobjektkategorien/profile/process/methodik_process_profile_enhanced.json",
+      "ed23-anforderungen": "https://raw.githubusercontent.com/NTT-Data-Deutschland-SE/Grundschutz-Plus-Plus-Tools/1880842a9bb07ce5d47cdda929aa31f713bc2cbf/hilfsdateien/gpp_ed23_anforderungen.json",
+    },
+  },
+];
+
+const gppReleaseManifest = {
+  NS: GPP_RELEASE_MANIFEST_NS,
+  list() { return GPP_RELEASE_MANIFESTS.slice(); },
+  activeId() {
+    try {
+      const id = localStorage.getItem(GPP_CFG_PREFIX + "release:manifest");
+      if (id && GPP_RELEASE_MANIFESTS.some(m => m.id === id)) return id;
+    } catch (e) { /* kein Storage */ }
+    return GPP_RELEASE_MANIFESTS[0].id;
+  },
+  active() {
+    const id = this.activeId();
+    return GPP_RELEASE_MANIFESTS.find(m => m.id === id) || GPP_RELEASE_MANIFESTS[0];
+  },
+  setActive(id) {
+    if (!GPP_RELEASE_MANIFESTS.some(m => m.id === id)) return false;
+    try { localStorage.setItem(GPP_CFG_PREFIX + "release:manifest", id); } catch (e) {}
+    return true;
+  },
+  expertOverridesEnabled() {
+    try { return localStorage.getItem(GPP_CFG_PREFIX + "src:expertMode") === "1"; } catch (e) { return false; }
+  },
+  setExpertOverrides(enabled) {
+    try { localStorage.setItem(GPP_CFG_PREFIX + "src:expertMode", enabled ? "1" : "0"); } catch (e) {}
+  },
+  individualOverrides() {
+    const out = [];
+    try {
+      for (const k of Object.keys(localStorage)) {
+        if (k.startsWith(GPP_CFG_PREFIX + "src:") && k !== GPP_CFG_PREFIX + "src:expertMode") {
+          out.push({ id: k.slice((GPP_CFG_PREFIX + "src:").length), url: localStorage.getItem(k) });
+        }
+      }
+    } catch (e) {}
+    return out;
+  },
+  clearIndividualOverrides() {
+    try {
+      for (const k of Object.keys(localStorage)) {
+        if (k.startsWith(GPP_CFG_PREFIX + "src:") && k !== GPP_CFG_PREFIX + "src:expertMode") {
+          localStorage.removeItem(k);
+        }
+      }
+    } catch (e) {}
+  },
+  backMatterProps() {
+    const m = this.active();
+    const overrides = this.expertOverridesEnabled() ? this.individualOverrides() : [];
+    const props = [
+      { name: "release-manifest-id", ns: GPP_RELEASE_MANIFEST_NS, value: m.id },
+      { name: "sdt-commit", ns: GPP_RELEASE_MANIFEST_NS, value: m.sdtCommit },
+      { name: "tools-commit", ns: GPP_RELEASE_MANIFEST_NS, value: m.toolsCommit },
+    ];
+    if (overrides.length) {
+      props.push({ name: "expert-source-overrides", ns: GPP_RELEASE_MANIFEST_NS, value: overrides.map(o => o.id).sort().join(",") });
+    }
+    return props;
+  },
+};
+
 function gppSource(sourceId, pinnedDefaultUrl) {
-  const override = localStorage.getItem(GPP_CFG_PREFIX + "src:" + sourceId);
-  return override || pinnedDefaultUrl;
+  if (gppReleaseManifest.expertOverridesEnabled()) {
+    try {
+      const override = localStorage.getItem(GPP_CFG_PREFIX + "src:" + sourceId);
+      if (override) return override;
+    } catch (e) {}
+  }
+  const m = gppReleaseManifest.active();
+  if (m && m.sources && m.sources[sourceId]) return m.sources[sourceId];
+  return pinnedDefaultUrl;
 }
 /* meldet eine Quelle für die Übersicht in config.html an */
 function gppRegisterSources(toolId, sources) {
@@ -584,7 +895,7 @@ const gppArtefacts = {
     if (rec && typeof gppRemote !== "undefined") await gppRemote.requireLock(gppSetOf(rec));
     await gppTx("readwrite", store => store.delete(id));
     window.dispatchEvent(new CustomEvent("gpp:artefacts-changed", { detail: { id, removed: true } }));
-    try { gppRemote.onLocalRemove(id); } catch (e) { /* Sync bricht Lokales nie */ }
+    try { gppRemote.onLocalRemove(id, rec ? rec.sha256 : null, rec ? rec.title : ""); } catch (e) { /* Sync bricht Lokales nie */ }
   },
   async removeSet(name) {
     if (typeof gppRemote !== "undefined") await gppRemote.requireSetDeletion(name);
@@ -898,11 +1209,22 @@ const gppRemote = {
          Arbeitsständen viel Netzwerk. */
     })().catch(() => { /* Outbox nicht schreibbar → nächster save versucht es erneut */ });
   },
-  onLocalRemove(id) {
+  onLocalRemove(id, baseSha, title) {
     if (!this.enabled()) return;
-    (async () => {
+    return (async () => {
+      const pendingSave = await this._outboxGet("save:" + id);
+      /* Baseline für CAS-Delete bestimmen: hing bereits ein ungesendeter Save in
+         der Outbox, kennt der Server noch dessen prevSha (nicht das lokale sha256). */
+      const effectiveBaseSha = (pendingSave && pendingSave.prevSha !== undefined)
+        ? pendingSave.prevSha
+        : (baseSha || null);
       await this._outboxDel("save:" + id);   // ein Push für Gelöschtes wäre Unsinn
-      await this._outboxPut({ key: "remove:" + id, op: "remove", id, queuedAt: new Date().toISOString(), tries: 0 });
+      await this._outboxPut({
+        key: "remove:" + id, op: "remove", id,
+        baseSha: effectiveBaseSha,
+        title: title || "",
+        queuedAt: new Date().toISOString(), tries: 0,
+      });
       this._emit();
     })().catch(() => {});
   },
@@ -1037,16 +1359,33 @@ const gppRemote = {
       }
       return rec.sha256;   // gepushter Stand — flush erkennt daran ein Resave während des Pushes
     } else if (e.op === "remove") {
-      /* return=representation, um 0 gelöschte Zeilen zu erkennen: entweder schon
-         fort (idempotent, ok) oder die RLS-Policy (Rolle × kind) verwehrt das
-         Löschen. Steht die Zeile danach noch, war es eine Verweigerung — als
-         Rechteproblem melden, sonst käme das Artefakt beim nächsten pullSet
-         stumm zurück. */
-      const del = await this.api("artefacts?id=eq." + encodeURIComponent(e.id),
+      /* Compare-and-Swap per PostgREST-Filter: löscht nur, wenn der Server noch
+         den Stand (baseSha) trägt, den dieser Client vor der lokalen Löschung
+         gesehen hat. Bei 0 gelöschten Zeilen unterscheiden wir:
+         1) Zeile existiert nicht mehr → idempotent ok
+         2) Zeile existiert mit anderer sha256 → echter Löschkonflikt (nicht still löschen!)
+         3) Zeile existiert mit identischer sha256 (oder ohne baseSha) → RLS-403 */
+      const idEnc = encodeURIComponent(e.id);
+      const casUrl = e.baseSha
+        ? "artefacts?id=eq." + idEnc + "&sha256=eq." + encodeURIComponent(e.baseSha)
+        : "artefacts?id=eq." + idEnc;
+      const del = await this.api(casUrl,
         { method: "DELETE", headers: { Prefer: "return=representation" } });
       if (!(del && del.length)) {
-        const still = await this.api("artefacts?id=eq." + encodeURIComponent(e.id) + "&select=id");
+        const still = await this.api("artefacts?id=eq." + idEnc + "&select=id,sha256,updated_by,updated_at");
         if (still && still.length) {
+          const srv = still[0];
+          if (e.baseSha && srv.sha256 && srv.sha256 !== e.baseSha) {
+            const err = new Error("Löschkonflikt: Artefakt wurde auf dem Server inzwischen geändert");
+            err.conflict = {
+              op: "remove",
+              serverSha: srv.sha256 || "",
+              baseSha: e.baseSha,
+              updatedBy: srv.updated_by || "",
+              updatedAt: srv.updated_at || "",
+            };
+            throw err;
+          }
           const err = new Error("keine Berechtigung, dieses Artefakt zu löschen");
           err.status = 403;
           throw err;
@@ -1231,7 +1570,24 @@ const gppRemote = {
       const rec = await gppArtefacts.get(e.id);
       const wer = (e.conflict.updatedBy || "jemand anderes") +
         (e.conflict.updatedAt ? " (" + String(e.conflict.updatedAt).slice(0, 16).replace("T", " ") + ")" : "");
-      const titel = (rec && rec.title) || e.id;
+      const titel = (rec && rec.title) || e.title || e.id;
+      if (e.op === "remove") {
+        if (confirm(`Löschkonflikt bei „${titel}": Das Artefakt wurde offline zum Löschen vorgemerkt, aber in der Datenbank inzwischen von ${wer} geändert.\n\nOK — fremde Änderung behalten (Löschung verwerfen und Serverstand wiederherstellen)\nAbbrechen — weiter entscheiden`)) {
+          const rows = await this.api("artefacts?id=eq." + encodeURIComponent(e.id) +
+            "&select=id,set_name,stage,kind,title,filename,tool,created_at,updated_at,size,sha256,meta,data");
+          if (rows && rows[0]) {
+            await gppTx("readwrite", store => store.put(this._toLocal(rows[0])));
+            window.dispatchEvent(new CustomEvent("gpp:artefacts-changed", { detail: { id: e.id, pulled: 1 } }));
+          }
+          await this._outboxDel(e.key);
+        } else if (confirm(`„${titel}": stattdessen die Löschung ERZWINGEN und den neueren Serverstand endgültig entfernen?`)) {
+          e.baseSha = e.conflict.serverSha || null;
+          delete e.conflict;
+          e.tries = 0;
+          await this._outboxPut(e);
+        }
+        continue;
+      }
       if (confirm(`„${titel}": in der Datenbank liegt eine fremde Änderung von ${wer}.\n\nOK — fremde Änderung übernehmen (der eigene Stand wird ersetzt)\nAbbrechen — weiter entscheiden`)) {
         const rows = await this.api("artefacts?id=eq." + encodeURIComponent(e.id) +
           "&select=id,set_name,stage,kind,title,filename,tool,created_at,updated_at,size,sha256,meta,data");
@@ -2514,11 +2870,13 @@ const GPP_LIBS = {
   pdfjs: {
     ready: () => typeof window !== "undefined" && !!window.pdfjsLib,
     src: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
+    integrity: "sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e",
     after: () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"; },
   },
   mammoth: {
     ready: () => typeof window !== "undefined" && !!window.mammoth,
     src: "https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js",
+    integrity: "sha384-/cXAMbzovUIKbBERjPmR3SnPTh8siWr5lsvFYj1Uq4XP0yaJUZJmsh0YXyGv5P0y",
   },
 };
 const _gppLibPending = new Map();
@@ -2533,6 +2891,7 @@ function gppLoadLib(name) {
   const p = new Promise((resolve, reject) => {
     const s = document.createElement("script");
     s.src = lib.src; s.async = true;
+    if (lib.integrity) { s.integrity = lib.integrity; s.crossOrigin = "anonymous"; }
     s.onload = () => { try { if (lib.after) lib.after(); lib.done = true; resolve(); } catch (e) { reject(e); } };
     s.onerror = () => { _gppLibPending.delete(name); reject(new Error(`${name} konnte nicht vom CDN geladen werden (${lib.src}) — Netzwerk oder Adblocker prüfen.`)); };
     document.head.appendChild(s);

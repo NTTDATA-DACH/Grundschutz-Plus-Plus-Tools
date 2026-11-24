@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSCAL Assessment Plan & Results Generator v9 (build 9.7.1 — Backends Gemini | OpenRouter, editierbare Prompts, Structured Outputs)</title>
+    <title>OSCAL Assessment Plan & Results Generator v9 (build 9.7.2 — Backends Gemini | OpenRouter, editierbare Prompts, Structured Outputs)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.0/marked.min.js" integrity="sha384-5S+6C4bM5PFDRwie5G8wVUoq/5EzdFEaE2bg7xLLhNiz4fjj7fsecAfOl8VzZ/co" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="gpp-core.css?v=4.1">
     <script>/* Farbschema vor dem ersten Rendern (gpp-core.js laedt erst am Ende): Wert aus localStorage, Vorgabe dunkel, "system" = kein Attribut */try{var _t=localStorage.getItem("gpp:cfg:ui:theme")||"dark";if(_t!=="system")document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
     <style>
@@ -406,7 +406,7 @@ textarea.inp{min-height:80px;line-height:1.55}
         <span class="sub">OSCAL AP &amp; AR — SSP → Prüfung → Assessment Plan + Results</span>
     </div>
     <div class="topbar-meta">
-        <span class="pill">build 9.7.1</span>
+        <span class="pill">build 9.7.2</span>
         <span id="cat-status" class="pill">Katalog wird geladen …</span>
         <span id="ssp-status" class="pill">Kein SSP</span>
         <span id="comp-status" class="pill hidden"></span>
@@ -544,7 +544,7 @@ textarea.inp{min-height:80px;line-height:1.55}
   </section>
 </div>
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
 <script>
 if(typeof gppCfg==='undefined'||typeof GPP_CORE_VERSION==='undefined'||Number(GPP_CORE_VERSION)<2){
     document.body.innerHTML='<div style="font:15px/1.6 system-ui;padding:40px;max-width:60ch;color:#eee;background:#0f172a">'+
@@ -716,7 +716,7 @@ const METHOD_COL={EXAMINE:'oklch(0.70 0.15 240)',INTERVIEW:'oklch(0.80 0.15 80)'
 // ============================================================
 document.addEventListener('DOMContentLoaded',()=>{
     initSplitter();
-    L.info('OSCAL AP & AR — build 9.7.1 gestartet');
+    L.info('OSCAL AP & AR — build 9.7.2 gestartet');
     L.debug('Bei CORS-Fehlern: Ordner mit `python -m http.server` bedienen und über http://localhost:8000/ öffnen.');
     initPrompts();
     loadAICfg();
@@ -886,25 +886,70 @@ function applyDefData(uuid,d){
             if((!existing.statements||!existing.statements.length)&&stmts.length)existing.statements=stmts;
             if(!existing.defDesc)existing.defDesc=defDesc;
         }
-        if(!S.allCids.has(cid)){S.allCids.add(cid);S.methods.set(cid,new Set(['EXAMINE']));S.findings.set(cid,{status:'',observation:'',risk:'',remarks:''})}
+        if(!S.allCids.has(cid)){S.allCids.add(cid);S.methods.set(cid,new Set(['EXAMINE']))}
+        if(!S.findings.has(findingKey(cid,uuid)))S.findings.set(findingKey(cid,uuid),{status:'',observation:'',risk:'',remarks:''});
     });
     S.compGroups.set(uuid,grp);const m=S.compMeta.get(uuid);if(m){m.defLoaded=true;m.defN=grp.size}
     return a;
 }
 
 // ============================================================
+// KOMPONENTENBEZOGENE BEFUND-SCHLUESSEL (control-id + component-uuid)
+// ============================================================
+function findingKey(cid,cuuid){return `${cid}::${cuuid||'__none'}`}
+function parseFindingKey(k){
+    const idx=String(k||'').indexOf('::');
+    if(idx<0)return {cid:String(k||''),cuuid:''};
+    return {cid:k.slice(0,idx),cuuid:k.slice(idx+2)||'__none'};
+}
+function getFinding(cid,cuuid){
+    const fk=findingKey(cid,cuuid);
+    return S.findings.get(fk)||S.findings.get(cid)||null;
+}
+function setFinding(cid,cuuid,val){
+    const fk=findingKey(cid,cuuid);
+    S.findings.set(fk,val);
+    return fk;
+}
+function compsForControl(cid){
+    const out=[];
+    S.compGroups.forEach((ctrlMap,cuuid)=>{
+        if(ctrlMap.has(cid))out.push(cuuid);
+    });
+    return out.length?out:['__none'];
+}
+function countScopedRated(){
+    let n=0;
+    S.compGroups.forEach((ctrls,cuuid)=>{
+        ctrls.forEach((_,cid)=>{
+            if(S.excluded.has(cid))return;
+            const f=getFinding(cid,cuuid);
+            if(f&&f.status)n++;
+        });
+    });
+    return n;
+}
+
+// ============================================================
 // SESSION
 // ============================================================
-function ser(){return JSON.stringify({_v:9,sspFilename:S.sspFilename,sspSha:S.sspArtSha||'',meta:S.meta,sspRisks:S.sspRisks,assessor:S.assessor,terms:S.terms,tasks:S.tasks,dateStart:S.dateStart,dateEnd:S.dateEnd,excluded:[...S.excluded],methods:[...S.methods.entries()].map(([k,v])=>[k,[...v]]),findings:[...S.findings.entries()],aiCache:[...S.aiCache.entries()],compGroups:[...S.compGroups.entries()].map(([k,m])=>[k,[...m.entries()]]),compMeta:[...S.compMeta.entries()],allCids:[...S.allCids]})}
+function ser(){return JSON.stringify({_v:10,sspFilename:S.sspFilename,sspSha:S.sspArtSha||'',meta:S.meta,sspRisks:S.sspRisks,assessor:S.assessor,terms:S.terms,tasks:S.tasks,dateStart:S.dateStart,dateEnd:S.dateEnd,excluded:[...S.excluded],methods:[...S.methods.entries()].map(([k,v])=>[k,[...v]]),findings:[...S.findings.entries()],aiCache:[...S.aiCache.entries()],compGroups:[...S.compGroups.entries()].map(([k,m])=>[k,[...m.entries()]]),compMeta:[...S.compMeta.entries()],allCids:[...S.allCids]})}
 
 function restoreSession(d){
     if(!d._v||d._v<6){L.err(`Session-Format v${d._v||'?'} zu alt (v9 benötigt)`);return alert('Session-Format zu alt oder inkompatibel (v9 benötigt).')}
     S.sspFilename=d.sspFilename||'';S.sspArtSha=d.sspSha||'';S.meta=d.meta||{title:'',version:'1.0.0',desc:''};S.sspRisks=d.sspRisks||[];S.assessor=d.assessor||{name:'',type:'organization',email:''};
     S.terms=d.terms||{roe:'',disclosures:'',methodology:''};S.tasks=d.tasks||[];S.dateStart=d.dateStart||'';S.dateEnd=d.dateEnd||'';
     S.excluded=new Set(d.excluded||[]);S.methods=new Map((d.methods||[]).map(([k,v])=>[k,new Set(v)]));
-    S.findings=new Map(d.findings||[]);S.aiCache=new Map(d.aiCache||[]);
     S.compGroups=new Map((d.compGroups||[]).map(([k,arr])=>[k,new Map(arr)]));
     S.compMeta=new Map(d.compMeta||[]);S.allCids=new Set(d.allCids||[]);
+    S.findings=new Map();
+    (d.findings||[]).forEach(([k,f])=>{
+        if(String(k).includes('::')){S.findings.set(k,{...f});return}
+        // Rueckwaertskompatible Migration alter Sessions (< v10) ohne Komponenten-UUID im Schluessel
+        const targets=compsForControl(k);
+        targets.forEach(cu=>S.findings.set(findingKey(k,cu),{...f}));
+    });
+    S.aiCache=new Map(d.aiCache||[]);
     L.ok(`Session wiederhergestellt: ${S.allCids.size} Controls, ${S.compMeta.size} Komponenten, ${S.findings.size} Befunde`);
     setSt('ssp-status',true,`Session: ${S.allCids.size} Controls`);showUI();
 }
@@ -997,17 +1042,24 @@ async function mergeSSP(ssp){
        Lauf nicht ladbar war). Sie ruhen dann nur: buildAR exportiert allein
        Controls im aktuellen Scope, aber nichts geht verloren. */
     let kept=0,ruht=0;
-    keepF.forEach((f,c)=>{
-        /* Ein alter Eintrag OHNE Urteil darf eine frische Vorbelegung (SSP sagt
-           not-implemented → "nicht erfuellt") nicht wieder leeren — die Notizen
-           des Pruefers bleiben, das vorbelegte Urteil auch. Ein echtes altes
-           Urteil gewinnt weiterhin. */
-        const neu=S.findings.get(c);
-        if(!f.status&&neu&&neu.status){
-            S.findings.set(c,{status:neu.status,observation:f.observation||neu.observation,risk:f.risk||neu.risk,remarks:f.remarks||neu.remarks});
-            return;
-        }
-        S.findings.set(c,f);if(f.status){if(S.allCids.has(c))kept++;else ruht++}});
+    keepF.forEach((f,k)=>{
+        const {cid,cuuid}=parseFindingKey(k);
+        const targets=cuuid?[cuuid]:compsForControl(cid);
+        targets.forEach(cu=>{
+            const fk=findingKey(cid,cu);
+            /* Ein alter Eintrag OHNE Urteil darf eine frische Vorbelegung (SSP sagt
+               not-implemented → "nicht erfuellt") nicht wieder leeren — die Notizen
+               des Pruefers bleiben, das vorbelegte Urteil auch. Ein echtes altes
+               Urteil gewinnt weiterhin. */
+            const neu=S.findings.get(fk);
+            if(!f.status&&neu&&neu.status){
+                S.findings.set(fk,{status:neu.status,observation:f.observation||neu.observation,risk:f.risk||neu.risk,remarks:f.remarks||neu.remarks});
+                return;
+            }
+            S.findings.set(fk,{...f});
+            if(f.status){if(S.allCids.has(cid)&&(S.compGroups.get(cu)?.has(cid)))kept++;else ruht++}
+        });
+    });
     keepM.forEach((m,c)=>{S.methods.set(c,m)});
     keepX.forEach(c=>{if(S.allCids.has(c))S.excluded.add(c)});
     S.sspArtSha=ssp.sha256||'';
@@ -1019,34 +1071,51 @@ async function mergeSSP(ssp){
 /* Bewertungen aus dem AR-Artefakt zurückgewinnen: startet die Prüfung ohne
    (bewertete) eigene Session, trägt das Set oft noch ein AR mit allen
    Befunden — etwa nach einem verlorenen Arbeitsstand. Vorhandene Bewertungen
-   werden nie überschrieben. */
-async function hydrateFromAR(){
+   werden nie überschrieben. Komponentenbezogene Zuordnung über finding.props
+   (component-uuid) bzw. Observation-Subjects; ältere ARs ohne Komponenten-UUID
+   fallen kompatibel auf alle Komponenten des Controls zurück. */
+async function hydrateFromAR(arDocOverride){
     try{
-        const ar=await gppArtefacts.latest('ar');
+        const ar=arDocOverride?{data:arDocOverride,title:arDocOverride?.['assessment-results']?.metadata?.title||'AR'}:await gppArtefacts.latest('ar');
         const res=ar?.data?.['assessment-results']?.results?.[0];
-        if(!res||!(res.findings||[]).length)return;
+        if(!res||!(res.findings||[]).length)return 0;
         const obsById=new Map((res.observations||[]).map(o=>[o.uuid,o]));
         const riskById=new Map((res.risks||[]).map(r=>[r.uuid,r]));
         let n=0;
         (res.findings||[]).forEach(fd=>{
             const cid=fd.target?.['target-id'];if(!cid)return;
-            const cur=S.findings.get(cid);
-            if(cur&&cur.status)return;
             const st=fd.target?.status||{};
             const status=st.state==='satisfied'?'satisfied':(st.reason==='other'?'other':'not-satisfied');
             const ou=(fd['related-observations']||[])[0]?.['observation-uuid'];
             const ru=(fd['related-risks']||[])[0]?.['risk-uuid'];
-            S.findings.set(cid,{status,
-                observation:(ou&&obsById.get(ou)?.description)||'',
+            const ob=ou?obsById.get(ou):null;
+            const propComp=(fd.props||[]).find(p=>p&&p.name==='component-uuid')?.value||'';
+            const subjComps=(ob?.subjects||[]).filter(s=>s&&s.type==='component'&&s['subject-uuid']).map(s=>s['subject-uuid']);
+            let targetComps=[];
+            if(propComp)targetComps=[propComp];
+            else if(subjComps.length)targetComps=subjComps;
+            else targetComps=compsForControl(cid); // Legacy-AR ohne Komponenten-UUID
+
+            const parsed={
+                status,
+                observation:(ob?.description)||'',
                 risk:(ru&&riskById.get(ru)?.description)||'',
-                remarks:(fd.description&&!/^Bewertung /.test(fd.description))?fd.description:''});
-            n++;
+                remarks:(fd.description&&!/^Bewertung /.test(fd.description))?fd.description:''
+            };
+            targetComps.forEach(cuuid=>{
+                const fk=findingKey(cid,cuuid);
+                const cur=S.findings.get(fk);
+                if(cur&&cur.status)return;
+                S.findings.set(fk,{...parsed});
+                n++;
+            });
         });
         if(n){
             L.ok(`${n} Bewertung(en) aus dem AR-Artefakt zurückgewonnen („${ar.title}").`);
             renderStats();renderControls();autoSave();
         }
-    }catch(e){L.warn('AR-Rückübernahme fehlgeschlagen: '+e.message)}
+        return n;
+    }catch(e){L.warn('AR-Rückübernahme fehlgeschlagen: '+e.message);return 0}
 }
 
 // Kataloge/Profile des Sets als local://-Auflösung bereitstellen
@@ -1093,27 +1162,33 @@ async function initSSP(){
     let nichtUmgesetzt=0;
     (ssp['control-implementation']?.['implemented-requirements']||[]).forEach(r=>{
         const cid=r['control-id'];S.allCids.add(cid);
-        S.methods.set(cid,new Set(['EXAMINE']));S.findings.set(cid,{status:'',observation:'',risk:'',remarks:''});
+        S.methods.set(cid,new Set(['EXAMINE']));
         const bcs=r['by-components']||[];
-        if(!bcs.length){ensureGrp('__none').set(cid,mkEntry('nicht-angegeben',r.description))}
-        bcs.forEach(bc=>{ensureGrp(bc['component-uuid']).set(cid,{
-            status:bc['implementation-status']?.state||'nicht-angegeben',
-            user:bc.props?.find(p=>p.name==='implementing-user')?.value||'',
-            date:bc.props?.find(p=>p.name==='implementation-date')?.value||'',
-            desc:bc.description||'',stmtId:bc.props?.find(p=>p.name==='implemented-statement-id')?.value||'',fromDef:false
-        })});
-        /* SSP sagt "not-implemented" (Vokabular-Erweiterung, Issue #2272 an usnistgov/
-           OSCAL): eine DEKLARIERTE Nicht-Umsetzung ist bereits ein Befund — das Finding
-           wird als "nicht erfuellt" vorbelegt, damit es im AR steht und das POA&M eine
-           Massnahme daraus macht. Nur wenn ALLE Status-tragenden by-components so
-           deklarieren; ein spaeter importiertes AR (echtes Pruefurteil) ueberschreibt. */
-        const states=bcs.map(bc=>bc['implementation-status']?.state).filter(Boolean);
-        if(states.length&&states.every(s=>s==='not-implemented')){
-            S.findings.set(cid,{status:'not-satisfied',observation:'',risk:'Im SSP als „nicht umgesetzt" (not-implemented) deklariert — die Umsetzung fehlt.',remarks:''});
-            nichtUmgesetzt++;
+        if(!bcs.length){
+            ensureGrp('__none').set(cid,mkEntry('nicht-angegeben',r.description));
+            setFinding(cid,'__none',{status:'',observation:'',risk:'',remarks:''});
         }
+        bcs.forEach(bc=>{
+            const cuuid=bc['component-uuid'];
+            const st=bc['implementation-status']?.state||'nicht-angegeben';
+            ensureGrp(cuuid).set(cid,{
+                status:st,
+                user:bc.props?.find(p=>p.name==='implementing-user')?.value||'',
+                date:bc.props?.find(p=>p.name==='implementation-date')?.value||'',
+                desc:bc.description||'',stmtId:bc.props?.find(p=>p.name==='implemented-statement-id')?.value||'',fromDef:false
+            });
+            /* SSP sagt "not-implemented" (Vokabular-Erweiterung, Issue #2272 an usnistgov/
+               OSCAL): eine DEKLARIERTE Nicht-Umsetzung ist bereits ein Befund — pro Komponente
+               vorbelegen, damit es im AR für genau diese Komponente steht. */
+            if(st==='not-implemented'){
+                setFinding(cid,cuuid,{status:'not-satisfied',observation:'',risk:'Im SSP als „nicht umgesetzt" (not-implemented) deklariert — die Umsetzung fehlt.',remarks:''});
+                nichtUmgesetzt++;
+            }else{
+                setFinding(cid,cuuid,{status:'',observation:'',risk:'',remarks:''});
+            }
+        });
     });
-    if(nichtUmgesetzt)L.info(`${nichtUmgesetzt} Control(s) im SSP als "not-implemented" deklariert — Befund "nicht erfuellt" vorbelegt (ein importiertes AR ueberschreibt).`);
+    if(nichtUmgesetzt)L.info(`${nichtUmgesetzt} Control-Komponenten-Eintrag/-Einträge im SSP als "not-implemented" deklariert — Befund "nicht erfuellt" vorbelegt (ein importiertes AR ueberschreibt).`);
 
     S.sspRisks=extractSSPRisks(ssp);
     const riskTxt=S.sspRisks.length?`, ${S.sspRisks.length} Risiken`:'';
@@ -1473,7 +1548,15 @@ async function callAI(prompt,schema,label='KI-Aufruf'){
 }
 
 function sysCtx(){const sc=S.ssp?.['system-characteristics'];return sc?`System "${sc['system-name']||'?'}": ${sc.description||'keine Beschreibung'}`:'System unbekannt (Session ohne SSP)'}
-function findE(cid){for(const[cu,m]of S.compGroups){if(m.has(cid)){const e={...m.get(cid)};e._comp=S.compMeta.get(cu)?.title||cu;return e}}return null}
+function findE(cid,cuuid){
+    if(cuuid&&S.compGroups.get(cuuid)?.has(cid)){
+        const e={...S.compGroups.get(cuuid).get(cid)};
+        e._comp=S.compMeta.get(cuuid)?.title||cuuid;
+        return e;
+    }
+    for(const[cu,m]of S.compGroups){if(m.has(cid)){const e={...m.get(cid)};e._comp=S.compMeta.get(cu)?.title||cu;return e}}
+    return null;
+}
 function matCtx(e){if(!e?.statements?.length)return'';return'\nVorhandene Reifegrade aus Komponentendefinition:\n'+e.statements.map(st=>`- ${st.id} (${st.desc}): ${st.statement}${st.assessMethod?' [Prüfung: '+st.assessMethod+']':''}`).join('\n')}
 function sspCtx(e){if(!e||e.fromDef)return'';let s=`\nSSP-Eintrag der Organisation:\n- Status: ${e.status}`;if(e.date)s+=`\n- Datum: ${e.date}`;if(e.stmtId){s+=`\n- Gewählter Reifegrad: ${e.stmtId}`;const ml=(e.statements||[]).find(st=>st.id===e.stmtId);if(ml)s+=` → "${ml.desc}": ${ml.statement}`}if(e.desc)s+=`\n- Kommentar: "${e.desc}"`;return s}
 function siblingNote(cid){const parts=cid.split('.');if(parts.length<2)return'';const prefix=parts.slice(0,-1).join('.');return`\n\nWICHTIG: Bewerte NUR das Control ${cid} isoliert. Das BSI Grundschutz++ hat sehr granulare, detaillierte Controls. Andere Controls derselben Gruppe (${prefix}.*) werden separat geprüft und sind hier nicht Gegenstand.`}
@@ -1564,8 +1647,8 @@ function buildPrompt(k,ctx){
 }
 
 // Deterministisch aufgebauter Control-Kontext für {kontext}.
-function ctxAssess(cid){
-    const e=findE(cid),ci=catInfo(cid),f=S.findings.get(cid)||{};
+function ctxAssess(cid,cuuid){
+    const e=findE(cid,cuuid),ci=catInfo(cid),f=getFinding(cid,cuuid)||{};
     return [
         sysCtx(),
         `Control: ${cid} — ${ci.title||'(Titel unbekannt)'}`,
@@ -1580,8 +1663,8 @@ function ctxAssess(cid){
         siblingNote(cid).trim()
     ].filter(x=>x&&x.trim()).join('\n');
 }
-function ctxExplain(cid){
-    const ci=catInfo(cid),e=findE(cid);
+function ctxExplain(cid,cuuid){
+    const ci=catInfo(cid),e=findE(cid,cuuid);
     const sts=e?.statements||[];
     const lines=[
         sysCtx(),
@@ -1597,19 +1680,19 @@ function ctxExplain(cid){
     return {hasML:sts.length>0,ctx:lines.filter(x=>x&&x.trim()).join('\n')};
 }
 
-window.aiAssess=async(cid,rk)=>{
+window.aiAssess=async(cid,rk,cuuid)=>{
     if(!getAI()){L.warn('Befundvorschlag angefordert, aber keine KI konfiguriert');return alert('KI konfigurieren (oben).')}
     const btn=document.getElementById('ai-a-'+rk);if(btn){btn.disabled=true;btn.textContent='⋯'}
-    const prompt=buildPrompt('assess',ctxAssess(cid));
+    const prompt=buildPrompt('assess',ctxAssess(cid,cuuid));
     try{
         const txt=await callAI(prompt,ASSESS_SCHEMA,`Befundvorschlag ${cid}`);const res=extractJson(txt);
-        if(res.status){const f2=S.findings.get(cid)||{status:'',observation:'',risk:'',remarks:''};
-            f2.status=res.status;f2.observation=res.observation||f2.observation;f2.risk=res.risk||'';f2.remarks=res.remarks||'';S.findings.set(cid,f2);
+        if(res.status){const f2={...(getFinding(cid,cuuid)||{status:'',observation:'',risk:'',remarks:''})};
+            f2.status=res.status;f2.observation=res.observation||f2.observation;f2.risk=res.risk||'';f2.remarks=res.remarks||'';setFinding(cid,cuuid,f2);
             const s=document.getElementById('f-s-'+rk);if(s)s.value=f2.status;
             const o=document.getElementById('f-o-'+rk);if(o)o.value=f2.observation;
             const rk2=document.getElementById('f-r-'+rk);if(rk2)rk2.value=f2.risk;
             const rm=document.getElementById('f-m-'+rk);if(rm)rm.value=f2.remarks;
-            setF(cid,'status',f2.status);L.ok(`Befundvorschlag ${cid} übernommen: status=${res.status}`)}
+            setF(cid,cuuid,'status',f2.status);L.ok(`Befundvorschlag ${cid} übernommen: status=${res.status}`)}
         else L.warn(`Befundvorschlag ${cid}: Antwort ohne Feld "status"`);
     }catch(e){L.err(`Befundvorschlag ${cid}: ${shortErr(e.message)}`);alert('KI: '+shortErr(e.message))}finally{if(btn){btn.disabled=false;btn.textContent='◈'}}
 };
@@ -1618,14 +1701,14 @@ window.aiExplain=async(cid,rk)=>{
     if(!getAI()){L.warn('Analyse angefordert, aber keine KI konfiguriert');return alert('KI konfigurieren (oben).')}
     const cached=S.aiCache.get(cid);
     const out=document.getElementById('ai-x-'+rk);
-    if(cached?.explain){out.innerHTML=marked.parse(cached.explain);out.style.display='block';L.debug(`Analyse ${cid} aus dem Cache angezeigt`);return}
+    if(cached?.explain){out.innerHTML=gppRenderMarkdown(cached.explain);out.style.display='block';L.debug(`Analyse ${cid} aus dem Cache angezeigt`);return}
     const btn=document.getElementById('ai-e-'+rk);if(btn){btn.disabled=true;btn.textContent='⋯'}
     const {hasML,ctx}=ctxExplain(cid);
     const prompt=buildPrompt(hasML?'explainML':'explainBase',ctx);
     try{
         const txt=await callAI(prompt,null,`Analyse ${cid} (${hasML?'mit':'ohne'} Reifegrade)`);
         S.aiCache.set(cid,{...(S.aiCache.get(cid)||{}),explain:txt});
-        if(out){out.innerHTML=marked.parse(txt);out.style.display='block'}
+        if(out){out.innerHTML=gppRenderMarkdown(txt);out.style.display='block'}
         L.ok(`Analyse ${cid} gerendert (${(txt.length/1024).toFixed(1)} kB Markdown)`);
     }catch(e){L.err(`Analyse ${cid}: ${shortErr(e.message)}`);alert('KI: '+shortErr(e.message))}finally{if(btn){btn.disabled=false;btn.textContent='▣'}}
 };
@@ -1680,12 +1763,17 @@ function renderStats(){
     const counts={};let total=0;
     S.compGroups.forEach(m=>m.forEach(i=>{const k=i.status||'nicht-angegeben';counts[k]=(counts[k]||0)+1;total++}));
     const statusSlices=STM_ORDER.filter(k=>counts[k]).map(k=>({label:STM[k].l,value:counts[k],color:STM[k].b}));
-    // 2) Befundstatus über die Controls im Prüf-Scope
+    // 2) Befundstatus über alle Komponenten-Control-Paare im Prüf-Scope
     const scope=[...S.allCids].filter(c=>!S.excluded.has(c));
     const fc={satisfied:0,'not-satisfied':0,other:0,offen:0};
-    scope.forEach(c=>{const st=(S.findings.get(c)||{}).status;
-        if(st==='satisfied')fc.satisfied++;else if(st==='not-satisfied')fc['not-satisfied']++;
-        else if(st==='other')fc.other++;else fc.offen++});
+    S.compGroups.forEach((ctrls,cuuid)=>{
+        ctrls.forEach((_,c)=>{
+            if(S.excluded.has(c))return;
+            const st=(getFinding(c,cuuid)||{}).status;
+            if(st==='satisfied')fc.satisfied++;else if(st==='not-satisfied')fc['not-satisfied']++;
+            else if(st==='other')fc.other++;else fc.offen++;
+        });
+    });
     const rated=fc.satisfied+fc['not-satisfied']+fc.other;
     const findingRows=[
         {label:'Erfüllt',value:fc.satisfied,color:FINDING_COL.satisfied},
@@ -1776,7 +1864,9 @@ function renderControls(){
             const ci=catInfo(cid);
             const excl=S.excluded.has(cid);
             const mth=S.methods.get(cid)||new Set();
-            const f=S.findings.get(cid)||{};
+            const f=getFinding(cid,cuuid)||{};
+            const fk=findingKey(cid,cuuid);
+            const cidArg=gppAttrArg(cid),cuuidArg=gppAttrArg(cuuid);
             // Unique row key to avoid duplicate IDs when same cid in multiple components
             const rk=(cuuid.substring(0,8)+'_'+cid).replace(/[.\s]/g,'_');
 
@@ -1823,7 +1913,7 @@ function renderControls(){
                         <label class="flex items-center gap-0.5 cursor-pointer"><input type="checkbox" ${mth.has('INTERVIEW')?'checked':''} onchange="togM('${cid}','INTERVIEW',this.checked)" class="mcb form-checkbox h-3 w-3 text-amber-500 rounded border-slate-600 bg-slate-700"><span class="text-[9px] text-amber-400 font-bold">IN</span></label>
                         <label class="flex items-center gap-0.5 cursor-pointer"><input type="checkbox" ${mth.has('TEST')?'checked':''} onchange="togM('${cid}','TEST',this.checked)" class="mcb form-checkbox h-3 w-3 text-emerald-500 rounded border-slate-600 bg-slate-700"><span class="text-[9px] text-emerald-400 font-bold">TE</span></label>
                     </div>
-                    <span class="fp text-xs ml-1 ${f.status==='satisfied'?'text-emerald-400':f.status==='not-satisfied'?'text-red-400':f.status==='other'?'text-amber-400':'text-slate-600'}" data-fp="${cid}">${f.status==='satisfied'?'✓':f.status==='not-satisfied'?'✗':f.status==='other'?'◬':'○'}</span>
+                    <span class="fp text-xs ml-1 ${f.status==='satisfied'?'text-emerald-400':f.status==='not-satisfied'?'text-red-400':f.status==='other'?'text-amber-400':'text-slate-600'}" data-fp="${esc(fk)}">${f.status==='satisfied'?'✓':f.status==='not-satisfied'?'✗':f.status==='other'?'◬':'○'}</span>
                     <svg class="chev w-3.5 h-3.5 text-slate-500" id="cch-${rk}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
                 </div>
                 <div class="ctrl-detail px-3 border-t border-slate-700/50" id="cbd-${rk}">
@@ -1860,14 +1950,14 @@ function renderControls(){
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-3">
                         <div class="flex items-center gap-2 mb-2 flex-wrap">
                             <span class="text-xs font-bold text-blue-300 uppercase">Befund</span>
-                            <select onchange="setF('${cid}','status',this.value)" id="f-s-${rk}" class="inp text-xs py-1 px-2 w-44"><option value="" ${!f.status?'selected':''}>— offen —</option><option value="satisfied" ${f.status==='satisfied'?'selected':''}>✓ Erfüllt</option><option value="not-satisfied" ${f.status==='not-satisfied'?'selected':''}>✗ Nicht erfüllt</option><option value="other" ${f.status==='other'?'selected':''}>◬ Sonstig</option></select>
-                            <button id="ai-a-${rk}" onclick="event.stopPropagation();aiAssess('${cid}','${rk}')" class="ai-btn" title="KI: Befundvorschlag">◈</button>
+                            <select onchange="setFEnc('${cidArg}','${cuuidArg}','status',this.value)" id="f-s-${rk}" class="inp text-xs py-1 px-2 w-44"><option value="" ${!f.status?'selected':''}>— offen —</option><option value="satisfied" ${f.status==='satisfied'?'selected':''}>✓ Erfüllt</option><option value="not-satisfied" ${f.status==='not-satisfied'?'selected':''}>✗ Nicht erfüllt</option><option value="other" ${f.status==='other'?'selected':''}>◬ Sonstig</option></select>
+                            <button id="ai-a-${rk}" onclick="event.stopPropagation();aiAssess('${cid}','${rk}','${cuuid}')" class="ai-btn" title="KI: Befundvorschlag">◈</button>
                             <button id="ai-e-${rk}" onclick="event.stopPropagation();aiExplain('${cid}','${rk}')" class="ai-btn ai-explain" title="${(info.statements||[]).length?'KI: Ergänzende Analyse':'KI: Control erklären + Reifegrade'}">▣</button>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Beobachtung</label><textarea rows="2" id="f-o-${rk}" onchange="setF('${cid}','observation',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.observation||'')}</textarea></div>
-                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Risiko</label><textarea rows="2" id="f-r-${rk}" onchange="setF('${cid}','risk',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.risk||'')}</textarea></div>
-                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Bemerkungen</label><textarea rows="2" id="f-m-${rk}" onchange="setF('${cid}','remarks',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.remarks||'')}</textarea></div>
+                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Beobachtung</label><textarea rows="2" id="f-o-${rk}" onchange="setFEnc('${cidArg}','${cuuidArg}','observation',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.observation||'')}</textarea></div>
+                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Risiko</label><textarea rows="2" id="f-r-${rk}" onchange="setFEnc('${cidArg}','${cuuidArg}','risk',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.risk||'')}</textarea></div>
+                            <div><label class="text-[10px] text-slate-500 uppercase font-bold">Bemerkungen</label><textarea rows="2" id="f-m-${rk}" onchange="setFEnc('${cidArg}','${cuuidArg}','remarks',this.value)" class="inp w-full text-xs mt-0.5">${esc(f.remarks||'')}</textarea></div>
                         </div>
                         <div id="ai-x-${rk}" class="ai-out cscroll" style="display:none"></div>
                     </div>
@@ -1926,12 +2016,18 @@ window.scopeAll=on=>{if(on)S.excluded.clear();else S.allCids.forEach(c=>S.exclud
 window.togM=(c,m,on)=>{let s=S.methods.get(c);if(!s){s=new Set();S.methods.set(c,s)}on?s.add(m):s.delete(m)};
 window.bulkM=m=>{const l=m==='EXAMINE'?'EX':m==='INTERVIEW'?'IN':'TE';S.allCids.forEach(c=>{if(S.excluded.has(c))return;let s=S.methods.get(c);if(!s){s=new Set();S.methods.set(c,s)}s.add(m)});document.querySelectorAll('.ctrl-row').forEach(r=>{const c=r.dataset.cid;if(!c||S.excluded.has(c))return;r.querySelectorAll('.mcb').forEach(cb=>{if(cb.parentElement.querySelector('span')?.textContent===l)cb.checked=true})})};
 window.bulkMC=()=>{S.allCids.forEach(c=>{if(S.excluded.has(c))return;S.methods.set(c,new Set())});document.querySelectorAll('.mcb').forEach(cb=>cb.checked=false)};
-window.setF=(c,k,v)=>{let f=S.findings.get(c);if(!f){f={status:'',observation:'',risk:'',remarks:''};S.findings.set(c,f)}f[k]=v;
-    document.querySelectorAll(`[data-fp="${c}"]`).forEach(p=>{p.textContent=f.status==='satisfied'?'✓':f.status==='not-satisfied'?'✗':f.status==='other'?'◬':'○';p.className=`fp text-xs ml-1 ${f.status==='satisfied'?'text-emerald-400':f.status==='not-satisfied'?'text-red-400':f.status==='other'?'text-amber-400':'text-slate-600'}`});
-    if(k==='status')document.querySelectorAll(`.ctrl-row[data-cid="${c}"] select`).forEach(s=>{if(s.id.startsWith('f-s-'))s.value=v});
-    let n=0;S.findings.forEach((f2,cc)=>{if(!S.excluded.has(cc)&&f2.status)n++});const rn=document.getElementById('rated-n');if(rn)rn.textContent=n;const sr=document.getElementById('stat-rated');if(sr)sr.textContent=n;
-    // Bei Status-Änderung die Kennzahlen-Karte (Donut/Balken „Befundstatus") neu
-    // aufbauen — bisher aktualisierte sich nur die „bewertet"-Zahl, nicht die Charts.
+window.setFEnc=(c,u,k,v)=>window.setF(decodeURIComponent(c),decodeURIComponent(u),k,v);
+window.setF=(c,cuuid,k,v)=>{
+    if(v===undefined){v=k;k=cuuid;cuuid='__none'}
+    const fk=findingKey(c,cuuid);
+    let f=S.findings.get(fk);
+    if(!f){f={status:'',observation:'',risk:'',remarks:''};S.findings.set(fk,f)}
+    f[k]=v;
+    document.querySelectorAll(`[data-fp="${CSS.escape(fk)}"]`).forEach(p=>{p.textContent=f.status==='satisfied'?'✓':f.status==='not-satisfied'?'✗':f.status==='other'?'◬':'○';p.className=`fp text-xs ml-1 ${f.status==='satisfied'?'text-emerald-400':f.status==='not-satisfied'?'text-red-400':f.status==='other'?'text-amber-400':'text-slate-600'}`});
+    if(k==='status')document.querySelectorAll(`.ctrl-row[data-cid="${CSS.escape(c)}"][data-cuuid="${CSS.escape(cuuid)}"] select`).forEach(s=>{if(s.id.startsWith('f-s-'))s.value=v});
+    const n=countScopedRated();
+    const rn=document.getElementById('rated-n');if(rn)rn.textContent=n;
+    const sr=document.getElementById('stat-rated');if(sr)sr.textContent=n;
     if(k==='status'&&typeof renderStats==='function')renderStats()};
 /* Filter arbeitet über das MODELL, nicht über das DOM: seit dem Lazy-Rendering
    existieren Zeilen erst nach dem Aufklappen. Komponenten mit Treffern werden
@@ -2015,11 +2111,9 @@ function buildAP(){
 function buildAR(){
     const ts=new Date().toISOString();const cids=[...S.allCids].filter(c=>!S.excluded.has(c)).sort();
     const obs=[],fin=[],rsk=[];
+    const NS="http://bsi.bund.de/ns/grundschutz";
 
     cids.forEach(c=>{
-        const f=S.findings.get(c);
-        if(!f||!f.status)return;
-
         const comps = [];
         S.compGroups.forEach((ctrlMap, cuuid) => {
             if(cuuid !== '__none' && ctrlMap.has(c)) {
@@ -2028,10 +2122,12 @@ function buildAR(){
         });
 
         if (comps.length === 0) {
-            addTriplet(c, f, null);
+            const f=getFinding(c,'__none');
+            if(f&&f.status)addTriplet(c, f, null);
         } else {
             comps.forEach(comp => {
-                addTriplet(c, f, comp);
+                const f=getFinding(c,comp.uuid);
+                if(f&&f.status)addTriplet(c, f, comp);
             });
         }
 
@@ -2066,6 +2162,10 @@ function buildAR(){
                 uuid:crypto.randomUUID(),
                 title:`Befund ${cid}${comp ? ' (' + comp.title + ')' : ''}`,
                 description:finding.remarks||`Bewertung ${cid}`,
+                ...(comp ? { props: [
+                    { name: "component-uuid", ns: NS, value: comp.uuid },
+                    { name: "component-title", ns: NS, value: comp.title }
+                ] } : {}),
                 // target.status.state kennt nur satisfied|not-satisfied — "Sonstig" wird
                 // als not-satisfied mit reason "other" abgebildet
                 target:{type:"objective-id","target-id":cid,status:finding.status==='satisfied'?{state:'satisfied'}:{state:'not-satisfied',...(finding.status!=='not-satisfied'?{reason:'other'}:{})}}
@@ -2078,7 +2178,6 @@ function buildAR(){
     });
 
     // Detaillierte Risiken aus der SSP-Risikoanalyse (back-matter) als OSCAL-Risks übernehmen.
-    const NS="http://bsi.bund.de/ns/grundschutz";
     S.sspRisks.forEach(r=>{
         const props=[];
         if(r.likelihood)props.push({name:"likelihood",ns:NS,value:r.likelihood});
