@@ -25,7 +25,7 @@
    abzubrechen. Die Prüfung auf ein beliebiges Symbol reicht dafür nicht.
    v4: gppAi (KI-Aufrufe mit Schema, Pool, Chunking, Cache) und gppDocText
    (Text aus PDF/DOCX/…) — Generator und Editor haben keine eigene Kopie mehr. */
-const GPP_CORE_VERSION = "4";
+const GPP_CORE_VERSION = "4.2";
 const GPP_CFG_PREFIX = "gpp:cfg:";
 
 /* gpp-core.css gehoert seit Issue #40 zum Kern (Design-Tokens, Scrollbalken):

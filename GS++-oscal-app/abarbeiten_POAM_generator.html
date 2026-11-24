@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSCAL POA&M Generator v2.6</title>
+    <title>OSCAL POA&M Generator v2.7</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -573,7 +573,7 @@ input[type=date].inp{color-scheme:dark}
 
 </div><!-- /app -->
 
-<script src="gpp-core.js?v=4.1"></script>
+<script src="gpp-core.js?v=4.2"></script>
 <script>
 if(typeof gppCfg==='undefined'||typeof GPP_CORE_VERSION==='undefined'||Number(GPP_CORE_VERSION)<2){
     document.body.innerHTML='<div style="font:15px/1.6 system-ui;padding:40px;max-width:60ch;color:#eee;background:#0f172a">'+
@@ -587,7 +587,7 @@ gppCollapsibleLog({consoleEl:document.querySelector('.logbox'),
   headEl:document.querySelector('.logbox .log-tools'),toolId:GPP_TOOL_ID});
 /* Kein Speichermenü mehr: das POA&M wird fortlaufend aus den Items erzeugt
    und als Einzelstück ins aktive Set gelegt (Live-Sync weiter unten). */
-const BUILD='v2.6';
+const BUILD='v2.7';
 const P={arFilename:'',sspHref:'',sysName:'',catalog:new Map(),findings:[],observations:[],risks:[],items:[],meta:{title:'',version:'1.0.0',desc:''},responsible:{name:'',role:'system-owner',email:''}};
 // --- G++-Katalog-Pin (Handbuch 3.13/3.14, Katalogarbeit-Skill Grundregel 8) ---
 // Gleiche Werte wie Gpp-ai-tool/src/constants.py und die gepinnten Repo-Profile.
